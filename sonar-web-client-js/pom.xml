@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.sii.sonar</groupId>
+		<artifactId>sonar-web-client-plugin</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sonar-web-client-js</artifactId>
+	<packaging>sonar-plugin</packaging>
+
+	<name>SII web client plugin :: JS</name>
+	<description>Enable analysis and reporting on Web client side projects</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-web-client-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.sonar</groupId>
+				<artifactId>sonar-packaging-maven-plugin</artifactId>
+				<version>1.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<pluginClass>fr.sii.sonar.web.client.js.JsPlugin</pluginClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

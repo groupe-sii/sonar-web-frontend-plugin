@@ -1,0 +1,1066 @@
+[
+
+    {
+        "key":"E001",
+        "name":"Bad option",
+        "description":"Bad option: '{a}'.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E002",
+        "name":"Bad option value",
+        "description":"Bad option value.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E003",
+        "name":"Expected a JSON value",
+        "description":"Expected a JSON value.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E004",
+        "name":"Input is neither a string nor an array of strings",
+        "description":"Input is neither a string nor an array of strings.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E005",
+        "name":"Input is empty",
+        "description":"Input is empty.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E006",
+        "name":"Unexpected early end of program",
+        "description":"Unexpected early end of program.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E007",
+        "name":"Missing use strict",
+        "description":"Missing \"use strict\" statement.",
+        "severity":"MINOR"
+    },
+    {
+        "key":"E008",
+        "name":"strict violation",
+        "description":"Strict violation.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E009",
+        "name":"validthis",
+        "description":"Option 'validthis' can't be used in a global scope.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E010",
+        "name":"with",
+        "description":"'with' is not allowed in strict mode.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E011",
+        "name":"const already declared",
+        "description":"const '{a}' has already been declared.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E012",
+        "name":"const undefined",
+        "description":"const '{a}' is initialized to 'undefined'.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E013",
+        "name":"override a constant",
+        "description":"Attempting to override '{a}' which is a constant.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E014",
+        "name":"Regular expression literal",
+        "description":"A regular expression literal can be confused with '/='.",
+        "severity":"MINOR"
+    },
+    {
+        "key":"E015",
+        "name":"Unclosed regular expression",
+        "description":"Unclosed regular expression.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E016",
+        "name":"Invalid regular expression",
+        "description":"Invalid regular expression.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E017",
+        "name":"Unclosed comment",
+        "description":"Unclosed comment.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E018",
+        "name":"Unbegun comment",
+        "description":"Unbegun comment.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E019",
+        "name":"Unmatched",
+        "description":"Unmatched '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E020",
+        "name":"Expected match",
+        "description":"Expected '{a}' to match '{b}' from line {c} and instead saw '{d}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E021",
+        "name":"Expected",
+        "description":"Expected '{a}' and instead saw '{b}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E022",
+        "name":"Line breaking error",
+        "description":"Line breaking error '{a}'.",
+        "severity":"MINOR"
+    },
+    {
+        "key":"E023",
+        "name":"Missing",
+        "description":"Missing '{a}'.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E024",
+        "name":"Unexpected '{a}'",
+        "description":"Unexpected '{a}'.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E025",
+        "name":"Missing ':'",
+        "description":"Missing ':' on a case clause.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E026",
+        "name":"Missing '}'",
+        "description":"Missing '}' to match '{' from line {a}.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E027",
+        "name":"Missing ']'",
+        "description":"Missing ']' to match '[' from line {a}.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E028",
+        "name":"Illegal comma",
+        "description":"Illegal comma.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E029",
+        "name":"Unclosed string",
+        "description":"Unclosed string.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E030",
+        "name":"Expected an identifier",
+        "description":"Expected an identifier and instead saw '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E031",
+        "name":"Bad assignment",
+        "description":"Bad assignment.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E032",
+        "name":"Expected a small integer or 'false'",
+        "description":"Expected a small integer or 'false' and instead saw '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E033",
+        "name":"Expected an operator",
+        "description":"Expected an operator and instead saw '{a}'.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E034",
+        "name":"get/set are ES5 features",
+        "description":"get/set are ES5 features.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E035",
+        "name":"Missing property name",
+        "description":"Missing property name.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E036",
+        "name":"Expected to see a statement",
+        "description":"Expected to see a statement and instead saw a block.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E037",
+        "name":"E037",
+        "description":"E037",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E038",
+        "name":"E038",
+        "description":"E038",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E039",
+        "name":"Function declarations are not invocable",
+        "description":"Function declarations are not invocable. Wrap the whole function invocation in parens.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E040",
+        "name":"Each value should have its own case label",
+        "description":"Each value should have its own case label.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E041",
+        "name":"Unrecoverable syntax error",
+        "description":"Unrecoverable syntax error.",
+        "severity":"BLOCKER"
+    },
+    {
+        "key":"E042",
+        "name":"Stopping",
+        "description":"Stopping.",
+        "severity":"BLOCKER"
+    },
+    {
+        "key":"E043",
+        "name":"Too many errors",
+        "description":"Too many errors.",
+        "severity":"BLOCKER"
+    },
+    {
+        "key":"E044",
+        "name":"E044",
+        "description":"E044",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E045",
+        "name":"Invalid for each loop",
+        "description":"Invalid for each loop.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E046",
+        "name":"A yield statement out of generator",
+        "description":"A yield statement shall be within a generator function (with syntax: `function*`)",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E047",
+        "name":"E047",
+        "description":"E047",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E048",
+        "name":"Let declaration not directly within block",
+        "description":"Let declaration not directly within block.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E049",
+        "name":"Wrong name",
+        "description":"A {a} cannot be named '{b}'.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E050",
+        "name":"Yield parenthesis",
+        "description":"Mozilla requires the yield expression to be parenthesized here.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"E051",
+        "name":"Parameters order",
+        "description":"Regular parameters cannot come after default parameters.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"E052",
+        "name":"Unclosed template literal",
+        "description":"Unclosed template literal.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W001",
+        "name":"hasOwnProperty",
+        "description":"'hasOwnProperty' is a really bad name.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W002",
+        "name":"Overwrite value (IE8-)",
+        "description":"Value of '{a}' may be overwritten in IE 8 and earlier.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W003",
+        "name":"Use before definition",
+        "description":"'{a}' was used before it was defined.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W004",
+        "name":"Already defined",
+        "description":"'{a}' is already defined.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W005",
+        "name":"Decimal point ?",
+        "description":"A dot following a number can be confused with a decimal point.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W006",
+        "name":"Confusing minuses",
+        "description":"Confusing minuses.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W007",
+        "name":"Confusing plusses",
+        "description":"Confusing plusses.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W008",
+        "name":"Leading decimal point",
+        "description":"A leading decimal point can be confused with a dot: '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W009",
+        "name":"array literal notation",
+        "description":"The array literal notation [] is preferable.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W010",
+        "name":"object literal notation",
+        "description":"The object literal notation {} is preferable.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W011",
+        "name":"W011",
+        "description":"W011",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W012",
+        "name":"W012",
+        "description":"W012",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W013",
+        "name":"W013",
+        "description":"W013",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W014",
+        "name":"Bad line breaking",
+        "description":"Bad line breaking before '{a}'.",
+        "severity":"MINOR"
+    },
+    {
+        "key":"W015",
+        "name":"W015",
+        "description":"W015",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W016",
+        "name":"Unexpected use",
+        "description":"Unexpected use of '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W017",
+        "name":"Bad operand",
+        "description":"Bad operand.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W018",
+        "name":"Confusing use",
+        "description":"Confusing use of '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W019",
+        "name":"NaN",
+        "description":"Use the isNaN function to compare with NaN.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W020",
+        "name":"Read only",
+        "description":"Read only.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W021",
+        "name":"function",
+        "description":"'{a}' is a function.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W022",
+        "name":"Exception parameter assignment",
+        "description":"Do not assign to the exception parameter.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W023",
+        "name":"Expected an identifier in an assignment",
+        "description":"Expected an identifier in an assignment and instead saw a function invocation.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W024",
+        "name":"Reserved word",
+        "description":"Expected an identifier and instead saw '{a}' (a reserved word).",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W025",
+        "name":"Missing name",
+        "description":"Missing name in function declaration.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W026",
+        "name":"Inner functions",
+        "description":"Inner functions should be listed at the top of the outer function.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W027",
+        "name":"Unreachable",
+        "description":"Unreachable '{a}' after '{b}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W028",
+        "name":"Label '{a}' on {b} statement",
+        "description":"Label '{a}' on {b} statement.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W030",
+        "name":"Expected an assignment or function call",
+        "description":"Expected an assignment or function call and instead saw an expression.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W031",
+        "name":"Do not use 'new'",
+        "description":"Do not use 'new' for side effects.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W032",
+        "name":"Unnecessary semicolon",
+        "description":"Unnecessary semicolon.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W033",
+        "name":"Missing semicolon",
+        "description":"Missing semicolon.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W034",
+        "name":"Unnecessary directive",
+        "description":"Unnecessary directive \"{a}\".",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W035",
+        "name":"Empty block",
+        "description":"Empty block.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W036",
+        "name":"Unexpected /*member",
+        "description":"Unexpected /*member '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W037",
+        "name":"statement label",
+        "description":"'{a}' is a statement label.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W038",
+        "name":"used out of scope",
+        "description":"'{a}' used out of scope.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W039",
+        "name":"not allowed",
+        "description":"'{a}' is not allowed.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W040",
+        "name":"Possible strict violation",
+        "description":"Possible strict violation.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W041",
+        "name":"compare",
+        "description":"Use '{a}' to compare with '{b}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W042",
+        "name":"Avoid EOL escaping",
+        "description":"Avoid EOL escaping.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W043",
+        "name":"Bad escaping of EOL",
+        "description":"Bad escaping of EOL. Use option multistr if needed.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W044",
+        "name":"Bad or unnecessary escaping",
+        "description":"Bad or unnecessary escaping.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W045",
+        "name":"Bad number",
+        "description":"Bad number '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W046",
+        "name":"Don't use extra leading zeros",
+        "description":"Don't use extra leading zeros '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W047",
+        "name":"trailing decimal point",
+        "description":"A trailing decimal point can be confused with a dot: '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W048",
+        "name":"Unexpected control character",
+        "description":"Unexpected control character in regular expression.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W049",
+        "name":"Unexpected escaped character",
+        "description":"Unexpected escaped character '{a}' in regular expression.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W050",
+        "name":"JavaScript URL",
+        "description":"JavaScript URL.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W051",
+        "name":"Variables should not be deleted",
+        "description":"Variables should not be deleted.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W052",
+        "name":"Unexpected '{a}'",
+        "description":"Unexpected '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W053",
+        "name":"constructor",
+        "description":"Do not use {a} as a constructor.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W054",
+        "name":"Function constructor",
+        "description":"The Function constructor is a form of eval.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W055",
+        "name":"Constructor case",
+        "description":"A constructor name should start with an uppercase letter.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W056",
+        "name":"Bad constructor",
+        "description":"Bad constructor.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W057",
+        "name":"Weird construction",
+        "description":"Weird construction. Is 'new' necessary?",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W058",
+        "name":"Missing '()'",
+        "description":"Missing '()' invoking a constructor.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W059",
+        "name":"Avoid arguments",
+        "description":"Avoid arguments.{a}.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W060",
+        "name":"document.write",
+        "description":"document.write can be a form of eval.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W061",
+        "name":"eval",
+        "description":"eval can be harmful.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W062",
+        "name":"Reading",
+        "description":"Wrap an immediate function invocation in parens to assist the reader in understanding that the expression is the result of a function, and not the function itself.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W063",
+        "name":"Math is not a function",
+        "description":"Math is not a function.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W064",
+        "name":"Missing 'new'",
+        "description":"Missing 'new' prefix when invoking a constructor.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W065",
+        "name":"Missing radix parameter",
+        "description":"Missing radix parameter.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W066",
+        "name":"Implied eval",
+        "description":"Implied eval. Consider passing a function instead of a string.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W067",
+        "name":"Bad invocation",
+        "description":"Bad invocation.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W068",
+        "name":"non-IIFE function literals",
+        "description":"Wrapping non-IIFE function literals in parens is unnecessary.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W069",
+        "name":"dot notation",
+        "description":"['{a}'] is better written in dot notation.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W070",
+        "name":"Extra comma",
+        "description":"Extra comma. (it breaks older versions of IE)",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W071",
+        "name":"too many statements",
+        "description":"This function has too many statements. ({a})",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W072",
+        "name":"too many parameters",
+        "description":"This function has too many parameters. ({a})",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W073",
+        "name":"too many nested blocks",
+        "description":"Blocks are nested too deeply. ({a})",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W074",
+        "name":"cyclomatic complexity",
+        "description":"This function's cyclomatic complexity is too high. ({a})",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W075",
+        "name":"Duplicate key",
+        "description":"Duplicate key '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W076",
+        "name":"Unexpected parameter",
+        "description":"Unexpected parameter '{a}' in get {b} function.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W077",
+        "name":"Expected a single parameter",
+        "description":"Expected a single parameter in set {a} function.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W078",
+        "name":"Setter/getter",
+        "description":"Setter is defined without getter.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W079",
+        "name":"Redefinition",
+        "description":"Redefinition of '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W080",
+        "name":"initialization to undefined",
+        "description":"It's not necessary to initialize '{a}' to 'undefined'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W081",
+        "name":"W081",
+        "description":"W081",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W082",
+        "name":"Function declarations",
+        "description":"Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W083",
+        "name":"functions within a loop",
+        "description":"Don't make functions within a loop.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W084",
+        "name":"Expected a conditional expression",
+        "description":"Expected a conditional expression and instead saw an assignment.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W085",
+        "name":"Don't use 'with'",
+        "description":"Don't use 'with'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W086",
+        "name":"Expected a 'break'",
+        "description":"Expected a 'break' statement before '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W087",
+        "name":"debugger",
+        "description":"Forgotten 'debugger' statement?",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W088",
+        "name":"global 'for' variable",
+        "description":"Creating global 'for' variable. Should be 'for (var {a} ...'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W089",
+        "name":"for in body",
+        "description":"The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W090",
+        "name":"not a statement label",
+        "description":"'{a}' is not a statement label.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W091",
+        "name":"out of scope",
+        "description":"'{a}' is out of scope.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W093",
+        "name":"return a conditional ?",
+        "description":"Did you mean to return a conditional instead of an assignment?",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W094",
+        "name":"Unexpected comma",
+        "description":"Unexpected comma.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W095",
+        "name":"Expected a string",
+        "description":"Expected a string and instead saw {a}.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W096",
+        "name":"key may produce unexpected results",
+        "description":"The '{a}' key may produce unexpected results.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W097",
+        "name":"function form of \"use strict\"",
+        "description":"Use the function form of \"use strict\".",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W098",
+        "name":"Variable never used",
+        "description":"'{a}' is defined but never used.",
+        "severity":"MINOR"
+    },
+    {
+        "key":"W099",
+        "name":"W099",
+        "description":"CRITICAL",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W100",
+        "name":"character silently deleted",
+        "description":"This character may get silently deleted by one or more browsers.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W101",
+        "name":"Line is too long",
+        "description":"Line is too long.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W102",
+        "name":"W102",
+        "description":"W102",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W103",
+        "name":"deprecated property",
+        "description":"The '{a}' property is deprecated.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W104",
+        "name":"ES6",
+        "description":"'{a}' is available in ES6 (use esnext option) or Mozilla JS extensions (use moz).",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W105",
+        "name":"Unexpected {a} in '{b}'",
+        "description":"Unexpected {a} in '{b}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W106",
+        "name":"Identifier case",
+        "description":"Identifier '{a}' is not in camel case.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W107",
+        "name":"Script URL",
+        "description":"Script URL.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W108",
+        "name":"Strings must use doublequote",
+        "description":"Strings must use doublequote.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W109",
+        "name":"Strings must use singlequote",
+        "description":"Strings must use singlequote.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W110",
+        "name":"Mixed double and single quotes",
+        "description":"Mixed double and single quotes.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W112",
+        "name":"Unclosed string",
+        "description":"Unclosed string.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W113",
+        "name":"Control character",
+        "description":"Control character in string: {a}.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W114",
+        "name":"Avoid {a}",
+        "description":"Avoid {a}.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W115",
+        "name":"Octal literals",
+        "description":"Octal literals are not allowed in strict mode.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W116",
+        "name":"Expected '{a}' and instead saw '{b}'",
+        "description":"Expected '{a}' and instead saw '{b}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W117",
+        "name":"Variable not defined",
+        "description":"'{a}' is not defined.",
+        "severity":"CRITICAL"
+    },
+    {
+        "key":"W118",
+        "name":"Mozilla only",
+        "description":"'{a}' is only available in Mozilla JavaScript extensions (use moz option).",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W119",
+        "name":"ES6 only",
+        "description":"'{a}' is only available in ES6 (use esnext option).",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W120",
+        "name":"variable leak",
+        "description":"You might be leaking a variable ({a}) here.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W121",
+        "name":"Extending prototype of native object",
+        "description":"Extending prototype of native object: '{a}'.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W122",
+        "name":"Invalid typeof value",
+        "description":"Invalid typeof value '{a}'",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W123",
+        "name":"already defined in outer scope",
+        "description":"'{a}' is already defined in outer scope.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W124",
+        "name":"generator without yield",
+        "description":"A generator function shall contain a yield statement.",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"W125",
+        "name":"non-breaking spaces",
+        "description":"This line contains non-breaking spaces: http://jshint.com/doc/options/#nonbsp",
+        "severity":"MAJOR"
+    },
+    {
+        "key":"I001",
+        "name":"Comma warnings",
+        "description":"Comma warnings can be turned off with 'laxcomma'.",
+        "severity":"MINOR"
+    },
+    {
+        "key":"I002",
+        "name":"I002",
+        "description":"I002",
+        "severity":"INFO"
+    },
+    {
+        "key":"I003",
+        "name":"ES5 option",
+        "description":"ES5 option is now set per default",
+        "severity":"MINOR"
+    }
+
+]

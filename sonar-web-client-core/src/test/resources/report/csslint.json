@@ -1,0 +1,4734 @@
+{
+"language" : "css",
+"project" : "CroixRouge",
+"projectPath" : "/home/clegallo/.jenkins/workspace/CroixRouge/",
+"version" : "1.0.0",
+"files" : [	{
+	"name" : "components.css",
+	"path" : "/app/scripts/components/components.css",
+	"nbLines" : 12,
+	"nbComments" : 1,
+	"nbCloc" : 11,
+	"issues" : [{
+		"line" : 1,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 2,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 3,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 5,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 6,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 7,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 8,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 9,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 10,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 11,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		},{
+		"line" : 12,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308744
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 11,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "autocompleteUtilisateur.css",
+	"path" : "/app/scripts/components/autocompleteUtilisateur/autocompleteUtilisateur.css",
+	"nbLines" : 54,
+	"nbComments" : 0,
+	"nbCloc" : 46,
+	"issues" : [{
+		"line" : 43,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308813
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 1,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "calendar.css",
+	"path" : "/app/scripts/components/calendar/calendar.css",
+	"nbLines" : 316,
+	"nbComments" : 6,
+	"nbCloc" : 252,
+	"issues" : [{
+		"line" : 26,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 36,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 44,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 45,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 58,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 59,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 59,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 60,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 60,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 61,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 62,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 62,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 63,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 63,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 73,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 74,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 74,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 75,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 75,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 79,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 80,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 80,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 81,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 81,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 126,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 178,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 179,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 272,
+		"message" : "Heading (h5) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 277,
+		"message" : "Heading (h5) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : 277,
+		"message" : "Heading (h5) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		},{
+		"line" : undefined,
+		"message" : "You have 2 h5s defined in this stylesheet.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308910
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 31,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "custom-select.css",
+	"path" : "/app/scripts/components/customSelect/custom-select.css",
+	"nbLines" : 79,
+	"nbComments" : 0,
+	"nbCloc" : 67,
+	"issues" : [{
+		"line" : 41,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308985
+		},{
+		"line" : 45,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308985
+		},{
+		"line" : 49,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308985
+		},{
+		"line" : 56,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285308985
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 4,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "datepicker.css",
+	"path" : "/app/scripts/components/datepicker/datepicker.css",
+	"nbLines" : 171,
+	"nbComments" : 1,
+	"nbCloc" : 138,
+	"issues" : [{
+		"line" : 6,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 17,
+		"message" : "Unexpected token '~' at line 17, col 16.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 18,
+		"message" : "Unexpected token '~' at line 18, col 12.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 26,
+		"message" : "Element (table#timepicker) is overqualified, just use #timepicker without element name.",
+		"description" : "Don't use classes or IDs with elements (a.foo or a#foo).",
+		"rulekey" : "overqualified-elements",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 26,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 64,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 65,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 78,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 120,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		},{
+		"line" : 145,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309035
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 2,
+			"minor" : 8,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "inlineTimePicker.css",
+	"path" : "/app/scripts/components/inlineTimePicker/inlineTimePicker.css",
+	"nbLines" : 33,
+	"nbComments" : 0,
+	"nbCloc" : 30,
+	"issues" : [{
+		"line" : 13,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309056
+		},{
+		"line" : 17,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309056
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 2,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "menu.css",
+	"path" : "/app/scripts/components/menu/menu.css",
+	"nbLines" : 254,
+	"nbComments" : 1,
+	"nbCloc" : 221,
+	"issues" : [{
+		"line" : 5,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 12,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 61,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 88,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 116,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 160,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 175,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 176,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 177,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 178,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 181,
+		"message" : "Expected RBRACE at line 181, col 2.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 183,
+		"message" : "Missing standard property 'transform' to go along with '-webkit-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 184,
+		"message" : "Missing standard property 'transform-origin' to go along with '-webkit-transform-origin'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 187,
+		"message" : "Missing standard property 'transform' to go along with '-webkit-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 188,
+		"message" : "Missing standard property 'transform-origin' to go along with '-webkit-transform-origin'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 193,
+		"message" : "Missing standard property 'transform' to go along with '-moz-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 194,
+		"message" : "Missing standard property 'transform-origin' to go along with '-moz-transform-origin'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 197,
+		"message" : "Missing standard property 'transform' to go along with '-moz-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 198,
+		"message" : "Missing standard property 'transform-origin' to go along with '-moz-transform-origin'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 203,
+		"message" : "Missing standard property 'transform' to go along with '-o-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 204,
+		"message" : "Missing standard property 'transform-origin' to go along with '-o-transform-origin'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 207,
+		"message" : "Missing standard property 'transform' to go along with '-o-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 208,
+		"message" : "Missing standard property 'transform-origin' to go along with '-o-transform-origin'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 225,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 249,
+		"message" : "Fallback border-color (hex or RGB) should precede RGBA border-color.",
+		"description" : "For older browsers that don't support RGBA, HSL, or HSLA, provide a fallback color.",
+		"rulekey" : "fallback-colors",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		},{
+		"line" : 254,
+		"message" : "Unexpected token '}' at line 254, col 1.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309106
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 2,
+			"minor" : 24,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "screenFilter.css",
+	"path" : "/app/scripts/components/screenFilter/screenFilter.css",
+	"nbLines" : 23,
+	"nbComments" : 0,
+	"nbCloc" : 21,
+	"issues" : [{
+		"line" : 12,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309131
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 1,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "inlineNumberPicker.css",
+	"path" : "/app/scripts/components/inlineNumberPicker/inlineNumberPicker.css",
+	"nbLines" : 33,
+	"nbComments" : 0,
+	"nbCloc" : 30,
+	"issues" : [{
+		"line" : 17,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309137
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 1,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "commons.css",
+	"path" : "/app/styles/commons.css",
+	"nbLines" : 17,
+	"nbComments" : 0,
+	"nbCloc" : 17,
+	"issues" : [{
+		"line" : 1,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 2,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 3,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 4,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 5,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 6,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 7,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 8,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 9,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 10,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 11,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 12,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 13,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 14,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 15,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 16,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		},{
+		"line" : 17,
+		"message" : "@import prevents parallel downloads, use <link> instead.",
+		"description" : "Don't use @import, use <link> instead.",
+		"rulekey" : "import",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309147
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 17,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "font-cr.css",
+	"path" : "/app/styles/font-cr.css",
+	"nbLines" : 184,
+	"nbComments" : 0,
+	"nbCloc" : 181,
+	"issues" : [{
+		"line" : 9,
+		"message" : "Attribute selectors with ^= are slow!",
+		"description" : "Selectors that look like regular expressions are slow and should be avoided.",
+		"rulekey" : "regex-selectors",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 9,
+		"message" : "Attribute selectors with *= are slow!",
+		"description" : "Selectors that look like regular expressions are slow and should be avoided.",
+		"rulekey" : "regex-selectors",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 9,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 9,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 10,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 12,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 13,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 14,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		},{
+		"line" : 15,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309185
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 9,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "main.css",
+	"path" : "/app/styles/main.css",
+	"nbLines" : 203,
+	"nbComments" : 4,
+	"nbCloc" : 199,
+	"issues" : [{
+		"line" : 23,
+		"message" : "The universal selector (*) is known to be slow.",
+		"description" : "The universal selector (*) is known to be slow.",
+		"rulekey" : "universal-selector",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 23,
+		"message" : "The universal selector (*) is known to be slow.",
+		"description" : "The universal selector (*) is known to be slow.",
+		"rulekey" : "universal-selector",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 23,
+		"message" : "The universal selector (*) is known to be slow.",
+		"description" : "The universal selector (*) is known to be slow.",
+		"rulekey" : "universal-selector",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 26,
+		"message" : "The box-sizing property isn't supported in IE6 and IE7.",
+		"description" : "The box-sizing properties isn't supported in IE6 and IE7.",
+		"rulekey" : "box-sizing",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 36,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 53,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 78,
+		"message" : "vertical-align can't be used with display: block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 113,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 121,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 126,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 126,
+		"message" : "Heading (h1) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 126,
+		"message" : "Heading (h1) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 130,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 135,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 139,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 145,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 149,
+		"message" : "Heading (h1) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : 170,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		},{
+		"line" : undefined,
+		"message" : "You have 3 h1s defined in this stylesheet.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309215
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 19,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "alert.css",
+	"path" : "/app/styles/commons/alert.css",
+	"nbLines" : 24,
+	"nbComments" : 1,
+	"nbCloc" : 19,
+	"issues" : [{
+		"line" : 6,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309240
+		},{
+		"line" : 20,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309240
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 2,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "angular-form-ui.css",
+	"path" : "/app/styles/commons/angular-form-ui.css",
+	"nbLines" : 183,
+	"nbComments" : 0,
+	"nbCloc" : 183,
+	"issues" : [{
+		"line" : 10,
+		"message" : "vertical-align can't be used with display: block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 14,
+		"message" : "Standard property 'box-shadow' should come after vendor-prefixed property '-webkit-box-shadow'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 15,
+		"message" : "Standard property 'box-shadow' should come after vendor-prefixed property '-moz-box-shadow'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 25,
+		"message" : "Element (span.checked) is overqualified, just use .checked without element name.",
+		"description" : "Don't use classes or IDs with elements (a.foo or a#foo).",
+		"rulekey" : "overqualified-elements",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 39,
+		"message" : "Unexpected token '~' at line 39, col 17.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 40,
+		"message" : "Unexpected token '~' at line 40, col 13.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 43,
+		"message" : "Missing vendor-prefixed CSS gradients for Firefox 3.6+, Webkit (Safari 5+, Chrome), Old Webkit (Safari 4+, Chrome).",
+		"description" : "When using a vendor-prefixed gradient, make sure to use them all.",
+		"rulekey" : "gradients",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 49,
+		"message" : "The box-sizing property isn't supported in IE6 and IE7.",
+		"description" : "The box-sizing properties isn't supported in IE6 and IE7.",
+		"rulekey" : "box-sizing",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 50,
+		"message" : "Standard property 'box-sizing' should come after vendor-prefixed property '-webkit-box-sizing'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 51,
+		"message" : "Standard property 'box-sizing' should come after vendor-prefixed property '-moz-box-sizing'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 73,
+		"message" : "Standard property 'border-radius' should come after vendor-prefixed property '-webkit-border-radius'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 74,
+		"message" : "Standard property 'border-radius' should come after vendor-prefixed property '-moz-border-radius'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 76,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 77,
+		"message" : "Standard property 'box-shadow' should come after vendor-prefixed property '-webkit-box-shadow'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 77,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 78,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 78,
+		"message" : "Standard property 'box-shadow' should come after vendor-prefixed property '-moz-box-shadow'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 87,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 87,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 87,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 96,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 97,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 108,
+		"message" : "Duplicate property 'border' found.",
+		"description" : "Duplicate properties must appear one after the other.",
+		"rulekey" : "duplicate-properties",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 108,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 108,
+		"message" : "Using height with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 116,
+		"message" : "The universal selector (*) is known to be slow.",
+		"description" : "The universal selector (*) is known to be slow.",
+		"rulekey" : "universal-selector",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 117,
+		"message" : "The box-sizing property isn't supported in IE6 and IE7.",
+		"description" : "The box-sizing properties isn't supported in IE6 and IE7.",
+		"rulekey" : "box-sizing",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 118,
+		"message" : "Standard property 'box-sizing' should come after vendor-prefixed property '-moz-box-sizing'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 119,
+		"message" : "Standard property 'box-sizing' should come after vendor-prefixed property '-webkit-box-sizing'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 149,
+		"message" : "Missing vendor-prefixed CSS gradients for Firefox 3.6+, Webkit (Safari 5+, Chrome), Old Webkit (Safari 4+, Chrome).",
+		"description" : "When using a vendor-prefixed gradient, make sure to use them all.",
+		"rulekey" : "gradients",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 164,
+		"message" : "Missing vendor-prefixed CSS gradients for Firefox 3.6+, Webkit (Safari 5+, Chrome), Old Webkit (Safari 4+, Chrome).",
+		"description" : "When using a vendor-prefixed gradient, make sure to use them all.",
+		"rulekey" : "gradients",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		},{
+		"line" : 174,
+		"message" : "Missing vendor-prefixed CSS gradients for Firefox 3.6+, Webkit (Safari 5+, Chrome), Old Webkit (Safari 4+, Chrome).",
+		"description" : "When using a vendor-prefixed gradient, make sure to use them all.",
+		"rulekey" : "gradients",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309282
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 2,
+			"minor" : 30,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "animations.css",
+	"path" : "/app/styles/commons/animations.css",
+	"nbLines" : 60,
+	"nbComments" : 1,
+	"nbCloc" : 55,
+	"issues" : [{
+		"line" : 8,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 11,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 14,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 17,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 25,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 25,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 27,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 30,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 31,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 32,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 34,
+		"message" : "The property -moz-transition-delay is compatible with -webkit-transition-delay and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 34,
+		"message" : "The property -o-transition-delay is compatible with -webkit-transition-delay and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 38,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 38,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 38,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 45,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 45,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 52,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 52,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 52,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 55,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 55,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		},{
+		"line" : 55,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309316
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 23,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "bootstrap-light.css",
+	"path" : "/app/styles/commons/bootstrap-light.css",
+	"nbLines" : 328,
+	"nbComments" : 1,
+	"nbCloc" : 323,
+	"issues" : [{
+		"line" : 8,
+		"message" : "Attribute selectors with *= are slow!",
+		"description" : "Selectors that look like regular expressions are slow and should be avoided.",
+		"rulekey" : "regex-selectors",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 8,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 22,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 45,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 87,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 92,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 158,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 158,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 164,
+		"message" : "Using height with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 164,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 169,
+		"message" : "The property -moz-box-shadow is compatible with -webkit-box-shadow and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 185,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 186,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 213,
+		"message" : "Outlines shouldn't be hidden unless other visual changes are made.",
+		"description" : "Use of outline: none or outline: 0 should be limited to :focus rules.",
+		"rulekey" : "outline-none",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 234,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		},{
+		"line" : 276,
+		"message" : "Outlines should only be modified using :focus.",
+		"description" : "Use of outline: none or outline: 0 should be limited to :focus rules.",
+		"rulekey" : "outline-none",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309393
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 16,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "button.css",
+	"path" : "/app/styles/commons/button.css",
+	"nbLines" : 178,
+	"nbComments" : 3,
+	"nbCloc" : 150,
+	"issues" : [{
+		"line" : 35,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309422
+		},{
+		"line" : 42,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309422
+		},{
+		"line" : 43,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309422
+		},{
+		"line" : 48,
+		"message" : "The property -moz-box-shadow is compatible with -webkit-box-shadow and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309422
+		},{
+		"line" : 133,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309422
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 5,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "form.css",
+	"path" : "/app/styles/commons/form.css",
+	"nbLines" : 289,
+	"nbComments" : 7,
+	"nbCloc" : 231,
+	"issues" : [{
+		"line" : 40,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 44,
+		"message" : "vertical-align can't be used with display: block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 49,
+		"message" : "The property -moz-box-shadow is compatible with -webkit-box-shadow and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 53,
+		"message" : "Outlines shouldn't be hidden unless other visual changes are made.",
+		"description" : "Use of outline: none or outline: 0 should be limited to :focus rules.",
+		"rulekey" : "outline-none",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 58,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 59,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 62,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 65,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 66,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 94,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 106,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 106,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 117,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 135,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 138,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 145,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 146,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 152,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 172,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 226,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 231,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 232,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 232,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 233,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 233,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 234,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 234,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 235,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 235,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 237,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 238,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 239,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 243,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 256,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 256,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 268,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 285,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		},{
+		"line" : 286,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309453
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 38,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "grid.css",
+	"path" : "/app/styles/commons/grid.css",
+	"nbLines" : 123,
+	"nbComments" : 0,
+	"nbCloc" : 97,
+	"issues" : [{
+		"line" : 2,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309495
+		},{
+		"line" : 37,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309495
+		},{
+		"line" : undefined,
+		"message" : "Too many floats (15), you're probably using them for layout. Consider using a grid system instead.",
+		"description" : "This rule tests if the float property is used too many times",
+		"rulekey" : "floats",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309495
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 3,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "icons.css",
+	"path" : "/app/styles/commons/icons.css",
+	"nbLines" : 203,
+	"nbComments" : 4,
+	"nbCloc" : 197,
+	"issues" : [{
+		"line" : 9,
+		"message" : "Attribute selectors with ^= are slow!",
+		"description" : "Selectors that look like regular expressions are slow and should be avoided.",
+		"rulekey" : "regex-selectors",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 9,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 10,
+		"message" : "Unqualified attribute selectors are known to be slow.",
+		"description" : "Unqualified attribute selectors are known to be slow.",
+		"rulekey" : "unqualified-attributes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 10,
+		"message" : "Attribute selectors with *= are slow!",
+		"description" : "Selectors that look like regular expressions are slow and should be avoided.",
+		"rulekey" : "regex-selectors",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 61,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 64,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 67,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 70,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 114,
+		"message" : "Using height with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 114,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 133,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 133,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 136,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 136,
+		"message" : "Using height with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 142,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 164,
+		"message" : "Missing standard property 'transform' to go along with '-moz-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 167,
+		"message" : "Missing standard property 'transform' to go along with '-moz-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 172,
+		"message" : "Missing standard property 'transform' to go along with '-webkit-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 175,
+		"message" : "Missing standard property 'transform' to go along with '-webkit-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 180,
+		"message" : "Missing standard property 'transform' to go along with '-o-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 183,
+		"message" : "Missing standard property 'transform' to go along with '-o-transform'.",
+		"description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+		"rulekey" : "vendor-prefix",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		},{
+		"line" : 186,
+		"message" : "Unknown @ rule: @-ms-keyframes.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309514
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 1,
+			"minor" : 21,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "list.css",
+	"path" : "/app/styles/commons/list.css",
+	"nbLines" : 104,
+	"nbComments" : 2,
+	"nbCloc" : 81,
+	"issues" : [{
+		"line" : 86,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309539
+		},{
+		"line" : 103,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309539
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 2,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "media.css",
+	"path" : "/app/styles/commons/media.css",
+	"nbLines" : 90,
+	"nbComments" : 0,
+	"nbCloc" : 78,
+	"issues" : [{
+		"line" : 6,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309551
+		},{
+		"line" : 18,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309551
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 2,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "modal.css",
+	"path" : "/app/styles/commons/modal.css",
+	"nbLines" : 178,
+	"nbComments" : 0,
+	"nbCloc" : 151,
+	"issues" : [{
+		"line" : 17,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 18,
+		"message" : "The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 18,
+		"message" : "The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 27,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 28,
+		"message" : "The property -moz-transform is compatible with -webkit-transform and -ms-transform and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 28,
+		"message" : "The property -o-transform is compatible with -webkit-transform and -ms-transform and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 40,
+		"message" : "Outlines should only be modified using :focus.",
+		"description" : "Use of outline: none or outline: 0 should be limited to :focus rules.",
+		"rulekey" : "outline-none",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 60,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 61,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 62,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 67,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 77,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 81,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 81,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 87,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 87,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 94,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 94,
+		"message" : "2 IDs in the selector, really?",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 99,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 104,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		},{
+		"line" : 175,
+		"message" : "The property -moz-box-shadow is compatible with -webkit-box-shadow and should be included as well.",
+		"description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+		"rulekey" : "compatible-vendor-prefixes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309571
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 21,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "navbar.css",
+	"path" : "/app/styles/commons/navbar.css",
+	"nbLines" : 48,
+	"nbComments" : 0,
+	"nbCloc" : 41,
+	"issues" : [{
+		"line" : 21,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309594
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 1,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "spinner.css",
+	"path" : "/app/styles/commons/spinner.css",
+	"nbLines" : 46,
+	"nbComments" : 0,
+	"nbCloc" : 38,
+	"issues" : [{
+		"line" : 26,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309621
+		},{
+		"line" : 30,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309621
+		},{
+		"line" : 34,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309621
+		},{
+		"line" : 38,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309621
+		},{
+		"line" : 43,
+		"message" : "Rule is empty.",
+		"description" : "Rules without any properties specified should be removed.",
+		"rulekey" : "empty-rules",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309621
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 5,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "utils.css",
+	"path" : "/app/styles/commons/utils.css",
+	"nbLines" : 146,
+	"nbComments" : 1,
+	"nbCloc" : 114,
+	"issues" : [{
+		"line" : 22,
+		"message" : "The universal selector (*) is known to be slow.",
+		"description" : "The universal selector (*) is known to be slow.",
+		"rulekey" : "universal-selector",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 23,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 39,
+		"message" : "The universal selector (*) is known to be slow.",
+		"description" : "The universal selector (*) is known to be slow.",
+		"rulekey" : "universal-selector",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 40,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 128,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 143,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 144,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		},{
+		"line" : 145,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309638
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 8,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "activite-create.css",
+	"path" : "/app/styles/views/activite-create.css",
+	"nbLines" : 109,
+	"nbComments" : 0,
+	"nbCloc" : 90,
+	"issues" : [{
+		"line" : 46,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 47,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 51,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 55,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 56,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 57,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 58,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 59,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 60,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 61,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 62,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 63,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 64,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 65,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 66,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 76,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 77,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 84,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 85,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 105,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		},{
+		"line" : 106,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309666
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 21,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "activite-referentiel.css",
+	"path" : "/app/styles/views/activite-referentiel.css",
+	"nbLines" : 88,
+	"nbComments" : 0,
+	"nbCloc" : 71,
+	"issues" : [{
+		"line" : 5,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309690
+		},{
+		"line" : 47,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309690
+		},{
+		"line" : 75,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309690
+		},{
+		"line" : 76,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309690
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 4,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "activite.css",
+	"path" : "/app/styles/views/activite.css",
+	"nbLines" : 604,
+	"nbComments" : 10,
+	"nbCloc" : 471,
+	"issues" : [{
+		"line" : 1,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 103,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 182,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 183,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 187,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 218,
+		"message" : "Using height with border-bottom can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 221,
+		"message" : "Element (td.square-form) is overqualified, just use .square-form without element name.",
+		"description" : "Don't use classes or IDs with elements (a.foo or a#foo).",
+		"rulekey" : "overqualified-elements",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 238,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 266,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 277,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 278,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 281,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 281,
+		"message" : "Heading (h4) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 282,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 315,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 357,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 362,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 366,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 370,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 374,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 378,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 378,
+		"message" : "Heading (h4) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 382,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 382,
+		"message" : "Heading (h4) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 387,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 390,
+		"message" : "Heading (h4) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 390,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 390,
+		"message" : "Element (h4.form-block-title) is overqualified, just use .form-block-title without element name.",
+		"description" : "Don't use classes or IDs with elements (a.foo or a#foo).",
+		"rulekey" : "overqualified-elements",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 394,
+		"message" : "Heading (h4) has already been defined.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 394,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 398,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 430,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 434,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 462,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 467,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 475,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 484,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 506,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 524,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 530,
+		"message" : "float can't be used with display: inline-block.",
+		"description" : "Certain properties shouldn't be used with certain display property values.",
+		"rulekey" : "display-property-grouping",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 532,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 543,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 543,
+		"message" : "Expected (<color> | inherit) but found 'none'.",
+		"description" : "Properties should be known (listed in CSS3 specification) or be a vendor-prefixed property.",
+		"rulekey" : "known-properties",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 558,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : 562,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		},{
+		"line" : undefined,
+		"message" : "You have 6 h4s defined in this stylesheet.",
+		"description" : "Headings should be defined only once.",
+		"rulekey" : "unique-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309742
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 46,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "aide.css",
+	"path" : "/app/styles/views/aide.css",
+	"nbLines" : 40,
+	"nbComments" : 0,
+	"nbCloc" : 33,
+	"issues" : [{
+		"line" : 7,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309788
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 1,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "authentification.css",
+	"path" : "/app/styles/views/authentification.css",
+	"nbLines" : 35,
+	"nbComments" : 0,
+	"nbCloc" : 31,
+	"issues" : [{
+		"line" : 9,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309794
+		},{
+		"line" : 9,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309794
+		},{
+		"line" : 23,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309794
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 3,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "backCheck.css",
+	"path" : "/app/styles/views/backCheck.css",
+	"nbLines" : 27,
+	"nbComments" : 0,
+	"nbCloc" : 26,
+	"issues" : [{
+		"line" : 10,
+		"message" : "Heading (h1) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309800
+		},{
+		"line" : 16,
+		"message" : "Heading (h2) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309800
+		},{
+		"line" : 19,
+		"message" : "Heading (h3) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309800
+		},{
+		"line" : 25,
+		"message" : "Heading (h3) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309800
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 4,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "inscription.css",
+	"path" : "/app/styles/views/inscription.css",
+	"nbLines" : 7,
+	"nbComments" : 0,
+	"nbCloc" : 6,
+	"issues" : [{
+		"line" : 1,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309806
+		},{
+		"line" : 5,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309806
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 2,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "liste-generale.css",
+	"path" : "/app/styles/views/liste-generale.css",
+	"nbLines" : 219,
+	"nbComments" : 1,
+	"nbCloc" : 174,
+	"issues" : [{
+		"line" : 21,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 74,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 86,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 87,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 88,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 89,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 90,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 91,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 92,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 93,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 94,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 95,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 96,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		},{
+		"line" : 154,
+		"message" : "Element (table.hidden-phone) is overqualified, just use .hidden-phone without element name.",
+		"description" : "Don't use classes or IDs with elements (a.foo or a#foo).",
+		"rulekey" : "overqualified-elements",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309828
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 14,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "planning-structure.css",
+	"path" : "/app/styles/views/planning-structure.css",
+	"nbLines" : 74,
+	"nbComments" : 0,
+	"nbCloc" : 58,
+	"issues" : [{
+		"line" : 2,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 6,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 10,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 14,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 18,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 23,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 28,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 35,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 41,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 45,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 46,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 50,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 54,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 54,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 58,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 58,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 65,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 66,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		},{
+		"line" : 70,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309847
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 19,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "planning-user.css",
+	"path" : "/app/styles/views/planning-user.css",
+	"nbLines" : 35,
+	"nbComments" : 0,
+	"nbCloc" : 29,
+	"issues" : [{
+		"line" : 2,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 6,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 12,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 12,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 16,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 16,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 23,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 27,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		},{
+		"line" : 31,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309898
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 9,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "rechercheStructure.css",
+	"path" : "/app/styles/views/rechercheStructure.css",
+	"nbLines" : 105,
+	"nbComments" : 1,
+	"nbCloc" : 103,
+	"issues" : [{
+		"line" : 5,
+		"message" : "Heading (h4) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309916
+		},{
+		"line" : 34,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309916
+		},{
+		"line" : 34,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309916
+		},{
+		"line" : 80,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309916
+		},{
+		"line" : 90,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309916
+		},{
+		"line" : 90,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309916
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 6,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "rechercheUtilisateur.css",
+	"path" : "/app/styles/views/rechercheUtilisateur.css",
+	"nbLines" : 199,
+	"nbComments" : 3,
+	"nbCloc" : 161,
+	"issues" : [{
+		"line" : 26,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 27,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 28,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 29,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 30,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 31,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 32,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 33,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 40,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 53,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 80,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 97,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 103,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 118,
+		"message" : "Using width with padding-left can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 119,
+		"message" : "Using width with padding-right can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 143,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 149,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 153,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 186,
+		"message" : "Values of 0 shouldn't have units specified.",
+		"description" : "You don't need to specify units when a value is 0.",
+		"rulekey" : "zero-units",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		},{
+		"line" : 191,
+		"message" : "Using width with padding-right can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309941
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 20,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "secours.css",
+	"path" : "/app/styles/views/secours.css",
+	"nbLines" : 258,
+	"nbComments" : 0,
+	"nbCloc" : 208,
+	"issues" : [{
+		"line" : 1,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 5,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 13,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 19,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 23,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 28,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 28,
+		"message" : "Don't use IDs in selectors.",
+		"description" : "Selectors should not contain IDs.",
+		"rulekey" : "ids",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 55,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 56,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		},{
+		"line" : 189,
+		"message" : "Heading (h5) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309980
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 10,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "secteurs.css",
+	"path" : "/app/styles/views/secteurs.css",
+	"nbLines" : 74,
+	"nbComments" : 0,
+	"nbCloc" : 73,
+	"issues" : [{
+		"line" : 5,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309996
+		},{
+		"line" : 22,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309996
+		},{
+		"line" : 23,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309996
+		},{
+		"line" : 34,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285309996
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 4,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "statistiques.css",
+	"path" : "/app/styles/views/statistiques.css",
+	"nbLines" : 144,
+	"nbComments" : 1,
+	"nbCloc" : 115,
+	"issues" : [{
+		"line" : 21,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 24,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 28,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 65,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 66,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 67,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 68,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 69,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 70,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 71,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		},{
+		"line" : 111,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310014
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 11,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "utilisateur.css",
+	"path" : "/app/styles/views/utilisateur.css",
+	"nbLines" : 887,
+	"nbComments" : 0,
+	"nbCloc" : 731,
+	"issues" : [{
+		"line" : 53,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 57,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 58,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 92,
+		"message" : "Unexpected token '~' at line 92, col 17.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 93,
+		"message" : "Unexpected token '~' at line 93, col 13.",
+		"description" : "This rule looks for recoverable syntax errors.",
+		"rulekey" : "errors",
+		"severity" : "MAJOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 117,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 137,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 137,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 155,
+		"message" : "Using width with padding-left can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 232,
+		"message" : "Using height with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 284,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 342,
+		"message" : "Using width with border can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 343,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 350,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 380,
+		"message" : "Using height with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 380,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 385,
+		"message" : "Use of !important",
+		"description" : "Be careful when using !important declaration",
+		"rulekey" : "important",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 396,
+		"message" : "Heading (h3) should not be qualified.",
+		"description" : "Headings should not be qualified (namespaced).",
+		"rulekey" : "qualified-headings",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 583,
+		"message" : "Using width with padding-right can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : 756,
+		"message" : "Using width with padding can sometimes make elements larger than you expect.",
+		"description" : "Don't use width or height when using padding or border.",
+		"rulekey" : "box-model",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : undefined,
+		"message" : "Too many font-size declarations (17), abstraction needed.",
+		"description" : "Checks the number of font-size declarations.",
+		"rulekey" : "font-sizes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		},{
+		"line" : undefined,
+		"message" : "Too many floats (18), you're probably using them for layout. Consider using a grid system instead.",
+		"description" : "This rule tests if the float property is used too many times",
+		"rulekey" : "floats",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310084
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 2,
+			"minor" : 20,
+			"info" : 0
+		}
+	},
+	{
+	"name" : "views.css",
+	"path" : "/app/styles/views/views.css",
+	"nbLines" : 39,
+	"nbComments" : 3,
+	"nbCloc" : 29,
+	"issues" : [{
+		"line" : 34,
+		"message" : "Don't use adjoining classes.",
+		"description" : "Don't use adjoining classes.",
+		"rulekey" : "adjoining-classes",
+		"severity" : "MINOR",
+		"reporter" : "csslint",
+		"creationDate" : 1404285310099
+		}],
+		"violations" : {
+			"blocker" : 0,
+			"critical" : 0,
+			"major" : 0,
+			"minor" : 1,
+			"info" : 0
+		}
+	}],
+"nbFiles" : 43,
+"nbLines" : 6323,
+"nbCloc" : 5380,
+"nbComments" : 52,
+"violations" : {
+	"blocker" : 0,
+	"critical" : 0,
+	"major" : 9,
+	"minor" : 500,
+	"info" : 0
+	}
+}
