@@ -14,11 +14,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<sonar.buildVersion>3.7</sonar.buildVersion>
+		<sonar.buildVersion>4.1.1</sonar.buildVersion>
 		<jdk.min.version>1.5</jdk.min.version>
 		<jackson.version>2.4.1.1</jackson.version>
 	</properties>
-	
+
 	<modules>
 		<module>sonar-web-client-core</module>
 		<module>sonar-web-client-css</module>
@@ -91,6 +91,16 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>sii-nexus</serverId>
+					<nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+				</configuration>
+			</plugin-->
 		</plugins>
 	</build>
 
