@@ -11,10 +11,6 @@ public class RuleException extends RuntimeException {
 		super();
 	}
 
-	public RuleException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
 	public RuleException(String message, Throwable cause) {
 		super(message, cause);
 	}

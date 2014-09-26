@@ -376,7 +376,7 @@
 		"reporter" : "csslint",
 		"creationDate" : 1404285308910
 		},{
-		"line" : undefined,
+		"line" : null,
 		"message" : "You have 2 h5s defined in this stylesheet.",
 		"description" : "Headings should be defined only once.",
 		"rulekey" : "unique-headings",
@@ -1223,7 +1223,7 @@
 		"reporter" : "csslint",
 		"creationDate" : 1404285309215
 		},{
-		"line" : undefined,
+		"line" : null,
 		"message" : "You have 3 h1s defined in this stylesheet.",
 		"description" : "Headings should be defined only once.",
 		"rulekey" : "unique-headings",
@@ -2280,7 +2280,7 @@
 		"reporter" : "csslint",
 		"creationDate" : 1404285309495
 		},{
-		"line" : undefined,
+		"line" : null,
 		"message" : "Too many floats (15), you're probably using them for layout. Consider using a grid system instead.",
 		"description" : "This rule tests if the float property is used too many times",
 		"rulekey" : "floats",
@@ -3486,7 +3486,7 @@
 		"reporter" : "csslint",
 		"creationDate" : 1404285309742
 		},{
-		"line" : undefined,
+		"line" : null,
 		"message" : "You have 6 h4s defined in this stylesheet.",
 		"description" : "Headings should be defined only once.",
 		"rulekey" : "unique-headings",
@@ -4673,7 +4673,7 @@
 		"reporter" : "csslint",
 		"creationDate" : 1404285310084
 		},{
-		"line" : undefined,
+		"line" : null,
 		"message" : "Too many font-size declarations (17), abstraction needed.",
 		"description" : "Checks the number of font-size declarations.",
 		"rulekey" : "font-sizes",
@@ -4681,7 +4681,7 @@
 		"reporter" : "csslint",
 		"creationDate" : 1404285310084
 		},{
-		"line" : undefined,
+		"line" : null,
 		"message" : "Too many floats (18), you're probably using them for layout. Consider using a grid system instead.",
 		"description" : "This rule tests if the float property is used too many times",
 		"rulekey" : "floats",

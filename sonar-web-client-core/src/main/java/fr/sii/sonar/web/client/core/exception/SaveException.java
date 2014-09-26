@@ -11,10 +11,6 @@ public class SaveException extends RuntimeException {
 		super();
 	}
 
-	public SaveException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
 	public SaveException(String message, Throwable cause) {
 		super(message, cause);
 	}
