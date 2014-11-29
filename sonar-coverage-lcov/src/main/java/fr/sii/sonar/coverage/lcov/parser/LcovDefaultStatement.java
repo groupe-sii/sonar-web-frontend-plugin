@@ -3,9 +3,16 @@ package fr.sii.sonar.coverage.lcov.parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.sii.sonar.coverage.lcov.domain.FileInfo;
+import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 
+/**
+ * Default statement that just logs a warning. This can be useful if LCOV format
+ * evolves or a line couldn't be parsed.
+ * 
+ * @author aurelien
+ *
+ */
 public class LcovDefaultStatement implements LcovStatement {
 	private static final Logger LOG = LoggerFactory.getLogger(LcovDefaultStatement.class);
 
@@ -13,8 +20,11 @@ public class LcovDefaultStatement implements LcovStatement {
 		return true;
 	}
 
-	public FileInfo fill(LcovReport report, FileInfo current, String line) throws LcovParseException {
-		LOG.warn("there is no statement that can parse lcov line: "+line);
+	/**
+	 * Just log a warn. Maybe the file is not well formed or the LCOV format has evolved with new statements
+	 */
+	public FileCoverage fill(LcovReport report, FileCoverage current, String line) throws LcovParseException {
+		LOG.warn("there is no statement that can parse lcov line: " + line);
 		return current;
 	}
 

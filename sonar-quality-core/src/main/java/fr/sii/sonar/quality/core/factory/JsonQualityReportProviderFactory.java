@@ -4,16 +4,22 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import fr.sii.sonar.quality.core.domain.report.QualityReport;
-import fr.sii.sonar.quality.core.provider.QualityReportProvider;
+import fr.sii.sonar.quality.core.provider.JsonQualityReportProvider;
 import fr.sii.sonar.report.core.exception.CreateException;
-import fr.sii.sonar.report.core.factory.ProviderFactory;
 import fr.sii.sonar.report.core.provider.Provider;
 
-public class QualityReportProviderFactory implements ProviderFactory<QualityReport> {
+/**
+ * Factory that creates an instance of {@link JsonQualityReportProvider} for the
+ * specified report
+ * 
+ * @author aurelien
+ *
+ */
+public class JsonQualityReportProviderFactory implements QualityProviderFactory<QualityReport> {
 
 	public Provider<QualityReport> create(File reportFile) throws CreateException {
 		try {
-			return new QualityReportProvider(reportFile);
+			return new JsonQualityReportProvider(reportFile);
 		} catch (FileNotFoundException e) {
 			throw new CreateException("failed to create report provider", e);
 		}

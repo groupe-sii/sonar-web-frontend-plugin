@@ -7,10 +7,26 @@ import org.sonar.api.utils.ValidationMessages;
 
 import fr.sii.sonar.report.core.repository.StaticRuleRepository;
 
+/**
+ * Profile definition that loads static rules. It delegates the loading of rules
+ * to a repository. The rules provided by the repository are then activated into
+ * the profile (using profile name) and for the specified language. Profile name
+ * and language are provided by the constants.
+ * 
+ * @author aurelien
+ *
+ */
 public class StaticRuleProfile extends ProfileDefinition {
 
+	/**
+	 * The repository that provides rules
+	 */
 	private final StaticRuleRepository repository;
-	private QualityConstants constants;
+	
+	/**
+	 * The constants that provide profile name and language key
+	 */
+	private final QualityConstants constants;
 
 	public StaticRuleProfile(StaticRuleRepository repository, QualityConstants constants) {
 		super();

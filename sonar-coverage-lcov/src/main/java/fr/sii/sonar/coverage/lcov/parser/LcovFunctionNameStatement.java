@@ -3,9 +3,9 @@ package fr.sii.sonar.coverage.lcov.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.sii.sonar.coverage.lcov.domain.FileInfo;
-import fr.sii.sonar.coverage.lcov.domain.FunctionDetails;
-import fr.sii.sonar.coverage.lcov.domain.LcovInfo;
+import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
+import fr.sii.sonar.coverage.lcov.domain.FunctionCoverageDetail;
+import fr.sii.sonar.coverage.lcov.domain.CoverageInfo;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 
 /**
@@ -25,11 +25,14 @@ public class LcovFunctionNameStatement implements LcovStatement {
 		return line.startsWith(FN);
 	}
 
-	public FileInfo fill(LcovReport report, FileInfo current, String line) throws LcovParseException {
-		LcovInfo<FunctionDetails> funcs = current.getFunctions();
+	/**
+	 * Fills report with a new function details information
+	 */
+	public FileCoverage fill(LcovReport report, FileCoverage current, String line) throws LcovParseException {
 		Matcher m = pattern.matcher(line);
 		if(m.matches()) {
-			FunctionDetails funcDetails = new FunctionDetails(m.group(2), Integer.valueOf(m.group(1)));
+			CoverageInfo<FunctionCoverageDetail> funcs = current.getFunctions();
+			FunctionCoverageDetail funcDetails = new FunctionCoverageDetail(m.group(2), Integer.valueOf(m.group(1)));
 			funcs.addDetails(funcDetails);
 		} else {
 			throw new LcovParseException("invalid "+FN+" entry");

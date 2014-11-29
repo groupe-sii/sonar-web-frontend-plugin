@@ -1,5 +1,16 @@
 package fr.sii.sonar.quality.core.domain.report;
 
+/**
+ * Provides line information :
+ * <ul>
+ * <li>total number of lines</li>
+ * <li>number of lines of code</li>
+ * <li>number of lines of comment</li>
+ * </ul>
+ * 
+ * @author aurelien
+ *
+ */
 public class LinesStat {
 
 	/**

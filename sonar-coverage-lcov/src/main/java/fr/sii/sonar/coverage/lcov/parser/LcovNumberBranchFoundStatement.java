@@ -3,7 +3,7 @@ package fr.sii.sonar.coverage.lcov.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.sii.sonar.coverage.lcov.domain.FileInfo;
+import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 
 /**
@@ -22,7 +22,10 @@ public class LcovNumberBranchFoundStatement implements LcovStatement {
 		return line.startsWith(BRF);
 	}
 
-	public FileInfo fill(LcovReport report, FileInfo current, String line) throws LcovParseException {
+	/**
+	 * Fills the report with the number of branches found
+	 */
+	public FileCoverage fill(LcovReport report, FileCoverage current, String line) throws LcovParseException {
 		Matcher m = pattern.matcher(line);
 		if(m.matches()) {
 			current.getBranches().setFound(Integer.valueOf(m.group(1)));

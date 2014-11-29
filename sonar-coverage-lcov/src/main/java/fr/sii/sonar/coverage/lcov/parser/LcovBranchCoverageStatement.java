@@ -3,9 +3,9 @@ package fr.sii.sonar.coverage.lcov.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.sii.sonar.coverage.lcov.domain.BranchDetails;
-import fr.sii.sonar.coverage.lcov.domain.FileInfo;
-import fr.sii.sonar.coverage.lcov.domain.LcovInfo;
+import fr.sii.sonar.coverage.lcov.domain.BranchCoverageDetail;
+import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
+import fr.sii.sonar.coverage.lcov.domain.CoverageInfo;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 
 /**
@@ -28,12 +28,15 @@ public class LcovBranchCoverageStatement implements LcovStatement {
 		return line.startsWith(BRDA);
 	}
 
-	public FileInfo fill(LcovReport report, FileInfo current, String line) throws LcovParseException {
-		LcovInfo<BranchDetails> branches = current.getBranches();
+	/**
+	 * Generate the {@link BranchCoverageDetail} and add it into the current {@link FileCoverage}
+	 */
+	public FileCoverage fill(LcovReport report, FileCoverage current, String line) throws LcovParseException {
 		Matcher m = pattern.matcher(line);
 		if (m.matches()) {
+			CoverageInfo<BranchCoverageDetail> branches = current.getBranches();
 			String taken = m.group(4);
-			BranchDetails branchDetails = new BranchDetails(Integer.valueOf(m.group(1)), Integer.valueOf(m.group(2)), Integer.valueOf(m.group(3)), taken.equals("-") ? 0 : Integer.valueOf(taken));
+			BranchCoverageDetail branchDetails = new BranchCoverageDetail(Integer.valueOf(m.group(1)), Integer.valueOf(m.group(2)), Integer.valueOf(m.group(3)), taken.equals("-") ? 0 : Integer.valueOf(taken));
 			branches.addDetails(branchDetails);
 		} else {
 			throw new LcovParseException("invalid " + BRDA + " entry");

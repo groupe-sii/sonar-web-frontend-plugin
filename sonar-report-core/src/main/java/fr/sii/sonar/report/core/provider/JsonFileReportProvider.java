@@ -42,6 +42,9 @@ public class JsonFileReportProvider<R extends Report> implements Provider<R> {
 	}
 
 
+	/**
+	 * Parse a JSON file to get the report (of any kind)
+	 */
 	public R get() throws ProviderException {
 		try {
 			return objectMapper.readValue(stream, type);

@@ -5,9 +5,15 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.sii.sonar.coverage.lcov.domain.FileInfo;
+import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 
+/**
+ * LCOV parser that delegates each line to a statement parser that is able to manage it.
+ * 
+ * @author aurelien
+ *
+ */
 public class LcovParser {
 	private static final Logger LOG = LoggerFactory.getLogger(LcovParser.class);
 	
@@ -31,9 +37,16 @@ public class LcovParser {
 		new LcovDefaultStatement()
 	};
 	
+	/**
+	 * Parse the lines and delegate each line to the right statement parser
+	 * 
+	 * @param lines
+	 *            the LCOV lines
+	 * @return the generated report
+	 */
 	public LcovReport parse(List<String> lines) {
 		LcovReport report = new LcovReport();
-		FileInfo current = null;
+		FileCoverage current = null;
 		for(String line : lines) {
 			for(LcovStatement statement : statements) {
 				if(statement.supports(line)) {

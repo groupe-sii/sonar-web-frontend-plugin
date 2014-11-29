@@ -6,16 +6,17 @@ import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import fr.sii.sonar.quality.core.QualitySensor;
-import fr.sii.sonar.quality.core.factory.QualityReportProviderFactory;
-import fr.sii.sonar.quality.core.factory.QualityReportSaverFactory;
-import fr.sii.sonar.report.core.factory.ProviderFactory;
-import fr.sii.sonar.report.core.factory.SaverFactory;
+import fr.sii.sonar.quality.core.factory.JsonQualityReportProviderFactory;
+import fr.sii.sonar.quality.core.factory.QualityProviderFactory;
+import fr.sii.sonar.quality.core.factory.QualitySaverFactory;
+import fr.sii.sonar.quality.core.factory.SimpleQualityReportSaverFactory;
 
 public class JsQualitySensor extends QualitySensor {
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public JsQualitySensor(JsQualityConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
-			QualityReportProviderFactory providerFactory, QualityReportSaverFactory saverFactory) {
-		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (ProviderFactory) providerFactory, (SaverFactory) saverFactory);
+			JsonQualityReportProviderFactory providerFactory, SimpleQualityReportSaverFactory saverFactory) {
+		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (QualityProviderFactory) providerFactory, (QualitySaverFactory) saverFactory);
 	}
 
 }

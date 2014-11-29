@@ -5,6 +5,12 @@ import org.sonar.api.config.Settings;
 import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
+/**
+ * Class that just groups resources that are needed by sonar plugins.
+ * 
+ * @author aurelien
+ *
+ */
 public class PluginContext {
 	private final Settings settings;
 	private final ResourcePerspectives resourcePerspective;

@@ -21,6 +21,21 @@ import com.google.common.io.Closeables;
 
 import fr.sii.sonar.report.core.exception.RuleException;
 
+/**
+ * Rule repository that loads a JSON file. The JSON file must have all
+ * information about the rules :
+ * <ul>
+ * <li>rule key</li>
+ * <li>rule name</li>
+ * <li>rule description</li>
+ * <li>rule severity</li>
+ * </ul>
+ * This repository also adds a default rule for managing all unknown rules that
+ * will be provided by the report.
+ *
+ * @author aurelien
+ *
+ */
 public class JsonFileRuleRepository extends RuleRepository implements StaticRuleRepository {
 	private static final Logger LOG = LoggerFactory.getLogger(JsonFileRuleRepository.class);
 
@@ -35,6 +50,12 @@ public class JsonFileRuleRepository extends RuleRepository implements StaticRule
 		parse(stream);
 	}
 
+	/**
+	 * Parse the JSON file
+	 * 
+	 * @param stream
+	 *            the json as stream
+	 */
 	private void parse(InputStream stream) {
 		try {
 			this.root = new ObjectMapper().readTree(stream);
@@ -52,21 +73,21 @@ public class JsonFileRuleRepository extends RuleRepository implements StaticRule
 	@Override
 	public List<Rule> createRules() {
 		List<Rule> rules = new ArrayList<Rule>(root.size());
-		for(Iterator<JsonNode> it = root.elements() ; it.hasNext() ; ) {
+		for (Iterator<JsonNode> it = root.elements(); it.hasNext();) {
 			JsonNode rule = it.next();
 			Rule newRule = Rule.create(getKey(), getStringValue(rule, "key"), getStringValue(rule, "name"));
 			newRule.setDescription(getStringValue(rule, "description"));
-			newRule.setSeverity(getStringValue(rule, "severity")==null ? null : RulePriority.valueOf(getStringValue(rule, "severity").toUpperCase()));
+			newRule.setSeverity(getStringValue(rule, "severity") == null ? null : RulePriority.valueOf(getStringValue(rule, "severity").toUpperCase()));
 			rules.add(newRule);
 		}
 		// add default rule
 		rules.add(Rule.create(getKey(), "unknown-rule", "Unknown rule").setDescription("All other rules"));
 		return rules;
 	}
-	
+
 	private static String getStringValue(JsonNode node, String field) {
 		JsonNode valueNode = node.get(field);
-		return valueNode==null || valueNode.isNull() ? null : valueNode.asText();
+		return valueNode == null || valueNode.isNull() ? null : valueNode.asText();
 	}
 
 }

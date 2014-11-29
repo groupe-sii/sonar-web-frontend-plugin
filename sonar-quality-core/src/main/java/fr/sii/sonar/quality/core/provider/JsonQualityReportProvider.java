@@ -14,13 +14,13 @@ import fr.sii.sonar.report.core.provider.JsonFileReportProvider;
  * 
  * @author aurelien
  */
-public class QualityReportProvider extends JsonFileReportProvider<QualityReport> {
+public class JsonQualityReportProvider extends JsonFileReportProvider<QualityReport> {
 
-	public QualityReportProvider(File file) throws FileNotFoundException {
+	public JsonQualityReportProvider(File file) throws FileNotFoundException {
 		super(file, new TypeReference<QualityReport>() {});
 	}
 
-	public QualityReportProvider(InputStream stream) {
+	public JsonQualityReportProvider(InputStream stream) {
 		super(stream, new TypeReference<QualityReport>() {});
 	}
 	

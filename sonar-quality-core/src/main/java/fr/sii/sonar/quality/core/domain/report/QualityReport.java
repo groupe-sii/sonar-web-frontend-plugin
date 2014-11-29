@@ -4,23 +4,29 @@ import java.util.List;
 
 import fr.sii.sonar.report.core.domain.report.Report;
 
+/**
+ * A quality report for a project and for a particular language
+ * 
+ * @author aurelien
+ *
+ */
 public class QualityReport extends ProjectStat implements Report {
 
 	/**
 	 * The name of the project
 	 */
 	private String project;
-	
+
 	/**
 	 * The absolute path to the project
 	 */
 	private String projectPath;
-	
+
 	/**
 	 * The language of the analysis
 	 */
 	private String language;
-	
+
 	public String getProject() {
 		return project;
 	}

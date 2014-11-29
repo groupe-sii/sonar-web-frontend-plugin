@@ -15,8 +15,17 @@ import fr.sii.sonar.coverage.lcov.parser.LcovParser;
 import fr.sii.sonar.report.core.exception.ProviderException;
 import fr.sii.sonar.report.core.provider.Provider;
 
+/**
+ * A report provider that is specific to LCOV report
+ * 
+ * @author aurelien
+ *
+ */
 public class LcovProvider implements Provider<LcovReport> {
 
+	/**
+	 * The list of lines in the LCOV file
+	 */
 	private final List<String> lines;
 
 	public LcovProvider(File reportFile) throws IOException {

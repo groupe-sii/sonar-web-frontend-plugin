@@ -10,8 +10,8 @@ import org.sonar.api.SonarPlugin;
 import fr.sii.sonar.coverage.lcov.factory.LcovProviderFactory;
 import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
 import fr.sii.sonar.quality.core.StaticRuleProfile;
-import fr.sii.sonar.quality.core.factory.QualityReportProviderFactory;
-import fr.sii.sonar.quality.core.factory.QualityReportSaverFactory;
+import fr.sii.sonar.quality.core.factory.JsonQualityReportProviderFactory;
+import fr.sii.sonar.quality.core.factory.SimpleQualityReportSaverFactory;
 
 /**
  * This class is the entry point for all extensions
@@ -75,8 +75,8 @@ public final class JsPlugin extends SonarPlugin {
 		return Arrays.asList(
 				JsQualityConstants.class,
 				Js.class,
-				QualityReportProviderFactory.class,
-				QualityReportSaverFactory.class,
+				JsonQualityReportProviderFactory.class,
+				SimpleQualityReportSaverFactory.class,
 				JshintRuleRepository.class,
 				StaticRuleProfile.class,
 				JsQualitySensor.class,

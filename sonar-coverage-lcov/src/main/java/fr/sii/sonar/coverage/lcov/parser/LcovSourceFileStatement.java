@@ -1,6 +1,6 @@
 package fr.sii.sonar.coverage.lcov.parser;
 
-import fr.sii.sonar.coverage.lcov.domain.FileInfo;
+import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 
 /**
@@ -16,8 +16,8 @@ public class LcovSourceFileStatement implements LcovStatement {
 		return line.startsWith(SF);
 	}
 	
-	public FileInfo fill(LcovReport report, FileInfo current, String line) {
-		FileInfo file = new FileInfo(line.substring(SF.length()));
+	public FileCoverage fill(LcovReport report, FileCoverage current, String line) {
+		FileCoverage file = new FileCoverage(line.substring(SF.length()));
 		report.addFileInfo(file);
 		return file;
 	}

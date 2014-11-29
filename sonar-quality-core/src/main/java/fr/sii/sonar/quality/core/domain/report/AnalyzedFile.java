@@ -2,6 +2,18 @@ package fr.sii.sonar.quality.core.domain.report;
 
 import java.util.List;
 
+/**
+ * Provides information about file quality :
+ * <ul>
+ * <li>total number of lines</li>
+ * <li>number of lines of code</li>
+ * <li>number of lines of comment</li>
+ * <li>list of quality issues and their details</li>
+ * </ul>
+ * 
+ * @author aurelien
+ *
+ */
 public class AnalyzedFile extends LinesStat {
 
 	/**
