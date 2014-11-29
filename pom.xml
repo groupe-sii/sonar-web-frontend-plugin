@@ -20,10 +20,13 @@
 	</properties>
 
 	<modules>
-		<module>sonar-web-client-core</module>
+		<module>sonar-report-core</module>
+		<module>sonar-quality-core</module>
+		<module>sonar-coverage-core</module>
 		<module>sonar-web-client-css</module>
 		<module>sonar-web-client-html</module>
 		<module>sonar-web-client-js</module>
+		<module>sonar-coverage-lcov</module>
 	</modules>
 
 	<dependencies>

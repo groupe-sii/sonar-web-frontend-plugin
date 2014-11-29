@@ -13,12 +13,17 @@
 	<packaging>sonar-plugin</packaging>
 
 	<name>SII web client plugin :: JS</name>
-	<description>Enable analysis and reporting on Web client side projects</description>
+	<description>Enable analysis and reporting on Web client side projects (quality and coverage)</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-web-client-core</artifactId>
+			<artifactId>sonar-quality-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-coverage-lcov</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>

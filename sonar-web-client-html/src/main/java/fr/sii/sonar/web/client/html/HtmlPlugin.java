@@ -7,8 +7,10 @@ import org.sonar.api.Properties;
 import org.sonar.api.Property;
 import org.sonar.api.SonarPlugin;
 
-import fr.sii.sonar.web.client.core.ReportSensor;
-import fr.sii.sonar.web.client.core.WebClientRuleProfile;
+import fr.sii.sonar.quality.core.QualitySensor;
+import fr.sii.sonar.quality.core.StaticRuleProfile;
+import fr.sii.sonar.quality.core.factory.QualityReportProviderFactory;
+import fr.sii.sonar.quality.core.factory.QualityReportSaverFactory;
 
 /**
  * This class is the entry point for all extensions
@@ -29,6 +31,14 @@ import fr.sii.sonar.web.client.core.WebClientRuleProfile;
 		description = "The path to the report file to load", 
 		global = true, 
 		project = true
+	),
+	@Property(
+		key = Constants.FAIL_MISSING_FILE_KEY, 
+		defaultValue = Constants.FAIL_MISSING_FILE_DEFVALUE, 
+		name = "Fail on missing file", 
+		description = "True to stop analysis if a file is not found", 
+		global = true, 
+		project = true
 	)
 })
 public final class HtmlPlugin extends SonarPlugin {
@@ -40,9 +50,11 @@ public final class HtmlPlugin extends SonarPlugin {
 		return Arrays.asList(
 				Constants.class,
 				Html.class,
+				QualityReportProviderFactory.class,
+				QualityReportSaverFactory.class,
 				HtmlHintRuleRepository.class,
-				WebClientRuleProfile.class,
-				ReportSensor.class
+				StaticRuleProfile.class,
+				QualitySensor.class
 		);
 	}
 }

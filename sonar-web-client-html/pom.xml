@@ -18,7 +18,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-web-client-core</artifactId>
+			<artifactId>sonar-quality-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>

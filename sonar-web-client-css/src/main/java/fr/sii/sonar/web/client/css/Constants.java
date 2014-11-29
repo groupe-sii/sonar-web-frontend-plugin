@@ -1,13 +1,13 @@
 package fr.sii.sonar.web.client.css;
 
-import fr.sii.sonar.web.client.core.WebClientConstants;
+import fr.sii.sonar.quality.core.QualityConstants;
 
-public class Constants implements WebClientConstants {
-	public static final String REPORT_PATH_KEY = "sonar.sii.web.client.css.report.path";
-	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.web.client.css.file.missing.fail";
+public class Constants implements QualityConstants {
+	public static final String REPORT_PATH_KEY = "sonar.sii.quality.css.report.path";
+	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.css.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/csslint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
-	public static final String FILE_SUFFIXES_KEY = "sonar.sii.web.client.css.suffixes";
+	public static final String FILE_SUFFIXES_KEY = "sonar.sii.quality.css.suffixes";
 	public static final String FILE_SUFFIXES_DEFVALUE = ".css";
 	public static final String RULES_PATH = "/rules/csslint.json";
 	public static final String LANGUAGE_KEY = "css";

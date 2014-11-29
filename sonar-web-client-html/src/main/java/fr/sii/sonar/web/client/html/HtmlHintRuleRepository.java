@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.html;
 
-import fr.sii.sonar.web.client.core.repository.JsonFileRuleRepository;
+import fr.sii.sonar.report.core.repository.JsonFileRuleRepository;
 
 public class HtmlHintRuleRepository extends JsonFileRuleRepository {
 

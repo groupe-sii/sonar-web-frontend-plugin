@@ -1,0 +1,36 @@
+package fr.sii.sonar.coverage.lcov.parser;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import fr.sii.sonar.coverage.lcov.domain.FileInfo;
+import fr.sii.sonar.coverage.lcov.domain.LcovReport;
+
+/**
+ * At the end of a section, there is a summary about how many lines were found
+ * and how many were actually instrumented:
+ * 
+ * LH:<number of lines with a non-zero execution count>
+ * 
+ * @author aurelien
+ *
+ */
+public class LcovNumberExecutedLineStatement implements LcovStatement {
+	private static final String LH = "LH:";
+	private static final Pattern pattern = Pattern.compile(LH+"([0-9]+)");
+	
+	public boolean supports(String line) {
+		return line.startsWith(LH);
+	}
+
+	public FileInfo fill(LcovReport report, FileInfo current, String line) throws LcovParseException {
+		Matcher m = pattern.matcher(line);
+		if(m.matches()) {
+			current.getLines().setHit(Integer.valueOf(m.group(1)));
+		} else {
+			throw new LcovParseException("invalid "+LH+" entry");
+		}
+		return current;
+	}
+
+}

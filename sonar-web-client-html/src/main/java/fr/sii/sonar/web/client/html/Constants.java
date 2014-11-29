@@ -1,13 +1,13 @@
 package fr.sii.sonar.web.client.html;
 
-import fr.sii.sonar.web.client.core.WebClientConstants;
+import fr.sii.sonar.quality.core.QualityConstants;
 
-public class Constants implements WebClientConstants {
-	public static final String REPORT_PATH_KEY = "sonar.sii.web.client.html.report.path";
-	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.web.client.html.file.missing.fail";
+public class Constants implements QualityConstants {
+	public static final String REPORT_PATH_KEY = "sonar.sii.quality.html.report.path";
+	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.html.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/htmlhint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
-	public static final String FILE_SUFFIXES_KEY = "sonar.sii.web.client.html.suffixes";
+	public static final String FILE_SUFFIXES_KEY = "sonar.sii.quality.html.suffixes";
 	public static final String FILE_SUFFIXES_DEFVALUE = ".html";
 	public static final String RULES_PATH = "/rules/htmlhint.json";
 	public static final String LANGUAGE_KEY = "html";
