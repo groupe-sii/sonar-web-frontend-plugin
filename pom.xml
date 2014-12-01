@@ -22,11 +22,11 @@
 	<modules>
 		<module>sonar-report-core</module>
 		<module>sonar-quality-core</module>
-		<module>sonar-coverage-core</module>
+		<module>sonar-coverage-lcov</module>
+		<module>sonar-test-junit</module>
 		<module>sonar-web-client-css</module>
 		<module>sonar-web-client-html</module>
 		<module>sonar-web-client-js</module>
-		<module>sonar-coverage-lcov</module>
 		<module>sonar-web-client</module>
 	</modules>
 

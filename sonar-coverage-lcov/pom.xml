@@ -17,7 +17,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-coverage-core</artifactId>
+			<artifactId>sonar-report-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>

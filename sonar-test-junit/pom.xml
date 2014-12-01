@@ -9,10 +9,10 @@
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sonar-coverage-core</artifactId>
+	<artifactId>sonar-test-junit</artifactId>
 
-	<name>SII coverage plugin :: core</name>
-	<description>Base for coverage plugins that parse report file</description>
+	<name>SII test plugin :: JUnit</name>
+	<description>Plugin that parses JUnit xml report</description>
 
 	<dependencies>
 		<dependency>

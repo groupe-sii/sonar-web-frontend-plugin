@@ -13,6 +13,7 @@ import org.sonar.api.resources.File;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rule.RuleKey;
 
+import fr.sii.sonar.quality.core.QualityConstants;
 import fr.sii.sonar.quality.core.domain.report.AnalyzedFile;
 import fr.sii.sonar.quality.core.domain.report.Issue;
 import fr.sii.sonar.quality.core.domain.report.QualityReport;
@@ -113,13 +114,14 @@ public class SimpleQualityReportSaver implements Saver<QualityReport> {
 						.line(issue.getLine()==null ? null : issue.getLine().intValue())
 						.message(issue.getMessage());
 				// if rule is not registered in sonar => use the default one
-				if(pluginContext.getRuleFinder().findByKey(pluginContext.getConstants().getRepositoryKey(), issue.getRulekey())==null) {
+				String repositoryKey = ((QualityConstants) pluginContext.getConstants()).getRepositoryKey();
+				if(pluginContext.getRuleFinder().findByKey(repositoryKey, issue.getRulekey())==null) {
 					issueBuilder
-						.ruleKey(RuleKey.of(pluginContext.getConstants().getRepositoryKey(), "unknown-rule"))
+						.ruleKey(RuleKey.of(repositoryKey, "unknown-rule"))
 						.severity(issue.getSeverity().name());
 				} else {
 					issueBuilder
-						.ruleKey(RuleKey.of(pluginContext.getConstants().getRepositoryKey(), issue.getRulekey()));
+						.ruleKey(RuleKey.of(repositoryKey, issue.getRulekey()));
 				}
 				issuable.addIssue(issueBuilder.build());
 			}

@@ -24,16 +24,6 @@ public interface ReportConstants extends BatchExtension, ServerExtension {
 	public String getReportPathKey();
 
 	/**
-	 * The key of the repository
-	 */
-	public String getRepositoryKey();
-
-	/**
-	 * The name of the profile for rules
-	 */
-	public String getRulesProfileName();
-
-	/**
 	 * The language key
 	 */
 	public String getLanguageKey();

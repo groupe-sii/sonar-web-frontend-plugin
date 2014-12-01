@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import fr.sii.sonar.quality.core.domain.report.QualityReport;
 import fr.sii.sonar.quality.core.provider.JsonQualityReportProvider;
 import fr.sii.sonar.report.core.exception.CreateException;
+import fr.sii.sonar.report.core.factory.ProviderFactory;
 import fr.sii.sonar.report.core.provider.Provider;
 
 /**
@@ -15,7 +16,7 @@ import fr.sii.sonar.report.core.provider.Provider;
  * @author Aurélien Baudet
  *
  */
-public class JsonQualityReportProviderFactory implements QualityProviderFactory<QualityReport> {
+public class JsonQualityReportProviderFactory implements ProviderFactory<QualityReport> {
 
 	public Provider<QualityReport> create(File reportFile) throws CreateException {
 		try {

@@ -3,10 +3,10 @@ package fr.sii.sonar.coverage.lcov.factory;
 import java.io.File;
 import java.io.IOException;
 
-import fr.sii.sonar.coverage.core.factory.CoverageProviderFactory;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 import fr.sii.sonar.coverage.lcov.provider.LcovProvider;
 import fr.sii.sonar.report.core.exception.CreateException;
+import fr.sii.sonar.report.core.factory.ProviderFactory;
 import fr.sii.sonar.report.core.provider.Provider;
 
 /**
@@ -15,7 +15,7 @@ import fr.sii.sonar.report.core.provider.Provider;
  * @author Aurélien Baudet
  *
  */
-public class LcovProviderFactory implements CoverageProviderFactory<LcovReport> {
+public class LcovProviderFactory implements ProviderFactory<LcovReport> {
 
 	public Provider<LcovReport> create(File reportFile) throws CreateException {
 		try {

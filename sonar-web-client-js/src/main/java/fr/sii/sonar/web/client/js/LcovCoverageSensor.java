@@ -5,11 +5,11 @@ import org.sonar.api.config.Settings;
 import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
-import fr.sii.sonar.coverage.core.CoverageSensor;
-import fr.sii.sonar.coverage.core.factory.CoverageProviderFactory;
-import fr.sii.sonar.coverage.core.factory.CoverageSaverFactory;
 import fr.sii.sonar.coverage.lcov.factory.LcovProviderFactory;
 import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
+import fr.sii.sonar.report.core.ReportSensor;
+import fr.sii.sonar.report.core.factory.ProviderFactory;
+import fr.sii.sonar.report.core.factory.SaverFactory;
 
 /**
  * Sensor specific to JavaScript code coverage that loads LCOV report
@@ -17,12 +17,12 @@ import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
  * @author Aurélien Baudet
  *
  */
-public class LcovCoverageSensor extends CoverageSensor {
+public class LcovCoverageSensor extends ReportSensor {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public LcovCoverageSensor(LcovCoverageConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
 			LcovProviderFactory providerFactory, LcovSaverFactory saverFactory) {
-		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (CoverageProviderFactory) providerFactory, (CoverageSaverFactory) saverFactory);
+		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (ProviderFactory) providerFactory, (SaverFactory) saverFactory);
 	}
 
 }
