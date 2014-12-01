@@ -11,6 +11,7 @@ import org.sonar.api.config.Settings;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
+import org.sonar.api.utils.SonarException;
 
 import fr.sii.sonar.report.core.domain.report.Report;
 import fr.sii.sonar.report.core.exception.CreateException;
@@ -79,7 +80,7 @@ public abstract class ReportSensor implements Sensor {
 	 * 
 	 * @param project
 	 *            the sonar project
-	 * @return the reoprt file
+	 * @return the report file
 	 */
 	protected File getReportFile(Project project) {
 		return new File(pluginContext.getFilesystem().baseDir(), pluginContext.getSettings().getString(pluginContext.getConstants().getReportPathKey()));
@@ -91,15 +92,17 @@ public abstract class ReportSensor implements Sensor {
 	 * measures) into sonar
 	 */
 	public void analyse(Project project, SensorContext sensorContext) {
+		File reportFile = getReportFile(project);
 		try {
-			File reportFile = getReportFile(project);
 			Provider<Report> provider = providerFactory.create(reportFile);
 			Saver<Report> saver = saverFactory.create(pluginContext);
 			saver.save(provider.get(), project, sensorContext);
 		} catch (ProviderException e) {
 			LOG.error(e.getMessage());
+			throw new SonarException("Cannot parse report " + reportFile, e);
 		} catch (CreateException e) {
 			LOG.error(e.getMessage());
+			throw new SonarException("Cannot initialize provider or saver", e);
 		}
 	}
 
