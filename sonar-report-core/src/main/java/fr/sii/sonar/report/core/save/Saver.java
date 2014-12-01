@@ -8,7 +8,7 @@ import fr.sii.sonar.report.core.domain.report.Report;
 /**
  * Saves a report into sonar by converting the report into sonar measures
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @param <R>
  *            the type of the report to save

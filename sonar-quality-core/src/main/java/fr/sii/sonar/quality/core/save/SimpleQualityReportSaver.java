@@ -23,7 +23,7 @@ import fr.sii.sonar.report.core.save.Saver;
 /**
  * Saver that store quality measures in sonar based on the provided {@link QualityReport}.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class SimpleQualityReportSaver implements Saver<QualityReport> {

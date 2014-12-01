@@ -6,7 +6,7 @@ import fr.sii.sonar.report.core.factory.ProviderFactory;
 /**
  * Just a marker interface to help dependency injection
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public interface QualityProviderFactory<R extends Report> extends ProviderFactory<R> {

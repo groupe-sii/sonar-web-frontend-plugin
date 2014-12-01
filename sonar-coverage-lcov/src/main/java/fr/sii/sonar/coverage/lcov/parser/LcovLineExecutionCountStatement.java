@@ -18,7 +18,7 @@ import fr.sii.sonar.coverage.lcov.domain.LineCoverageDetail;
  * line. The current geninfo implementation uses an MD5 hash as checksumming
  * algorithm.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovLineExecutionCountStatement implements LcovStatement {

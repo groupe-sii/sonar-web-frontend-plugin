@@ -8,7 +8,7 @@ import fr.sii.sonar.coverage.lcov.parser.LcovLineExecutionCountStatement;
  * 
  * DA:<line number>,<execution count>[,<checksum>]
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  * 
  * @see LcovLineExecutionCountStatement
  *

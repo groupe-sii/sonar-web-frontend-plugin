@@ -6,7 +6,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 /**
  * SF:<absolute path to the source file>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovSourceFileStatement implements LcovStatement {

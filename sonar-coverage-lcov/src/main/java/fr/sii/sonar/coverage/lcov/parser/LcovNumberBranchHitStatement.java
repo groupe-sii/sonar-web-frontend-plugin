@@ -11,7 +11,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * BRH:<number of branches hit>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovNumberBranchHitStatement implements LcovStatement {

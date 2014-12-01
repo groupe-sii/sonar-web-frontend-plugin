@@ -14,7 +14,7 @@ import java.util.Map;
  * severity</li>
  * </ul>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class ProjectStat extends LinesStat {

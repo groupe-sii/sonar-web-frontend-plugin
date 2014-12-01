@@ -11,7 +11,7 @@ import fr.sii.sonar.coverage.lcov.parser.LcovFunctionNameStatement;
  * 
  * This class groups the two pieces of information.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  * @see LcovFunctionNameStatement
  * @see LcovFunctionExecutionCountStatement
  *

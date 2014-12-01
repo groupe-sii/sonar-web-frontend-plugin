@@ -12,7 +12,7 @@ import fr.sii.sonar.report.core.provider.Provider;
 /**
  * Generic interface for provider factory
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @param <R>
  *            the type of the generated report

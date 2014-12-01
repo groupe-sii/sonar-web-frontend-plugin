@@ -10,7 +10,7 @@ import fr.sii.sonar.report.core.save.Saver;
  * Factory that creates a {@link SimpleQualityReportSaver} with the provided sonar
  * context
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class SimpleQualityReportSaverFactory implements QualitySaverFactory<QualityReport> {

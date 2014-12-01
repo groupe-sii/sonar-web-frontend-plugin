@@ -7,7 +7,7 @@ import org.sonar.api.rules.Rule;
 /**
  * Just a marker interface to help dependency injection
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public interface StaticRuleRepository {

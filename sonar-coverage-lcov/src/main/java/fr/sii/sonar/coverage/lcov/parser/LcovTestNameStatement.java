@@ -10,7 +10,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * TN:<test name>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovTestNameStatement implements LcovStatement {

@@ -12,7 +12,7 @@ import fr.sii.sonar.report.core.provider.Provider;
 /**
  * Factory that creates instance of {@link LcovProvider} for the provided LCOV file
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovProviderFactory implements CoverageProviderFactory<LcovReport> {

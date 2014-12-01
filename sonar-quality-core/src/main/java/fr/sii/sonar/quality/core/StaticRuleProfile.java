@@ -13,7 +13,7 @@ import fr.sii.sonar.report.core.repository.StaticRuleRepository;
  * the profile (using profile name) and for the specified language. Profile name
  * and language are provided by the constants.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class StaticRuleProfile extends ProfileDefinition {

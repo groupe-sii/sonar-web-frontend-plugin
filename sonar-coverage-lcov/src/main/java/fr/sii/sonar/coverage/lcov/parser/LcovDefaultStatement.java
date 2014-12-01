@@ -10,7 +10,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * Default statement that just logs a warning. This can be useful if LCOV format
  * evolves or a line couldn't be parsed.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovDefaultStatement implements LcovStatement {

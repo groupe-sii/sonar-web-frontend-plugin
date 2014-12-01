@@ -12,7 +12,7 @@ import fr.sii.sonar.report.core.provider.JsonFileReportProvider;
 /**
  * Provider that parses a JSON file and generate a {@link QualityReport} instance
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  */
 public class JsonQualityReportProvider extends JsonFileReportProvider<QualityReport> {
 

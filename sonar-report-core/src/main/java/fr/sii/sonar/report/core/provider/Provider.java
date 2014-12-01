@@ -6,7 +6,7 @@ import fr.sii.sonar.report.core.exception.ProviderException;
 /**
  * A provider is an object that is able to generate a report
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @param <R>
  *            the type of the generated report

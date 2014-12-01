@@ -13,7 +13,7 @@ import org.sonar.api.ServerExtension;
  * and implementing one the interface for each plugin allows us to declare
  * constants (static final) with accessors available at runtime.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public interface ReportConstants extends BatchExtension, ServerExtension {

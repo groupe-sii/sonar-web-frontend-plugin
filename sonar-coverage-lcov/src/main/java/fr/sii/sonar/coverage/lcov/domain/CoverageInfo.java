@@ -23,7 +23,7 @@ import fr.sii.sonar.coverage.lcov.parser.LcovNumberInstrumentedLineStatement;
  * LH:<number of lines with a non-zero execution count>
  * LF:<number of instrumented lines>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @param <D>
  *            the type of the statement details

@@ -34,7 +34,7 @@ import fr.sii.sonar.report.core.save.Saver;
  * This sensor checks the existence of the report file on the file system to
  * indicate if the plugin should be executed or not on the provided project
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public abstract class ReportSensor implements Sensor {

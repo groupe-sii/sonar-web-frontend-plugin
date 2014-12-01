@@ -18,7 +18,7 @@ import fr.sii.sonar.report.core.provider.Provider;
 /**
  * A report provider that is specific to LCOV report
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovProvider implements Provider<LcovReport> {

@@ -2,7 +2,7 @@ package fr.sii.sonar.web.client.html;
 
 import fr.sii.sonar.quality.core.QualityConstants;
 
-public class Constants implements QualityConstants {
+public class HtmlConstants implements QualityConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.html.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.html.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/htmlhint.json";

@@ -14,7 +14,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * FN:<line number of function start>,<function name>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovFunctionNameStatement implements LcovStatement {

@@ -11,7 +11,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 /**
  * LCOV parser that delegates each line to a statement parser that is able to manage it.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovParser {

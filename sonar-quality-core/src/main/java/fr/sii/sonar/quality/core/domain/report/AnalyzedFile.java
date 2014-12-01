@@ -11,7 +11,7 @@ import java.util.List;
  * <li>list of quality issues and their details</li>
  * </ul>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class AnalyzedFile extends LinesStat {

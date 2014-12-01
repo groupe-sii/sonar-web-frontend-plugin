@@ -4,7 +4,7 @@ package fr.sii.sonar.coverage.lcov.saver;
  * A specific class useful for transforming raw LCOV detail into Sonar branch
  * coverage information
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class BranchCoverage {

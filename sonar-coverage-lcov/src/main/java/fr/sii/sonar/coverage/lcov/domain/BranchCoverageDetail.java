@@ -8,7 +8,7 @@ import fr.sii.sonar.coverage.lcov.parser.LcovBranchCoverageStatement;
  * 
  * BRDA:<line number>,<block number>,<branch number>,<taken>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  * @see LcovBranchCoverageStatement
  * 
  */

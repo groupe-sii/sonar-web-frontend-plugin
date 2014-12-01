@@ -12,7 +12,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * FNH:<number of function hit>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovNumberFunctionHitStatement implements LcovStatement {

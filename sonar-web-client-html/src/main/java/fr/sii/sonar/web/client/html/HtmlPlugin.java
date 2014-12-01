@@ -17,24 +17,24 @@ import fr.sii.sonar.quality.core.factory.SimpleQualityReportSaverFactory;
  */
 @Properties({
 	@Property(
-		key = Constants.FILE_SUFFIXES_KEY,
-		defaultValue = Constants.FILE_SUFFIXES_DEFVALUE,
+		key = HtmlConstants.FILE_SUFFIXES_KEY,
+		defaultValue = HtmlConstants.FILE_SUFFIXES_DEFVALUE,
 		name = "File suffixes for html files",
 		description = "Comma-separated list of suffixes for files to analyze.",
 		global = true,
 		project = true
 	),
 	@Property(
-		key = Constants.REPORT_PATH_KEY, 
-		defaultValue = Constants.REPORT_PATH_DEFVALUE, 
+		key = HtmlConstants.REPORT_PATH_KEY, 
+		defaultValue = HtmlConstants.REPORT_PATH_DEFVALUE, 
 		name = "Report path", 
 		description = "The path to the report file to load", 
 		global = true, 
 		project = true
 	),
 	@Property(
-		key = Constants.FAIL_MISSING_FILE_KEY, 
-		defaultValue = Constants.FAIL_MISSING_FILE_DEFVALUE, 
+		key = HtmlConstants.FAIL_MISSING_FILE_KEY, 
+		defaultValue = HtmlConstants.FAIL_MISSING_FILE_DEFVALUE, 
 		name = "Fail on missing file", 
 		description = "True to stop analysis if a file is not found", 
 		global = true, 
@@ -48,7 +48,7 @@ public final class HtmlPlugin extends SonarPlugin {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List getExtensions() {
 		return Arrays.asList(
-				Constants.class,
+				HtmlConstants.class,
 				Html.class,
 				JsonQualityReportProviderFactory.class,
 				SimpleQualityReportSaverFactory.class,

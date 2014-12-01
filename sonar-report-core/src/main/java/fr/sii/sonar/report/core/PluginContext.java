@@ -8,7 +8,7 @@ import org.sonar.api.scan.filesystem.ModuleFileSystem;
 /**
  * Class that just groups resources that are needed by sonar plugins.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class PluginContext {

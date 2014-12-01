@@ -33,7 +33,7 @@ import fr.sii.sonar.report.core.save.Saver;
  * That's why this saver must also loop through all source files and generate no
  * coverage for each source file that is not in the LCOV report.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovSaver implements Saver<LcovReport> {

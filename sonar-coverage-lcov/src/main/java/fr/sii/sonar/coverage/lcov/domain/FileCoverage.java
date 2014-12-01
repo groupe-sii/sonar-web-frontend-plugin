@@ -6,7 +6,7 @@ import fr.sii.sonar.coverage.lcov.parser.LcovSourceFileStatement;
  * LCOV provides information for each covered file.
  * It provides information about the functions, the lines and the code branches.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  * 
  * @see LcovSourceFileStatement
  *

@@ -11,7 +11,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * BRF:<number of branches found>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovNumberBranchFoundStatement implements LcovStatement {

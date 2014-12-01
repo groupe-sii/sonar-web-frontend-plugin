@@ -12,7 +12,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * LH:<number of lines with a non-zero execution count>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovNumberExecutedLineStatement implements LcovStatement {

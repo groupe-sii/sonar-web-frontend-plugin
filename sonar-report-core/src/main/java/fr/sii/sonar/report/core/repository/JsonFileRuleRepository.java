@@ -33,7 +33,7 @@ import fr.sii.sonar.report.core.exception.RuleException;
  * This repository also adds a default rule for managing all unknown rules that
  * will be provided by the report.
  *
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class JsonFileRuleRepository extends RuleRepository implements StaticRuleRepository {

@@ -16,7 +16,7 @@ import fr.sii.sonar.report.core.domain.report.Report;
  * <li>the covered code branches (numbers and details)</li>
  * </ul>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @see LcovTestNameStatement
  * @see LcovEndStatement

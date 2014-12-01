@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 /**
  * The issue severity
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public enum Severity {

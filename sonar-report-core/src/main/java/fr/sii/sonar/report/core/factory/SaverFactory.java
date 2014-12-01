@@ -11,7 +11,7 @@ import fr.sii.sonar.report.core.save.Saver;
 /**
  * Generic interface for saver factory
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @param <R>
  *            the type of the report that the saver will save

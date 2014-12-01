@@ -7,7 +7,7 @@ import fr.sii.sonar.report.core.domain.report.Report;
 /**
  * A quality report for a project and for a particular language
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class QualityReport extends ProjectStat implements Report {

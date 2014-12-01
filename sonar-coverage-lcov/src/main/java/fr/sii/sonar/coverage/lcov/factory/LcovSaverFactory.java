@@ -10,7 +10,7 @@ import fr.sii.sonar.report.core.save.Saver;
 /**
  * Factory that creates a LcovSaver instance with provided sonar context
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovSaverFactory implements CoverageSaverFactory<LcovReport> {

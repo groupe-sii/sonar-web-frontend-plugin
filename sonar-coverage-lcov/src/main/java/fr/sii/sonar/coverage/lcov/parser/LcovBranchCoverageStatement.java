@@ -17,7 +17,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * either ’-’ if the basic block containing the branch was never executed or a
  * number indicating how often that branch was taken.
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovBranchCoverageStatement implements LcovStatement {

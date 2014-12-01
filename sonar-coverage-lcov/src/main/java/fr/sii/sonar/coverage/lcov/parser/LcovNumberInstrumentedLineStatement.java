@@ -12,7 +12,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * LF:<number of instrumented lines>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovNumberInstrumentedLineStatement implements LcovStatement {

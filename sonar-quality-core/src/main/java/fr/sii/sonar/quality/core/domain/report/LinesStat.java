@@ -8,7 +8,7 @@ package fr.sii.sonar.quality.core.domain.report;
  * <li>number of lines of comment</li>
  * </ul>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LinesStat {

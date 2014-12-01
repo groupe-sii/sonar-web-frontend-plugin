@@ -14,7 +14,7 @@ import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
 /**
  * Sensor specific to JavaScript code coverage that loads LCOV report
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovCoverageSensor extends CoverageSensor {

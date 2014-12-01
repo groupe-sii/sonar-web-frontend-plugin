@@ -12,7 +12,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * FNF:<number of functions found>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovNumberFunctionFoundStatement implements LcovStatement {

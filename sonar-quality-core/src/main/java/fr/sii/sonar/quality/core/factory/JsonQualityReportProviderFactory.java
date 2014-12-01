@@ -12,7 +12,7 @@ import fr.sii.sonar.report.core.provider.Provider;
  * Factory that creates an instance of {@link JsonQualityReportProvider} for the
  * specified report
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class JsonQualityReportProviderFactory implements QualityProviderFactory<QualityReport> {

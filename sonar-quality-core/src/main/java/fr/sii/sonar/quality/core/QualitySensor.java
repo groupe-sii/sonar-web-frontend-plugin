@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.domain.report.Report;
  * Just an implementation that provide constructor with specific types for
  * helping dependency injection
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class QualitySensor extends ReportSensor {

@@ -13,7 +13,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * FNDA:<execution count>,<function name>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovFunctionExecutionCountStatement implements LcovStatement {

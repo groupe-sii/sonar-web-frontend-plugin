@@ -13,7 +13,7 @@ import java.util.Date;
  * <li>the date when the issue was detected</li>
  * </ul>
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class Issue {

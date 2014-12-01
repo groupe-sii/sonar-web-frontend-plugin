@@ -8,7 +8,7 @@ import fr.sii.sonar.coverage.lcov.domain.LcovReport;
  * 
  * end_of_record
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public class LcovEndStatement implements LcovStatement {

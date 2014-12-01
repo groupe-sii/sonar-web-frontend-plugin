@@ -5,7 +5,7 @@ import fr.sii.sonar.report.core.ReportConstants;
 /**
  * Just a marker interface to help dependency injection
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  */
 public interface CoverageConstants extends ReportConstants {

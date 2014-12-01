@@ -19,7 +19,7 @@ import fr.sii.sonar.report.core.exception.ProviderException;
 /**
  * Provider that parses a JSON file and generate an instance of the provided class
  * 
- * @author aurelien
+ * @author Aurélien Baudet
  *
  * @param <R> the type used for the structure of the parsed data
  */
