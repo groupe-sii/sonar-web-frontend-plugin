@@ -62,9 +62,13 @@ public abstract class ReportSensor implements Sensor {
 	public boolean shouldExecuteOnProject(Project project) {
 		try {
 			File reportFile = getReportFile(project);
-			return reportFile.exists();
+			boolean exists = reportFile.exists();
+			if(!exists) {
+				LOG.warn("The report file "+reportFile.getAbsolutePath()+" doesn't exist");
+			}
+			return exists;
 		} catch (Exception e) {
-			LOG.error("The report file doesn't exist => skip the sonar plugin", e.getMessage());
+			LOG.error("Failed to find report file "+e.getMessage());
 			return false;
 		}
 	}

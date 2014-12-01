@@ -2,6 +2,12 @@ package fr.sii.sonar.web.client.js;
 
 import fr.sii.sonar.report.core.repository.JsonFileRuleRepository;
 
+/**
+ * Repository for jshint rules
+ * 
+ * @author Aurélien Baudet
+ *
+ */
 public class JshintRuleRepository extends JsonFileRuleRepository {
 
 	public JshintRuleRepository() {

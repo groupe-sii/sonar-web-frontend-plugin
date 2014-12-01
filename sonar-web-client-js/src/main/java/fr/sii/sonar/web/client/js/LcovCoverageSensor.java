@@ -20,7 +20,7 @@ import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
 public class LcovCoverageSensor extends CoverageSensor {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public LcovCoverageSensor(JsCoverageConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
+	public LcovCoverageSensor(LcovCoverageConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
 			LcovProviderFactory providerFactory, LcovSaverFactory saverFactory) {
 		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (CoverageProviderFactory) providerFactory, (CoverageSaverFactory) saverFactory);
 	}

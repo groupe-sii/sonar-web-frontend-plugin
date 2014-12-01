@@ -3,85 +3,77 @@ package fr.sii.sonar.web.client.js;
 import java.util.Arrays;
 import java.util.List;
 
-import org.sonar.api.Properties;
-import org.sonar.api.Property;
+import org.sonar.api.CoreProperties;
 import org.sonar.api.SonarPlugin;
+import org.sonar.api.config.PropertyDefinition;
+import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.coverage.lcov.factory.LcovProviderFactory;
 import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
-import fr.sii.sonar.quality.core.StaticRuleProfile;
-import fr.sii.sonar.quality.core.factory.JsonQualityReportProviderFactory;
-import fr.sii.sonar.quality.core.factory.SimpleQualityReportSaverFactory;
 
 /**
  * This class is the entry point for all extensions
  */
-@Properties({
-	@Property(
-		key = JsQualityConstants.FILE_SUFFIXES_KEY,
-		defaultValue = JsQualityConstants.FILE_SUFFIXES_DEFVALUE,
-		name = "File suffixes for js files",
-		description = "Comma-separated list of suffixes for files to analyze.",
-		global = true,
-		project = true
-	),
-	@Property(
-		key = JsQualityConstants.REPORT_PATH_KEY, 
-		defaultValue = JsQualityConstants.REPORT_PATH_DEFVALUE, 
-		name = "Report path", 
-		description = "The path to the report file to load", 
-		global = true, 
-		project = true
-	),
-	@Property(
-		key = JsQualityConstants.FAIL_MISSING_FILE_KEY, 
-		defaultValue = JsQualityConstants.FAIL_MISSING_FILE_DEFVALUE, 
-		name = "Fail on missing file", 
-		description = "True to stop analysis if a file is not found", 
-		global = true, 
-		project = true
-	),
-	@Property(
-		key = JsCoverageConstants.FILE_SUFFIXES_KEY,
-		defaultValue = JsCoverageConstants.FILE_SUFFIXES_DEFVALUE,
-		name = "File suffixes for js files",
-		description = "Comma-separated list of suffixes for files to analyze.",
-		global = true,
-		project = true
-	),
-	@Property(
-		key = JsCoverageConstants.REPORT_PATH_KEY, 
-		defaultValue = JsCoverageConstants.REPORT_PATH_DEFVALUE, 
-		name = "Report path", 
-		description = "The path to the report file to load", 
-		global = true, 
-		project = true
-	),
-	@Property(
-		key = JsCoverageConstants.FAIL_MISSING_FILE_KEY, 
-		defaultValue = JsCoverageConstants.FAIL_MISSING_FILE_DEFVALUE, 
-		name = "Fail on missing file", 
-		description = "True to stop analysis if a file is not found", 
-		global = true, 
-		project = true
-	)
-})
 public final class JsPlugin extends SonarPlugin {
 
 
 	// This is where you're going to declare all your Sonar extensions
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes" })
 	public List getExtensions() {
 		return Arrays.asList(
-				JsQualityConstants.class,
+				PropertyDefinition.builder(JsQualityConstants.FILE_SUFFIXES_KEY)
+		            .defaultValue(JsQualityConstants.FILE_SUFFIXES_DEFVALUE)
+		            .category(CoreProperties.CATEGORY_GENERAL)
+		            .name("File suffixes for JavaScript files")
+		            .description("Comma-separated list of suffixes for files to analyze.")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(JsQualityConstants.REPORT_PATH_KEY)
+		            .defaultValue(JsQualityConstants.REPORT_PATH_DEFVALUE)
+		            .category(CoreProperties.CATEGORY_GENERAL)
+		            .name("JavaScript quality report path")
+		            .description("The path to the JavaScript report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(JsQualityConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(JsQualityConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(CoreProperties.CATEGORY_GENERAL)
+		            .name("Fail on missing file")
+		            .description("True to stop analysis if a file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+	            JsQualityConstants.class,
 				Js.class,
-				JsonQualityReportProviderFactory.class,
-				SimpleQualityReportSaverFactory.class,
+				JsQualityReportProviderFactory.class,
+				JsQualityReportSaverFactory.class,
 				JshintRuleRepository.class,
-				StaticRuleProfile.class,
+				JsRuleProfile.class,
 				JsQualitySensor.class,
 				
-				JsCoverageConstants.class,
+				PropertyDefinition.builder(LcovCoverageConstants.FILE_SUFFIXES_KEY)
+		            .defaultValue(LcovCoverageConstants.FILE_SUFFIXES_DEFVALUE)
+		            .category(CoreProperties.CATEGORY_GENERAL)
+		            .name("File suffixes for JavaScript files")
+		            .description("Comma-separated list of suffixes for files to analyze.")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(LcovCoverageConstants.REPORT_PATH_KEY)
+		            .defaultValue(LcovCoverageConstants.REPORT_PATH_DEFVALUE)
+		            .category(CoreProperties.CATEGORY_GENERAL)
+		            .name("JavaScript coverage report path")
+		            .description("The path to the JavaScript report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(LcovCoverageConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(LcovCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(CoreProperties.CATEGORY_GENERAL)
+		            .name("Fail on missing file")
+		            .description("True to stop analysis if a file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				LcovCoverageConstants.class,
 				LcovProviderFactory.class,
 				LcovSaverFactory.class,
 				LcovCoverageSensor.class

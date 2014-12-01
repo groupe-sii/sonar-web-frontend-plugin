@@ -9,7 +9,7 @@ public class Html extends AbstractLanguage {
 	private Settings settings;
 
 	public Html(Settings configuration) {
-		super(HtmlConstants.LANGUAGE_KEY, "HTML");
+		super(HtmlQualityConstants.LANGUAGE_KEY, "HTML");
 		this.settings = configuration;
 	}
 
@@ -18,9 +18,9 @@ public class Html extends AbstractLanguage {
 	}
 
 	public String[] getFileSuffixes() {
-		String[] suffixes = settings.getStringArray(HtmlConstants.FILE_SUFFIXES_KEY);
+		String[] suffixes = settings.getStringArray(HtmlQualityConstants.FILE_SUFFIXES_KEY);
 		if (suffixes == null || suffixes.length == 0) {
-			suffixes = StringUtils.split(HtmlConstants.FILE_SUFFIXES_DEFVALUE, ",");
+			suffixes = StringUtils.split(HtmlQualityConstants.FILE_SUFFIXES_DEFVALUE, ",");
 		}
 		return suffixes;
 	}

@@ -9,7 +9,7 @@ public class Css extends AbstractLanguage {
 	private Settings settings;
 
 	public Css(Settings configuration) {
-		super(CssConstants.LANGUAGE_KEY, "CSS");
+		super(CssQualityConstants.LANGUAGE_KEY, "CSS");
 		this.settings = configuration;
 	}
 
@@ -18,9 +18,9 @@ public class Css extends AbstractLanguage {
 	}
 
 	public String[] getFileSuffixes() {
-		String[] suffixes = settings.getStringArray(CssConstants.FILE_SUFFIXES_KEY);
+		String[] suffixes = settings.getStringArray(CssQualityConstants.FILE_SUFFIXES_KEY);
 		if (suffixes == null || suffixes.length == 0) {
-			suffixes = StringUtils.split(CssConstants.FILE_SUFFIXES_DEFVALUE, ",");
+			suffixes = StringUtils.split(CssQualityConstants.FILE_SUFFIXES_DEFVALUE, ",");
 		}
 		return suffixes;
 	}
