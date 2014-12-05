@@ -10,38 +10,17 @@ import fr.sii.sonar.report.core.domain.report.Report;
  * @author Aurélien Baudet
  *
  */
-public class QualityReport extends ProjectStat implements Report {
-
-	/**
-	 * The name of the project
-	 */
-	private String project;
+public class QualityReport implements Report {
 
 	/**
 	 * The absolute path to the project
 	 */
 	private String projectPath;
-
+	
 	/**
-	 * The language of the analysis
+	 * The list of analyzed files with quality statistics
 	 */
-	private String language;
-
-	public String getProject() {
-		return project;
-	}
-
-	public void setProject(String project) {
-		this.project = project;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
+	private List<AnalyzedFile> files;
 
 	public List<AnalyzedFile> getFiles() {
 		return files;

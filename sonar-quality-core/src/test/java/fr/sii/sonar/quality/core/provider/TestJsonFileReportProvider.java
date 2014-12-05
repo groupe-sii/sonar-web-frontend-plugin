@@ -12,11 +12,8 @@ public class TestJsonFileReportProvider {
 	@Test
 	public void css() throws ProviderException {
 		QualityReport report = new JsonQualityReportProvider(getClass().getResourceAsStream("/report/csslint.json")).get();
-		Assert.assertEquals("project should be CroixRouge", "CroixRouge", report.getProject());
-		Assert.assertEquals("language should be css", "css", report.getLanguage());
-		Assert.assertEquals("number of files should be 43", 43, report.getNbFiles());
+		Assert.assertEquals("project path should be /home/clegallo/.jenkins/workspace/CroixRouge/", "/home/clegallo/.jenkins/workspace/CroixRouge/", report.getProjectPath());
 		Assert.assertEquals("file list should contain 43 elements", 43, report.getFiles().size());
-		// TODO: assertions
 	}
 
 }
