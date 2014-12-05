@@ -5,9 +5,9 @@ import java.io.IOException;
 
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 import fr.sii.sonar.coverage.lcov.provider.LcovProvider;
-import fr.sii.sonar.report.core.exception.CreateException;
-import fr.sii.sonar.report.core.factory.ProviderFactory;
-import fr.sii.sonar.report.core.provider.Provider;
+import fr.sii.sonar.report.core.common.exception.CreateException;
+import fr.sii.sonar.report.core.common.factory.ProviderFactory;
+import fr.sii.sonar.report.core.common.provider.Provider;
 
 /**
  * Factory that creates instance of {@link LcovProvider} for the provided LCOV file

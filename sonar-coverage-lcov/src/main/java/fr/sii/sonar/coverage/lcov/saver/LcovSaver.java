@@ -22,9 +22,9 @@ import fr.sii.sonar.coverage.lcov.domain.BranchCoverageDetail;
 import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 import fr.sii.sonar.coverage.lcov.domain.LineCoverageDetail;
-import fr.sii.sonar.report.core.PluginContext;
-import fr.sii.sonar.report.core.exception.SaveException;
-import fr.sii.sonar.report.core.save.Saver;
+import fr.sii.sonar.report.core.common.PluginContext;
+import fr.sii.sonar.report.core.common.exception.SaveException;
+import fr.sii.sonar.report.core.common.save.Saver;
 
 /**
  * Specific LCOV saver that generates Sonar measures for code coverage from a

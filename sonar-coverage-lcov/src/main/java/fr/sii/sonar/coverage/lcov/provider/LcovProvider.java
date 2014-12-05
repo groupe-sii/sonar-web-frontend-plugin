@@ -12,8 +12,8 @@ import com.google.common.io.Closeables;
 
 import fr.sii.sonar.coverage.lcov.domain.LcovReport;
 import fr.sii.sonar.coverage.lcov.parser.LcovParser;
-import fr.sii.sonar.report.core.exception.ProviderException;
-import fr.sii.sonar.report.core.provider.Provider;
+import fr.sii.sonar.report.core.common.exception.ProviderException;
+import fr.sii.sonar.report.core.common.provider.Provider;
 
 /**
  * A report provider that is specific to LCOV report

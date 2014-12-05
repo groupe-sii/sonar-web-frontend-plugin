@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.js;
 
-import fr.sii.sonar.report.core.repository.JsonFileRuleRepository;
+import fr.sii.sonar.report.core.common.repository.JsonFileRuleRepository;
 
 /**
  * Repository for jshint rules

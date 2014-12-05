@@ -5,9 +5,9 @@ import org.sonar.api.config.Settings;
 import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
-import fr.sii.sonar.report.core.ReportSensor;
-import fr.sii.sonar.report.core.factory.ProviderFactory;
-import fr.sii.sonar.report.core.factory.SaverFactory;
+import fr.sii.sonar.report.core.common.ReportSensor;
+import fr.sii.sonar.report.core.common.factory.ProviderFactory;
+import fr.sii.sonar.report.core.common.factory.SaverFactory;
 
 /**
  * Just a specific implementation to help dependency injection

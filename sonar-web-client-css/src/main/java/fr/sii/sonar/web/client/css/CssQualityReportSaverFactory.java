@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.css;
 
-import fr.sii.sonar.quality.core.factory.SimpleQualityReportSaverFactory;
+import fr.sii.sonar.report.core.quality.factory.SimpleQualityReportSaverFactory;
 
 /**
  * Just a specific implementation to help dependency injection

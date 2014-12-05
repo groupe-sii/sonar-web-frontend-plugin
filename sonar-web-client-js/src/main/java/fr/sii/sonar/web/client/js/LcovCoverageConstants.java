@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.js;
 
-import fr.sii.sonar.report.core.ReportConstants;
+import fr.sii.sonar.report.core.common.ReportConstants;
 
 public class LcovCoverageConstants implements ReportConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.coverage.js.report.path";

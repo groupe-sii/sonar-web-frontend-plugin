@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.html;
 
-import fr.sii.sonar.quality.core.StaticRuleProfile;
+import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
 /**
  * Just a specific implementation to help dependency injection

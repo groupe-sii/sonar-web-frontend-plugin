@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.css;
 
-import fr.sii.sonar.report.core.repository.JsonFileRuleRepository;
+import fr.sii.sonar.report.core.common.repository.JsonFileRuleRepository;
 
 public class CsslintRuleRepository extends JsonFileRuleRepository {
 

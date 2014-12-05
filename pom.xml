@@ -21,7 +21,6 @@
 
 	<modules>
 		<module>sonar-report-core</module>
-		<module>sonar-quality-core</module>
 		<module>sonar-coverage-lcov</module>
 		<module>sonar-test-junit</module>
 		<module>sonar-web-client-css</module>

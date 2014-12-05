@@ -1,6 +1,6 @@
 package fr.sii.sonar.web.client.js;
 
-import fr.sii.sonar.quality.core.QualityConstants;
+import fr.sii.sonar.report.core.quality.QualityConstants;
 
 public class JsQualityConstants implements QualityConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.js.report.path";

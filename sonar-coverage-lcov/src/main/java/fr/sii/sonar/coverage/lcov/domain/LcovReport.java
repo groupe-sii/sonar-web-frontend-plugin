@@ -5,7 +5,7 @@ import java.util.List;
 
 import fr.sii.sonar.coverage.lcov.parser.LcovEndStatement;
 import fr.sii.sonar.coverage.lcov.parser.LcovTestNameStatement;
-import fr.sii.sonar.report.core.domain.report.Report;
+import fr.sii.sonar.report.core.common.domain.Report;
 
 /**
  * Provides an abstraction of the LCOV format. It contains all information about
