@@ -1,6 +1,6 @@
-package fr.sii.sonar.coverage.lcov.domain;
+package fr.sii.sonar.coverage.lcov.parser.domain;
 
-import fr.sii.sonar.coverage.lcov.parser.LcovBranchCoverageStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovBranchCoverageStatement;
 
 /**
  * LCOV unit branch information. It exactly corresponds to a BRDA line in the

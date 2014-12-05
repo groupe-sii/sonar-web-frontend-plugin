@@ -6,7 +6,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fr.sii.sonar.coverage.lcov.domain.LcovReport;
+import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 
 public class TestLcovParser {
 

@@ -1,11 +1,10 @@
-package fr.sii.sonar.coverage.lcov.domain;
+package fr.sii.sonar.coverage.lcov.parser.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.sii.sonar.coverage.lcov.parser.LcovEndStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovTestNameStatement;
-import fr.sii.sonar.report.core.common.domain.Report;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovEndStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovTestNameStatement;
 
 /**
  * Provides an abstraction of the LCOV format. It contains all information about
@@ -21,7 +20,7 @@ import fr.sii.sonar.report.core.common.domain.Report;
  * @see LcovTestNameStatement
  * @see LcovEndStatement
  */
-public class LcovReport implements Report {
+public class LcovReport {
 
 	/**
 	 * The name of the test (optional)

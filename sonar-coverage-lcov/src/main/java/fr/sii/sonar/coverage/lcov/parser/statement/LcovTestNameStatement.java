@@ -1,7 +1,7 @@
-package fr.sii.sonar.coverage.lcov.parser;
+package fr.sii.sonar.coverage.lcov.parser.statement;
 
-import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
-import fr.sii.sonar.coverage.lcov.domain.LcovReport;
+import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
+import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 
 /**
  * A tracefile is made up of several human-readable lines of text, divided into

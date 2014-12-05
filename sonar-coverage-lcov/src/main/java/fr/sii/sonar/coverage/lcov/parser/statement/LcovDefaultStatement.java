@@ -1,10 +1,11 @@
-package fr.sii.sonar.coverage.lcov.parser;
+package fr.sii.sonar.coverage.lcov.parser.statement;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
-import fr.sii.sonar.coverage.lcov.domain.LcovReport;
+import fr.sii.sonar.coverage.lcov.parser.LcovParseException;
+import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
+import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 
 /**
  * Default statement that just logs a warning. This can be useful if LCOV format

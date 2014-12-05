@@ -1,6 +1,6 @@
-package fr.sii.sonar.coverage.lcov.domain;
+package fr.sii.sonar.coverage.lcov.parser.domain;
 
-import fr.sii.sonar.coverage.lcov.parser.LcovSourceFileStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovSourceFileStatement;
 
 /**
  * LCOV provides information for each covered file.

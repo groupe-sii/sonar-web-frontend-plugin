@@ -1,12 +1,13 @@
-package fr.sii.sonar.coverage.lcov.parser;
+package fr.sii.sonar.coverage.lcov.parser.statement;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
-import fr.sii.sonar.coverage.lcov.domain.CoverageInfo;
-import fr.sii.sonar.coverage.lcov.domain.LcovReport;
-import fr.sii.sonar.coverage.lcov.domain.LineCoverageDetail;
+import fr.sii.sonar.coverage.lcov.parser.LcovParseException;
+import fr.sii.sonar.coverage.lcov.parser.domain.CoverageInfo;
+import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
+import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
+import fr.sii.sonar.coverage.lcov.parser.domain.LineCoverageDetail;
 
 /**
  * Then there is a list of execution counts for each instrumented line (i.e. a

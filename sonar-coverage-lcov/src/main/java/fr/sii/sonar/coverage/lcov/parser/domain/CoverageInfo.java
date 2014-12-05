@@ -1,14 +1,14 @@
-package fr.sii.sonar.coverage.lcov.domain;
+package fr.sii.sonar.coverage.lcov.parser.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.sii.sonar.coverage.lcov.parser.LcovNumberBranchFoundStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovNumberBranchHitStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovNumberExecutedLineStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovNumberFunctionFoundStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovNumberFunctionHitStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovNumberInstrumentedLineStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberBranchFoundStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberBranchHitStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberExecutedLineStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberFunctionFoundStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberFunctionHitStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberInstrumentedLineStatement;
 
 /**
  * Generic LCOV information that provides coverage information. Coverage

@@ -1,7 +1,7 @@
-package fr.sii.sonar.coverage.lcov.domain;
+package fr.sii.sonar.coverage.lcov.parser.domain;
 
-import fr.sii.sonar.coverage.lcov.parser.LcovFunctionExecutionCountStatement;
-import fr.sii.sonar.coverage.lcov.parser.LcovFunctionNameStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovFunctionExecutionCountStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovFunctionNameStatement;
 
 /**
  * LCOV format provides information about covered functions. The function detailed information are provided by two different lines in the LCOV report :

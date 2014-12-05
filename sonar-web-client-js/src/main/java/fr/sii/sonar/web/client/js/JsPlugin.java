@@ -9,7 +9,7 @@ import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.coverage.lcov.factory.LcovProviderFactory;
-import fr.sii.sonar.coverage.lcov.factory.LcovSaverFactory;
+import fr.sii.sonar.report.core.coverage.factory.CoverageSaverFactory;
 
 /**
  * This class is the entry point for all extensions
@@ -75,7 +75,7 @@ public final class JsPlugin extends SonarPlugin {
 
 				LcovCoverageConstants.class,
 				LcovProviderFactory.class,
-				LcovSaverFactory.class,
+				CoverageSaverFactory.class,
 				LcovCoverageSensor.class
 		);
 	}

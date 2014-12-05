@@ -1,6 +1,6 @@
-package fr.sii.sonar.coverage.lcov.domain;
+package fr.sii.sonar.coverage.lcov.parser.domain;
 
-import fr.sii.sonar.coverage.lcov.parser.LcovLineExecutionCountStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovLineExecutionCountStatement;
 
 /**
  * Provides detail information about the number of line execution. This is

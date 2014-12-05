@@ -5,8 +5,23 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.sii.sonar.coverage.lcov.domain.FileCoverage;
-import fr.sii.sonar.coverage.lcov.domain.LcovReport;
+import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
+import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovBranchCoverageStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovDefaultStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovEndStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovFunctionExecutionCountStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovFunctionNameStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovLineExecutionCountStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberBranchFoundStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberBranchHitStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberExecutedLineStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberFunctionFoundStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberFunctionHitStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberInstrumentedLineStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovSourceFileStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovStatement;
+import fr.sii.sonar.coverage.lcov.parser.statement.LcovTestNameStatement;
 
 /**
  * LCOV parser that delegates each line to a statement parser that is able to manage it.
