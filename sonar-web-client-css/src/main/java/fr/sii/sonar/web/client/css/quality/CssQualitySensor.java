@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.css;
+package fr.sii.sonar.web.client.css.quality;
 
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;

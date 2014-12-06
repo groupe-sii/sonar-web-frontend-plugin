@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.html;
+package fr.sii.sonar.web.client.js.quality;
 
 import fr.sii.sonar.report.core.quality.factory.JsonQualityReportProviderFactory;
 
@@ -8,6 +8,6 @@ import fr.sii.sonar.report.core.quality.factory.JsonQualityReportProviderFactory
  * @author Aurélien Baudet
  *
  */
-public class HtmlQualityReportProviderFactory extends JsonQualityReportProviderFactory {
+public class JsQualityReportProviderFactory extends JsonQualityReportProviderFactory {
 
 }

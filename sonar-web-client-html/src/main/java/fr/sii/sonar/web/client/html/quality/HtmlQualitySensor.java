@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.js;
+package fr.sii.sonar.web.client.html.quality;
 
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
@@ -15,11 +15,11 @@ import fr.sii.sonar.report.core.common.factory.SaverFactory;
  * @author Aurélien Baudet
  *
  */
-public class JsQualitySensor extends ReportSensor {
+public class HtmlQualitySensor extends ReportSensor {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public JsQualitySensor(JsQualityConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
-			JsQualityReportProviderFactory providerFactory, JsQualityReportSaverFactory saverFactory) {
+	public HtmlQualitySensor(HtmlQualityConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
+			HtmlQualityReportProviderFactory providerFactory, HtmlQualityReportSaverFactory saverFactory) {
 		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (ProviderFactory) providerFactory, (SaverFactory) saverFactory);
 	}
 

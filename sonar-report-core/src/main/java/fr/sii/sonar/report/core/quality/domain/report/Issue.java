@@ -8,6 +8,7 @@ package fr.sii.sonar.report.core.quality.domain.report;
  * <li>issue message</li>
  * <li>the associated rule</li>
  * <li>the issue severity</li>
+ * <li>the issue reporter</li>
  * </ul>
  * 
  * @author Aurélien Baudet
@@ -34,6 +35,11 @@ public class Issue {
 	 * The issue severity
 	 */
 	private Severity severity;
+	
+	/**
+	 * The issue reporter
+	 */
+	private String reporter;
 	
 	public Long getLine() {
 		return line;
@@ -65,5 +71,13 @@ public class Issue {
 
 	public void setSeverity(Severity severity) {
 		this.severity = severity;
+	}
+
+	public String getReporter() {
+		return reporter;
+	}
+
+	public void setReporter(String reporter) {
+		this.reporter = reporter;
 	}
 }

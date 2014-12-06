@@ -26,6 +26,11 @@
 			<artifactId>sonar-coverage-lcov</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-test-junit</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

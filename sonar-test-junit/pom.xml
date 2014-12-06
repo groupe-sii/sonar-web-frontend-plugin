@@ -20,9 +20,105 @@
 			<artifactId>sonar-report-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<plugins>
+			<!-- JAXB xjc plugin that invokes the xjc compiler to compile XML schema 
+				into Java classes. -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>junit1-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-1.0.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v1</packageName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>junit2-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-2.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v2</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>junit3-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-3.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v3</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>junit4-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-4.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v4</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>junit5-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-5.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v5</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>junit6-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-6.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v6</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>junit7-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>junit-7.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.test.junit.domain.v7</packageName>
+							<clearOutputDir>false</clearOutputDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>

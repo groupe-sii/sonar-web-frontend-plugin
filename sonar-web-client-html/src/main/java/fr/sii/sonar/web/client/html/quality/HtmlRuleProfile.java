@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.html;
+package fr.sii.sonar.web.client.html.quality;
 
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 

@@ -40,7 +40,7 @@ public class SimpleQualityReportSaver implements Saver<QualityReport> {
 	public void save(QualityReport report, Project project, SensorContext context) {
 		for(AnalyzedFile file : report.getFiles()) {
 			// get sonar source file from real file available on the system
-			File sonarFile = File.fromIOFile(getAnalyzedFilePath(report, file), project);
+			File sonarFile = getSourceFile(report, project, file);
 			if(sonarFile==null) {
 				LOG.error("The file "+getAnalyzedFilePath(report, file)+" doesn't exist. No analysis will be generated for this file");
 				if(pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
@@ -59,6 +59,26 @@ public class SimpleQualityReportSaver implements Saver<QualityReport> {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Get the sonar file from either absolute path or relative path to source
+	 * directories
+	 * 
+	 * @param report
+	 *            the quality report
+	 * @param project
+	 *            the project under plugin execution
+	 * @param file
+	 *            the report file information that contains path
+	 * @return the sonar file
+	 */
+	private File getSourceFile(QualityReport report, Project project, AnalyzedFile file) {
+		File sourceFile = File.fromIOFile(getAnalyzedFilePath(report, file), project);
+		if(sourceFile==null) {
+			sourceFile = File.fromIOFile(new java.io.File(file.getPath()), pluginContext.getFilesystem().sourceDirs());
+		}
+		return sourceFile;
 	}
 
 	/**
@@ -112,6 +132,7 @@ public class SimpleQualityReportSaver implements Saver<QualityReport> {
 			if (issuable != null) {
 				IssueBuilder issueBuilder = issuable.newIssueBuilder()
 						.line(issue.getLine()==null ? null : issue.getLine().intValue())
+						.reporter(issue.getReporter())
 						.message(issue.getMessage());
 				// if rule is not registered in sonar => use the default one
 				String repositoryKey = ((QualityConstants) pluginContext.getConstants()).getRepositoryKey();

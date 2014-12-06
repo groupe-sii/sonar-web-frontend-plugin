@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.css;
+package fr.sii.sonar.web.client.css.quality;
 
 import fr.sii.sonar.report.core.quality.factory.JsonQualityReportProviderFactory;
 

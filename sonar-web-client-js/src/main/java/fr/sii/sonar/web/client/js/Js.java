@@ -9,7 +9,7 @@ public class Js extends AbstractLanguage {
 	private Settings settings;
 
 	public Js(Settings configuration) {
-		super(LcovCoverageConstants.LANGUAGE_KEY, "JS");
+		super(JsConstants.LANGUAGE_KEY, "JS");
 		this.settings = configuration;
 	}
 
@@ -18,9 +18,9 @@ public class Js extends AbstractLanguage {
 	}
 
 	public String[] getFileSuffixes() {
-		String[] suffixes = settings.getStringArray(LcovCoverageConstants.FILE_SUFFIXES_KEY);
+		String[] suffixes = settings.getStringArray(JsConstants.FILE_SUFFIXES_KEY);
 		if (suffixes == null || suffixes.length == 0) {
-			suffixes = StringUtils.split(LcovCoverageConstants.FILE_SUFFIXES_DEFVALUE, ",");
+			suffixes = StringUtils.split(JsConstants.FILE_SUFFIXES_DEFVALUE, ",");
 		}
 		return suffixes;
 	}

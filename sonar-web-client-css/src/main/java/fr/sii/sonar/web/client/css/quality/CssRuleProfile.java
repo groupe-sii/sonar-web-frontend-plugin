@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.js;
+package fr.sii.sonar.web.client.css.quality;
 
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
@@ -8,9 +8,9 @@ import fr.sii.sonar.report.core.quality.StaticRuleProfile;
  * @author Aurélien Baudet
  *
  */
-public class JsRuleProfile extends StaticRuleProfile {
+public class CssRuleProfile extends StaticRuleProfile {
 
-	public JsRuleProfile(JshintRuleRepository repository, JsQualityConstants constants) {
+	public CssRuleProfile(CsslintRuleRepository repository, CssQualityConstants constants) {
 		super(repository, constants);
 	}
 

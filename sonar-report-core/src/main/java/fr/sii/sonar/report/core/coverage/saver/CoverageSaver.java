@@ -100,7 +100,7 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 */
 	protected void saveCoverage(Project project, SensorContext context, CoverageReport report, FileCoverage file) {
 		// try to load the sonar file from real file system
-		File sonarFile = File.fromIOFile(getAnalyzedFilePath(report, file), project);
+		File sonarFile = getSourceFile(project, report, file);
 		if (sonarFile == null) {
 			LOG.error("The file " + getAnalyzedFilePath(report, file) + " doesn't exist. No coverage will be generated for this file");
 			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
@@ -152,6 +152,26 @@ public class CoverageSaver implements Saver<CoverageReport> {
 			context.saveMeasure(resource, CoreMetrics.LINES_TO_COVER, ncloc.getValue());
 			context.saveMeasure(resource, CoreMetrics.UNCOVERED_LINES, ncloc.getValue());
 		}
+	}
+
+	/**
+	 * Get the sonar file from either absolute path or relative path to source
+	 * directories
+	 * 
+	 * @param report
+	 *            the quality report
+	 * @param project
+	 *            the project under plugin execution
+	 * @param file
+	 *            the report file information that contains path
+	 * @return the sonar file
+	 */
+	private File getSourceFile(Project project, CoverageReport report, FileCoverage file) {
+		File sourceFile = File.fromIOFile(getAnalyzedFilePath(report, file), project);
+		if(sourceFile==null) {
+			sourceFile = File.fromIOFile(new java.io.File(file.getPath()), pluginContext.getFilesystem().sourceDirs());
+		}
+		return sourceFile;
 	}
 
 	/**

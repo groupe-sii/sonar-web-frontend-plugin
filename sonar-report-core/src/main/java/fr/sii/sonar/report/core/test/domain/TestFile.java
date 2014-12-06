@@ -1,5 +1,6 @@
 package fr.sii.sonar.report.core.test.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,14 +26,14 @@ public class TestFile {
 	 * The global statistics for all the included test cases
 	 */
 	private TestStats stats;
-
+	
 	/**
 	 * The list of test cases
 	 */
 	private List<TestCase> testCases;
 
 	public TestFile(String path, TestStats stats, TestCase... testCases) {
-		this(path, stats, Arrays.asList(testCases));
+		this(path, stats, new ArrayList<TestCase>(Arrays.asList(testCases)));
 	}
 
 	public TestFile(String path, TestStats stats, List<TestCase> testCases) {

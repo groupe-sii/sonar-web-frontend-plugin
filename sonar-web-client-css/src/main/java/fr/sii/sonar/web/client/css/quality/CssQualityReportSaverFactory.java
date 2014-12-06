@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.js;
+package fr.sii.sonar.web.client.css.quality;
 
 import fr.sii.sonar.report.core.quality.factory.SimpleQualityReportSaverFactory;
 
@@ -8,6 +8,6 @@ import fr.sii.sonar.report.core.quality.factory.SimpleQualityReportSaverFactory;
  * @author Aurélien Baudet
  *
  */
-public class JsQualityReportSaverFactory extends SimpleQualityReportSaverFactory {
+public class CssQualityReportSaverFactory extends SimpleQualityReportSaverFactory {
 
 }

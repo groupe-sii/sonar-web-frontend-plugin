@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.js;
+package fr.sii.sonar.web.client.js.quality;
 
 import fr.sii.sonar.report.core.common.repository.JsonFileRuleRepository;
 

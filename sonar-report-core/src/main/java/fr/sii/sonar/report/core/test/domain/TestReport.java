@@ -1,5 +1,6 @@
 package fr.sii.sonar.report.core.test.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,13 +24,31 @@ public class TestReport implements Report {
 	 */
 	private List<TestFile> files;
 
+	/**
+	 * The type of the test (unit or integration)
+	 */
+	private Type type;
+
 	public TestReport(TestFile... files) {
-		this(Arrays.asList(files));
+		this(null, files);
+	}
+	
+	public TestReport(List<TestFile> files) {
+		this(null, files);
+	}
+	
+	public TestReport(Type type, TestFile... files) {
+		this(type, new ArrayList<TestFile>(Arrays.asList(files)));
 	}
 
-	public TestReport(List<TestFile> files) {
+	public TestReport(Type type, List<TestFile> files) {
 		super();
+		this.type = type;
 		this.files = files;
+	}
+
+	public Type getType() {
+		return type;
 	}
 
 	public List<TestFile> getFiles() {
