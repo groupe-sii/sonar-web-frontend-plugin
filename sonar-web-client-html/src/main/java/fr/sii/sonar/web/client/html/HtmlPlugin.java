@@ -25,8 +25,8 @@ public final class HtmlPlugin extends SonarPlugin {
 	public List getExtensions() {
 		return Arrays.asList(
 				// General configuration
-				PropertyDefinition.builder(HtmlQualityConstants.FILE_SUFFIXES_KEY)
-		            .defaultValue(HtmlQualityConstants.FILE_SUFFIXES_DEFVALUE)
+				PropertyDefinition.builder(HtmlConstants.FILE_SUFFIXES_KEY)
+		            .defaultValue(HtmlConstants.FILE_SUFFIXES_DEFVALUE)
 		            .category(HtmlConstants.CATEGORY)
 		            .subCategory(HtmlConstants.SUB_CATEGORY)
 		            .name("File suffixes for HTML files")

@@ -12,6 +12,7 @@ public class HtmlQualityConstants extends HtmlConstants implements QualityConsta
 	public static final String REPOSITORY_NAME = "SII Web client - HTML";
 	public static final String REPOSITORY_KEY = "htmlhint";
 	public static final String RULES_PROFILE_NAME = REPOSITORY_KEY;
+	public static final String SUB_CATEGORY = "Quality";
 	
 	public String getReportPathKey() {
 		return REPORT_PATH_KEY;
