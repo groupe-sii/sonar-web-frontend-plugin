@@ -1,0 +1,16 @@
+<testsuites>
+	<testsuite name="PhantomJS 1.9.8 (Linux)" package=""
+		timestamp="2014-12-02T13:03:50" id="0" hostname="IC-Front-End" tests="1"
+		errors="0" failures="0" time="0.178">
+		<properties>
+			<property name="browser.fullName"
+				value="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34" />
+		</properties>
+		<testcase name="should instantiate rg" time="0.178"
+			classname="test/spec/services/taskService.js" />
+		<system-out>
+<![CDATA[ ]]>
+		</system-out>
+		<system-err />
+	</testsuite>
+</testsuites>
