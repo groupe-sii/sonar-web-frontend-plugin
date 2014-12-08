@@ -8,6 +8,7 @@ import org.sonar.api.SonarPlugin;
 import fr.sii.sonar.web.client.css.CssPlugin;
 import fr.sii.sonar.web.client.html.HtmlPlugin;
 import fr.sii.sonar.web.client.js.JsPlugin;
+import fr.sii.sonar.web.client.widget.MultiLanguageIssuesWidget;
 
 /**
  * This class is the entry point for all extensions. Combine {@link JsPlugin}, {@link CssPlugin} and {@link HtmlPlugin}
@@ -21,6 +22,7 @@ public final class FrontPlugin extends SonarPlugin {
 		List extensions = new ArrayList(new JsPlugin().getExtensions());
 		extensions.addAll(new CssPlugin().getExtensions());
 		extensions.addAll(new HtmlPlugin().getExtensions());
+		extensions.add(MultiLanguageIssuesWidget.class);
 		return extensions;
 	}
 	
