@@ -30,8 +30,6 @@ import fr.sii.sonar.report.core.common.exception.RuleException;
  * <li>rule description</li>
  * <li>rule severity</li>
  * </ul>
- * This repository also adds a default rule for managing all unknown rules that
- * will be provided by the report.
  *
  * @author Aurélien Baudet
  *
@@ -41,12 +39,13 @@ public class JsonFileRuleRepository extends RuleRepository implements StaticRule
 
 	private JsonNode root;
 
-	public JsonFileRuleRepository(String key, String language, File jsonFile) throws IOException {
-		this(key, language, new FileInputStream(jsonFile));
+	public JsonFileRuleRepository(String key, String language, String name, File jsonFile) throws IOException {
+		this(key, language, name, new FileInputStream(jsonFile));
 	}
 
-	public JsonFileRuleRepository(String key, String language, InputStream stream) {
+	public JsonFileRuleRepository(String key, String language, String name, InputStream stream) {
 		super(key, language);
+		setName(name);
 		parse(stream);
 	}
 
@@ -80,8 +79,6 @@ public class JsonFileRuleRepository extends RuleRepository implements StaticRule
 			newRule.setSeverity(getStringValue(rule, "severity") == null ? null : RulePriority.valueOf(getStringValue(rule, "severity").toUpperCase()));
 			rules.add(newRule);
 		}
-		// add default rule
-		rules.add(Rule.create(getKey(), "unknown-rule", "Unknown rule").setDescription("All other rules"));
 		return rules;
 	}
 

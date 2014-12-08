@@ -1,6 +1,7 @@
 package fr.sii.sonar.web.client.js.quality;
 
 import fr.sii.sonar.report.core.common.repository.JsonFileRuleRepository;
+import fr.sii.sonar.report.core.common.repository.WithDefaultRuleRepository;
 
 /**
  * Repository for jshint rules
@@ -8,11 +9,10 @@ import fr.sii.sonar.report.core.common.repository.JsonFileRuleRepository;
  * @author Aurélien Baudet
  *
  */
-public class JshintRuleRepository extends JsonFileRuleRepository {
+public class JshintRuleRepository extends WithDefaultRuleRepository {
 
 	public JshintRuleRepository() {
-		super(JsQualityConstants.REPOSITORY_KEY, JsQualityConstants.LANGUAGE_KEY, JshintRuleRepository.class.getResourceAsStream(JsQualityConstants.RULES_PATH));
-		setName(JsQualityConstants.REPOSITORY_NAME);
+		super(new JsonFileRuleRepository(JsQualityConstants.REPOSITORY_KEY, JsQualityConstants.LANGUAGE_KEY, JsQualityConstants.REPOSITORY_NAME, JshintRuleRepository.class.getResourceAsStream(JsQualityConstants.RULES_PATH)));
 	}
 
 }
