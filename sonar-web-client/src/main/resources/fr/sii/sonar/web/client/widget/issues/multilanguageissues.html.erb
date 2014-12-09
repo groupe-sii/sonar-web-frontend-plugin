@@ -69,6 +69,18 @@
 		z-index: 1;
 		background: #fff;
 	}
+	
+	/* override for sonar < 4.5 */
+	#issues-by-language .widget-label {
+		font-size: 13px;
+	}
+	#issues-by-language .link-rules-issues {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	#issues-by-language table {
+		font-size: 12px;
+	}
 </style>
 <div class="" id="issues-by-language">
    <ul>
@@ -85,12 +97,12 @@
          <div class="widget-span widget-span-6">
           <div class="widget-measure-container">
            <div class="widget-measure widget-measure-main">
-		    <span class="widget-label">Issues for <%= language.upcase -%></span>
-		    <span class="nowrap">
+		    <div class="widget-label">Issues for <%= language.upcase -%></div>
+		    <div class="nowrap">
 		     <span class="link-rules-issues">
 		      <%= link_to issues_by_lang_total[language], {:controller => 'issues', :action => 'search', :anchor => all_severities_params.map{|k,v| "#{k}=#{v}"}.join('|') }, :class => 'widget-link' -%>
 		     </span>
-		    </span>
+		    </div>
 		   </div>
 		  </div>
 		 </div>

@@ -11,11 +11,6 @@ import fr.sii.sonar.report.core.common.domain.Report;
  *
  */
 public class QualityReport implements Report {
-
-	/**
-	 * The absolute path to the project
-	 */
-	private String projectPath;
 	
 	/**
 	 * The list of analyzed files with quality statistics
@@ -28,13 +23,5 @@ public class QualityReport implements Report {
 
 	public void setFiles(List<AnalyzedFile> files) {
 		this.files = files;
-	}
-
-	public String getProjectPath() {
-		return projectPath;
-	}
-
-	public void setProjectPath(String projectPath) {
-		this.projectPath = projectPath;
 	}
 }

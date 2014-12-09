@@ -1,7 +1,6 @@
 package fr.sii.sonar.report.core.test.save;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -20,6 +19,7 @@ import com.google.common.collect.Lists;
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.SaveException;
 import fr.sii.sonar.report.core.common.save.Saver;
+import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.test.TestConstants;
 import fr.sii.sonar.report.core.test.domain.TestCase;
 import fr.sii.sonar.report.core.test.domain.TestFile;
@@ -185,12 +185,7 @@ public class TestSaver implements Saver<TestReport> {
 	 * @return the sonar source file
 	 */
 	private File getTestFile(TestFile testFile) {
-		java.io.File file = new java.io.File(testFile.getPath());
-		File sourceFile = File.fromIOFile(file, pluginContext.getFilesystem().testDirs());
-		if(sourceFile==null) {
-			sourceFile = File.fromIOFile(file, pluginContext.getFilesystem().sourceDirs());
-		}
-		return sourceFile;
+		return FileUtil.getSonarFile(testFile.getPath(), FileUtil.getTestAndSrcParents(pluginContext.getFilesystem()));
 	}
 
 	/**
@@ -202,17 +197,7 @@ public class TestSaver implements Saver<TestReport> {
 	 * @return the java file if found, null if not found
 	 */
 	private java.io.File getFile(TestFile testFile) {
-		List<java.io.File> dirs = new ArrayList<java.io.File>();
-		dirs.add(pluginContext.getFilesystem().baseDir());
-		dirs.addAll(pluginContext.getFilesystem().testDirs());
-		dirs.addAll(pluginContext.getFilesystem().sourceDirs());
-		for(java.io.File testDir : dirs) {
-			java.io.File file = new java.io.File(testDir, testFile.getPath());
-			if(file.exists()) {
-				return file;
-			}
-		}
-		return null;
+		return FileUtil.getSystemFile(testFile.getPath(), FileUtil.getTestAndSrcParents(pluginContext.getFilesystem()));
 	}
 
 

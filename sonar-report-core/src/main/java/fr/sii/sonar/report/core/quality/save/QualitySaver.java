@@ -16,6 +16,7 @@ import org.sonar.api.rule.RuleKey;
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.SaveException;
 import fr.sii.sonar.report.core.common.save.Saver;
+import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.quality.QualityConstants;
 import fr.sii.sonar.report.core.quality.domain.report.AnalyzedFile;
 import fr.sii.sonar.report.core.quality.domain.report.Issue;
@@ -27,12 +28,12 @@ import fr.sii.sonar.report.core.quality.domain.report.QualityReport;
  * @author Aurélien Baudet
  *
  */
-public class SimpleQualityReportSaver implements Saver<QualityReport> {
-	private static final Logger LOG = LoggerFactory.getLogger(SimpleQualityReportSaver.class);
+public class QualitySaver implements Saver<QualityReport> {
+	private static final Logger LOG = LoggerFactory.getLogger(QualitySaver.class);
 
 	private final PluginContext pluginContext;
 
-	public SimpleQualityReportSaver(PluginContext pluginContext) {
+	public QualitySaver(PluginContext pluginContext) {
 		super();
 		this.pluginContext = pluginContext;
 	}
@@ -74,11 +75,7 @@ public class SimpleQualityReportSaver implements Saver<QualityReport> {
 	 * @return the sonar file
 	 */
 	private File getSourceFile(QualityReport report, Project project, AnalyzedFile file) {
-		File sourceFile = File.fromIOFile(getAnalyzedFilePath(report, file), project);
-		if(sourceFile==null) {
-			sourceFile = File.fromIOFile(new java.io.File(file.getPath()), pluginContext.getFilesystem().sourceDirs());
-		}
-		return sourceFile;
+		return FileUtil.getSonarFile(file.getPath(), pluginContext.getFilesystem());
 	}
 
 	/**
@@ -91,8 +88,7 @@ public class SimpleQualityReportSaver implements Saver<QualityReport> {
 	 * @return the sonar file
 	 */
 	private java.io.File getAnalyzedFilePath(QualityReport report, AnalyzedFile file) {
-		java.io.File f = new java.io.File(pluginContext.getFilesystem().baseDir(), file.getPath());
-		return f.exists() ? f : new java.io.File(report.getProjectPath(), file.getPath());
+		return FileUtil.getSystemFile(file.getPath(), pluginContext.getFilesystem());
 	}
 
 	/**

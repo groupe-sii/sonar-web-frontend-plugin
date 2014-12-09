@@ -17,6 +17,7 @@ import org.sonar.api.scan.filesystem.FileQuery;
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.SaveException;
 import fr.sii.sonar.report.core.common.save.Saver;
+import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.coverage.domain.CoverageReport;
 import fr.sii.sonar.report.core.coverage.domain.FileCoverage;
 import fr.sii.sonar.report.core.coverage.domain.LineCoverage;
@@ -167,11 +168,7 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 * @return the sonar file
 	 */
 	private File getSourceFile(Project project, CoverageReport report, FileCoverage file) {
-		File sourceFile = File.fromIOFile(getAnalyzedFilePath(report, file), project);
-		if(sourceFile==null) {
-			sourceFile = File.fromIOFile(new java.io.File(file.getPath()), pluginContext.getFilesystem().sourceDirs());
-		}
-		return sourceFile;
+		return FileUtil.getSonarFile(file.getPath(), pluginContext.getFilesystem());
 	}
 
 	/**
@@ -185,8 +182,7 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 * @return the real path to the file
 	 */
 	private java.io.File getAnalyzedFilePath(CoverageReport report, FileCoverage file) {
-		java.io.File f = new java.io.File(pluginContext.getFilesystem().baseDir(), file.getPath());
-		return f.exists() ? f : new java.io.File(file.getPath());
+		return FileUtil.getSystemFile(file.getPath(), pluginContext.getFilesystem());
 	}
 
 }
