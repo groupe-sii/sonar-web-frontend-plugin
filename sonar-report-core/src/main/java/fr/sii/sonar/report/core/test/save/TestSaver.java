@@ -17,7 +17,6 @@ import org.sonar.api.utils.ParsingUtils;
 import com.google.common.collect.Lists;
 
 import fr.sii.sonar.report.core.common.PluginContext;
-import fr.sii.sonar.report.core.common.exception.SaveException;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.test.TestConstants;
@@ -54,12 +53,7 @@ public class TestSaver implements Saver<TestReport> {
 		for(TestFile testFile : report.getFiles()) {
 			// get sonar source file
 			File sourceFile = getTestFile(testFile);
-			if(sourceFile==null) {
-				LOG.error("The file "+testFile.getPath()+" doesn't exist. No test result will be generated for this test file");
-				if(pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
-					throw new SaveException("The file "+testFile.getPath()+" doesn't exist");
-				}
-			} else {
+			if(FileUtil.checkMissing(pluginContext, sourceFile, testFile.getPath(), "No test result will be generated for this test file")) {
 				// save general measures for the test file
 				saveGlobalStats(context, testFile, sourceFile);
 				// save each test case information

@@ -3,8 +3,13 @@ package fr.sii.sonar.report.core.common.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.sonar.api.resources.File;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
+
+import fr.sii.sonar.report.core.common.PluginContext;
+import fr.sii.sonar.report.core.common.exception.SaveException;
 
 /**
  * Utility that helps to find a file either into Sonar system abstraction or
@@ -14,6 +19,8 @@ import org.sonar.api.scan.filesystem.ModuleFileSystem;
  *
  */
 public class FileUtil {
+	private static final Logger LOG = LoggerFactory.getLogger(FileUtil.class);
+
 	/**
 	 * Get the list of directories for base, sources and tests.
 	 * 
@@ -132,4 +139,37 @@ public class FileUtil {
 		return getSystemFile(path, getSrcAndTestParents(fileSystem));
 	}
 
+	/**
+	 * Helper function that checks if the sonar file exists. If the file doesn't
+	 * exist, and if the configuration value for missing file is true, then an
+	 * exception is thrown. If the file doesn't exist and if the configuration
+	 * value for missing file is false, then an log is written to indicate that
+	 * the file is missing.
+	 * 
+	 * @param pluginContext
+	 *            The plugin context used to get the configuration value
+	 * @param sonarFile
+	 *            The sonar file (may be null)
+	 * @param path
+	 *            The path to the real file on the system (may point to a file
+	 *            that doesn't exist)
+	 * @param message
+	 *            An additional message to add in the log
+	 * @throws SaveException
+	 *             when the file is missing and the plugin is configured to fail
+	 * @return true if the file exists, false if the file doesn't exist and the
+	 *         plugin is configured to not fail
+	 */
+	public static boolean checkMissing(PluginContext pluginContext, File sonarFile, String path, String message) throws SaveException {
+		if (sonarFile == null) {
+			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
+				throw new SaveException("The file " + path + " doesn't exist");
+			} else {
+				LOG.warn("The file " + path + " doesn't exist. " + message);
+			}
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

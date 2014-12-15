@@ -14,7 +14,6 @@ import org.sonar.api.resources.Project;
 import org.sonar.api.rule.RuleKey;
 
 import fr.sii.sonar.report.core.common.PluginContext;
-import fr.sii.sonar.report.core.common.exception.SaveException;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.quality.QualityConstants;
@@ -42,12 +41,7 @@ public class QualitySaver implements Saver<QualityReport> {
 		for(AnalyzedFile file : report.getFiles()) {
 			// get sonar source file from real file available on the system
 			File sonarFile = getSourceFile(report, project, file);
-			if(sonarFile==null) {
-				LOG.error("The file "+getAnalyzedFilePath(report, file)+" doesn't exist. No analysis will be generated for this file");
-				if(pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
-					throw new SaveException("The file "+getAnalyzedFilePath(report, file)+" doesn't exist");
-				}
-			} else {
+			if(FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file).getAbsolutePath(), "No analysis will be generated for this file")) {
 				// save file metrics
 				saveFileAnalysis(context, file, sonarFile);
 				// save file issues

@@ -15,7 +15,6 @@ import org.sonar.api.resources.Project;
 import org.sonar.api.scan.filesystem.FileQuery;
 
 import fr.sii.sonar.report.core.common.PluginContext;
-import fr.sii.sonar.report.core.common.exception.SaveException;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.coverage.domain.CoverageReport;
@@ -102,12 +101,7 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	protected void saveCoverage(Project project, SensorContext context, CoverageReport report, FileCoverage file) {
 		// try to load the sonar file from real file system
 		File sonarFile = getSourceFile(project, report, file);
-		if (sonarFile == null) {
-			LOG.error("The file " + getAnalyzedFilePath(report, file) + " doesn't exist. No coverage will be generated for this file");
-			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
-				throw new SaveException("The file " + getAnalyzedFilePath(report, file) + " doesn't exist");
-			}
-		} else {
+		if (FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file).getAbsolutePath(), "No coverage will be generated for this file")) {
 			CoverageMeasuresBuilder result = CoverageMeasuresBuilder.create();
 			for (LineCoverage line : file.getLines()) {
 				// generate line coverage measure
