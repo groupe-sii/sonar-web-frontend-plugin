@@ -1,10 +1,16 @@
 <%
+   languages = widget_properties["languages"].split(/,\s*/)
+   hideEmpty = widget_properties["hide empty tabs"]
+   
+   
    issues = @snapshot.measure('violations')
    blocker_issues = @snapshot.measure('blocker_violations')
    critical_issues = @snapshot.measure('critical_violations')
    major_issues = @snapshot.measure('major_violations')
    minor_issues = @snapshot.measure('minor_violations')
    info_issues = @snapshot.measure('info_violations')
+   
+   severities = ['blocker', 'critical', 'major', 'minor', 'info']
    
    values = [blocker_issues, critical_issues, major_issues, minor_issues, info_issues]
    if dashboard_configuration.selected_period?
@@ -18,12 +24,13 @@
 
    severity_by_lang_count = Hash.new(0)
    issues_by_lang_total = Hash.new(0)
+   filtered_languages = []
      
-   ['js', 'css', 'html'].each do |language|
+   languages.each do |language|
   	  severity_by_lang_count[language] = Hash.new(0)
           
       # generate map that counts issues by severity
-      ['blocker', 'critical', 'major', 'minor', 'info'].each do |severity|
+      severities.each do |severity|
           # load first page with only one result. The total number of elements will be provided
 	      severity_by_lang_count[language][severity] = Api.issues.find({
 	          'languages' => language,
@@ -36,6 +43,10 @@
 	      # count total issues for one language
 	      issues_by_lang_total[language] += severity_by_lang_count[language][severity]
 	  end
+      
+      if !hideEmpty || issues_by_lang_total[language]>0
+      	filtered_languages << language
+      end
    end
 %>
 
@@ -84,13 +95,13 @@
 </style>
 <div class="" id="issues-by-language">
    <ul>
- 		<% ['js', 'css', 'html'].each do |language| %>
+ 		<% filtered_languages.each do |language| %>
  	   		<li><a href="#<%=language.downcase-%>-issues"><span class="widget-label"><%= language.upcase -%> (<%= issues_by_lang_total[language] -%>)</span></a>
  	   	<% end %>
    </ul>
    
    <%
-      ['js', 'css', 'html'].each do |language|
+      filtered_languages.each do |language|
           all_severities_params = {:componentRoots => @project.key, :resolved => false, :languages => language, :sort => 'SEVERITY', :asc => false}
    %>
         <div class="widget-span" id="<%=language.downcase-%>-issues">
@@ -111,7 +122,7 @@
 	    
 	    
 	    
-	    	<% ['blocker', 'critical', 'major', 'minor', 'info'].each do |severity| %>
+	    	<% severities.each do |severity| %>
 	    		<%
 	    		   issues_count = severity_by_lang_count[language][severity]
 	    		   severity_params = {:componentRoots => @project.key, :severities => severity.upcase, :resolved => false, :languages => language}

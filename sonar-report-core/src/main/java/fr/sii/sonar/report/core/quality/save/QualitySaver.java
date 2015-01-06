@@ -41,7 +41,7 @@ public class QualitySaver implements Saver<QualityReport> {
 		for(AnalyzedFile file : report.getFiles()) {
 			// get sonar source file from real file available on the system
 			File sonarFile = getSourceFile(report, project, file);
-			if(FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file).getAbsolutePath(), "No analysis will be generated for this file")) {
+			if(FileUtil.checkMissing(pluginContext, sonarFile, file.getPath(), "No analysis will be generated for this file")) {
 				// save file metrics
 				saveFileAnalysis(context, file, sonarFile);
 				// save file issues

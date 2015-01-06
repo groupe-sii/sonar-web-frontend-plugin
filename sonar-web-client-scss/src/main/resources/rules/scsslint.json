@@ -1,0 +1,226 @@
+[{
+	"key": "BangFormat",
+	"name": "Bang format",
+	"description": "Position of space with !important",
+	"severity": "INFO"
+}, {
+	"key": "BorderZero",
+	"name": "border: none vs border: 0",
+	"description": "When using \"border: none\", the size of the border is still applied. If you want to remove completely the border, use \"border: 0\"",
+	"severity": "MINOR"
+}, {
+	"key": "ColorKeyword",
+	"name": "Don't use color keywords",
+	"description": "Don't use color keywords (white, red, black...).",
+	"severity": "INFO"
+}, {
+	"key": "Comment",
+	"name": "Use single line comment instead of multi-line comment",
+	"description": "Single line comment is removed from generated CSS while multi-line comment is still present in generated CSS",
+	"severity": "MINOR"
+}, {
+	"key": "DebugStatement",
+	"name": "Remove @debug statement",
+	"description": "Remove @debug statement",
+	"severity": "MAJOR"
+}, {
+	"key": "DeclarationOrder",
+	"name": "Declaration order of properties, nested rules, @extend, @include, pseudo-elements and chained selectors",
+	"description": "The properties should be before nested rules. \"@extend\" and \"@include\" should be before any other property. \"@include\" with \"@content\" should be after other properties but before nested rules. Pseudo-element and chained selector should appear after property and before nested rules",
+	"severity": "MAJOR"
+}, {
+	"key": "DuplicateProperty",
+	"name": "Remove duplicate properties",
+	"description": "Remove duplicate properties",
+	"severity": "CRITICAL"
+}, {
+	"key": "ElsePlacement",
+	"name": "\"@else\" should be on same line as previous curly brace",
+	"description": "\"@else\" should be on same line as previous curly brace",
+	"severity": "MINOR"
+}, {
+	"key": "EmptyLineBetweenBlocks",
+	"name": "Use empty lines between blocks",
+	"description": "Use empty lines between blocks",
+	"severity": "MINOR"
+}, {
+	"key": "EmptyRule",
+	"name": "Remove empty rules",
+	"description": "Remove empty rules",
+	"severity": "CRITICAL"
+}, {
+	"key": "FinalNewline",
+	"name": "The file should end with a new line",
+	"description": "The file should end with a new line",
+	"severity": "INFO"
+}, {
+	"key": "HexLength",
+	"name": "Use the short version of hexadecimal color",
+	"description": "Use the short version of hexadecimal color",
+	"severity": "INFO"
+}, {
+	"key": "HexNotation",
+	"name": "Use lower case for hexadecimal colors",
+	"description": "Use lower case for hexadecimal colors",
+	"severity": "MINOR"
+}, {
+	"key": "HexValidation",
+	"name": "Invalid hexadecimal color value",
+	"description": "Invalid hexadecimal color value",
+	"severity": "MAJOR"
+}, {
+	"key": "IdSelector",
+	"name": "Avoid use of ID selector",
+	"description": "Avoid use of ID selector",
+	"severity": "MAJOR"
+}, {
+	"key": "ImportPath",
+	"name": "\"@import\" should contain neither leading underscore nor extension",
+	"description": "\"@import\" should contain neither leading underscore nor extension",
+	"severity": "MAJOR"
+}, {
+	"key": "Indentation",
+	"name": "Use correct indentation",
+	"description": "Use correct indentation",
+	"severity": "MINOR"
+}, {
+	"key": "LeadingZero",
+	"name": "Remove unnecessary leading 0",
+	"description": "Remove unnecessary leading 0",
+	"severity": "MINOR"
+}, {
+	"key": "MergeableSelector",
+	"name": "Merge selectors that are identical",
+	"description": "Merge selectors that are identical",
+	"severity": "MAJOR"
+}, {
+	"key": "NameFormat",
+	"name": "Names should use \"-\"",
+	"description": "Names of variables, functions, mixins should use \"-\" instead of \"_\" or camel case",
+	"severity": "MAJOR"
+}, {
+	"key": "NestingDepth",
+	"name": "Avoid too much nesting selectors",
+	"description": "If there are 5 nesting selectors, this will generate 5 selectors separated by spaces in the generated CSS. This will lead to performance issues",
+	"severity": "CRITICAL"
+}, {
+	"key": "PlaceholderInExtend",
+	"name": "Should only extend rules with placeholder",
+	"description": "Should only extend rules with placeholder",
+	"severity": "MAJOR"
+}, {
+	"key": "PropertySortOrder",
+	"name": "Properties declaration order is not conformed with selected profile",
+	"description": "Properties declaration order is not conformed with selected profile",
+	"severity": "INFO"
+}, {
+	"key": "PropertySpelling",
+	"name": "Property is misspelled",
+	"description": "Property is misspelled",
+	"severity": "INFO"
+}, {
+	"key": "QualifyingElement",
+	"name": "Avoid use of element and other selector",
+	"description": "Avoid use of element and other selector",
+	"severity": "MINOR"
+}, {
+	"key": "SelectorDepth",
+	"name": "Avoid too much depth for selectors",
+	"description": "Avoid too much depth for selectors",
+	"severity": "CRITICAL"
+}, {
+	"key": "SelectorFormat",
+	"name": "Selector name convention is not conform with selected profile",
+	"description": "Selector name convention is not conform with selected profile (hyphenated_lowercase, BEM, snake_case, camel_case, regex pattern)",
+	"severity": "MAJOR"
+}, {
+	"key": "Shorthand",
+	"name": "Use shorthand value when possible",
+	"description": "Use shorthand value when possible",
+	"severity": "MAJOR"
+}, {
+	"key": "SingleLinePerProperty",
+	"name": "Use one line per property",
+	"description": "Use one line per property",
+	"severity": "MAJOR"
+}, {
+	"key": "SingleLinePerSelector",
+	"name": "Use one line per selector",
+	"description": "Use one line per selector",
+	"severity": "MAJOR"
+}, {
+	"key": "SpaceAfterComma",
+	"name": "Use a space after comma",
+	"description": "Use a space after comma",
+	"severity": "MINOR"
+}, {
+	"key": "SpaceAfterPropertyColon",
+	"name": "Use a space after property colon \":\"",
+	"description": "Use a space after property colon \":\"",
+	"severity": "MINOR"
+}, {
+	"key": "SpaceAfterPropertyName",
+	"name": "Do not use space before property colon \":\"",
+	"description": "Do not use space before property colon \":\"",
+	"severity": "MINOR"
+}, {
+	"key": "SpaceBeforeBrace",
+	"name": "Use one space before curly braces",
+	"description": "Use one space before curly braces",
+	"severity": "MINOR"
+}, {
+	"key": "SpaceBetweenParens",
+	"name": "Do not use spaces between parenthesis",
+	"description": "Do not use spaces between parenthesis",
+	"severity": "MINOR"
+}, {
+	"key": "StringQuotes",
+	"name": "Use the right quotes",
+	"description": "Use the right quotes",
+	"severity": "MINOR"
+}, {
+	"key": "TrailingSemicolon",
+	"name": "Statement should end with one \";\"",
+	"description": "Property value, @import, @extend, @include statements should end with one semicolon",
+	"severity": "MAJOR"
+}, {
+	"key": "TrailingZero",
+	"name": "Remove unnecessary trailing 0",
+	"description": "Remove unnecessary trailing 0",
+	"severity": "MAJOR"
+}, {
+	"key": "UnnecessaryMantissa",
+	"name": "Remove unnecessary fraction",
+	"description": "Remove unnecessary fraction. For example \"top: 1.0em;\" should be \"top: 1em;\"",
+	"severity": "MINOR"
+}, {
+	"key": "UnnecessaryParentReference",
+	"name": "Remove unnecessary parent reference",
+	"description": "Remove unnecessary parent reference (&)",
+	"severity": "MAJOR"
+}, {
+	"key": "UrlFormat",
+	"name": "Wrong URL format",
+	"description": "An URL should be relative (not absolute and without protocol)",
+	"severity": "MAJOR"
+}, {
+	"key": "UrlQuotes",
+	"name": "Use either single quotes or double quotes for URL",
+	"description": "Use either single quotes or double quotes for URL",
+	"severity": "MAJOR"
+}, {
+	"key": "VendorPrefixes",
+	"name": "Vendor specific prefixes",
+	"description": "Don't use vendor specific when it is not needed on properties, property values, selectors or directives",
+	"severity": "MAJOR"
+}, {
+	"key": "ZeroUnit",
+	"name": "Zero value should not have unit",
+	"description": "Zero value should not have unit",
+	"severity": "MAJOR"
+}, {
+	"key": "Compass::PropertyWithMixin",
+	"name": "Use predefined mixins instead of properties when using Compass",
+	"description": "Use predefined mixins instead of properties when using Compass (\"@include inline-block\" instead of \"display: inline-block\", \"@include border-radius(5px)\" instead of \"border-radius: 5px\", ...)",
+	"severity": "MAJOR"
+}]
