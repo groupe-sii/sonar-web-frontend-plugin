@@ -1,0 +1,83 @@
+<p>The box model is one of the most frequently misunderstood parts of CSS. "Box model" refers to the series of boxes that make up an element visually. This starts with the content, which is the inner-most box. Content is surrounded by padding, which in turn is surrounded by borders. The way these measurements interact, however, is a bit confusing. Consider the following:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>A new developer might assume that the width of an element with the <code>mybox</code> class would be 100 pixels. In fact, the width is 112 pixels because <code>width</code> refers to the content box and padding and borders are added on top of that. Frequently when developers include this combination of properties, it is an error because they are expecting different behavior.</p>
+
+<p>You can force most browsers to obey <code>width</code> and <code>height</code> as the full size of an element by using the <code>box-sizing</code> property and setting it to <code>border-box</code>, as in this example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">box-sizing</span></span>: border-box;
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>Now an element with a class of <code>mybox</code> will have an actual width of 100 pixels, and the padding and borders will exist inside of that area, leaving 88 pixels for content instead of 100 pixels. </p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>box-model</code></p>
+
+<p>This rule is aimed at eliminating unwanted box model sizing issues. As such, the rule warns when it finds:</p>
+
+<ol class="task-list">
+<li>
+<code>width</code> being used with <code>border</code>, <code>border-left</code>, <code>border-right</code>, <code>padding</code>, <code>padding-left</code>, or <code>padding-right</code>
+</li>
+<li>
+<code>height</code> being used with <code>border</code>, <code>border-top</code>, <code>border-bottom</code>, <code>padding</code>, <code>padding-top</code>, or <code>padding-bottom</code>
+</li>
+</ol>
+
+<p>If the <code>box-sizing</code> property is specified, then the rule does not emit any warnings for the above conditions as it assumes you know what you're doing.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c">/* width and border */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-c">/* height and padding */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">height</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* width and border with box-sizing */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">box-sizing</span></span>: border-box;
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-c">/* width and border-top */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border-top</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-c">/* height and border-top of none */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border-top</span></span>: <span class="pl-sc">none</span>;
+    <span class="pl-mp"><span class="pl-s3">height</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}
+</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://css-tricks.com/2841-the-css-box-model/">The CSS Box Model</a></li>
+<li><a href="http://blog.simonwillison.net/post/58225400497/theboxmodel">Understanding the Box Model</a></li>
+</ul>
