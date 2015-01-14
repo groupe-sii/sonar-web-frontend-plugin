@@ -1,0 +1,47 @@
+      <p>For years, developers have treated IDs as the way to say "that thing!" However, IDs have a downside: they are completely unique and therefore cannot be reused. You could potentially style every element on your page with an ID selector but you would lose a lot of the benefit of CSS in the process. </p>
+
+<p>One of CSS's benefits is the ability to reuse style rules in multiple places. When you start out with an ID selector, you're automatically limiting that style to a single element. Suppose you have this:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">#header</span> <span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">black</span>;
+}</pre></div>
+
+<p>This style is only useful within the element with the ID of <code>header</code>. But now suppose that you want another section of the page to be styled the same way, you'll probably end up defining a new class that does the same thing, such as:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">#header</span> <span class="pl-ent">a</span>,
+<span class="pl-e">.callout</span> <span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">black</span>;
+}</pre></div>
+
+<p>Once you've gotten to this point, you might as well just use the class and not mention the ID:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.callout</span> <span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">black</span>;
+}</pre></div>
+
+<p>Eventually you will end up needing or wanting to reuse the style specified with the ID, and you'll end up defining a class for that purpose. By not using IDs from the start, you allow for the maximum level of reusability with your CSS.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>ids</code></p>
+
+<p>This rule is aimed at improving maintainability by flagging the use of IDs in selectors. Every instance of an ID will result in a warning.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">#mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">block</span>;
+}
+
+<span class="pl-e">.mybox</span> <span class="pl-e">#go</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-additional-reading" class="anchor" href="#additional-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://oli.jp/2011/ids/">Don't use IDs in CSS selectors?</a></li>
+<li><a href="http://screwlewse.com/2010/07/dont-use-id-selectors-in-css/">Don't use ID selectors in CSS</a></li>
+</ul>

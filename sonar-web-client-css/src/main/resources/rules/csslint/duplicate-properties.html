@@ -1,0 +1,52 @@
+      <p>Early on in web development, including the same CSS property twice was certainly an error, especially if there were two different values. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>mybox</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">width</span></span><span class="pl-mp1">: <span class="pl-cn">100<span class="pl-kou">px</span></span>;</span>
+    <span class="pl-mp"><span class="pl-stp">width</span></span><span class="pl-mp1">: <span class="pl-cn">120<span class="pl-kou">px</span></span>;</span>
+}</pre></div>
+
+<p>Anyone looking at this code would think that this is clearly an error. Recently, however, including duplicate properties is used as a way to deal with varying levels of browser support for CSS properties. For example, some browsers support RGBA color while others do not, so it's quite common to see patterns such as:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>mybox</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">background</span></span><span class="pl-mp1">: <span class="pl-coc"><span class="pl-pdc1">#</span>fff</span>;</span>
+    <span class="pl-mp"><span class="pl-stp">background</span></span><span class="pl-mp1">: <span class="pl-sf">rgba</span>(<span class="pl-coc">255, 255, 255, 0.5</span>);</span>
+}</pre></div>
+
+<p>This is quite clearly intentional. The developer wants to use RGBA when available but wants to fall back to a regular color when not available. </p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>duplicate-properties</code></p>
+
+<p>This rule is intended to find errors of duplication in CSS code. It warns when:</p>
+
+<ol class="task-list">
+<li>A property is included twice and contains the same value.</li>
+<li>A property is included twice and is separated by at least one other property.</li>
+</ol>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c"><span class="pl-pdc">/*</span> properties with the same value <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>mybox</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> black;</span>
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> black;</span>
+}
+
+<span class="pl-c"><span class="pl-pdc">/*</span> properties separated by another property <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>mybox</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> black;</span>
+    <span class="pl-mp"><span class="pl-stp">color</span></span><span class="pl-mp1">: green;</span>
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> red;</span>
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause a warning:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c"><span class="pl-pdc">/*</span> one after another with different values <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>mybox</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> black;</span>
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> red;</span>
+}</pre></div>

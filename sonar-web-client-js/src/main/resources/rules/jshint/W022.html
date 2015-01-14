@@ -1,0 +1,57 @@
+<h3 id="when-do-i-get-this-error-">When do I get this error?</h3>
+<p>The "Do not assign to the exception parameter" error is thrown when JSLint,
+JSHint or ESLint encounters <strong>an assignment inside a <code>catch</code> block to the
+identifer associated with that block</strong>. In the following example we attempt to
+assign a new value to the exception parameter <code>e</code>:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 421px; min-height: 145px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div style="" class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-keyword">try</span> {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span>    <span class="cm-comment">// Some code that might throw an exception</span></span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">3</div></div><pre class=""><span>    <span class="cm-keyword">throw</span> <span class="cm-keyword">new</span> <span class="cm-variable">Error</span>();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">4</div></div><pre class=""><span>} <span class="cm-keyword">catch</span> (<span class="cm-def">e</span>) {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">5</div></div><pre class=""><span>    <span class="cm-variable-2">e</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">6</div></div><pre class=""><span>}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">7</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 145px;"></div><div style="height: 145px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint error"><span class="linter">JSLint</span>&nbsp;<span class="result">found 1 error</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2013-03-28</span></div><div class="result"><table class="table errors"><tbody><tr><td class="line">Line 5:</td><td class="msg">Do not assign to the exception parameter.</td></tr></tbody></table></div></div><iframe></iframe></div>
+<p>In April 2013 the message given by JSLint in this situation changed from "Do not
+assign to the exception parameter" to the more generic "Read only", which is
+given in numerous other scenarios. As of August 2013 this functionality is no
+longer present in JSLint. It remains in JSHint and ESLint as explained above.</p>
+<h3 id="why-do-i-get-this-error-">Why do I get this error?</h3>
+<p>This error is raised to highlight a <strong>lack of convention</strong>. The obvious issue
+with assigning something to an exception parameter is that you lose access to
+the value passed to the catch block completely. There is nothing like the
+arguments object that will allow you to get back a reference to it. This could
+be confusing to other developers maintaining your code in the future.</p>
+<p>In JSHint 1.0.0 and above you have the ability to ignore any warning with a
+<a href="http://jshint.com/docs/#options">special option syntax</a>. The identifier of this warning is <strong>W022</strong>.
+This means you can tell JSHint to not issue this warning with the <code>/*jshint
+-W022 */</code> directive.</p>
+<h4 id="a-note-regarding-the-exception-parameter">A note regarding the exception parameter</h4>
+<p>According to the ECMAScript specification, a catch block has its own lexical
+environment, which is created upon entering the block. The lexical environment
+maintains a reference to the lexical environment from which it was entered,
+which means you have access to variables defined in outer scopes. The lexical
+environment created when entering the catch block gets a binding between the
+identifier and the exception value passed to the block (<a href="http://es5.github.com/#x12.14">ES5
+§12.14</a>):</p>
+<blockquote>
+<p>The production <em>Catch</em> : <code>catch (</code> <em>Identifier</em> <code>)</code> <em>Block</em> is evaluated as
+follows:</p>
+<ol>
+<li>Let <em>C</em> be the parameter that has been passed to this production.</li>
+<li>Let <em>oldEnv</em> be the running execution context’s LexicalEnvironment.</li>
+<li>Let <em>catchEnv</em> be the result of calling NewDeclarativeEnvironment passing
+<em>oldEnv</em> as the argument.</li>
+<li>Call the CreateMutableBinding concrete method of <em>catchEnv</em> passing the
+<em>Identifier</em> String value as the argument.</li>
+<li>Call the SetMutableBinding concrete method of <em>catchEnv</em> passing the
+<em>Identifier</em>, <em>C</em>, and false as arguments...</li>
+<li>Set the running execution context’s LexicalEnvironment to <em>catchEnv</em>.</li>
+<li>Let <em>B</em> be the result of evaluating <em>Block</em>.</li>
+<li>Set the running execution context’s LexicalEnvironment to <em>oldEnv</em>.</li>
+<li>Return <em>B</em>.</li>
+</ol>
+<p><strong>NOTE</strong> No matter how control leaves the <em>Block</em> the LexicalEnvironment is
+always restored to its former state.</p>
+</blockquote>
+<p>That note at the end is important. When the <code>catch</code> block exits, we return to
+the original lexical environment. This means that the binding for the identifier
+in the <code>catch</code> block will cease to exist (since the lexical environment that
+contained it no longer exists).</p>
+<p>However, in Internet Explorer 8 and below, the <code>catch</code> block identifier leaks
+into the outer scope. In those browsers, you could accidently be assigning a
+value to the exception parameter, rather than a variable with the same
+identifier in an outer scope. For more information, have a read of this
+<a href="http://weblog.bocoup.com/the-catch-with-try-catch/">excellent article</a> by Ben Alman.</p>

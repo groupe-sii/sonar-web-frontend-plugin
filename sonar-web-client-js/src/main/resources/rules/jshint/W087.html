@@ -1,0 +1,46 @@
+<h3 id="history">History</h3>
+<p>This warning has existed in various forms in JSLint, JSHint and ESLint. It was
+introduced in the original version of JSLint and has remained in all three
+linters ever since.</p>
+<ul>
+<li><p>In JSLint the warning given is "Unexpected 'debugger'"</p>
+</li>
+<li><p>In JSHint prior to version 1.0.0 the message used is "All 'debugger'
+statements should be removed"</p>
+</li>
+<li><p>In JSHint version 1.0.0 and above the message is "Forgotten 'debugger'
+statement?"</p>
+</li>
+<li><p>In ESLint the message has always been "Unexpected 'debugger' statement"</p>
+</li>
+</ul>
+<p>The situations that produce the warning have not changed despite changes to the
+text of the warning itself.</p>
+<h3 id="when-do-i-get-this-error-">When do I get this error?</h3>
+<p>The "All 'debugger' statements should be removed" error, and the alternatives
+"Forgotten 'debugger' statement" and "Unexpected 'debugger'", is thrown when
+JSLint, JSHint or ESLint encounters a <strong><code>debugger</code> statement</strong>. The following
+example is completely useless but is the minimum program that will generate this
+error:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 88px; min-height: 47px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-keyword">debugger</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 47px;"></div><div style="height: 47px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint error"><span class="linter">JSLint</span>&nbsp;<span class="result">found 1 error</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2014-02-06</span></div><div class="result"><table class="table errors"><tbody><tr><td class="line">Line 1:</td><td class="msg">Unexpected 'debugger'.</td></tr></tbody></table></div></div><iframe></iframe></div>
+<h3 id="why-do-i-get-this-error-">Why do I get this error?</h3>
+<p>This error is raised to highlight a <strong>lack of convention</strong> and a <strong>possible
+oversight</strong>. Your code will run without error but it will probably not behave
+the way you want it to in a production environment. The <code>debugger</code> statement is
+used to tell the JavaScript engine to open a debugger if one is available and
+treat the statement as a breakpoint (<a href="http://es5.github.com/#x12.15">ES5 §12.15</a>):</p>
+<blockquote>
+<p>Evaluating the <em>DebuggerStatement</em> production may allow an implementation to
+cause a breakpoint when run under a debugger. If a debugger is not present or
+active this statement has no observable effect.</p>
+</blockquote>
+<p>This can be useful during development to get an insight into how your code
+behaves, or to inspect the value of variables at runtime. However it's highly
+unlikely that you want to keep debugger statements in production code. For that
+reason, JSLint, JSHint and ESLint prefer them to be removed.</p>
+<p>In JSHint 1.0.0 and above you have the ability to ignore any warning with a
+<a href="http://jshint.com/docs/#options">special option syntax</a>. The identifier of this warning is <strong>W087</strong>.
+This means you can tell JSHint to not issue this warning with the <code>/*jshint
+-W087 */</code> directive.</p>
+<p>In ESLint the rule that generates this warning is named <code>no-debugger</code>. You can
+disable it by setting it to <code>0</code>, or enable it by setting it to <code>1</code>.</p>

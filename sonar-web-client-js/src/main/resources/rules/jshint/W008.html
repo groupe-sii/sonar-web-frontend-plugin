@@ -1,0 +1,50 @@
+<h3 id="history">History</h3>
+<p>This warning has existed in two forms across the three main linters. It was
+introduced in the original version of JSLint and has remained in all three tools
+ever since.</p>
+<ul>
+<li><p>In JSLint versions dated before May 2013 the warning given is <em>"A leading
+decimal point can be confused with a dot: '{a}'"</em></p>
+</li>
+<li><p>In JSLint version dated May 2013 and later this message has been replaced
+with the more generic <em>"Unexpected '{a}'"</em></p>
+</li>
+<li><p>In JSHint and ESLint the message has always been <em>"A leading decimal point
+can be confused with a dot: '{a}'"</em></p>
+</li>
+</ul>
+<p>The situations that produce the warning have not changed despite changes to the
+text of the warning itself.</p>
+<h3 id="when-do-i-get-this-error-">When do I get this error?</h3>
+<p>The "A leading decimal point can be confused with a dot" error is thrown when
+JSLint, JSHint and ESLint encounter <strong>a numeric literal preceded by a <code>.</code> token
+which itself is not preceded by a decimal integer literal</strong>. Here's an example
+in which we attempt to assign the value <code>0.5</code> to the variable <code>x</code>:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 106px; min-height: 47px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-keyword">var</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">.5</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 47px;"></div><div style="height: 47px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint error"><span class="linter">JSLint</span>&nbsp;<span class="result">found 1 error</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2013-04-29</span></div><div class="result"><table class="table errors"><tbody><tr><td class="line">Line 1:</td><td class="msg">A leading decimal point can be confused with a dot: '.5'.</td></tr></tbody></table></div></div><iframe></iframe></div>
+<h3 id="why-do-i-get-this-error-">Why do I get this error?</h3>
+<p>This error is raised to highlight a <strong>potentially confusing piece of code</strong>.
+Your code will run without error if you do not address this issue but it could
+be confusing to other developers. The ECMAScript standard states that it is
+syntactically valid for a numeric literal to begin with a . character ([ES5
+Annex 1][es5-a1]):</p>
+<blockquote>
+<p><em>DecimalLiteral</em> ::<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>DecimalIntegerLiteral</em> <code>.</code>
+<em>DecimalDigits</em><sub>opt</sub> <em>ExponentPart</em><sub>opt</sub><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>.</code> <em>DecimalDigits</em> <em>ExponentPart</em><sub>opt</sub><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>DecimalIntegerLiteral</em> <em>ExponentPart</em><sub>opt</sub></p>
+</blockquote>
+<p>The second production in the grammar quoted above shows the situation we
+encounter in the example at the top of this page. However, since the <code>.</code>
+character is ambiguous (it's also commonly seen in use as a "member operator",
+to access a property of an object), JSLint, JSHint and ESLint prefer the
+explicit first production from the above grammar, just to make your code easier
+to understand. Therefore to fix this error you can simply prepend a <code>0</code> to your
+number:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 115px; min-height: 47px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>2</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-keyword">var</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">0.5</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 47px;"></div><div style="height: 47px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint success"><span class="linter">JSLint</span>&nbsp;<span class="result">found no errors</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2013-04-29</span></div><div class="result"><table class="table errors"></table></div></div><iframe></iframe></div>
+<p>In JSHint 1.0.0 and above you have the ability to ignore any warning with a
+<a href="http://jshint.com/docs/#options">special option syntax</a>. The identifier of this warning is <strong>W008</strong>.
+This means you can tell JSHint to not issue this warning with the <code>/*jshint
+-W008 */</code> directive.</p>
+<p>In ESLint the rule that generates this warning is named <code>no-floating-decimal</code>.
+You can disable it by setting it to <code>0</code>, or enable it by setting it to <code>1</code>.</p>

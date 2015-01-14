@@ -1,0 +1,57 @@
+      <p>As of December 2011, there is still no standard CSS gradient implementation, which means using CSS gradients in a cross-browser way requires using many different vendor-prefixed versions. There are currently five different vendor-prefixed versions of CSS gradient:</p>
+
+<ul class="task-list">
+<li>
+<code>-ms-linear-gradient</code> and <code>-ms-radial-gradient</code> for Internet Explorer 10+</li>
+<li>
+<code>-moz-linear-gradient</code> and <code>-moz-radial-gradient</code> for Firefox 3.6+</li>
+<li>
+<code>-o-linear-gradient</code> and <code>-o-radial-gradient</code> for Opera 11.10+</li>
+<li>
+<code>-webkit-linear-gradient</code> and <code>-webkit-radial-gradient</code> for Safari 5+ and Chrome</li>
+<li>
+<code>-webkit-gradient</code> for Safari 4+ and Chrome (aka "Old WebKit")</li>
+</ul>
+
+<p>Meaning a simple two-color gradient that works across all browsers must look like this:</p>
+
+<pre><code>background: -moz-linear-gradient(top,  #1e5799 0%, #7db9e8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #1e5799 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #1e5799 0%,#7db9e8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #1e5799 0%,#7db9e8 100%); /* IE10+ */
+</code></pre>
+
+<p>It's easy to forget one or more gradient definitions with all of the various vendor prefix gradients available.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>gradients</code></p>
+
+<p>This rule warns when one vendor-prefixed gradient is used without all of the others. </p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* Missing -moz, -ms, and -o */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -webkit-gradient(linear, <span class="pl-sc">left</span> <span class="pl-sc">top</span>, <span class="pl-sc">left</span> <span class="pl-sc">bottom</span>, color-stop(<span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#1e5799</span>), color-stop(<span class="pl-c1">100<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span>));
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -webkit-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>);
+}
+
+<span class="pl-c">/* Missing old and new -webkit */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -moz-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>); 
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -o-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -ms-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>);
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause a warning:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -moz-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -webkit-gradient(linear, <span class="pl-sc">left</span> <span class="pl-sc">top</span>, <span class="pl-sc">left</span> <span class="pl-sc">bottom</span>, color-stop(<span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#1e5799</span>), color-   stop(<span class="pl-c1">100<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span>));
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -webkit-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -o-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: -ms-linear-gradient(<span class="pl-sc">top</span>,  <span class="pl-c1">#1e5799</span> <span class="pl-c1">0<span class="pl-k">%</span></span>,<span class="pl-c1">#7db9e8</span> <span class="pl-c1">100<span class="pl-k">%</span></span>); 
+}</pre></div>

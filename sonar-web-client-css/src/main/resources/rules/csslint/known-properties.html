@@ -1,0 +1,32 @@
+      <p>The list of supported CSS properties is growing quite large, and it's very easy to miss a typo in a single property when the property name isn't checked. </p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>known-properties</code></p>
+
+<p>This rule checks each property name to make sure that it is a known CSS property. The CSS property list is maintained as part of the CSS parser and this rule uses the parser information to determine whether or not the property has been verified. This list will need to be updated as CSS continues to develop, but is a good start for avoiding errors. The intent of this is to warn when there are misspellings.</p>
+
+<p>All vendor-prefixed properties (those beginning with a <code>-</code>) are ignored because vendors may add in their own properties at any point in time, and there are no canonical lists of these properties. This behavior is different than a CSS validator, which warns when a vendor-prefixed property is used.</p>
+
+<p>In addition to checking the property name, this rule also checks the property value against the property name to ensure proper values are being supplied. Not all properties are supported yet, but a large number are.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c">/* clr isn't a known property */</span>
+<span class="pl-ent">a</span> {
+    <span class="pl-mp">clr</span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-c">/* 'foo' isn't a valid color */</span>
+<span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: foo;
+}</pre></div>
+
+<p>The following pattern is considered okay and does not cause a warning:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* -moz- is a vendor prefix, so ignore */</span>
+<span class="pl-ent">a</span> {
+    <span class="pl-mp">-moz-foo</span>: bar;
+}</pre></div>

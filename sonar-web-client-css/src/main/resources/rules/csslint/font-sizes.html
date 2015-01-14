@@ -1,0 +1,25 @@
+      <p>A well-organized site has a small set of font sizes used throughout. These font sizes are often best represented as abstracted classes that can be applied to elements anywhere in the site. When not abstracted, this leads developers to add <code>font-size</code> declarations repeatedly in order to get the right size to appear. This is problematic because font sizes can't be changed in one spot if and when the design changes.</p>
+
+<p>You can create some standard font size class such as:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>small</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">font-size</span></span><span class="pl-mp1">: <span class="pl-cn">8<span class="pl-kou">px</span></span>;</span>
+}
+
+<span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>medium</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">font-size</span></span><span class="pl-mp1">: <span class="pl-cn">11<span class="pl-kou">px</span></span>;</span>
+}
+
+<span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>large</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">font-size</span></span><span class="pl-mp1">: <span class="pl-cn">14<span class="pl-kou">px</span></span>;</span>
+}</pre></div>
+
+<p>Using classes such as these in your project allows consistent use of font sizes throughout, and also limits the number of times <code>font-size</code> appears in your CSS. Now there is one place to go to change font sizes instead of multiple.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>font-sizes</code></p>
+
+<p>This rule is aimed at pointing out opportunities for abstracting font sizes. The rule warns when 10 or more <code>font-size</code> declarations are found.</p>
+

@@ -1,0 +1,84 @@
+      <p>Experimental CSS properties are typically implemented using vendor prefixes until the final behavior has been established and agreed upon. Most CSS3 properties have vendor-prefixed equivalents for multiple vendors, including Firefox (<code>-moz</code>), Safari/Chrome (<code>-webkit</code>), Opera (<code>-o</code>), and Internet Explorer (<code>-ms</code>).  It's easy to forget to include the vendor prefixed version of a property when there are so many to keep track of.</p>
+
+<p>The following properties have multiple vendor-prefixed versions:</p>
+
+<ul class="task-list">
+<li><code>animation</code></li>
+<li><code>animation-delay</code></li>
+<li><code>animation-direction</code></li>
+<li><code>animation-duration</code></li>
+<li><code>animation-fill-mode</code></li>
+<li><code>animation-iteration-count</code></li>
+<li><code>animation-name</code></li>
+<li><code>animation-play-state</code></li>
+<li><code>animation-timing-function</code></li>
+<li><code>appearance</code></li>
+<li><code>border-end</code></li>
+<li><code>border-end-color</code></li>
+<li><code>border-end-style</code></li>
+<li><code>border-end-width</code></li>
+<li><code>border-image</code></li>
+<li><code>border-radius</code></li>
+<li><code>border-start</code></li>
+<li><code>border-start-color</code></li>
+<li><code>border-start-style</code></li>
+<li><code>border-start-width</code></li>
+<li><code>box-align</code></li>
+<li><code>box-direction</code></li>
+<li><code>box-flex</code></li>
+<li><code>box-lines</code></li>
+<li><code>box-ordinal-group</code></li>
+<li><code>box-orient</code></li>
+<li><code>box-pack</code></li>
+<li><code>box-sizing</code></li>
+<li><code>box-shadow</code></li>
+<li><code>column-count</code></li>
+<li><code>column-gap</code></li>
+<li><code>column-rule</code></li>
+<li><code>column-rule-color</code></li>
+<li><code>column-rule-style</code></li>
+<li><code>column-rule-width</code></li>
+<li><code>column-width</code></li>
+<li><code>hyphens</code></li>
+<li><code>line-break</code></li>
+<li><code>margin-end</code></li>
+<li><code>margin-start</code></li>
+<li><code>marquee-speed</code></li>
+<li><code>marquee-style</code></li>
+<li><code>padding-end</code></li>
+<li><code>padding-start</code></li>
+<li><code>tab-size</code></li>
+<li><code>text-size-adjust</code></li>
+<li><code>transform</code></li>
+<li><code>transform-origin</code></li>
+<li><code>transition</code></li>
+<li><code>transition-delay</code></li>
+<li><code>transition-duration</code></li>
+<li><code>transition-property</code></li>
+<li><code>transition-timing-function</code></li>
+<li><code>user-modify</code></li>
+<li><code>user-select</code></li>
+<li><code>word-break</code></li>
+<li><code>writing-mode</code></li>
+</ul>
+
+<p>If you want the same CSS effects across all browsers, then it's important to remember the vendor-prefixed properties for all supporting browsers.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>compatible-vendor-prefixes</code></p>
+
+<p>This rule is intended to warn when a vendor-prefixed property is missing. The supported properties are listed in the previous section.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* Missing -moz, -ms, and -o */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp">-webkit-<span class="pl-s3">transform</span></span>: translate(<span class="pl-c1">50<span class="pl-k">px</span></span>, <span class="pl-c1">100<span class="pl-k">px</span></span>);
+}
+
+<span class="pl-c">/* Missing -webkit */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp">-moz-<span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+}</pre></div>

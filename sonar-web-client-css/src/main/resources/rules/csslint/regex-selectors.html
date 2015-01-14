@@ -1,0 +1,159 @@
+      <p>CSS3 adds complex attribute selectors that allow you to perform regular expression matches on attribute values. These types of selectors have performance implications, as regular expression matching is slower than simple class-based matching. In many cases, the attribute selectors aren't providing enough value over simply adding an additional class to the element in question. There are several types of attribute selectors to be mindful of.</p>
+
+<p>The first attribute selector is actually <em>not</em> a performance issue as it simply determine if the attribute is present. For example, the following applies only when an <code>href</code> property is specified on an <code>&lt;a&gt;</code> element:</p>
+
+<div class="highlight highlight-css"><pre>//OK
+<span class="pl-ent">a</span>[href] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>This attribute selector is okay to use and shouldn't cause any performance issues.</p>
+
+<p>The second attribute selector that is okay to use applies the style only when an attribute value matches exactly. For example, the following applies only when the <code>rel</code> attribute of an <code>&lt;a&gt;</code> element is "external":</p>
+
+<div class="highlight highlight-css"><pre>//OK
+<span class="pl-ent">a</span>[rel=external] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">blue</span>;
+}</pre></div>
+
+<p>After these two, the rest of the attribute selectors cause performance issues. Each of the selectors has the same basic format, using square braces after an element name and a special character preceding the equals sign to perform a type of regular expression.</p>
+
+<h3>
+<a id="user-content-contains" class="anchor" href="#contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contains</h3>
+
+<p>The first of the problematic selectors is the contains selector. This selector uses <code>*=</code> and matches an element if the attribute contains the given string. This works similar to the JavaScript <code>indexOf()</code> of method in that it matches anywhere in the string. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">a</span>[href<span class="pl-ent">*</span>=yahoo<span class="pl-e">.com</span>] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">green</span>;
+}</pre></div>
+
+<p>This selector matches any <code>&lt;a&gt;</code> element whose <code>href</code> attribute contains the string "yahoo.com". That means it will match any of the following:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.yahoo.com/<span class="pl-pds">"</span></span>&gt;Yahoo!&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.google.com/redirect=www.yahoo.com<span class="pl-pds">"</span></span>&gt;Redirect to Yahoo!&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://login.yahoo.com/<span class="pl-pds">"</span></span>&gt;Login to Yahoo!&lt;/<span class="pl-ent">a</span>&gt;</pre></div>
+
+<p>Note that it doesn't matter whether or not the string has white space on either side, it's just a substring match.</p>
+
+<h3>
+<a id="user-content-starts-with" class="anchor" href="#starts-with" aria-hidden="true"><span class="octicon octicon-link"></span></a>Starts With</h3>
+
+<p>The next selector to avoid is the starts with match. This uses the <code>^=</code> operator and matches only when the attribute value begins with the given string. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">a</span>[rel^=ext] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>This rule will match any of the following:</p>
+
+<div class="highlight highlight-css"><pre>&lt;<span class="pl-ent">a</span> href="http://www<span class="pl-e">.example.com</span>" rel="external"&gt;Example&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> rel="extra"&gt;Extra! Extra!&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> rel="extreme"&gt;Extreme&lt;/<span class="pl-ent">a</span>&gt;</pre></div>
+
+<p>All the selector cares is that the string "ext" appears at the beginning of the attribute value of <code>rel</code>.</p>
+
+<h3>
+<a id="user-content-ends-with" class="anchor" href="#ends-with" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ends With</h3>
+
+<p>The next selector to avoid is the ends with match. This uses the <code>$=</code> operator and matches only when the attribute value ends with the given string. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">a</span>[href$=<span class="pl-e">.html</span>] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">blue</span>;
+}</pre></div>
+
+<p>This rule matches all <code>&lt;a&gt;</code> elements that have an <code>href</code> attribute value ending in <code>.html</code>. So the following all match:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>index.html<span class="pl-pds">"</span></span>&gt;Home&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.example.com/example.html<span class="pl-pds">"</span></span>&gt;Example&lt;/<span class="pl-ent">a</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-word-match" class="anchor" href="#word-match" aria-hidden="true"><span class="octicon octicon-link"></span></a>Word Match</h3>
+
+<p>Getting even more complex is the selector that checks for a value separated by white space. The <code>~=</code> operator is used to specify the attribute value must contain the given word, meaning that it must either be the entire attribute value or part of a space-separated list of values. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">a</span>[rel~=external] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>This rule matches any of the following:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.example.com<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s1"><span class="pl-pds">"</span>external<span class="pl-pds">"</span></span>&gt;Example&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.example.com<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s1"><span class="pl-pds">"</span>external me<span class="pl-pds">"</span></span>&gt;Example&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.example.com<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s1"><span class="pl-pds">"</span>reference external<span class="pl-pds">"</span></span>&gt;Example&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://www.example.com<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s1"><span class="pl-pds">"</span>friend external me<span class="pl-pds">"</span></span>&gt;Example&lt;/<span class="pl-ent">a</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-contains-with-dashes" class="anchor" href="#contains-with-dashes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contains With Dashes</h3>
+
+<p>The last problematic selector checks to see if the attribute value contains a string separated by dashes. The <code>|=</code> operator is used to find a substring inside of a string with the format <code>xxx-yyy-zzz</code>. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">a</span>[data-info|=name] {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>This matches all of the following:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">data-info</span>=<span class="pl-s1"><span class="pl-pds">"</span>name-address-phone<span class="pl-pds">"</span></span>&gt;Info&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">data-info</span>=<span class="pl-s1"><span class="pl-pds">"</span>address-name-phone<span class="pl-pds">"</span></span>&gt;Info&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">a</span> <span class="pl-e">data-info</span>=<span class="pl-s1"><span class="pl-pds">"</span>address-phone-name<span class="pl-pds">"</span></span>&gt;Info&lt;/<span class="pl-ent">a</span>&gt;</pre></div>
+
+<h3>
+<a id="user-content-performance-issues" class="anchor" href="#performance-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance Issues</h3>
+
+<p>All of these complex attribute selectors need to perform regular expression matches on attribute values over and over again to ensure the correct visual display is achieved. Doing so slows down the overall page performance as the CSS calculation takes more time.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>regex-selectors</code></p>
+
+<p>This rule is aimed at flagging selectors that have the potential to cause performance issues. As such, this rule warns when a selector is found using <code>*=</code>, <code>|=</code>, <code>^=</code>, <code>$=</code>, or <code>~=</code>.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span>[class~=xxx]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.mybox</span>[class^=xxx]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.mybox</span>[class|=xxx]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.mybox</span>[class$=xxx]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.mybox</span>[class<span class="pl-ent">*</span>=xxx]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span>[class=xxx]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.mybox</span>[class]{
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://css-tricks.com/5591-attribute-selectors/">The Skinny on CSS Attribute Selectors</a></li>
+</ul>

@@ -1,0 +1,23 @@
+      <p>The <code>!important</code> annotation is used to artificially increase the specificity of a given property value in a rule. This is usually an indication that the specificity of the entire CSS has gotten a bit out of control and needs to be refactored. The more frequently <code>!important</code> is found in CSS, the more likely it is that developers are having trouble styling parts of a page effectively.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>important</code></p>
+
+<p>This rule is aimed at keeping your specificity levels in check. As such, it warns whenever <code>!important</code> is used.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-eoac"><span class="pl-pde">.</span>mybox</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">color</span></span><span class="pl-mp1">: red <span class="pl-k">!important</span>;</span>
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://james.padolsey.com/usability/dont-use-important/">Don't use !important</a></li>
+<li><a href="http://coding.smashingmagazine.com/2010/11/02/the-important-css-declaration-how-and-when-to-use-it/">!important CSS Declarations: How and When to Use Them</a></li>
+<li><a href="http://css-tricks.com/9462-when-using-important-is-the-right-choice/">When using !important is the right choice</a></li>
+</ul>

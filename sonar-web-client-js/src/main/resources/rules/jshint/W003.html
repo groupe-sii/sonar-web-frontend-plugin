@@ -1,0 +1,116 @@
+<h3 id="history">History</h3>
+<p>This warning has existed in two forms across the three main linters. It was
+introduced in the original version of JSLint and has remained in all three tools
+ever since.</p>
+<ul>
+<li><p>In JSLint the warning given is <em>"'{a}' was used before it was defined"</em></p>
+</li>
+<li><p>In JSHint and ESLint the message has always been <em>"'{a}' is not defined"</em></p>
+</li>
+<li><p>In JSHint and ESLint the message <em>"'{a}' was used before it was defined"</em> is
+issued under closely related circumstances</p>
+</li>
+</ul>
+<p>The situations that produce the warning have not changed despite changes to the
+text of the warning itself.</p>
+<h3 id="when-do-i-get-this-error-">When do I get this error?</h3>
+<p>The "'{a}' was used before it was defined" error (and the alternative "'{a}' is
+not defined" error) is thrown when JSLint, JSHint and ESLint encounter <strong>an
+identifier that has not been previously declared in a <code>var</code> statement or
+function declaration</strong>. Some very common examples of this error are those that
+refer to native environment objects:</p>
+<ul>
+<li>"'document' was used before it was defined"</li>
+<li>"'window' was used before it was defined"</li>
+<li>"'alert' was used before it was defined"</li>
+<li>"'console' was used before it was defined"</li>
+<li>"'require' was used before it was defined"</li>
+</ul>
+<p>In the following example we attempt to set the value of the undeclared variable
+<code>x</code> and then attempt to use some native browser environment objects:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 304px; min-height: 86px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span class="cm-variable">alert</span>(<span class="cm-string">"Errors..."</span>);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">3</div></div><pre class=""><span><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">"Errors everywhere"</span>);</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">4</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 86px;"></div><div style="height: 86px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint error"><span class="linter">JSLint</span>&nbsp;<span class="result">found 3 errors</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2014-02-06</span></div><div class="result"><table class="table errors"><tbody><tr><td class="line">Line 1:</td><td class="msg">'x' was used before it was defined.</td></tr><tr><td class="line">Line 2:</td><td class="msg">'alert' was used before it was defined.</td></tr><tr><td class="line">Line 3:</td><td class="msg">'console' was used before it was defined.</td></tr></tbody></table></div></div><iframe></iframe></div>
+<p>In JSHint and ESLint the "'{a}' was used before it was defined" error (as
+opposed to the "'{a}' is not defined" error) is raised when a <strong>reference to an
+identifier occurs before the declaration</strong> of that identifier. In the following
+example we reference the variable <code>a</code> before we declare it:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 232px; min-height: 164px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div style="" class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-comment">/*jshint latedef: true */</span></span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span class="cm-keyword">function</span> <span class="cm-variable">test</span>() {</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">3</div></div><pre class=""><span>    <span class="cm-string">"use strict"</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">4</div></div><pre class=""><span>    <span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">5</div></div><pre class=""><span>    <span class="cm-keyword">var</span> <span class="cm-def">a</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">6</div></div><pre class=""><span>    <span class="cm-keyword">return</span> <span class="cm-variable-2">a</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">7</div></div><pre class=""><span>}</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">8</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 164px;"></div><div style="height: 164px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint error"><span class="linter">JSHint</span>&nbsp;<span class="result">found 1 error</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2.5.0</span></div><div class="result"><table class="table errors"><tbody><tr><td class="line">Line 5:</td><td class="msg">'a' was used before it was defined.</td></tr></tbody></table></div></div><iframe></iframe></div>
+<h3 id="why-do-i-get-this-error-">Why do I get this error?</h3>
+<p>This error is raised to highlight <strong>potentially dangerous code</strong>. Your code may
+run without error, depending on the identifier in question, but is likely to
+cause confusion to other developers and could in some cases cause a fatal error
+that will prevent the rest of your script from executing.</p>
+<p>The example above is valid JavaScript when not running in strict mode. It will
+create a property of the global object (in the browser, the global object is
+<code>window</code>) with the given identifier. If you had accidentally omitted the <code>var</code>
+keyword, you could have ended up overwriting a variable declared in a parent
+scope, causing unexpected behaviour. If it does run in strict mode, it will
+generate a reference error as it's illegal to assign a value to an undefined
+variable under such conditions ([ES5 Annex C]es5-c]):</p>
+<blockquote>
+<p>Assignment to an undeclared identifier or otherwise unresolvable reference
+does not create a property in the global object. When a simple assignment
+occurs within strict mode code, its <em>LeftHandSide</em> must not evaluate to an
+unresolvable Reference. If it does a ReferenceError exception is thrown.</p>
+</blockquote>
+<p>If you are referring to an identifier that has been declared elsewhere (in
+another JavaScript file included in the page for example), you can tell JSLint,
+JSHint and ESLint about it by using the <code>global</code> directive:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 223px; min-height: 67px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-comment">/*global someFunction */</span></span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span class="cm-keyword">var</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-variable">someFunction</span>();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">3</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 67px;"></div><div style="height: 67px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint success"><span class="linter">JSLint</span>&nbsp;<span class="result">found no errors</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2014-02-06</span></div><div class="result"><table class="table errors"></table></div></div><iframe></iframe></div>
+<p>If you have mistakenly omitted a <code>var</code> keyword, you can fix this error by simply
+adding it in. If you omitted the keyword on purpose (to allow access to a
+variable from other scope for example), declare the variable in the top-most
+scope in which it should be available:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 223px; min-height: 67px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-comment">/*global someFunction */</span></span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span class="cm-keyword">var</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">3</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 67px;"></div><div style="height: 67px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint success"><span class="linter">JSLint</span>&nbsp;<span class="result">found no errors</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2014-02-06</span></div><div class="result"><table class="table errors"></table></div></div><iframe></iframe></div>
+<p>In the case of environment-specific global identifiers (like <code>window</code> or
+<code>document</code> in the browser or <code>module</code> in Node.js) there are a few JSLint/JSHint
+options that you can set to let the linter know what environment the code is
+expected to run in:</p>
+<ul>
+<li><p><code>browser</code> - JSLint, JSHint and ESLint. Defines global variables available in
+the browser.</p>
+</li>
+<li><p><code>devel</code> - JSLint and JSHint. Defines global variables that are only used in
+a development environment (such as <code>alert</code> and <code>console</code>).</p>
+</li>
+<li><p><code>node</code> - JSLint, JSHint and ESLint. Defines global variables available in
+Node.js.</p>
+</li>
+<li><p><code>couch</code> - JSLint and JSHint. Defines global variables available in CouchDB.</p>
+</li>
+<li><p><code>rhino</code> - JSLint and JSHint. Defines global variables available in Rhino.</p>
+</li>
+<li><p><code>phantom</code> - JSHint only. Defines global variables available in PhantomJS.</p>
+</li>
+<li><p><code>shelljs</code> - JSHint only. Defines global variables available in ShellJS</p>
+</li>
+<li><p><code>typed</code> - JSHint only. Defines global typed array variables (such as
+<code>Int32Array</code> and <code>ArrayBuffer</code>)</p>
+</li>
+<li><p><code>wsh</code> - JSHint only. Defines global variables available in Windows Script
+Host</p>
+</li>
+<li><p><code>mocha</code> - ESLint only. Defines global variables available in the Mocha test
+framework</p>
+</li>
+</ul>
+<p>JSHint also has a set options that tell it about libraries your script has
+access to. They can be set in the same way as the environment options listed
+above:</p>
+<ul>
+<li><p><code>dojo</code> - Defines global variables provided by the Dojo Toolkit</p>
+</li>
+<li><p><code>jquery</code> - Defines global variables provided by jQuery</p>
+</li>
+<li><p><code>mootools</code> - Defines global variables provided by Mootools</p>
+</li>
+<li><p><code>prototypejs</code> - Defines global variables provided by PrototypeJS</p>
+</li>
+<li><p><code>yui</code> - Defines global variables provided by YUI</p>
+</li>
+</ul>
+<p>In JSHint 1.0.0 and above you have the ability to ignore any warning with a
+<a href="http://jshint.com/docs/#options">special option syntax</a>. The identifier of this warning is <strong>W117</strong>.
+This means you can tell JSHint to not issue this warning with the <code>/*jshint
+-W117 */</code> directive.</p>
+<p>In ESLint the rule that generates this warning is named <code>no-use-before-define</code>.
+You can disable it by setting it to <code>0</code>, or enable it by setting it to <code>1</code>.</p>

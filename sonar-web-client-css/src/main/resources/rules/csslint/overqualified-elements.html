@@ -1,0 +1,32 @@
+      <p>Writing selectors such as <code>li.active</code> are unnecessary unless the element name causes the class to behave differently. In most cases, it's safe to remove the element name from the selector, both reducing the size of the CSS as well as improving the selector performance (doesn't have to match the element anymore). </p>
+
+<p>Removing the element name also loosens the coupling between your CSS and your HTML, allowing you to change the element on which the class is used without also needing to update the CSS.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>overqualified-elements</code></p>
+
+<p>This rule is aimed at decreasing byte count by removing extra unnecessary qualifiers from selectors. As such, it warns when an element and class name are used together (i.e., <code>li.active</code>). It will not warn if two different elements are found with the same class name (i.e., <code>li.active</code> in one rule and <code>p.active</code> in another). </p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">div</span><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;   
+}
+
+<span class="pl-e">.mybox</span> <span class="pl-ent">li</span><span class="pl-e">.active</span> {
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c">/* Two different elements in different rules with the same class */</span>
+<span class="pl-ent">li</span><span class="pl-e">.active</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-ent">p</span><span class="pl-e">.active</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">green</span>;
+}</pre></div>

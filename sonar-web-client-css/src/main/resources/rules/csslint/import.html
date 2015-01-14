@@ -1,0 +1,35 @@
+      <p>The <code>@import</code> command is used to include CSS files within other CSS files, for example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-k">@import</span> <span class="pl-s3">url</span>(<span class="pl-v">more.css</span>);
+<span class="pl-k">@import</span> <span class="pl-s3">url</span>(<span class="pl-v">andmore.css</span>);
+
+<span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">black</span>;
+}</pre></div>
+
+<p>This code includes two more style sheets at the beginning of a style sheet. When the browser parses this code, it stops at each <code>@import</code> and starts to download the specified file. The browser doesn't continue downloading other style sheets until this one has finished, eliminating any possible parallel downloads of CSS.</p>
+
+<p>There are two alternatives to using <code>@import</code>:</p>
+
+<ol class="task-list">
+<li>Use a build system to concatenate CSS files together before deploying. </li>
+<li>Use multiple <code>&lt;link&gt;</code> tags to include the style sheets you want. These will still be downloaded in parallel.</li>
+</ol>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>import</code></p>
+
+<p>This rule warns when <code>@import</code> is being used in CSS.</p>
+
+<p>The following pattern is considered a warning:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-k">@import</span> <span class="pl-s3">url</span>(<span class="pl-v">foo.css</span>);</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">Don't use @import</a></li>
+</ul>

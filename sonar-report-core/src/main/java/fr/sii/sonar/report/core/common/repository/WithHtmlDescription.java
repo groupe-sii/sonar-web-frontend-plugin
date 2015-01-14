@@ -32,14 +32,16 @@ public class WithHtmlDescription extends RuleRepository implements StaticRuleRep
 	public List<Rule> createRules() {
 		List<Rule> rules = repository.createRules();
 		for(Rule rule : rules) {
-			InputStream stream = getClass().getResourceAsStream("/rules/"+repository.getLanguage().toLowerCase()+"/"+rule.getKey()+".html");
+			InputStream stream = getClass().getResourceAsStream("/rules/"+repository.getKey().toLowerCase()+"/"+rule.getKey()+".html");
 			if(stream!=null) {
 				try {
 					String description = IOUtils.toString(stream);
-					rule.setDescription("<p>"+rule.getDescription()+"</p><p>"+description+"</p>");
+					rule.setDescription("<p>"+rule.getDescription()+"</p><div>"+description+"</div>");
 				} catch (IOException e) {
 					LOG.error("failed to load HTML description for rule "+rule.getKey());
 				}
+			} else {
+				LOG.info("No HTML description for rule "+rule.getKey()+" for repository "+repository.getName());
 			}
 		}
 		return rules;

@@ -1,0 +1,51 @@
+      <p>Vendor-prefixed properties are created by browser vendors to experiment with new CSS features before the standard has been completed. This allows both developers and browser vendors to find bugs and cross-browser compatibility issues without being locked in to a certain behavior in the future. The standard version of the property usually (but not always) has the same name and syntax as the vendor-prefixed version, providing that there are two or more vendor-prefixed versions with the same syntax.</p>
+
+<p>When using vendor-prefixed properties such as <code>-moz-border-radius</code>, you should also include the standard property for future-compatibility. The standard property should come after the vendor-prefixed one to ensure the standard property is used by the browser, such as:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp">-moz-<span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>Putting the standard property after the vendor-prefixed property is the best way to ensure your CSS code will continue to work once the standard property is fully adopted (then you can take your time going back and removing the vendor-prefixed properties).</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>vendor-prefix</code></p>
+
+<p>This rule is aimed at ensuring standard properties are included whenever vendor-prefixed properties are used. As such, the rule warns when it finds:</p>
+
+<ol class="task-list">
+<li>A vendor-prefixed property without a standard property after it.</li>
+<li>A vendor-prefixed property with a standard property defined before it.</li>
+</ol>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c">/* missing standard property */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp">-moz-<span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-c">/* standard property should come after vendor-prefixed property */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp">-webkit-<span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* both vendor-prefix and standard property */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp">-moz-<span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://www.456bereastreet.com/archive/201009/remember_non-vendor-prefixed_css_3_properties_and_put_them_last/">Remember non-vendor-prefixed CSS 3 properties (and put them last)</a></li>
+</ul>

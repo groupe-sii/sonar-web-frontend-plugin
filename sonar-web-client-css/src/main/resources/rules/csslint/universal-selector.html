@@ -1,0 +1,35 @@
+      <p>The universal selector (<code>*</code>) matches all elements. Though convenient for selecting a group of elements at a time, the universal selector causes performance issues when used as the key part (far-right) of a selector. For example, this type of rule should be avoided:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> <span class="pl-ent">*</span> {
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-c1">#fff</span>;
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#000</span>;
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">255, 255, 255, 0.5</span>);
+}</pre></div>
+
+<p>Browsers evaluate selectors from right-to-left, so this rule begins by first matching every element in the document. After that, each of those elements must be inspected to see if it matches the next criteria, which is having an ancestor with the class of <code>mybox</code>. The more complex the selector containing <code>*</code>, the slower the evaluation becomes. For this reason, it's recommended to avoid using the universal selector as the key part of a selector.  </p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>universal-selector</code></p>
+
+<p>This rule is aimed at flagging slow rules due to the use of the universal selector. As such, the rule warns when the universal selector is found as the key part of a selector. </p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ent">*</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.selected</span> <span class="pl-ent">*</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* universal selector is not key */</span>
+<span class="pl-e">.selected</span> <span class="pl-ent">*</span> <span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div>
+
+    </div>

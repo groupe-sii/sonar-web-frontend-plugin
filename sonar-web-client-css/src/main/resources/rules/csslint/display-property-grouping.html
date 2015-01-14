@@ -1,0 +1,75 @@
+      <p>Even though you can define any group of properties together in a CSS rule, some of them will be ignored due to the <code>display</code> of the element. This leads to extra cruft in your CSS and misunderstandings around how a rule should work.</p>
+
+<p>For <code>display: inline</code>, the <code>width</code>, <code>height</code>, <code>margin-top</code>, <code>margin-bottom</code>, and <code>float</code> properties have no effect because inline elements don't have a formal box with which to apply the styles. The <code>margin-left</code> and <code>margin-right</code> properties still work reliably for indentation purposes but the other margin settings do not. The <code>float</code> property is sometimes used as a fix for the <a href="http://www.positioniseverything.net/explorer/doubled-margin.html">IE6 double-margin bug</a>.</p>
+
+<p>Other general rules based on <code>display</code> are:</p>
+
+<ul class="task-list">
+<li>
+<code>display: inline-block</code> should not use <code>float</code>.</li>
+<li>
+<code>display: block</code> should not use <code>vertical-align</code>.</li>
+<li>
+<code>display: table-*</code> should not use <code>margin</code> (and all variants) or <code>float</code>.</li>
+</ul>
+
+<p>Removing the ignored or problematic properties decreases file size thereby improving performance.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>display-property-grouping</code></p>
+
+<p>This rule is aimed at flagging properties that don't work based with the <code>display</code> property being used. The ultimate goal is to produce a smaller, clearer CSS file without unnecessary code. As such, the rule warns when it finds:</p>
+
+<ul class="task-list">
+<li>
+<code>display: inline</code> used with <code>width</code>, <code>height</code>, <code>margin</code>, <code>margin-top</code>, <code>margin-bottom</code>, and <code>float</code>.</li>
+<li>
+<code>display: inline-block</code> used with <code>float</code>.</li>
+<li>
+<code>display: block</code> used with <code>vertical-align</code>.</li>
+<li>
+<code>display: table-*</code> used with <code>margin</code> (and all variants) or <code>float</code>.</li>
+</ul>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* inline with height */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">inline</span>;
+    <span class="pl-mp"><span class="pl-s3">height</span></span>: <span class="pl-c1">25<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-c">/* inline-block with float */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">inline-block</span>;
+    <span class="pl-mp"><span class="pl-s3">float</span></span>: <span class="pl-sc">left</span>;
+}
+
+<span class="pl-c">/* table-cell and margin */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: table-cell;
+    <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* inline with margin-left */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">inline</span>;
+    <span class="pl-mp"><span class="pl-s3">margin-left</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-c">/* table and margin */</span>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: table;
+    <span class="pl-mp"><span class="pl-s3">margin-bottom</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://www.positioniseverything.net/explorer/doubled-margin.html">The IE5/IE6 Doubled Float Margin Bug</a></li>
+</ul>

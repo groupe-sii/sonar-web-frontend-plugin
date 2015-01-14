@@ -1,0 +1,41 @@
+      <p>When  &lt;!DOCTYPE&gt; Strict is set, IE expects the :hover selector to always be anchored with the <code>&lt;a&gt;</code> tag.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>non-link-hover</code></p>
+
+<p>This rule checks that the :hover selector is always anchored with the <code>&lt;a&gt;</code> element otherwise its throws an error, Having un-anchored :hovers can have serve performance degradation in IE7. IE8 is also effected by this issue but to a lesser degree. </p>
+
+<p>The following patterns will cause an error:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c">/* :hover is not anchored with an a tag*/</span>
+<span class="pl-e">.test</span> <span class="pl-e">:hover</span>{
+    <span class="pl-mp"><span class="pl-s3">top</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.test</span> <span class="pl-e">.event-link</span><span class="pl-e">:hover</span> {
+    <span class="pl-mp"><span class="pl-s3">top</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}
+</pre></div>
+
+<p>The following pattern is considered okay and does not cause an error:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* :hover is anchored with an a tag*/</span>
+<span class="pl-e">.test</span> <span class="pl-ent">a</span><span class="pl-e">:hover</span>{
+    <span class="pl-mp"><span class="pl-s3">top</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.test</span> <span class="pl-ent">a</span><span class="pl-e">.event-link</span><span class="pl-e">:hover</span> {
+    <span class="pl-mp"><span class="pl-s3">top</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further reading</h2>
+
+<p>(bug report about un-anchored hovers in IE7 and IE8)</p>
+
+<p><a href="https://developers.google.com/speed/docs/best-practices/rendering">https://developers.google.com/speed/docs/best-practices/rendering</a></p>
+
+<p><a href="http://msdn.microsoft.com/en-us/library/ie/cc848866%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/ie/cc848866%28v=vs.85%29.aspx</a></p>

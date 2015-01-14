@@ -1,0 +1,35 @@
+      <p>The underscore hack is a technique for applying CSS properties only to Internet Explorer prior to version 7. By placing an underscore immediately before the property name, older versions of Internet Explorer treated as if the underscore isn't there while other browsers simply ignore it. For example:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+    _<span class="pl-mp">width</span>: <span class="pl-c1">200<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>In this example, the <code>_width</code> property is treated as if it were <code>width</code> by Internet Explorer 6 and earlier, so it uses the value of <code>200px</code>; other browsers skip that property and use the value of <code>100px</code>.</p>
+
+<p>The underscore hack relies on an old CSS parser bug in Internet Explorer, and as such, some prefer not to use it.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>underscore-property-hack</code></p>
+
+<p>This rule is aimed at eliminating the use of the underscore hack in CSS. As such, the rule warns when it finds a property preceded with an underscore.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    _<span class="pl-mp">width</span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://en.wikipedia.org/wiki/CSS_filter#Underscore_hack">Underscore Hack</a></li>
+<li><a href="http://24ways.org/2005/avoiding-css-hacks-for-internet-explorer">Avoiding CSS Hacks for Internet Explorer</a></li>
+</ul>

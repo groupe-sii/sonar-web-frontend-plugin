@@ -1,0 +1,54 @@
+<h3 id="history">History</h3>
+<p>This warning has existed in two forms across the three main linters. It was
+introduced in the original version of JSLint and has remained in all three tools
+ever since.</p>
+<ul>
+<li><p>In JSLint the warning given is the generic <em>"Missing '{a}'"</em></p>
+</li>
+<li><p>In JSHint and ESLint the message used is <em>"Missing '()' invoking a
+constructor"</em></p>
+</li>
+</ul>
+<p>The situations that produce the warning have not changed despite changes to the
+text of the warning itself.</p>
+<h3 id="when-do-i-get-this-error-">When do I get this error?</h3>
+<p>The "Missing '()' invoking a constructor" error is thrown when JSLint, JSHint
+and ESLint encounter <strong>a <code>new</code> expression that is not immediately followed by a
+pair of parentheses</strong>. In the following example we create an instance of the
+built-in <code>Date</code> constructor:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 160px; min-height: 47px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-keyword">var</span> <span class="cm-variable">d</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>;</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 47px;"></div><div style="height: 47px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint error"><span class="linter">JSLint</span>&nbsp;<span class="result">found 1 error</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2013-04-29</span></div><div class="result"><table class="table errors"><tbody><tr><td class="line">Line 1:</td><td class="msg">Missing '()'.</td></tr></tbody></table></div></div><iframe></iframe></div>
+<h3 id="why-do-i-get-this-error-">Why do I get this error?</h3>
+<p>This error is raised to highlight a <strong>lack of convention</strong>. Your code will work
+without error if you do not resolve this issue but you may be contravening
+coding styles and best practices. The ECMAScript 5 specification shows (in a
+confusing way) that <code>new</code> expressions do not have to be followed by a pair of
+parentheses. The parentheses are only required when arguments are being passed
+to the constructor (<a href="http://es5.github.com/#x11.2">ES5 §11.2</a>):</p>
+<blockquote>
+<p><em>MemberExpression</em> :<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>new</code> <em>MemberExpression Arguments</em><br><br>
+<em>NewExpression</em> :<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>MemberExpression</em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>new</code> <em>NewExpression</em><br><br>
+<em>Arguments</em> :<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>( )</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>(</code> <em>ArgumentList</em> <code>)</code></p>
+</blockquote>
+<p>The grammar can be a bit confusing, but in essence the above shows that the
+<em>Arguments</em> nonterminal is optional. If you do not need to pass arguments to the
+constructor you can leave it out. However, many style guides would recommend
+that the parentheses are always included for consistency, and to make it
+immediately clear that an invocation is taking place.</p>
+<p>Consider the fact that omitting the parentheses from a normal (non-constructor)
+function invocation will cause the expression to evaluate to a reference to that
+function, rather than the return value of it. By missing the parentheses on a
+constructor call your code may be less self-explanatory. To fix the issue you
+can simply add the missing parentheses:</p>
+<div class="row editor"><div class="col-md-6"><textarea style="display: none;" class="cm"></textarea><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" style="position: absolute; padding: 0px; width: 1px; height: 1em; outline: medium none;"></textarea></div><div style="left: 31px;" class="CodeMirror-hscrollbar"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div draggable="true" tabindex="-1" class="CodeMirror-scroll"><div style="margin-left: 31px; min-width: 178px; min-height: 47px;" class="CodeMirror-sizer"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: medium none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>2</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div style="left: 4px; top: 0px; height: 19.5px;" class="CodeMirror-cursor">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">1</div></div><pre class=""><span><span class="cm-keyword">var</span> <span class="cm-variable">d</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>();</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -31px;" class="CodeMirror-gutter-wrapper"><div style="left: 0px; width: 20px;" class="CodeMirror-linenumber CodeMirror-gutter-elt">2</div></div><pre class=""><span><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 47px;"></div><div style="height: 47px;" class="CodeMirror-gutters"><div style="width: 30px;" class="CodeMirror-gutter CodeMirror-linenumbers"></div></div></div></div></div><div class="col-md-6"><div class="lint success"><span class="linter">JSLint</span>&nbsp;<span class="result">found no errors</span><a href="#" data-toggle="dropdown" title="Settings"><span class="glyphicon glyphicon-cog pull-right"></span></a><div class="dropdown-menu pull-right">Which linter should be used for this code snippet:<form class="form-inline"><label class="radio-inline"><input name="linter" value="jslint" type="radio"> JSLint</label><label class="radio-inline"><input name="linter" value="jshint" type="radio"> JSHint</label><label class="radio-inline"><input name="linter" value="eslint" type="radio"> ESLint</label></form>Which version of the linter should be used:<form><input class="form-control filter" placeholder="Filter linter versions" type="text"></form><table class="table table-striped versions"></table><button class="btn btn-default btn-sm update">Update</button></div><span class="pull-right small version">Version 2013-04-29</span></div><div class="result"><table class="table errors"></table></div></div><iframe></iframe></div>
+<p>In JSHint 1.0.0 and above you have the ability to ignore any warning with a
+<a href="http://jshint.com/docs/#options">special option syntax</a>. The identifier of this warning is <strong>W058</strong>.
+This means you can tell JSHint to not issue this warning with the <code>/*jshint
+-W058 */</code> directive.</p>
+<p>In ESLint the rule that generates this warning is named <code>new-parens</code>.
+You can disable it by setting it to <code>0</code>, or enable it by setting it to <code>1</code>.</p>

@@ -1,0 +1,23 @@
+      <p>An empty rule is one that doesn't contain any properties, such as:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.foo</span> {
+}</pre></div>
+
+<p>A lot of times, empty rules appear as a result of refactoring without further cleanup. Eliminating empty rules results in smaller file sizes and less style information for the browser to deal with.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>empty-rules</code></p>
+
+<p>This rule warns when an empty rule is found in the CSS. The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> { }
+
+<span class="pl-e">.mybox</span> {
+
+}
+
+<span class="pl-e">.mybox</span> {
+    <span class="pl-c">/* a comment */</span>
+}</pre></div>

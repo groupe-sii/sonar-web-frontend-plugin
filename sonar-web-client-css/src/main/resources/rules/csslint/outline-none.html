@@ -1,0 +1,71 @@
+      <p>The CSS <code>outline</code> property is used to define a border around elements. Unlike the <code>border</code> property, the <code>outline</code> property does not alter the size or layout of the element. Because of this, browsers frequently use <code>outline</code> as the specification for an active state. In Internet Explorer and Firefox, the <code>outline</code> of a selected element is a single pixel dotted line when focus has moved to that element. </p>
+
+<p>The focus outline is important for accessibility because it gives a visual indication as to where the focus is on the page. For keyboard-only users, tracking the focus on a web page is impossible without the visual indication given by the focus outline. Unfortunately, some consider the focus outline to be "ugly" or unappealing, and remove it using code such as :</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-ent">a</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-scp">none</span>;</span>
+}</pre></div>
+
+<p>Or:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-ent">a</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+}</pre></div>
+
+<p>Both of these will remove the outline from an element, so it won't appear even when focus has moved to that element. This is very bad for accessibility.</p>
+
+<p>Of course, there are times when you may want to provide a custom focus decoration for users instead of the default dotted border. In those instances, it's appropriate to remove the <code>outline</code> and add another treatment. The best way to do this is to use <code>:focus</code> and provide the alternate treatment along with resetting <code>outline</code>, such as:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-ent">a</span><span class="pl-eoa"><span class="pl-pde">:</span>focus</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> red;</span>
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-scp">none</span>;</span>
+}</pre></div>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>outline-none</code></p>
+
+<p>This rule is aimed at ensuring keyboard-only users have a visual indicator of focus. As such, the rule warns when it finds:</p>
+
+<ol class="task-list">
+<li>
+<code>outline: none</code> or <code>outline: 0</code> in any rule whose selectors doesn't contain <code>:focus</code>
+</li>
+<li>
+<code>outline: none</code> or <code>outline: 0</code> in any rule whose selectors contains <code>:focus</code> and the rule doesn't contain any other properties</li>
+</ol>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre>
+<span class="pl-c"><span class="pl-pdc">/*</span> no :focus <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-ent">a</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-scp">none</span>;</span>
+}
+
+<span class="pl-c"><span class="pl-pdc">/*</span> no :focus <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-ent">a</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+}
+
+<span class="pl-c"><span class="pl-pdc">/*</span> :focus but missing a replacement treatment <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-ent">a</span><span class="pl-eoa"><span class="pl-pde">:</span>focus</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+}</pre></div>
+
+<p>The following pattern is considered okay and does not cause a warning:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c"><span class="pl-pdc">/*</span> :focus with outline: 0 and provides replacement treatment <span class="pl-pdc">*/</span></span>
+<span class="pl-ms"><span class="pl-ent">a</span><span class="pl-eoa"><span class="pl-pde">:</span>focus</span> </span>{
+    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> red;</span>
+    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://css-tricks.com/829-removing-the-dotted-outline/">Removing the dotted outline</a></li>
+<li><a href="http://outlinenone.com/">http://outlinenone.com/</a></li>
+</ul>

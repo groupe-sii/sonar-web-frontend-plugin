@@ -1,0 +1,47 @@
+      <p>The CSS <code>box-sizing</code> property is used to define how borders, padding, <code>width</code>, and <code>height</code> interact with each other. The default value is <code>content-box</code>, meaning that <code>width</code> and <code>height</code> refer to an element's content, and then padding and borders are added around it. Consider the following:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>The actual width of this box is 112 pixels. That's because the 100 pixels specified by <code>width</code> indicates how much area the content should take up, then 5 pixels are added on each side for padding, and 1 pixel on each side for the border.</p>
+
+<p>When you change <code>box-sizing</code> to <code>border-box</code>, the calculation is done differently:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">box-sizing</span></span>: border-box;
+    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+}</pre></div>
+
+<p>This box has an actual width of 100 pixels while the space available for content is only 88 pixels (100 - 5px padding - 5px padding - 1px border - 1px border). Many consider the <code>border-box</code> setting to be more logical and more like how these properties should work.</p>
+
+<p>There is only a problem using <code>box-sizing</code> when you need to support Internet Explorer 6 and 7. These browsers do not support <code>box-sizing</code> and so will interpret the box model properties differently.</p>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>box-sizing</code></p>
+
+<p>This rule warns when the <code>box-sizing</code> property is used. The intent is to ensure that developers realize this property is not supported in older browsers such as Internet Explorer 6 and 7.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">box-sizing</span></span>: border-box;
+}
+
+<span class="pl-e">.mybox</span> {
+    <span class="pl-mp"><span class="pl-s3">box-sizing</span></span>: content-box;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://css-tricks.com/7323-box-sizing/">Box Sizing</a></li>
+<li><a href="https://developer.mozilla.org/En/CSS/Box-sizing">https://developer.mozilla.org/En/CSS/Box-sizing</a></li>
+</ul>

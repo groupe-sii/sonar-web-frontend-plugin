@@ -1,0 +1,38 @@
+      <p>Heading elements (<code>h1</code>-<code>h6</code>) should be defined as top-level styles and not scoped to particular areas of the page. The headings are considered to be built-in objects in Object-Oriented CSS, and their appearance should be consistent across an entire site. This allows those styles to be reused across your site for better visual consistency and performance and easier maintenance. For example, this is an example of an overqualified heading:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-e">.foo</span> <span class="pl-ent">h1</span> {
+    <span class="pl-mp"><span class="pl-s3">font-size</span></span>: <span class="pl-c1">110<span class="pl-k">%</span></span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+
+<p>Rule ID: <code>qualified-headings</code></p>
+
+<p>This rule is aimed at finding qualified heading rules, and as such warns when any rule contains a selector where the heading element is last.</p>
+
+<p>The following patterns are considered warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* qualified heading */</span>
+<span class="pl-e">.box</span> <span class="pl-ent">h3</span> {
+    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">normal</span>;
+}
+
+<span class="pl-c">/* qualified heading */</span>
+<span class="pl-e">.item</span><span class="pl-e">:hover</span> <span class="pl-ent">h3</span> {
+    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">bold</span>;
+}</pre></div>
+
+<p>The following patterns are considered okay and do not cause warnings:</p>
+
+<div class="highlight highlight-css"><pre><span class="pl-c">/* Not qualified */</span>
+<span class="pl-ent">h3</span> {
+    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">normal</span>;
+}</pre></div>
+
+<h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+
+<ul class="task-list">
+<li><a href="http://www.slideshare.net/stubbornella/object-oriented-css">Object-Oriented CSS</a></li>
+</ul>
