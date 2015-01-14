@@ -1,0 +1,6 @@
+<h1>Details</h1>
+<p>URLs should always be enclosed within quotes.</p><p><strong>Bad: no enclosing quotes</strong></p><div class="highlight highlight-scss"><pre>background: url(example<span class="pl-e">.png</span>);</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre>background: url('example<span class="pl-e">.png</span>');</pre></div><p>Using quoted URLs is consistent with using other Sass asset helpers, which also
+expect quoted strings. It also works better with most syntax highlighters, and
+makes it easier to escape characters, as the escape rules for strings apply,
+rather than the different set of rules for literal URLs.</p><p>See the <a href="http://dev.w3.org/csswg/css-values/#url-value">URL type</a> documentation
+for more information.</p>

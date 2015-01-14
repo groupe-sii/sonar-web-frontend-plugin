@@ -32,11 +32,11 @@ public class WithHtmlDescription extends RuleRepository implements StaticRuleRep
 	public List<Rule> createRules() {
 		List<Rule> rules = repository.createRules();
 		for(Rule rule : rules) {
-			InputStream stream = getClass().getResourceAsStream("/rules/"+repository.getKey().toLowerCase()+"/"+rule.getKey()+".html");
+			InputStream stream = getClass().getResourceAsStream("/rules/"+repository.getKey().toLowerCase()+"/"+sanitize(rule.getKey())+".html");
 			if(stream!=null) {
 				try {
 					String description = IOUtils.toString(stream);
-					rule.setDescription("<p>"+rule.getDescription()+"</p><div>"+description+"</div>");
+					rule.setDescription("<p>"+rule.getDescription()+"</p><div class=\"extended-html-description\">"+description+"</div>");
 				} catch (IOException e) {
 					LOG.error("failed to load HTML description for rule "+rule.getKey());
 				}
@@ -45,6 +45,10 @@ public class WithHtmlDescription extends RuleRepository implements StaticRuleRep
 			}
 		}
 		return rules;
+	}
+
+	private String sanitize(String key) {
+		return key.replaceAll("[^a-zA-Z0-9.-]", "_");
 	}
 
 }

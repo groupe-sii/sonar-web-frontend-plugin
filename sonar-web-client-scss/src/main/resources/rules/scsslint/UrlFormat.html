@@ -1,0 +1,3 @@
+<h1>Details</h1>
+<p>URLs should not contain protocols or domain names.</p><p>Including protocols or domains in URLs makes them brittle to change, and also
+unnecessarily increases the size of your CSS documents, reducing performance.</p><p><strong>Bad: protocol and domain present</strong></p><div class="highlight highlight-scss"><pre>background: url('https:<span class="pl-c">//example.com/assets/image.png');</span></pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre>background: url('assets/image<span class="pl-e">.png</span>');</pre></div>

@@ -1,0 +1,4 @@
+<h1>Details</h1>
+<p>Prefer <code>//</code> comments over <code>/* ... */</code>.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">/* This is a comment that gets rendered */</span></pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">// This comment never gets rendered</span></pre></div><p><code>//</code> comments should be preferred as they don't get rendered in the final
+generated CSS, whereas <code>/* ... */</code> comments do.</p><p>Furthermore, comments should be concise, and using <code>/* ... */</code>
+encourages multi-line comments which tend to not be concise.</p>

@@ -1,0 +1,9 @@
+<h1>Details</h1>
+<p>Always use placeholder selectors in <code>@extend</code>.</p><p><strong>Bad: extending a class</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.fatal</span> {
+  <span class="pl-k">@extend</span> <span class="pl-e">.error</span>;
+}</pre></div><p><strong>Good: extending a placeholder</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.fatal</span> {
+  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;
+}</pre></div><p>Using a class selector with the <code>@extend</code> statement statement usually results
+in more generated CSS than when using a placeholder selector.  Furthermore,
+Sass specifically introduced placeholder selectors in order to be used with
+<code>@extend</code>.</p><p>See <a href="http://8gramgorilla.com/mastering-sass-extends-and-placeholders/">Mastering Sass extends and placeholders</a>.</p>

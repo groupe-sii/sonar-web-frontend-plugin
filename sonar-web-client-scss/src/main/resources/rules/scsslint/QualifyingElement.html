@@ -1,0 +1,55 @@
+<h1>Details</h1>
+<p>Avoid qualifying elements in selectors (also known as "tag-qualifying").</p><p><strong>Bad: qualifying elements</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">div</span><span class="pl-e">#thing</span> {
+  ...
+}
+
+<span class="pl-ent">ul</span><span class="pl-e">.list</span> {
+  ...
+}
+
+<span class="pl-ent">ul</span> <span class="pl-ent">li</span><span class="pl-e">.item</span> {
+  ...
+}
+
+<span class="pl-ent">a</span>[href="place"] {
+  ...
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">#thing</span> {
+  ...
+}
+
+<span class="pl-e">.list</span> {
+  ...
+}
+
+<span class="pl-ent">ul</span> <span class="pl-e">.item</span> {
+  ...
+}
+
+[href="place"] {
+  ...
+}</pre></div><p>Since IDs are unique, they will not apply to multiple elements, so there is no
+good reason to qualify an ID selector with an element.</p><p>In most cases, qualifying a class or attribute selector with an element adds
+unnecessary or undesirable specificity. Often the element qualifier is
+already superfluous; and if it is not, you will probably be better off
+refactoring so that it <em>can</em> be removed.</p><p>Use the options to allow certain qualifying elements.</p><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allow_element_with_attribute</code></td>
+<td>Allow elements to qualify attributes (default <em>false</em>)</td>
+</tr>
+<tr>
+<td><code>allow_element_with_class</code></td>
+<td>Allow elements to qualify classes (default <em>false</em>)</td>
+</tr>
+<tr>
+<td><code>allow_element_with_id</code></td>
+<td>Allow elements to qualify ids (default <em>false</em>)</td>
+</tr>
+</tbody>
+</table>

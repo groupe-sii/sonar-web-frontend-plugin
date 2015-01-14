@@ -1,0 +1,37 @@
+<h1>Details</h1>
+<p>Prefer Compass mixins for properties when they exist.</p>
+
+<p><strong>Bad: property possibly not fully supported in all browsers</strong></p>
+
+<div class="highlight highlight-scss"><pre>border-radius: 5px;</pre></div>
+
+<p><strong>Good: using Compass mixin ensures all vendor-prefixed extensions are rendered</strong></p>
+
+<div class="highlight highlight-scss"><pre><span class="pl-k">@include</span> <span class="pl-s3">border-radius</span>(<span class="pl-c1">5</span><span class="pl-k">px</span>);</pre></div>
+
+<p>These mixins include the necessary vendor-prefixed properties to increase the
+number of browsers the CSS supports.</p>
+
+<p>In the event you don't want to be warned about certain properties, you can opt
+to ignore them by listing them in the <code>ignore</code> option, e.g. in your
+<code>.scss-lint.yml</code>:</p>
+
+<div class="highlight highlight-yaml"><pre><span class="pl-s1"><span class="pl-ent">linters:</span></span>
+  <span class="pl-s1"><span class="pl-ent">Compass::PropertyWithMixin:</span></span>
+    <span class="pl-s1"><span class="pl-ent">ignore:</span></span>
+      <span class="pl-s1">- <span class="pl-s1"><span class="pl-pds">'</span>inline-block<span class="pl-pds">'</span></span></span></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignore</code></td>
+<td>Array of Compass mixins that should not be preferred.</td>
+</tr>
+</tbody>
+</table>

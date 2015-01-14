@@ -1,0 +1,57 @@
+<h1>Details</h1>
+<p>Avoid vendor prefixes. That is, don't write them yourself.</p><p>Instead, you can use Autoprefixer or mixins -- such as Compass or Bourbon -- to add vendor prefixes to your code. (If using your own mixins, make sure to exempt their source from this linter.)</p><p>At-rules, selectors, properties, and values are all checked. (See the examples below.)</p><p>The default <code>identifier_list</code>, <code>base</code>, should include everything that Autoprefixer addresses. You could also use a list covering Bourbon's CSS3 mixins: <code>bourbon</code>. If neither of those suit you, you can write your own identifier list.</p><p>Additionally, you can manually include or exclude identifiers from the identifier list -- if, for example, you want to use pretty much all of the <code>base</code> list but also want to allow yourself to use vendor prefixed <code>transform</code> properties, for one reason or another.</p><p>(All identifiers used by the <code>identifier_list</code>, <code>include</code>, or <code>exclude</code> are stripped of vendor prefixes. See <a href="https://github.com/causes/scss-lint/tree/master/data/prefixed-identifiers">the predefined lists</a> for examples.)</p><p><strong>Bad: vendor prefixes</strong></p><div class="highlight highlight-scss"><pre><span class="pl-k">@-webkit-keyframes</span> <span class="pl-en">anim</span> {
+  0% { <span class="pl-mp"><span class="pl-s3">opacity</span></span>: <span class="pl-c1">0</span>; }
+}
+
+::-moz-placeholder {
+  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.foo</span> {
+  <span class="pl-mp">-webkit-<span class="pl-s3">transition</span></span>: <span class="pl-sc">none</span>;
+}
+
+<span class="pl-e">.bar</span> {
+  <span class="pl-mp"><span class="pl-s3">position</span></span>: -moz<span class="pl-sc">-</span>sticky;
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">// With Autoprefixer ...</span>
+<span class="pl-k">@keyframes</span> <span class="pl-en">anim</span> {
+  0% { <span class="pl-mp"><span class="pl-s3">opacity</span></span>: <span class="pl-c1">0</span>; }
+}
+
+::placeholder {
+  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}
+
+<span class="pl-e">.foo</span> {
+  <span class="pl-mp"><span class="pl-s3">transition</span></span>: <span class="pl-sc">none</span>;
+}
+
+<span class="pl-e">.bar</span> {
+  <span class="pl-mp"><span class="pl-s3">position</span></span>: sticky;
+}
+
+<span class="pl-c">// With Bourbon mixin</span>
+<span class="pl-k">@include</span> <span class="pl-s3">placeholder</span> {
+  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+}</pre></div><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>identifier_list</code></td>
+<td>Name of predefined identifier list to use (<code>base</code> or <code>bourbon</code>) or an array of identifiers (default <code>base</code>)</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>Identifiers to lint, in addition to the <code>identifier_list</code> (default <code>[]</code>)</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>Identifers in the <code>identifier_list</code> to exclude from linting (default <code>[]</code>)</td>
+</tr>
+</tbody>
+</table>

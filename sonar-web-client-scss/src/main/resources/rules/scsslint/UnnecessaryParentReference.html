@@ -1,0 +1,10 @@
+<h1>Details</h1>
+<p>Do not use parent selector references (<code>&amp;</code>) when they would otherwise be
+unnecessary.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.foo</span> {
+  <span class="pl-ent">&amp;</span> &gt; <span class="pl-e">.bar</span> {
+    ...
+  }
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.foo</span> {
+  &gt; <span class="pl-e">.bar</span> {
+  }
+}</pre></div>

@@ -1,0 +1,42 @@
+<h1>Details</h1>
+<p>Avoid nesting selectors too deeply.</p><p><strong>Bad: deeply nested</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.one</span> {
+  <span class="pl-e">.two</span> {
+    <span class="pl-e">.three</span> {
+      <span class="pl-e">.four</span> {
+        ...
+      }
+    }
+  }
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.three</span><span class="pl-e">:hover</span> {
+}
+
+<span class="pl-e">.three</span> {
+  <span class="pl-ent">&amp;</span><span class="pl-e">:hover</span> {
+    ...
+  }
+}</pre></div><p>Overly nested rules will result in over-qualified CSS that could prove hard to
+maintain, output unnecessary selectors and is generally <a href="http://sass-lang.com/guide#topic-3">considered bad
+practice</a>.</p><p>This linter will not report an error if you have selectors with a large <a href="http://smacss.com/book/applicability">depth
+of applicability</a>. Use
+<a href="#selectordepth">SelectorDepth</a> for this purpose.</p><p><strong>No error</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.one</span> <span class="pl-e">.two</span> <span class="pl-e">.three</span> {
+  ...
+}</pre></div><p><strong>Error</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.one</span> {
+  <span class="pl-e">.two</span> {
+    <span class="pl-e">.three</span> {
+      ...
+    }
+  }
+}</pre></div><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_depth</code></td>
+<td>Maximum depth before reporting errors (default <strong>3</strong>)</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,6 @@
+<h1>Details</h1>
+<p>Omit length units on zero values.</p><p><strong>Bad: unnecessary units</strong></p><div class="highlight highlight-scss"><pre>margin: 0px;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre>margin: 0;</pre></div><p>Zero is zero regardless of the units of length.</p><p>Note that this only applies to
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">lengths</a>,
+since it is invalid to omit units for other types such as
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/angle">angles</a> or
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/time">times</a>.</p>

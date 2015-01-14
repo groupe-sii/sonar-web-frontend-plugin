@@ -1,0 +1,11 @@
+<h1>Details</h1>
+<p>Prefer hexadecimal color codes over color keywords.</p><p><strong>Bad: color keyword</strong></p><div class="highlight highlight-scss"><pre>color: green;</pre></div><p><strong>Good: hexadecimal color</strong></p><div class="highlight highlight-scss"><pre>color: #0f0;</pre></div><p>Defining colors directly in properties is usually a smell. When you color your
+body text in a number of places, if you ever want to change the color of the
+text you'll have to update the explicitly defined color in a number of places,
+and finding all those places can be difficult if you use the same color for
+other elements (i.e. a simple find/replace may not always work).</p><p>A better approach is to use global variables like <code>$color-text-body</code> and refer
+to this variable everywhere you want to use it. This makes it easy to update
+the color, as you only need change it in one place. It is also more
+intention-revealing, as seeing the name <code>$color-text-body</code> is more descriptive
+than <code>#333</code> or <code>black</code>. Using color keywords can obfuscate this, as they look
+like variables.</p>

@@ -1,0 +1,50 @@
+<h1>Details</h1>
+<p>It is good practice to choose a convention for naming selectors.</p><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">// convention: 'hyphenated_lowercase'</span>
+<span class="pl-e">.foo-bar-77</span>, foo-bar, <span class="pl-e">#foo-bar</span> {}
+
+<span class="pl-c">// convention: 'snake_case'</span>
+<span class="pl-e">.foo_bar77</span>, foo_bar, <span class="pl-e">#foo_bar</span> {}
+
+<span class="pl-c">// convention: 'camel_case'</span>
+<span class="pl-e">.fooBar77</span>, fooBar, <span class="pl-e">#fooBar</span> {}
+}</pre></div><p>You can specify different conventions for different types of selectors using the <code>[type]_convention</code> options.</p><p>Since you might need to overwrite selectors for third party stylesheets, you
+can specify <code>ignored_names</code> as an array of individual selectors to ignore.
+Another option is to specify <code>ignored_types</code> to globally ignore a certain
+type of selector.</p><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>convention</code></td>
+<td>Name of convention to use (<code>hyphenated_lowercase</code> (default) or <code>snake_case</code>, <code>camel_case</code>, or <code>BEM</code>, or <code>hyphenated_BEM</code>), or a regex the name must match</td>
+</tr>
+<tr>
+<td><code>ignored_names</code></td>
+<td>Array of whitelisted names to not report lints for.</td>
+</tr>
+<tr>
+<td><code>ignored_types</code></td>
+<td>Array containing list of types of selectors to ignore (valid values are <code>attribute</code>, <code>class</code>, <code>element</code>, <code>id</code>, <code>placeholder</code>)</td>
+</tr>
+<tr>
+<td><code>attribute_convention</code></td>
+<td>Convention for attribute selectors only. See the <code>convention</code> option for possible values.</td>
+</tr>
+<tr>
+<td><code>class_convention</code></td>
+<td>Convention for class selectors only. See the <code>convention</code> option for possible values.</td>
+</tr>
+<tr>
+<td><code>id_convention</code></td>
+<td>Convention for id selectors only. See the <code>convention</code> option for possible values.</td>
+</tr>
+<tr>
+<td><code>placeholder_convention</code></td>
+<td>Convention for placeholder selectors only. See the <code>convention</code> option for possible values.</td>
+</tr>
+</tbody>
+</table>

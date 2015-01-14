@@ -1,0 +1,16 @@
+<h1>Details</h1>
+<p>Reports when you define the same property twice in a single rule set.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">h1</span> {
+  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
+  <span class="pl-mp"><span class="pl-s3">text-transform</span></span>: <span class="pl-sc">uppercase</span>;
+  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>;<span class="pl-c"> // Second declaration</span>
+}</pre></div><p>Having duplicate properties is usually just an error. However, they can be used
+as a technique for dealing with varying levels of browser support for CSS
+properties. In the example below, some browsers might not support the <code>rgba</code>
+function, so the intention is to fall back to the color <code>#fff</code>.</p><div class="highlight highlight-scss"><pre><span class="pl-e">.box</span> {
+  <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-c1">#fff</span>;
+  <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">255, 255, 255</span>,<span class="pl-c1"> .5</span>);
+}</pre></div><p>In this situation, using duplicate properties is acceptable, but the linter
+won't be able to deduce your intention, and will still report an error.</p><p>If you've made the decision to <em>not</em> support older browsers, then this lint is
+more helpful since you don't want to clutter your CSS with fallbacks.
+Otherwise, you may want to consider disabling this check in your
+<code>.scss-lint.yml</code> configuration.</p>

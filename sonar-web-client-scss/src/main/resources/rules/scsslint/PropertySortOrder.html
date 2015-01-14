@@ -1,0 +1,46 @@
+<h1>Details</h1>
+<p>Sort properties in a strict order. By default, will require properties be
+sorted in alphabetical order, as it's brain dead simple (highlight lines and
+execute <code>:sort</code> in <code>vim</code>), and it can
+<a href="http://www.barryvan.com.au/2009/08/css-minifier-and-alphabetiser/">benefit gzip compression</a>.</p><p>You can also specify an explicit ordering via the <code>order</code> option, which allows
+you to specify an explicit array of properties representing the preferred
+order, or the name of a
+<a href="https://github.com/causes/scss-lint/tree/master/data/property-sort-orders">preset order</a>.
+If a property is not in your explicit list, it will be placed at the bottom of
+the list, disregarding its order relative to other unspecified properties.</p><p>For example, to define a custom sort order, you can write:</p><div class="highlight highlight-yaml"><pre><span class="pl-s1"><span class="pl-ent">linters:</span></span>
+  <span class="pl-s1"><span class="pl-ent">PropertySortOrder:</span></span>
+    <span class="pl-s1"><span class="pl-ent">order:</span></span>
+      <span class="pl-s1">- <span class="pl-s1">display</span></span>
+      <span class="pl-s1">- <span class="pl-s1">margin</span></span>
+      <span class="pl-s1">- <span class="pl-s1">etc...</span></span></pre></div><p>Or you can use a preset order by writing:</p><div class="highlight highlight-yaml"><pre><span class="pl-s1"><span class="pl-ent">linters:</span></span>
+  <span class="pl-s1"><span class="pl-ent">PropertySortOrder:</span></span>
+    <span class="pl-s1"><span class="pl-ent">order:</span> <span class="pl-s1">concentric</span></span></pre></div><p>If you need to write vendor-prefixed properties, the linter will allow you to
+order the vendor-prefixed properties before the standard CSS property they
+apply to. For example:</p><div class="highlight highlight-scss"><pre>border: 0;
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+color: <span class="pl-e">#ccc</span>;
+margin: 5px;</pre></div><p>In this case, this is usually avoided by using mixins from a framework like
+<a href="http://compass-style.org/">Compass</a> or <a href="http://bourbon.io/">Bourbon</a> so
+vendor-specific properties rarely need to be explicitly written by hand.</p><p>If you are specifying an explicit order for properties, note that
+vendor-prefixed properties will still be ordered based on the example above
+(i.e. you only need to specify normal properties in your list).</p><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>order</code></td>
+<td>Array of properties, or the name of a <a href="https://github.com/causes/scss-lint/tree/master/data/property-sort-orders">preset order</a> (default is <code>nil</code>, resulting in alphabetical ordering)</td>
+</tr>
+<tr>
+<td><code>ignore_unspecified</code></td>
+<td>Whether to ignore properties that are not explicitly specified in <code>order</code> (default <strong>false</strong>)</td>
+</tr>
+</tbody>
+</table>

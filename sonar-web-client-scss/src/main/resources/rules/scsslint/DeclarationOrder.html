@@ -1,0 +1,27 @@
+<h1>Details</h1>
+<p>Rule sets should be ordered as follows: <code>@extend</code> declarations, <code>@include</code>
+declarations without inner <code>@content</code>, properties, <code>@include</code> declarations
+<em>with</em> inner <code>@content</code>, then nested rule sets.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.fatal-error</span> {
+  <span class="pl-ent">p</span> {
+    ...
+  }
+
+  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#f00</span>;
+  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;
+  <span class="pl-k">@include</span> <span class="pl-s3">message-box</span>();
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.fatal-error</span> {
+  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;
+  <span class="pl-k">@include</span> <span class="pl-s3">message-box</span>();
+  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#f00</span>;
+
+  <span class="pl-ent">p</span> {
+    ...
+  }
+}</pre></div><p>The <code>@extend</code> statement functionally acts like an inheritance mechanism,
+which means the properties defined by the placeholder being extended are
+rendered before the rest of the properties in the rule set.</p><p>Thus, declaring the <code>@extend</code> at the top of the rule set reminds the
+developer of this behavior.</p><p>Placing <code>@include</code> declarations without inner <code>@content</code> before properties
+serves to group them with <code>@extend</code> declarations and provides the opportunity
+to overwrite them later in the rule set.</p><p><code>@include</code>s <em>with</em> inner <code>@content</code> often involve <code>@media</code> rules that rely on
+the cascade or nested rule sets, which justifies their inclusion <em>after</em>
+regular properties.</p><p>Mixin <code>@content</code> and nested rule sets are also linted for declaration order.</p>

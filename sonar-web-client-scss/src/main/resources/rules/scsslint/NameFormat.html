@@ -1,0 +1,41 @@
+<h1>Details</h1>
+<p>Functions, mixins, and variables should be declared with all lowercase letters
+and hyphens instead of underscores.</p><p><strong>Bad: uppercase characters</strong></p><div class="highlight highlight-scss"><pre><span class="pl-vo">$myVar</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
+
+<span class="pl-k">@mixin</span> <span class="pl-en">myMixin</span>() {
+  ...
+}</pre></div><p><strong>Good: all lowercase with hyphens</strong></p><div class="highlight highlight-scss"><pre><span class="pl-vo">$my-var</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
+
+<span class="pl-k">@mixin</span> <span class="pl-en">my-mixin</span>() {
+  ...
+}</pre></div><p>Using lowercase with hyphens in CSS has become the <em>de facto</em> standard, and
+brings with it a couple of benefits. First of all, hyphens are easier to type
+than underscores, due to the additional <code>Shift</code> key required for underscores on
+most popular keyboard layouts. Furthermore, using hyphens in class names in
+particular allows you to take advantage of the
+<a href="http://www.w3.org/TR/CSS21/selector.html#attribute-selectors"><code>|=</code> attribute selector</a>,
+which allows you to write a selector like <code>[class|="inactive"]</code> to match both
+<code>inactive-user</code> and <code>inactive-button</code> classes.</p><p>The Sass parser automatically treats underscores and hyphens the same, so even
+if you're using a library that declares a function with an underscore, you can
+refer to it using the hyphenated form instead.</p><p>Depending on whether you use underscores to denote private functions within your
+code, you can set the <code>allow_leading_underscore</code> option (enabled by default)
+which will ignore leading underscores in names if they exist, allowing
+declarations like <code>@function _private-function() { ... }</code>.</p><p>You can also prefer the <a href="http://bem.info/method/">BEM</a> convention by setting the
+<code>convention</code> option to <code>BEM</code>. Any other value will be treated as a regex.</p><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allow_leading_underscore</code></td>
+<td>Whether to allow names to start with a single underscore (default <code>true</code>)</td>
+</tr>
+<tr>
+<td><code>convention</code></td>
+<td>Name of convention to use (<code>hyphenated_lowercase</code> (default) or <code>BEM</code>), or a regex the name must match</td>
+</tr>
+</tbody>
+</table>

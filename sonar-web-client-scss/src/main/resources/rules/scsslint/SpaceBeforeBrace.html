@@ -1,0 +1,33 @@
+<h1>Details</h1>
+<p>Opening braces should be preceded by a single space.</p><p><strong>Bad: no space before brace</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span>{
+  ...
+}</pre></div><p><strong>Bad: more than one space before brace</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span>  {
+  ...
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
+  ...
+}</pre></div><p>Setting <code>allow_single_line_padding</code> to <code>true</code> allows you to use extra spaces to
+nicely align single line blocks, so you can write:</p><div class="highlight highlight-scss"><pre><span class="pl-e">.icon-chevron-up</span>    { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>030<span class="pl-pds">"</span></span>; } }
+<span class="pl-e">.icon-chevron-down</span>  { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>031<span class="pl-pds">"</span></span>; } }
+<span class="pl-e">.icon-chevron-left</span>  { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>032<span class="pl-pds">"</span></span>; } }
+<span class="pl-e">.icon-chevron-right</span> { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>033<span class="pl-pds">"</span></span>; } }</pre></div><p>Set <code>style</code> to <code>new_line</code> if you prefer to use a new line before braces, rather than a single space.</p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span>
+{
+  ...
+}</pre></div><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allow_single_line_padding</code></td>
+<td>Allow single line blocks to have extra spaces for nicer formatting (default <strong>false</strong>)</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>
+<code>space</code> or <code>new_line</code> (default <code>space</code>)</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,23 @@
+<h1>Details</h1>
+<p>Properties within rule sets should each reside on their own line.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>; <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">0</span>;
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>;
+  <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">0</span>;
+}</pre></div><p>A special exception is made for single line rule sets. For example the
+following is acceptable:</p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> { <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>; <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">0</span>; }</pre></div><p>If you want to also report a lint for single line rule sets, set the
+<code>allow_single_line_rule_sets</code> option to <code>false</code>.</p><table>
+<thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allow_single_line_rule_sets</code></td>
+<td>
+<code>true</code> or <code>false</code> (default <strong>true</strong>)</td>
+</tr>
+</tbody>
+</table>
