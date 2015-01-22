@@ -6,7 +6,7 @@
 	<groupId>fr.sii.sonar</groupId>
 	<artifactId>sonar-web-client-plugin</artifactId>
 	<packaging>pom</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>2.0-SNAPSHOT</version>
 
 	<name>SII web client plugin</name>
 	<description>Enable analysis and reporting on Web client side projects</description>
@@ -27,6 +27,9 @@
 		<module>sonar-web-client-scss</module>
 		<module>sonar-web-client-html</module>
 		<module>sonar-web-client-js</module>
+		<module>sonar-web-client-angular</module>
+		<module>sonar-duplication-cpd</module>
+		<module>sonar-duplication-simian</module>
 		<module>sonar-web-client</module>
 	</modules>
 
@@ -95,16 +98,9 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.3</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>sii-nexus</serverId>
-					<nexusUrl>http://localhost:8081/nexus/</nexusUrl>
-				</configuration>
-			</plugin-->
+			<!-- plugin> <groupId>org.sonatype.plugins</groupId> <artifactId>nexus-staging-maven-plugin</artifactId> 
+				<version>1.6.3</version> <extensions>true</extensions> <configuration> <serverId>sii-nexus</serverId> 
+				<nexusUrl>http://localhost:8081/nexus/</nexusUrl> </configuration> </plugin -->
 		</plugins>
 	</build>
 

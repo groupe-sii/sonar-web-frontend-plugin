@@ -1,0 +1,81 @@
+[{
+	"key": "controllers-global",
+	"name": "Global controller",
+	"description": "Angular controllers should not be globally registered. They should be registered on modules",
+	"severity": "CRITICAL"
+}, {
+	"key": "controllers-naming-convention",
+	"name": "Controller naming convention",
+	"description": "Angular controller names should begin with a capital letter and end with -Controller",
+	"severity": "CRITICAL"
+}, {
+	"key": "directives-following-restrict-property",
+	"name": "Following restrict property",
+	"description": "you use directives reserved for elements or attributes incorrectly",
+	"severity": "CRITICAL"
+}, {
+	"key": "directives-missing-namespace",
+	"name": "Missing namespace for directive",
+	"description": "Directives should have their own unique namespace so as to not conflict with existing components in Angular or external libraries",
+	"severity": "MAJOR"
+}, {
+	"key": "directives-missing-required-attributes",
+	"name": "Missing required attribute",
+	"description": "A required attribute is missing",
+	"severity": "CRITICAL"
+}, {
+	"key": "directives-misspelled-directives-and-attributes",
+	"name": "Misspelled directive or attribute",
+	"description": "The name of the directive or the attribute is misspelled and may not exist",
+	"severity": "CRITICAL"
+}, {
+	"key": "directives-using-angular-event-directives",
+	"name": "Use Angular events",
+	"description": "Avoid using DOM events, prefer using Angular events",
+	"severity": "MAJOR"
+}, {
+	"key": "directives-using-deprecated-options",
+	"name": "Deprecated directive option",
+	"description": "Avoid using deprecated options in directives",
+	"severity": "WARNING"
+}, {
+	"key": "directives-using-ngrepeat-incorrectly",
+	"name": "Order of ngRepeat options",
+	"description": "ngRepeat options should always use the same declaration order",
+	"severity": "INFO"
+}, {
+	"key": "dom-use-angular-binding",
+	"name": "Use Angular binding",
+	"description": "Use binding instead of DOM API",
+	"severity": "MAJOR"
+}, {
+	"key": "events-identify-undefined-variables",
+	"name": "Undefined variables in events",
+	"description": "Identify potential undefined variables in events",
+	"severity": "MAJOR"
+}, {
+	"key": "interpolation-undefined-parts-warning",
+	"name": "Undefined parts",
+	"description": "Chain of objects becomes undefined",
+	"severity": "MAJOR"
+}, {
+	"key": "interpolation-variable-suggestion",
+	"name": "Variable suggestion",
+	"description": "Undefined variable value suggestion",
+	"severity": "WARNING"
+}, {
+	"key": "modules-creating-and-loading-modules",
+	"name": "Creation and loading of modules",
+	"description": "Common problems regarding the creation and loading of modules",
+	"severity": "MAJOR"
+}, {
+	"key": "modules-missing-namespace",
+	"name": "Missing namespace for module",
+	"description": "Modules should have their own unique namespace so as to not conflict with existing modules in Angular or external libraries",
+	"severity": "MAJOR"
+}, {
+	"key": "modules-ngview-with-ngroute",
+	"name": "ngView with ngRoute",
+	"description": "Routing has been separated from Angular.js into a separate ngRoute module",
+	"severity": "MAJOR"
+}]

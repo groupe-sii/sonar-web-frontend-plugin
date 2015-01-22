@@ -1,0 +1,8 @@
+<h2>Details</h2>
+
+<p>AngularHintDirectives identifies directives that are undefined, most likely because of spelling errors.
+It provides suggestions of similarly spelled directives that are defined. For example, the code below has a simple spelling error that would prevent the list elements from being loaded. AngularHintDirectives warns that it found the nonexistent <em>'ng-repaet'</em> directive and suggests that <em>'ng-repeat'</em> might be the intended command.</p><div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">ul</span>&gt;
+    &lt;<span class="pl-ent">li</span> <span class="pl-e">ng-repaet</span>=<span class="pl-s1"><span class="pl-pds">"</span>i in [1,2,3,4]<span class="pl-pds">"</span></span>&gt;{{i}}&lt;/<span class="pl-ent">li</span>&gt;
+  &lt;/<span class="pl-ent">ul</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>

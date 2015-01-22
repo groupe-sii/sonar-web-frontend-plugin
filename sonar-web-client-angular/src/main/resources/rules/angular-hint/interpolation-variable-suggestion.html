@@ -1,0 +1,17 @@
+<h2>Details</h2>
+
+<p>If your value that evaluates to <code>undefined</code> is close enough to an actual value present on the scope, AngularHintInterpolation will suggest an alternative value. Using the HTML code below, you would be notified that <code>data.results[0].entity</code> was undefined but that you should try <code>entities</code>.</p><div class="highlight highlight-html"><pre>//html implementation
+&lt;<span class="pl-ent">a</span> <span class="pl-e">ng-href</span>=<span class="pl-s1"><span class="pl-pds">"</span>{{data.results[0].entity.urls.main_url}}<span class="pl-pds">"</span></span>&gt;Link to Post&lt;/<span class="pl-ent">a</span>&gt;</pre></div><div class="highlight highlight-javascript"><pre><span class="pl-c">//controller implementation</span>
+$scope.<span class="pl-sc">data</span> <span class="pl-k">=</span> {
+  <span class="pl-s1"><span class="pl-pds">"</span>completed_in<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">0.031</span>,
+  <span class="pl-s1"><span class="pl-pds">"</span>refresh_url<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>?sinceid=122078461840982016&amp;q=blue%20angels<span class="pl-pds">"</span></span>,
+  <span class="pl-s1"><span class="pl-pds">"</span>results<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+    {
+      <span class="pl-s1"><span class="pl-pds">"</span>entities<span class="pl-pds">"</span></span><span class="pl-k">:</span>{
+        <span class="pl-s1"><span class="pl-pds">"</span>urls<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+          <span class="pl-s1"><span class="pl-pds">"</span>condensed_url<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://t.co/L9JXJ2ee<span class="pl-pds">"</span></span>,
+          <span class="pl-s1"><span class="pl-pds">"</span>main_url<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://t.co/imgs/users/venrov/L9JXJ2ee<span class="pl-pds">"</span></span>
+        }
+      }
+    }]
+}</pre></div>

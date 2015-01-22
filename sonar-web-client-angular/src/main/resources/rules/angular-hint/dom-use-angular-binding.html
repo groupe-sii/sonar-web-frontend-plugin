@@ -1,0 +1,35 @@
+<h2>Details</h2>
+
+<p><a href="https://angularjs.org/">AngularJS</a> provides a framework for separating the implementation of a web application into logical components. This separation of concerns is important for code development, maintenance and especially testing. With modular code, it is easy to implement unit tests.</p>
+
+<p>However, how an application should be split into these components is not always obvious. For example, many applications built without AngularJS rely on javascript for manipulation of the DOM including dynamically adding and removing elements from the page. Naturally, an AngularJS developer might try to implement such javascript manipulation in their AngularJS controllers. As the controllers provide the logic for the views, this could seem to be a correct usage. However, AngularJS allows all such manipulation to occur through AngularJS directives in the views themselves. In fact, manipulation of DOM APIs from the controller violates the modularity between the controller and view and is against AngularJS best practices.</p>
+
+<p>To help users recognize the violation of this best practice, AngularHintDOM gives warnings when DOM APIs are manipulated in AngularJS controllers.</p>
+
+<p>For example, an application might seek to add items to the page based on some changing
+list of items:</p>
+
+<pre><code>//Application view
+&lt;!doctype html&gt;
+  &lt;html ng-app='sample' ng-hint&gt;
+    ...
+    &lt;div id='list'&gt;&lt;/div&gt;
+    &lt;script src="../../bower_components/angular/angular.js"&gt;&lt;/script&gt;
+    &lt;script src="../../dist/hint.js"&gt;&lt;/script&gt;
+    ...
+  &lt;/html&gt;
+</code></pre>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">//Application controller</span>
+  angular.module(<span class="pl-s1"><span class="pl-pds">'</span>sample<span class="pl-pds">'</span></span>).controller(<span class="pl-st">function</span>(){
+    <span class="pl-c">//Accessing the DOM API `document.getElementById()` triggers an AngularHintDOM warning</span>
+    <span class="pl-s">var</span> list <span class="pl-k">=</span> <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>list<span class="pl-pds">'</span></span>);
+    <span class="pl-s">var</span> newListItem <span class="pl-k">=</span> <span class="pl-s3">document</span>.<span class="pl-s3">createElement</span>(<span class="pl-s1"><span class="pl-pds">'</span>div<span class="pl-pds">'</span></span>);
+    newListItem.innerHTML <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>Item 1<span class="pl-pds">'</span></span>;
+    list.<span class="pl-s3">appendChild</span>(newListItem);
+  });</pre></div>
+
+<p>This approach using <code>document.getElementById()</code> to access and change the DOM from within the
+controller is against AngularJS best practices. The correct approach would be to use the ng-repeat
+directive to automatically update the list in the view based on the contents of whatever data is
+in the list.</p>

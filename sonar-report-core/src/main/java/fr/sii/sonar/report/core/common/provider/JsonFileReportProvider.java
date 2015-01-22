@@ -17,7 +17,7 @@ import fr.sii.sonar.report.core.common.domain.Report;
 import fr.sii.sonar.report.core.common.exception.ProviderException;
 
 /**
- * Provider that parses a JSON file and generate an instance of the provided class
+ * Provider that parses a JSON file and generates an instance of the provided class
  * 
  * @author Aurélien Baudet
  *

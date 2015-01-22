@@ -1,0 +1,11 @@
+<h2>Details</h2>
+
+<p>It is important for the components we create to have their own unique namespace so as to not conflict with exsisting components in Angular or external libraries that may be used. The best practice for namespaces it to use lowerCamelCase and a unique prefix
+for the scope of an application. For example, in the code below, if a directive with name <code>mycomponent</code> was created, you would be warned to use a more appropriate name.</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>breadcrumbs<span class="pl-pds">'</span></span>).
+  directive(<span class="pl-s1"><span class="pl-pds">'</span>mycomponent<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() { ... });
+});</pre></div><p>Improved namespace:</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>breadcrumbs<span class="pl-pds">'</span></span>).
+  directive(<span class="pl-s1"><span class="pl-pds">'</span>abMyComponent<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() { ... });
+});</pre></div><p>A prefix like <code>ab</code> that is defined uniquely for the scope of an application (think of the <code>ng</code> prefix
+used for AngularJS directives) ensures that custom directives defined with that prefix are less
+likely to conflict with the names given to AngularJS directives or directives loaded from third
+parties.</p>

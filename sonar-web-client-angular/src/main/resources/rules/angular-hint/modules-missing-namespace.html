@@ -1,0 +1,13 @@
+<h2>Details</h2>
+
+<p>It is important for modules to have their own unique namespace so as to not conflict with existing modules in Angular or external libraries that may be used. Specifically, a module should be named with lowerCamelCase. Moreover, all modules in an application should be prefixed with a consistent prefix, as in the Angular <code>ng</code> prefix. For example, a travel application could have
+the prefix <code>ta</code> to stand for 'travel application'. This special prefix would ensure that the modules created
+for this application would have different names, and hence namespaces, as compared to other third party components.</p><p>For instance, say we create a module <code>calendar</code> for this travel application:</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>calendar<span class="pl-pds">'</span></span>).
+  directive(<span class="pl-s1"><span class="pl-pds">'</span>myComponent<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() { ... };
+});</pre></div><p>Later, we decide to use a third party module that happens to contain a different module called
+<code>calendar</code> in addition to the functionality that we would like to use:</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>calendar<span class="pl-pds">'</span></span>).
+  directive(<span class="pl-s1"><span class="pl-pds">'</span>thirdPartyComponent<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() { ... };
+});</pre></div><p>These modules would overwrite each other. However, if we name our own modules with our namespace best practice,
+we avoid this issue:</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>taCalendar<span class="pl-pds">'</span></span>).
+  directive(<span class="pl-s1"><span class="pl-pds">'</span>myComponent<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() { ... };
+});</pre></div><p>AngularHintModules provides a warning if modules are not named with lowerCamelCase.</p>

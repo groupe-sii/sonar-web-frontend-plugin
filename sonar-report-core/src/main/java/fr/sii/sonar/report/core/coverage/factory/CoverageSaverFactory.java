@@ -5,7 +5,7 @@ import fr.sii.sonar.report.core.common.exception.CreateException;
 import fr.sii.sonar.report.core.common.factory.SaverFactory;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.coverage.domain.CoverageReport;
-import fr.sii.sonar.report.core.coverage.saver.CoverageSaver;
+import fr.sii.sonar.report.core.coverage.save.CoverageSaver;
 
 /**
  * Factory that creates a CoverageSaver instance with provided sonar context

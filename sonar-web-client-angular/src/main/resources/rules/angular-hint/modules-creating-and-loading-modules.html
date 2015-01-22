@@ -1,0 +1,13 @@
+<h2>Details</h2>
+
+<p>AngularHintModules also notifies you of common problems regarding the creation and loading of modules.</p><p>The following code snippet will be the example for the following sections:</p><div class="highlight highlight-Javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>createdAndLoaded<span class="pl-pds">'</span></span>,[]);
+angular.module(<span class="pl-s1"><span class="pl-pds">'</span>createdAndLoaded<span class="pl-pds">'</span></span>,[]);
+angular.module(<span class="pl-s1"><span class="pl-pds">'</span>createdButNotLoaded<span class="pl-pds">'</span></span>,[]);
+angular.module(<span class="pl-s1"><span class="pl-pds">'</span>testModule<span class="pl-pds">'</span></span>,
+  [<span class="pl-s1"><span class="pl-pds">'</span>ngHintModules<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>createdAndLoaded<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>createdButNLoadd<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>iDontEvenexist<span class="pl-pds">'</span></span>]);
+</pre></div><p>In the example above you would be warned that:</p><ul class="task-list">
+<li>The <code>createdButNotLoaded</code> module was created but that it was never loaded into the application.</li>
+<li>The <code>createdButNLoadd</code> module was not found and that you should try <code>createdButNotLoaded</code>.</li>
+<li>The <code>createdAndLoaded</code> module name was used twice and the first will be overwritten.</li>
+<li>The <code>iDontEvenexist</code> module was loaded but it was never created.</li>
+</ul>

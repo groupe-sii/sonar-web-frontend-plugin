@@ -1,0 +1,7 @@
+<h2>Details</h2>
+
+<p>ngRepeat has a lot of options (e.g. <code>track by</code> and <code>filter:</code>) and getting them in the right order can be hard. AngularHintDirective helps with this by suggesting the correct ordering for some of the more common uses of ngRepeat. In the example below, <code>track by</code> is infront of the pipe, <code>|</code>, when it actually belongs after <code>filter:searchText</code>. AngularHintDirective would notify you that the usage is incorrect and that you should instead try <code>item in items | filter:searchText track by item.id</code>.</p><div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">ul</span>&gt;
+  &lt;<span class="pl-ent">li</span> <span class="pl-e">ng-repeat</span>=<span class="pl-s1"><span class="pl-pds">"</span>item in items track by item.id | filter:searchText<span class="pl-pds">"</span></span>&gt;
+  {{item.name}} - {{item.price}}
+  &lt;/<span class="pl-ent">li</span>&gt;
+&lt;/<span class="pl-ent">ul</span>&gt;</pre></div>

@@ -1,0 +1,12 @@
+<h2>Details</h2>
+
+<p>AngularHintDirectives will notify you if you are using deprecated options when instantiating your directive. In the example below you will be warned about using the deprecated 'replace' option in your directive.</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>breadcrumbs<span class="pl-pds">'</span></span>).
+directive(<span class="pl-s1"><span class="pl-pds">'</span>haBreadcrumbs<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+  <span class="pl-k">return</span> {
+    restrict<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>E<span class="pl-pds">'</span></span>,
+    templateUrl<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>components/breadcrumbs/breadcrumbs.html<span class="pl-pds">'</span></span>,
+    scope<span class="pl-k">:</span> {breadcrumbs<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>=<span class="pl-pds">'</span></span>},
+    replace<span class="pl-k">:</span> <span class="pl-c1">true</span>
+  };
+});</pre></div><p>Alternatively, deprecated directives will also generate warnings. The <code>ng-bind-html-unsafe</code> directive
+is deprecated and will generate a warning. See the <a href="https://github.com/angular/angular.js/commit/dae694739b9581bea5dbc53522ec00d87b26ae55">breaking change</a> for more information.</p>

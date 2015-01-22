@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="simian.xsl" type="text/xsl"?>
+<simian version="2.3.35">
+    <check failOnDuplication="true" ignoreCharacterCase="true" ignoreCurlyBraces="true" ignoreIdentifierCase="true" ignoreModifiers="true" ignoreStringCase="true" threshold="6">
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/taskService.js" startLineNumber="232" endLineNumber="238"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/taskService.js" startLineNumber="104" endLineNumber="110"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/seanceService.js" startLineNumber="186" endLineNumber="193"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="436" endLineNumber="442"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="421" endLineNumber="427"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="282" endLineNumber="288"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="260" endLineNumber="266"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="199" endLineNumber="206"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="183" endLineNumber="190"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="169" endLineNumber="176"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="154" endLineNumber="161"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/structureNotificationService.js" startLineNumber="59" endLineNumber="65"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/structureNotificationService.js" startLineNumber="41" endLineNumber="47"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/secteurService.js" startLineNumber="120" endLineNumber="126"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/secteurService.js" startLineNumber="105" endLineNumber="111"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/secteurService.js" startLineNumber="64" endLineNumber="70"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/secteurService.js" startLineNumber="49" endLineNumber="55"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/secteurService.js" startLineNumber="33" endLineNumber="39"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/libelleCourtService.js" startLineNumber="48" endLineNumber="54"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/libelleCourtService.js" startLineNumber="32" endLineNumber="38"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="205" endLineNumber="211"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="188" endLineNumber="194"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="171" endLineNumber="177"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="159" endLineNumber="165"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/structureNotificationService.js" startLineNumber="71" endLineNumber="82"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/libelleCourtService.js" startLineNumber="60" endLineNumber="71"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/statistiquesService.js" startLineNumber="119" endLineNumber="126"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/statistiquesService.js" startLineNumber="54" endLineNumber="61"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/utilisateurService.js" startLineNumber="71" endLineNumber="77"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/utilisateurService.js" startLineNumber="47" endLineNumber="53"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="110" endLineNumber="117"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="463" endLineNumber="469"/>
+        </set>
+        <set lineCount="6">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/seanceService.js" startLineNumber="202" endLineNumber="214"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/informationsPegassService.js" startLineNumber="26" endLineNumber="35"/>
+        </set>
+        <set lineCount="7">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="365" endLineNumber="373"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/seanceService.js" startLineNumber="135" endLineNumber="143"/>
+        </set>
+        <set lineCount="7">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="255" endLineNumber="262"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="214" endLineNumber="221"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="241" endLineNumber="248"/>
+        </set>
+        <set lineCount="7">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="335" endLineNumber="343"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="354" endLineNumber="362"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="376" endLineNumber="384"/>
+        </set>
+        <set lineCount="8">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/seanceService.js" startLineNumber="199" endLineNumber="208"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/seanceService.js" startLineNumber="183" endLineNumber="192"/>
+        </set>
+        <set lineCount="8">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="240" endLineNumber="248"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="213" endLineNumber="221"/>
+        </set>
+        <set lineCount="8">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="434" endLineNumber="442"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="419" endLineNumber="427"/>
+        </set>
+        <set lineCount="9">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="200" endLineNumber="210"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="218" endLineNumber="228"/>
+        </set>
+        <set lineCount="9">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="99" endLineNumber="110"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="132" endLineNumber="142"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="65" endLineNumber="76"/>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="131" endLineNumber="142"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js" startLineNumber="97" endLineNumber="110"/>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="303" endLineNumber="315"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js" startLineNumber="332" endLineNumber="344"/>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="274" endLineNumber="288"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js" startLineNumber="252" endLineNumber="266"/>
+        </set>
+        <set lineCount="16">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService4.js" startLineNumber="29" endLineNumber="57"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js" startLineNumber="29" endLineNumber="57"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService3.js" startLineNumber="29" endLineNumber="57"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService2.js" startLineNumber="29" endLineNumber="57"/>
+        </set>
+        <set lineCount="86">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService4.js" startLineNumber="60" endLineNumber="176"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js" startLineNumber="60" endLineNumber="176"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService3.js" startLineNumber="60" endLineNumber="176"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService2.js" startLineNumber="60" endLineNumber="176"/>
+        </set>
+        <set lineCount="115">
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService2.js" startLineNumber="1" endLineNumber="188"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService3.js" startLineNumber="1" endLineNumber="188"/>
+            <block sourceFile="/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js" startLineNumber="1" endLineNumber="188"/>
+        </set>
+        <summary duplicateFileCount="15" duplicateLineCount="810" duplicateBlockCount="56" totalFileCount="27" totalRawLineCount="3771" totalSignificantLineCount="2554" processingTime="451"/>
+    </check>
+</simian>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- XML Schema Generated from XML Document on Wed Jan 21 2015 10:04:28 
+		GMT+0100 (CET) -->
+	<!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+	<xs:element name="simian">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="check">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="set" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="block" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="sourceFile" type="xs:string"></xs:attribute>
+												<xs:attribute name="startLineNumber" type="xs:int"></xs:attribute>
+												<xs:attribute name="endLineNumber" type="xs:int"></xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="lineCount" type="xs:int"></xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="summary">
+								<xs:complexType>
+									<xs:attribute name="duplicateFileCount" type="xs:int"></xs:attribute>
+									<xs:attribute name="duplicateLineCount" type="xs:int"></xs:attribute>
+									<xs:attribute name="duplicateBlockCount" type="xs:int"></xs:attribute>
+									<xs:attribute name="totalFileCount" type="xs:int"></xs:attribute>
+									<xs:attribute name="totalRawLineCount" type="xs:int"></xs:attribute>
+									<xs:attribute name="totalSignificantLineCount"
+										type="xs:int"></xs:attribute>
+									<xs:attribute name="processingTime" type="xs:int"></xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="failOnDuplication" type="xs:string"></xs:attribute>
+						<xs:attribute name="ignoreCharacterCase" type="xs:string"></xs:attribute>
+						<xs:attribute name="ignoreCurlyBraces" type="xs:string"></xs:attribute>
+						<xs:attribute name="ignoreIdentifierCase" type="xs:string"></xs:attribute>
+						<xs:attribute name="ignoreModifiers" type="xs:string"></xs:attribute>
+						<xs:attribute name="ignoreStringCase" type="xs:string"></xs:attribute>
+						<xs:attribute name="threshold" type="xs:int"></xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

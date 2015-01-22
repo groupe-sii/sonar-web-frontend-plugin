@@ -1,0 +1,1188 @@
+<?xml version='1.0' encoding='UTF-8' ?><pmd-cpd> <duplication lines='9' tokens='88'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/app.js' line='88'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/app.js' line='132'/> <codefragment>                    resolve: {
+                        acl: [&#039;$q&#039;, &#039;AuthService&#039;, &#039;GestionDesDroitsFactory&#039;, &#039;SETTINGS&#039;, &#039;flash&#039;, function($q, AuthService, GestionDesDroitsFactory, SETTINGS, flash) {
+                            
+                            var d = $q.defer(),
+                                user = AuthService.user();
+
+                            var checkDroits = function(){
+                                GestionDesDroitsFactory.checkDroits(&#039;GET&#039;, &#039;statistiques/benevole&#039;, user).then(function() {
+                                    d.resolve();
+                                }, function() {</codefragment> </duplication> <duplication lines='24' tokens='143'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/app.js' line='96'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/app.js' line='140'/> <codefragment>                                    d.resolve();
+                                }, function() {
+                                    d.reject();
+                                    flash(&#039;error&#039;, SETTINGS.ROUTE_NO_ACCESS);
+                                    AuthService.redirectHome();
+                                });
+                            };
+
+                            if(user === null) {
+                                AuthService.userOnLoad().then(function(_user) {
+                                    console.log(&#039;login: &#039;, _user);
+                                    user = _user;
+                                    checkDroits();
+                                });
+                            } else {
+                                checkDroits();
+                            }
+                            
+                            return d.promise;
+                        }]
+                    }
+                })
+                .when(&#039;/recherche/structure&#039;, {
+                    templateUrl: &#039;views/recherche/recherche-structure.html&#039;,
+                    controller: &#039;RechercheStructureCtrl&#039;,</codefragment> </duplication> <duplication lines='15' tokens='94'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/app.js' line='207'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/app.js' line='260'/> <codefragment>                            var user = AuthService.user(),
+                                d = $q.defer();
+                            if(user === null || !user.adminDepartement){
+                                AuthService.redirectHome();
+                            }
+                            else {
+                                d.resolve();
+                            }
+
+                            return d.promise;
+                        }]
+                    }
+                })
+                .when(&#039;/activite/recurrente/update/:id&#039;, {
+                    templateUrl: &#039;views/activite/activite-recurrente-update.html&#039;,
+                    controller: &#039;ActiviteRecurrenteUpdateCtrl&#039;,</codefragment> </duplication> <duplication lines='10' tokens='75'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/create.js' line='83'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/update.js' line='438'/> <codefragment>
+                var activite = {};
+                activite.structureOrganisatrice = {};
+                activite.structureMenantActivite = {};
+                activite.responsable = {};
+                activite.typeActivite = {};
+
+                activite.type = ActiviteSettings.type.PEGASS;
+                activite.libelle = $scope.informations.nom;
+                activite.structureOrganisatrice.id = $scope.informations.structureOrganisatrice;
+                activite.structureMenantActivite.id = $scope.informations.structureMenantActivite;</codefragment> </duplication> <duplication lines='9' tokens='82'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/create.js' line='165'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/update.js' line='479'/> <codefragment>
+                ActiviteService.save(activite)
+                    .then(function(savedActivite) {
+                            ActiviteService.get(savedActivite[0].id).then(function(activite) {
+                                $location.path(&#039;planning-des-activites/activite/&#039; + activite.seanceList[0].id).replace();
+                            });
+                        },
+                        function(e) {
+                            if (e.status === 400) {
+                                $scope.typeActiviteError = true;</codefragment> </duplication> <duplication lines='14' tokens='72'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/create.js' line='189'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/update.js' line='509'/> <codefragment>
+            var onLocationStartHandler = function(event){
+                if($scope.activiteCreation.$dirty) {
+                    if (!confirm(SETTINGS.WARNING_EXIT_FORM)) {
+                        event.preventDefault();
+                    }    
+                }
+            };
+
+            $scope.$on(&#039;$locationChangeStart&#039;, onLocationStartHandler);
+
+        }
+    ]);
+</codefragment> </duplication> <duplication lines='40' tokens='253'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeActivitesUtilisateurCtrl.js' line='28'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeGeneraleCtrl.js' line='30'/> <codefragment>        $scope.search = {};
+
+        /**
+         * Paramètre par défaut
+         */
+
+        var date = new Date(),
+            y = date.getFullYear(),
+            m = date.getMonth();
+
+        $scope.search.debut = new Date(y, m, 1);
+        $scope.search.fin = new Date(y, m + 1, 0);
+
+        /**
+         * Pagination
+         */
+
+        $scope.currentPage = 1;
+        $scope.maxSize = 10;
+
+        $scope.setPage = function(index) {
+            $scope.currentPage = index;
+            $scope.search.searching(index - 1);
+        };
+
+        $scope.next = function() {
+            if ($scope.currentPage &lt; $scope.totalPages) {
+                $scope.setPage($scope.currentPage + 1);
+            }
+        };
+
+        $scope.previous = function() {
+            if ($scope.currentPage &gt; 1) {
+                $scope.setPage($scope.currentPage - 1);
+            }
+        };
+
+        /**
+         * Recherche
+         */
+</codefragment> </duplication> <duplication lines='81' tokens='724'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeActivitesUtilisateurCtrl.js' line='68'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeGeneraleCtrl.js' line='71'/> <codefragment>
+        $scope.roleFilter = function(role) {
+            return role.code !== Inscription.roles.PARTICIPANT_EXT;
+        };
+
+        $scope.checkDateSameDay = function(task) {
+            var debut = $filter(&#039;date&#039;)(task.startDate, &#039;EEEE d MMMM&#039;),
+                fin = $filter(&#039;date&#039;)(task.endDate, &#039;EEEE d MMMM&#039;);
+
+            return debut === fin;
+        };
+
+        $scope.getInscriptionList = function(task) {
+            InscriptionService.getListValidBySeance(task.id).then(function(inscriptionList) {
+                var i = 0,
+                    len = task.roleConfigList.length;
+
+                for (i; i &lt; len; i++) {
+                    task.roleConfigList[i].nombreInscrit = 0;
+
+                    var y = 0,
+                        leny = inscriptionList.length;
+
+                    for (y; y &lt; leny; y++) {
+                        if (inscriptionList[y].role === task.roleConfigList[i].code) {
+                            task.roleConfigList[i].nombreInscrit++;
+                        }
+                    }
+                }
+            });
+        };
+
+        $scope.search.presearching = function(page) {
+            $scope.currentPage = 1;
+            $scope.search.searching(page);
+        };
+
+        $scope.search.searching = function(page) {
+
+            $scope.isLoading = $scope.searchedOnce = true;
+            var searching = {},
+                params = {};
+
+            if (!$scope.empty($scope.search.debut) &amp;&amp; !$scope.empty($scope.search.fin)) {
+                params.debut = $filter(&#039;date&#039;)($scope.search.debut, &#039;yyyy-MM-dd&#039;);
+                params.fin = $filter(&#039;date&#039;)($scope.search.fin, &#039;yyyy-MM-dd&#039;);
+            }
+
+            if (!$scope.empty($scope.search.zoneGeo) &amp;&amp; $scope.empty($scope.search.structure)) {
+                params.zoneGeoId = $scope.search.zoneGeo.id;
+                params.zoneGeoType = StructureService._replaceTypeZoneGeo($scope.search.zoneGeo.typeZoneGeo);
+            }
+
+            if (!$scope.empty($scope.search.structure)) {
+                params.structure = $scope.search.structure.id;
+            }
+
+            if (!$scope.empty($scope.search.categorie) &amp;&amp;
+                $scope.empty($scope.search.action) &amp;&amp;
+                $scope.empty($scope.search.typeActivite)) {
+
+                params.categorie = $scope.search.categorie;
+            }
+
+            if (!$scope.empty($scope.search.action) &amp;&amp;
+                $scope.empty($scope.search.typeActivite)) {
+
+                params.action = $scope.search.action;
+            }
+
+            if (!$scope.empty($scope.search.typeActivite)) {
+                params.typeActivite = $scope.search.typeActivite;
+            }
+
+            if (!$scope.empty($scope.search.responsable)) {
+                params.responsable = $scope.search.responsable.id;
+            }
+
+            if (!$scope.empty($scope.search.statut)) {
+                params.statutActivite = ActiviteService.getStatutFromCode($scope.search.statut);
+            }
+</codefragment> </duplication> <duplication lines='14' tokens='114'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeActivitesUtilisateurCtrl.js' line='152'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeGeneraleCtrl.js' line='151'/> <codefragment>            }
+
+            if (!$scope.empty($scope.search.libelle) &amp;&amp; $scope.search.libelle !== &#039;&#039;) {
+                params.libelleLike = $scope.search.libelle;
+            }
+
+            params.perPage = $scope.itemsPerPage = 7;
+            params.page = (typeof page !== &#039;undefined&#039;) ? page : 0;
+            params.pageInfo = true;
+
+            searching.params = params;
+
+            TaskService.getListBySearch(searching.params, &#039;utilisateur&#039;)
+                .then(function(seanceList) {
+</codefragment> </duplication> <duplication lines='15' tokens='116'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeActivitesUtilisateurCtrl.js' line='175'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeGeneraleCtrl.js' line='174'/> <codefragment>                     * For each activité, update state and activite detail
+                     */
+
+                    $timeout(function() {
+                        TaskService.refreshStatesFromList(seanceList.list, $scope.user.id).then(function(taskList) {
+                            _activites = taskList;
+                            $timeout(function() {
+                                //Populate Seance width Activite + Structure Libelle
+                                TaskService.refreshActiviteFromList(seanceList.list).then(function(taskList) {
+                                    _activites = taskList;
+                                    TaskService.refreshStructureFromList(seanceList.list).then(function(taskList) {
+                                        _activites = taskList;
+                                        $scope.isLoading = false;
+                                        $scope.handleStatut = true;
+                                        $scope.activites = taskList;
+                                    });</codefragment> </duplication> <duplication lines='61' tokens='664'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeActivitesUtilisateurCtrl.js' line='190'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeGeneraleCtrl.js' line='188'/> <codefragment>                                    });
+                                });
+                            }, 100);
+                        });
+                    }, 100);
+
+                }, function() {
+                    $scope.isLoading = false;
+                    flash(&#039;error&#039;, ActiviteSettings.message.ERROR_SEARCH_UNKNOWN);
+                });
+        };
+
+        $scope.extractPDF = function() {
+            var paramStr = &#039;?&#039;,
+                params = [],
+                i = 0;
+
+            if (!$scope.empty($scope.search.structure)) {
+                params.push(&#039;structure=&#039; + $scope.search.structure.id);
+            }
+            if (angular.isDefined($scope.search.zoneGeo) &amp;&amp; angular.isDefined($scope.search.structure)) {
+                params.push(&#039;zoneGeoId=&#039; + $scope.search.zoneGeo.id);
+                params.push(&#039;zoneGeoType=&#039; + StructureService._replaceTypeZoneGeo($scope.search.zoneGeo.typeZoneGeo));
+            }
+            if (!$scope.empty($scope.search.debut) &amp;&amp; !$scope.empty($scope.search.fin)) {
+                params.push(&#039;debut=&#039; + $filter(&#039;date&#039;)($scope.search.debut, &#039;yyyy-MM-dd&#039;));
+                params.push(&#039;fin=&#039; + $filter(&#039;date&#039;)($scope.search.fin, &#039;yyyy-MM-dd&#039;));
+            }
+            if (!$scope.empty($scope.search.statut)) {
+                params.push(&#039;statut=&#039; + ActiviteService.getStatutFromCode($scope.search.statut));
+            }
+            if (!$scope.empty($scope.search.categorie) &amp;&amp;
+                $scope.empty($scope.search.action) &amp;&amp;
+                $scope.empty($scope.search.typeActivite)) {
+                params.push(&#039;categorie=&#039; + $scope.search.categorie);
+            }
+            if (!$scope.empty($scope.search.action) &amp;&amp;
+                $scope.empty($scope.search.typeActivite)) {
+                params.push(&#039;catactiongorie=&#039; + $scope.search.action);
+            }
+            if (!$scope.empty($scope.search.typeActivite)) {
+                params.push(&#039;typeActivite=&#039; + $scope.search.typeActivite);
+            }
+            if (!$scope.empty($scope.search.responsable)) {
+                params.responsable = $scope.search.responsable.id;
+                params.push(&#039;responsable=&#039; + $scope.search.responsable.id);
+            }
+            if (!$scope.empty($scope.search.libelle) &amp;&amp; $scope.search.libelle !== &#039;&#039;) {
+                params.push(&#039;libelleLike=&#039; + $scope.search.libelle);
+            }
+
+            for (i; i &lt; params.length; i++) {
+                if (i &lt; params.length - 1) {
+                    paramStr += params[i] + &#039;&amp;&#039;;
+                } else {
+                    paramStr += params[i];
+                }
+            }
+
+            PdfService.getPdfBySearch(paramStr, &#039;utilisateur&#039;);
+        };
+    }</codefragment> </duplication> <duplication lines='13' tokens='90'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningListe.js' line='14'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningStructure.js' line='32'/> <codefragment>            $scope.AuthService.userStructure().then(function(structure) {
+                SelectionStructureFactory.setStructure(structure);
+                $scope.structure = SelectionStructureFactory.structure;
+                refreshTask();
+            });
+
+        } else {
+            $scope.structure = SelectionStructureFactory.structure;
+            $scope.zoneGeo = SelectionStructureFactory.zoneGeo;
+        }
+
+        // Calendar
+        $scope.model = new Calendar();
+        $scope.views = Calendar.views;</codefragment> </duplication> <duplication lines='14' tokens='134'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningListe.js' line='62'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningStructure.js' line='88'/> <codefragment>        };
+
+        var updateTasks = function(tasks) {
+            if (tasks.startDate.getTime() === $scope.startDate.getTime() &amp;&amp; tasks.endDate.getTime() === $scope.endDate.getTime()) {
+                $scope.model.setTasks(tasks.tasksList);
+
+                if (tasks.tasksList !== undefined) {
+                    TaskService.refreshStatesFromList(tasks.tasksList, $scope.user.id).then(function(tasksList) {
+                        $scope.model.setHighlightTasks(tasksList);
+                    });
+                }
+            }
+        };
+
+    }</codefragment> </duplication> <duplication lines='22' tokens='88'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningStructure.js' line='10'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningUser.js' line='8'/> <codefragment>        TaskService,
+        SETTINGS,
+        SelectionStructureFactory) {
+
+        // Selected view
+        switch ($routeParams.view) {
+            case &#039;jour&#039;:
+                $scope.selectedView = Calendar.views.DAILY;
+                break;
+
+            case &#039;mois&#039;:
+                $scope.selectedView = Calendar.views.MONTHLY;
+                break;
+
+            default:
+                $scope.selectedView = Calendar.views.MONTHLY;
+                break;
+        }
+
+        //Selection Structure
+
+        if (SelectionStructureFactory.structure === null) {
+            $scope.AuthService.userStructure().then(function(structure) {</codefragment> </duplication> <duplication lines='14' tokens='96'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningStructure.js' line='101'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/planning/planningUser.js' line='48'/> <codefragment>
+        $scope.$on(&#039;$routeChangeStart&#039;, function() {
+            SelectionStructureFactory.setViewedDate($scope.selectedDay.date);
+        });
+
+        $scope.changeView = function() {
+            if ($scope.selectedView !== undefined) {
+                $location.path(&#039;/&#039; + $scope.calendarType + &#039;/&#039; + $scope.selectedView.toLowerCase());
+            }
+        };
+    }
+]);
+</codefragment> </duplication> <duplication lines='7' tokens='84'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeActivitesUtilisateurCtrl.js' line='35'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='43'/> <codefragment>            y = date.getFullYear(),
+            m = date.getMonth();
+
+        $scope.search.debut = new Date(y, m, 1);
+        $scope.search.fin = new Date(y, m + 1, 0);
+
+        /**
+         * Pagination</codefragment> </duplication> <duplication lines='12' tokens='129'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeParamsCtrl.js' line='88'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='79'/> <codefragment>
+        $scope.updateStructureList = function(zoneGeo, init) {
+            $scope.search.structure = null;
+            $scope.structureList = null;
+
+            if (!$scope.empty(zoneGeo)) {
+                StructureService.getListByZoneGeo(zoneGeo, true).then(function(structureList) {
+                    $scope.structureList = structureList.structuresFilles;
+                    if (init !== undefined &amp;&amp; init === true) {
+                        $scope.search.structure = $scope.structureList.find(&#039;id&#039;, $scope.user.structure.id);
+                        $timeout($scope.search.searching, 0);
+                    }
+                });</codefragment> </duplication> <duplication lines='17' tokens='143'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeParamsCtrl.js' line='56'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='97'/> <codefragment>
+        $scope.$watch(&#039;search.debut&#039;, function(debut, oldValueDebut) {
+            if (debut !== oldValueDebut) {
+                if ($scope.search.debut &gt; $scope.search.fin) {
+                    $scope.search.fin = $scope.search.debut;
+                }
+            }
+        });
+
+        $scope.$watch(&#039;search.fin&#039;, function(fin, oldValueFin) {
+            if (fin !== oldValueFin &amp;&amp; $scope.search.fin &lt;= $scope.search.debut) {
+                $scope.search.fin = $scope.search.debut;
+            }
+        });
+
+        /**
+         * Listes ZoneGeo + Structure
+         */</codefragment> </duplication> <duplication lines='18' tokens='145'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='33'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='29'/> <codefragment>
+        $scope.uniteList = [{
+            id: &#039;heure&#039;,
+            libelle: &#039;Heure&#039;
+        }, {
+            id: &#039;quantite&#039;,
+            libelle: &#039;Quantité&#039;
+        }];
+
+        var date = new Date(),
+            y = date.getFullYear(),
+            m = date.getMonth();
+
+        $scope.search.debut = new Date(y, m, 1);
+        $scope.search.fin = new Date(y, m + 1, 0);
+        $scope.search.unite = $scope.uniteList[0].id;
+
+        $scope.percent = true;
+</codefragment> </duplication> <duplication lines='17' tokens='141'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeParamsCtrl.js' line='56'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='44'/> <codefragment>
+        $scope.$watch(&#039;search.debut&#039;, function(debut, oldValueDebut) {
+            if (debut !== oldValueDebut) {
+                if ($scope.search.debut &gt; $scope.search.fin) {
+                    $scope.search.fin = $scope.search.debut;
+                }
+            }
+        });
+
+        $scope.$watch(&#039;search.fin&#039;, function(fin, oldValueFin) {
+            if (fin !== oldValueFin &amp;&amp; $scope.search.fin &lt;= $scope.search.debut) {
+                $scope.search.fin = $scope.search.debut;
+            }
+        });
+
+        /**
+         * Listes ZoneGeo + Structure
+         */</codefragment> </duplication> <duplication lines='5' tokens='72'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/liste/listeParamsCtrl.js' line='95'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='77'/> <codefragment>                    $scope.structureList = structureList.structuresFilles;
+                    if (init !== undefined &amp;&amp; init === true) {
+                        $scope.search.structure = $scope.structureList.find(&#039;id&#039;, $scope.user.structure.id);
+                        $timeout($scope.search.searching, 0);
+                    }
+                });</codefragment> </duplication> <duplication lines='43' tokens='438'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='213'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='155'/> <codefragment>            stat.form = result.statistiquesFORM[0];
+            stat.as = result.statistiquesAS[0];
+            stat.va = result.statistiquesVA[0];
+
+            libelle.us = $scope.categorieList.find(&#039;id&#039;, ActiviteSettings.categorie.US).libelle;
+            libelle.form = $scope.categorieList.find(&#039;id&#039;, ActiviteSettings.categorie.FORM).libelle;
+            libelle.as = $scope.categorieList.find(&#039;id&#039;, ActiviteSettings.categorie.AS).libelle;
+            libelle.va = $scope.categorieList.find(&#039;id&#039;, ActiviteSettings.categorie.VA).libelle;
+
+            var debut = $filter(&#039;date&#039;)(result.debut, &#039;MMMM yyyy&#039;),
+                fin = $filter(&#039;date&#039;)(result.fin, &#039;MMMM yyyy&#039;),
+                dateLibelle;
+
+            if (debut !== fin) {
+                dateLibelle = &#039; de &#039; + debut + &#039; à &#039; + fin;
+            } else {
+                dateLibelle = &#039; en &#039; + debut;
+            }
+
+            //Init deuxième chart
+            if (stat.us.nombre !== 0) {
+                categorieLibelle = libelle.us;
+            } else if (stat.form.nombre !== 0) {
+                categorieLibelle = libelle.form;
+            } else if (stat.as.nombre !== 0) {
+                categorieLibelle = libelle.as;
+            } else if (stat.va.nombre !== 0) {
+                categorieLibelle = libelle.va;
+            }
+            if (!$scope.empty(categorieLibelle)) {
+                $scope.chartDetail = createChartCategory(categorieLibelle);
+            } else {
+                $scope.chartDetail = null;
+            }
+
+            //Création du premier chart
+            $scope.chartCategories = {
+                chart: {
+                    type: &#039;bar&#039;
+                },
+                title: {
+                    text: benevole + dateLibelle
+                },
+                xAxis: {</codefragment> </duplication> <duplication lines='20' tokens='104'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='263'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='205'/> <codefragment>                },
+                plotOptions: {
+                    series: {
+                        cursor: &#039;pointer&#039;,
+                        allowPointSelect: false,
+                        point: {
+                            events: {
+                                click: function(event) {
+                                    $scope.$apply(function() {
+                                        $scope.chartDetail = createChartCategory(event.point.category);
+                                    });
+                                }
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    showInLegend: false,
+                    name: &#039;Activités de &#039; + benevole + &#039; (&#039; + result.unite + &#039;)&#039;,
+                    data: [{
+                        y: stat.us.nombre,</codefragment> </duplication> <duplication lines='26' tokens='159'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='282'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='224'/> <codefragment>                    data: [{
+                        y: stat.us.nombre,
+                        color: &#039;#FE5B27&#039;
+                    }, {
+                        y: stat.form.nombre,
+                        color: &#039;#E7C109&#039;
+                    }, {
+                        y: stat.as.nombre,
+                        color: &#039;#37CC00&#039;
+                    }, {
+                        y: stat.va.nombre,
+                        color: &#039;#39B5E7&#039;
+                    }]
+                }]
+            };
+
+        };
+
+        //Création du deuxième chart sur demande
+        var createChartCategory = function(category) {
+
+            var categorieId = $scope.categorieList.find(&#039;libelle&#039;, category).id,
+                resultCategorie = &#039;statistiques&#039; + categorieId,
+                i = 0,
+                categorieList = $scope.statistiqueTable[resultCategorie],
+                len = categorieList.length,
+                dataList = [];</codefragment> </duplication> <duplication lines='28' tokens='178'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesBenevoleCtrl.js' line='307'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/recherche/rechercheStatistiquesStructureCtrl.js' line='249'/> <codefragment>                len = categorieList.length,
+                dataList = [];
+
+            $scope.chartColors = categorieId;
+
+            for (i; i &lt; len; i++) {
+                if (i !== 0) {
+                    var tab = [categorieList[i].label, categorieList[i].nombre];
+                    dataList.push(tab);
+                }
+            }
+
+            return {
+                chart: {
+                    type: &#039;pie&#039;
+                },
+                title: {
+                    text: &#039;&quot;&#039; + category + &#039;&quot; par types d\&#039;activités&#039;
+                },
+                plotOptions: {
+                    pie: {
+                        shadow: false,
+                        center: [&#039;50%&#039;, &#039;50%&#039;]
+                    }
+                },
+                series: [{
+                    name: $scope.statistiqueTable.unite,
+                    data: dataList,
+                    size: &#039;80%&#039;</codefragment> </duplication> <duplication lines='34' tokens='235'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/activite/read.js' line='320'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/secours/secours.js' line='254'/> <codefragment>            };
+
+            $scope.showInscriptionInfo = function(inscription) {
+                $modal.open({
+                    templateUrl: &#039;views/common/inscription-info.html&#039;,
+                    controller: [&#039;$scope&#039;, &#039;$modalInstance&#039;, &#039;inscription&#039;,
+                        function($scope, $modalInstance, inscription) {
+
+                            $scope.inscription = inscription;
+                            if (inscription.commentaire !== undefined) {
+                                $scope.commentaire = $filter(&#039;newlines&#039;)(inscription.commentaire);
+                            }
+                            $scope.cancel = function() {
+                                $modalInstance.dismiss(&#039;cancel&#039;);
+                            };
+
+                            $scope.details = function() {
+                                $modalInstance.dismiss(&#039;cancel&#039;);
+                                $location.path(&#039;/utilisateur/&#039; + inscription.utilisateur.id + &#039;/detail&#039;);
+                            };
+
+                        }
+                    ],
+                    resolve: {
+                        inscription: function() {
+                            inscription.dateNotEqual = $scope.dateNotEqual(inscription);
+                            return inscription;
+                        }
+                    }
+                });
+            };
+
+            $scope.openInscriptionTiers = function(roleName) {
+
+                $modal.open({</codefragment> </duplication> <duplication lines='13' tokens='70'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/secours/secours.js' line='108'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/controllers/utilisateur/infosPegassUtilisateurCtrl.js' line='27'/> <codefragment>                StructureService.get(id)
+                    .then(function(structuresList) {
+                        $scope.structuresEnfantList = structuresList.structureMenantActiviteList;
+                        $scope.openedSeance.structureMenantActivite.id = $scope.structuresEnfantList[0].id;
+                        $scope.structureMenantActiviteDisabled = false;
+                    }, function(message) {
+                        //TODO: utiliser logger
+                    });
+            };
+
+            // navigation
+            $scope.nextMonth = function() {
+                $scope.currentDate.setDate(1);
+                $scope.currentDate.setMonth($scope.currentDate.getMonth() + 1);</codefragment> </duplication> <duplication lines='186' tokens='1073'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js' line='2'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService2.js' line='2'/> <codefragment> * @ngdoc service
+ * @name app.ActionService
+ * @function
+ *
+ * @description
+ * Service lié aux actions/groupes actions
+ *
+ */
+
+angular.module(&#039;app&#039;).factory(&#039;ActionService&#039;, [&#039;$resource&#039;, &#039;$q&#039;, &#039;TypeActiviteService&#039;,
+    function(
+        $resource,
+        $q,
+        TypeActiviteService) {
+
+        /**
+         * @ngdoc object
+         * @name app.ActionService#groupeActionListService
+         * @propertyOf app.ActionService
+         *
+         * @description
+         * Resource liée à la liste des groupes actions
+         *
+         */
+        var groupeActionListService = $resource(&#039;/crf/rest/groupeaction&#039;, {}, {}),
+            groupeActionService = $resource(&#039;/crf/rest/groupeaction/:groupeActionId&#039;, {
+                groupeActionId: &#039;@groupeActionId&#039;
+            }, {});
+
+        var actionListService = $resource(&#039;/crf/rest/action&#039;, {}, {}),
+            actionService = $resource(&#039;/crf/rest/action/:actionId&#039;, {
+                actionId: &#039;@actionId&#039;
+            }, {}),
+            actionByGroupeActionService = $resource(&#039;/crf/rest/groupeaction/:groupeactionId/action&#039;, {
+                groupeactionId: &#039;@groupeactionId&#039;
+            }, {}),
+            actionByCategorieService = $resource(&#039;/crf/rest/categorie/:categorieId/action&#039;, {
+                categorieId: &#039;@categorieId&#039;
+            }, {});
+
+        return {
+
+            /**
+             * @ngdoc method
+             * @name app.ActionService#getGroupeActionList
+             * @methodOf app.ActionService
+             *
+             * @description
+             * Récupère la liste des groupes actions
+             *
+             * @returns {array} Retourne la liste des groupes actions
+             */
+            getGroupeActionList: function() {
+                var d = $q.defer();
+
+                groupeActionListService.query({}, {}, function(groupeActionList) {
+                    d.resolve(groupeActionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getGroupeAction: function(groupeActionId) {
+                var d = $q.defer();
+
+                groupeActionService.get({
+                    groupeActionId: groupeActionId
+                }, function(action) {
+                    d.resolve(action);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            //Actions
+            getActionList: function() {
+                var d = $q.defer();
+
+                actionListService.query({}, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getAction: function(actionId) {
+                var d = $q.defer();
+
+                actionService.get({
+                    actionId: actionId
+                }, function(action) {
+                    d.resolve(action);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getActionByGroupeAction: function(groupeactionId) {
+                var d = $q.defer();
+
+                actionByGroupeActionService.query({
+                    groupeactionId: groupeactionId
+                }, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getActionByCategorie: function(categorieId) {
+                var d = $q.defer();
+
+                actionByCategorieService.query({
+                    categorieId: categorieId
+                }, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            addPegassToList: function(action) {
+                var d = $q.defer();
+
+                TypeActiviteService.getTypeActiviteByActionNofilter(action.id).then(function(typeActiviteList) {
+                    action.typeActiviteList = typeActiviteList;
+
+                    d.resolve(action);
+                }, function(error) {
+                    d.reject(error);
+                });
+
+                return d.promise;
+            },
+
+            addActionToList: function(groupeAction) {
+                var d = $q.defer(),
+                    that = this;
+
+                this.getActionByGroupeAction(groupeAction.id).then(function(actionList) {
+
+                    var outputList = [];
+
+                    for (var i = 0; i &lt; actionList.length; i++) {
+                        outputList.push(that.addPegassToList(actionList[i]));
+                    }
+
+                    $q.all(outputList).then(function(actionList) {
+                        groupeAction.actionList = actionList;
+                        d.resolve(groupeAction);
+                    });
+
+                    
+                }, function(error) {
+                    d.reject(error);
+                });
+
+                return d.promise;
+            },
+
+            addActionAndPegassFromList: function(groupeActionList) {
+                var outputList = [];
+
+                for (var i = 0; i &lt; groupeActionList.length; i++) {
+                    outputList.push(this.addActionToList(groupeActionList[i]));
+                }
+
+                return $q.all(outputList);
+            }
+        };
+
+    }
+]);
+</codefragment> </duplication> <duplication lines='186' tokens='1073'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js' line='2'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService3.js' line='2'/> <codefragment> * @ngdoc service
+ * @name app.ActionService
+ * @function
+ *
+ * @description
+ * Service lié aux actions/groupes actions
+ *
+ */
+
+angular.module(&#039;app&#039;).factory(&#039;ActionService&#039;, [&#039;$resource&#039;, &#039;$q&#039;, &#039;TypeActiviteService&#039;,
+    function(
+        $resource,
+        $q,
+        TypeActiviteService) {
+
+        /**
+         * @ngdoc object
+         * @name app.ActionService#groupeActionListService
+         * @propertyOf app.ActionService
+         *
+         * @description
+         * Resource liée à la liste des groupes actions
+         *
+         */
+        var groupeActionListService = $resource(&#039;/crf/rest/groupeaction&#039;, {}, {}),
+            groupeActionService = $resource(&#039;/crf/rest/groupeaction/:groupeActionId&#039;, {
+                groupeActionId: &#039;@groupeActionId&#039;
+            }, {});
+
+        var actionListService = $resource(&#039;/crf/rest/action&#039;, {}, {}),
+            actionService = $resource(&#039;/crf/rest/action/:actionId&#039;, {
+                actionId: &#039;@actionId&#039;
+            }, {}),
+            actionByGroupeActionService = $resource(&#039;/crf/rest/groupeaction/:groupeactionId/action&#039;, {
+                groupeactionId: &#039;@groupeactionId&#039;
+            }, {}),
+            actionByCategorieService = $resource(&#039;/crf/rest/categorie/:categorieId/action&#039;, {
+                categorieId: &#039;@categorieId&#039;
+            }, {});
+
+        return {
+
+            /**
+             * @ngdoc method
+             * @name app.ActionService#getGroupeActionList
+             * @methodOf app.ActionService
+             *
+             * @description
+             * Récupère la liste des groupes actions
+             *
+             * @returns {array} Retourne la liste des groupes actions
+             */
+            getGroupeActionList: function() {
+                var d = $q.defer();
+
+                groupeActionListService.query({}, {}, function(groupeActionList) {
+                    d.resolve(groupeActionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getGroupeAction: function(groupeActionId) {
+                var d = $q.defer();
+
+                groupeActionService.get({
+                    groupeActionId: groupeActionId
+                }, function(action) {
+                    d.resolve(action);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            //Actions
+            getActionList: function() {
+                var d = $q.defer();
+
+                actionListService.query({}, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getAction: function(actionId) {
+                var d = $q.defer();
+
+                actionService.get({
+                    actionId: actionId
+                }, function(action) {
+                    d.resolve(action);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getActionByGroupeAction: function(groupeactionId) {
+                var d = $q.defer();
+
+                actionByGroupeActionService.query({
+                    groupeactionId: groupeactionId
+                }, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getActionByCategorie: function(categorieId) {
+                var d = $q.defer();
+
+                actionByCategorieService.query({
+                    categorieId: categorieId
+                }, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            addPegassToList: function(action) {
+                var d = $q.defer();
+
+                TypeActiviteService.getTypeActiviteByActionNofilter(action.id).then(function(typeActiviteList) {
+                    action.typeActiviteList = typeActiviteList;
+
+                    d.resolve(action);
+                }, function(error) {
+                    d.reject(error);
+                });
+
+                return d.promise;
+            },
+
+            addActionToList: function(groupeAction) {
+                var d = $q.defer(),
+                    that = this;
+
+                this.getActionByGroupeAction(groupeAction.id).then(function(actionList) {
+
+                    var outputList = [];
+
+                    for (var i = 0; i &lt; actionList.length; i++) {
+                        outputList.push(that.addPegassToList(actionList[i]));
+                    }
+
+                    $q.all(outputList).then(function(actionList) {
+                        groupeAction.actionList = actionList;
+                        d.resolve(groupeAction);
+                    });
+
+                    
+                }, function(error) {
+                    d.reject(error);
+                });
+
+                return d.promise;
+            },
+
+            addActionAndPegassFromList: function(groupeActionList) {
+                var outputList = [];
+
+                for (var i = 0; i &lt; groupeActionList.length; i++) {
+                    outputList.push(this.addActionToList(groupeActionList[i]));
+                }
+
+                return $q.all(outputList);
+            }
+        };
+
+    }
+]);
+</codefragment> </duplication> <duplication lines='32' tokens='170'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js' line='27'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService4.js' line='27'/> <codefragment>            groupeActionService = $resource(&#039;/crf/rest/groupeaction/:groupeActionId&#039;, {
+                groupeActionId: &#039;@groupeActionId&#039;
+            }, {});
+
+        var actionListService = $resource(&#039;/crf/rest/action&#039;, {}, {}),
+            actionService = $resource(&#039;/crf/rest/action/:actionId&#039;, {
+                actionId: &#039;@actionId&#039;
+            }, {}),
+            actionByGroupeActionService = $resource(&#039;/crf/rest/groupeaction/:groupeactionId/action&#039;, {
+                groupeactionId: &#039;@groupeactionId&#039;
+            }, {}),
+            actionByCategorieService = $resource(&#039;/crf/rest/categorie/:categorieId/action&#039;, {
+                categorieId: &#039;@categorieId&#039;
+            }, {});
+
+        return {
+
+            /**
+             * @ngdoc method
+             * @name app.ActionService#getGroupeActionList
+             * @methodOf app.ActionService
+             *
+             * @description
+             * Récupère la liste des groupes actions
+             *
+             * @returns {array} Retourne la liste des groupes actions
+             */
+            getGroupeActionList: function() {
+                var d = $q.defer();
+
+                groupeActionListService.query({}, {}, function(groupeActionList) {
+                    d.resolve(groupeActionList);
+                }, function(p) {</codefragment> </duplication> <duplication lines='119' tokens='772'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService.js' line='58'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/actionService4.js' line='58'/> <codefragment>                    d.resolve(groupeActionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getGroupeAction: function(groupeActionId) {
+                var d = $q.defer();
+
+                groupeActionService.get({
+                    groupeActionId: groupeActionId
+                }, function(action) {
+                    d.resolve(action);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            //Actions
+            getActionList: function() {
+                var d = $q.defer();
+
+                actionListService.query({}, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getAction: function(actionId) {
+                var d = $q.defer();
+
+                actionService.get({
+                    actionId: actionId
+                }, function(action) {
+                    d.resolve(action);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getActionByGroupeAction: function(groupeactionId) {
+                var d = $q.defer();
+
+                actionByGroupeActionService.query({
+                    groupeactionId: groupeactionId
+                }, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getActionByCategorie: function(categorieId) {
+                var d = $q.defer();
+
+                actionByCategorieService.query({
+                    categorieId: categorieId
+                }, {}, function(actionList) {
+                    d.resolve(actionList);
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            addPegassToList: function(action) {
+                var d = $q.defer();
+
+                TypeActiviteService.getTypeActiviteByActionNofilter(action.id).then(function(typeActiviteList) {
+                    action.typeActiviteList = typeActiviteList;
+
+                    d.resolve(action);
+                }, function(error) {
+                    d.reject(error);
+                });
+
+                return d.promise;
+            },
+
+            addActionToList: function(groupeAction) {
+                var d = $q.defer(),
+                    that = this;
+
+                this.getActionByGroupeAction(groupeAction.id).then(function(actionList) {
+
+                    var outputList = [];
+
+                    for (var i = 0; i &lt; actionList.length; i++) {
+                        outputList.push(that.addPegassToList(actionList[i]));
+                    }
+
+                    $q.all(outputList).then(function(actionList) {
+                        groupeAction.actionList = actionList;
+                        d.resolve(groupeAction);
+                    });
+
+                    
+                }, function(error) {
+                    d.reject(error);
+                });
+
+                return d.promise;
+            },
+
+            addActionAndPegassFromList: function(groupeActionList) {
+                var outputList = [];
+
+                for (var i = 0; i &lt; groupeActionList.length; i++) {</codefragment> </duplication> <duplication lines='19' tokens='87'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js' line='249'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js' line='271'/> <codefragment>
+                if (typeof recurrence !== &#039;undefined&#039;) {
+                    activite.recurrence = recurrence;
+                }
+
+                activiteUpdateService.update({
+                        id: activiteId
+                    }, activite, function() {
+                        d.resolve();
+                    },
+                    function() {
+                        d.reject();
+                    });
+
+                return d.promise;
+            },
+
+            cancel: function(activiteId, recurrence) {
+                var d = $q.defer(),
+                    activite = {};</codefragment> </duplication> <duplication lines='16' tokens='89'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js' line='301'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/inscriptionService.js' line='330'/> <codefragment>                    }, body, function(savedInscription) {
+                        d.resolve(savedInscription);
+                    },
+                    function(error) {
+                        if(error.status === 500) {
+                            d.reject(SETTINGS.ERROR_MESSAGE);
+                        } else {
+                            d.reject(error.data);
+                        }
+                    });
+
+                return d.promise;
+            },
+
+            saveToActivite: function(inscription) {
+                var d = $q.defer(),
+                    body = {</codefragment> </duplication> <duplication lines='13' tokens='97'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/activiteService.js' line='363'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/seanceService.js' line='133'/> <codefragment>                var d = $q.defer(),
+                    params = {
+                        debut: $filter(&#039;date&#039;)(startDate, &#039;yyyy-MM-dd&#039;),
+                        fin: $filter(&#039;date&#039;)(endDate, &#039;yyyy-MM-dd&#039;),
+                        creationEnMasse: true
+                    };
+
+                if (!angular.isUndefined(structureId)) {
+                    params.structureCreateur = structureId;
+                }
+
+                activitesListService.query(
+                    params,
+                    function(activitesList) {</codefragment> </duplication> <duplication lines='13' tokens='81'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js' line='98'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js' line='131'/> <codefragment>                        d.resolve(typeActiviteList);
+                    } else {
+                        d.resolve(filterTypeActivite(typeActiviteList));
+                    }
+
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+
+            getTypeActiviteByActionNofilter: function(actionId) {
+                var d = $q.defer();</codefragment> </duplication> <duplication lines='13' tokens='73'> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js' line='197'/> <file path='/home/aurelien/developpement/sts-workspace/sonar-front-project/app/scripts/services/typeActiviteService.js' line='216'/> <codefragment>
+                typeActivite.libelle = libelle;
+
+                typeActiviteUpdateService.update({
+                    typeActiviteId: id
+                }, typeActivite, function() {
+                    d.resolve();
+                }, function(p) {
+                    d.reject(p.status);
+                });
+
+                return d.promise;
+            },
+</codefragment> </duplication></pmd-cpd>

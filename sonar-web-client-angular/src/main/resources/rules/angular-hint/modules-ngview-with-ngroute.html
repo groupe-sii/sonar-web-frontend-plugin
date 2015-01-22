@@ -1,0 +1,29 @@
+<h2>Details</h2>
+
+<p>Routing has been separated from Angular.js into a separate <code>ngRoute</code> module. To use routing, <code>ngRoute</code> must be
+loaded as a dependency for your main module. This module notifies you if you have routing in your application but
+you have not loaded <code>ngRoute</code>.</p><h3>
+<a id="user-content--multiple-uses-of-ng-app" class="anchor" href="#-multiple-uses-of-ng-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="user-content-ng-app"></a> Multiple uses of ng-app</h3><p>The <code>ng-app</code> directive is provided to bootstrap a module as the main module of an Angular application.</p><pre><code>&lt;!doctype html&gt;
+&lt;html ng-app='sampleApp' ng-hint&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Angular Hint Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body ng-controller="HintController"&gt;
+   ...
+&lt;/html&gt;
+</code></pre><p>However, this directive can only bootstrap one module as the main module of the application.
+Using the directive multiple times will not bootstrap multiple modules. The following is an error,
+and will produce an AngularHintModules message:</p><pre><code>&lt;!doctype html&gt;
+&lt;html ng-app='sampleApp' ng-hint&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Angular Hint Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body ng-app='sampleAllHint' ng-controller="HintController"&gt;
+    ...
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>

@@ -1,0 +1,13 @@
+<h2>Details</h2>
+
+<p>AngularHintDirectives identifies whether you include all variables declared through two way binding. In the example below, we have declared the attributes 'breadcrumbs' and 'id' to exsist within the 'haBreadcrumbs' directive.</p><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>breadcrumbs<span class="pl-pds">'</span></span>).
+directive(<span class="pl-s1"><span class="pl-pds">'</span>haBreadcrumbs<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+  <span class="pl-k">return</span> {
+    restrict<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>E<span class="pl-pds">'</span></span>,
+    templateUrl<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>components/breadcrumbs/breadcrumbs.html<span class="pl-pds">'</span></span>,
+    scope<span class="pl-k">:</span> {
+      breadcrumbs<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>=<span class="pl-pds">'</span></span>,
+      id<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>@<span class="pl-pds">'</span></span>
+    }
+  };
+});</pre></div><p>If you used your directive like in the HTML example below, you would be notified that you are missing the <em>'id'</em> attribute from your 'haBreadcrumbs' directive.</p><div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">breadcrumbs</span> <span class="pl-e">ha-breadcrumbs</span>=<span class="pl-s1"><span class="pl-pds">"</span>['home','profile','about']<span class="pl-pds">"</span></span>&gt; &lt;/<span class="pl-ent">breadcrumbs</span>&gt;</pre></div>

@@ -1,0 +1,18 @@
+<h2>Details</h2>
+
+<p>AngularHintEvents checks all ngEventDirectives <code>ngClick</code>, <code>ngMousedown</code>, <code>ngFocus</code>, etc. and their attributes for defined functions and variables on the appropriate <code>$scope</code>. If a function or variable is found to be <code>undefined</code>, AngularHintEvents will notify you and suggest the closest match if one exists. In the first example below, you would be warned that the function <code>increments</code> doesn't exist for its scope and that you should try <code>increment</code>.</p><p>More complicated expressions will also be checked for values found to be <code>undefined</code>. The second example would cause a warning saying that <code>divideVal</code> and <code>divide</code> are not defined.</p><h5>
+<a id="user-content-example-html-implementation" class="anchor" href="#example-html-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example HTML Implementation</h5><div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">ng-click</span>=<span class="pl-s1"><span class="pl-pds">"</span>increments<span class="pl-pds">"</span></span>&gt;Count!&lt;/<span class="pl-ent">a</span>&gt;
+&lt;<span class="pl-ent">a</span> <span class="pl-e">ng-click</span>=<span class="pl-s1"><span class="pl-pds">"</span>divideVal = dividend() / divide()<span class="pl-pds">"</span></span>&gt;Count!&lt;/<span class="pl-ent">a</span>&gt;</pre></div><h5>
+<a id="user-content-example-controller-implementation" class="anchor" href="#example-controller-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Controller Implementation:</h5><div class="highlight highlight-javascript"><pre>angular.module(<span class="pl-s1"><span class="pl-pds">'</span>demoApp<span class="pl-pds">'</span></span>).controller(<span class="pl-s1"><span class="pl-pds">'</span>DemoController<span class="pl-pds">'</span></span>, [<span class="pl-s1"><span class="pl-pds">'</span>$scope<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">$scope</span>) {
+  $scope.count <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+  $scope.divideValue;
+  <span class="pl-s3">$scope</span>.<span class="pl-en">increment</span> <span class="pl-k">=</span> <span class="pl-st">function</span>() {
+    <span class="pl-k">++</span>$scope.count
+  };
+  <span class="pl-s3">$scope</span>.<span class="pl-en">dividend</span> <span class="pl-k">=</span> <span class="pl-st">function</span>() {
+    <span class="pl-k">return</span> <span class="pl-s3">Math</span>.<span class="pl-s3">random</span>()<span class="pl-k">*</span><span class="pl-c1">20</span><span class="pl-k">+</span><span class="pl-c1">20</span>
+  };
+  <span class="pl-s3">$scope</span>.<span class="pl-en">divisor</span> <span class="pl-k">=</span> <span class="pl-st">function</span>() {
+    <span class="pl-k">return</span> <span class="pl-s3">Math</span>.<span class="pl-s3">random</span>()<span class="pl-k">*</span><span class="pl-c1">10</span><span class="pl-k">+</span><span class="pl-c1">1</span>
+  };
+}]);</pre></div>

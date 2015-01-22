@@ -1,0 +1,17 @@
+<h2>Details</h2>
+
+<p>AngularHintInterpolation addresses the problem of identifying where (within a chain) objects become undefined. For example, in the code below one would be notified that <code>data.results[0].urls</code> was found to be <code>undefined</code> in the interpolation <code>data.results[0].entities.urls.main_url</code>.</p><div class="highlight highlight-html"><pre>//html implementation
+&lt;<span class="pl-ent">a</span> <span class="pl-e">ng-href</span>=<span class="pl-s1"><span class="pl-pds">"</span>{{data.results[0].urls.main_url}}<span class="pl-pds">"</span></span>&gt;Link to Post&lt;/<span class="pl-ent">a</span>&gt;</pre></div><div class="highlight highlight-javascript"><pre><span class="pl-c">//controller implementation</span>
+$scope.<span class="pl-sc">data</span> <span class="pl-k">=</span> {
+  <span class="pl-s1"><span class="pl-pds">"</span>completed_in<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">0.031</span>,
+  <span class="pl-s1"><span class="pl-pds">"</span>refresh_url<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>?sinceid=122078461840982016&amp;q=blue%20angels<span class="pl-pds">"</span></span>,
+  <span class="pl-s1"><span class="pl-pds">"</span>results<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+    {
+      <span class="pl-s1"><span class="pl-pds">"</span>entities<span class="pl-pds">"</span></span><span class="pl-k">:</span>{
+        <span class="pl-s1"><span class="pl-pds">"</span>urls<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+          <span class="pl-s1"><span class="pl-pds">"</span>condensed_url<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://t.co/L9JXJ2ee<span class="pl-pds">"</span></span>,
+          <span class="pl-s1"><span class="pl-pds">"</span>main_url<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://t.co/imgs/users/venrov/L9JXJ2ee<span class="pl-pds">"</span></span>
+        }
+      }
+    }]
+}</pre></div>

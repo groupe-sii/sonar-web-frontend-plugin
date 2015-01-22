@@ -1,4 +1,4 @@
-package fr.sii.sonar.report.core.coverage.saver;
+package fr.sii.sonar.report.core.coverage.save;
 
 import java.io.IOException;
 

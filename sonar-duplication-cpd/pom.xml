@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.sii.sonar</groupId>
+		<artifactId>sonar-web-client-plugin</artifactId>
+		<version>2.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sonar-duplication-cpd</artifactId>
+
+	<name>SII duplication plugin :: CPD</name>
+	<description>Plugin that parses CPD xml report</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-report-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- JAXB xjc plugin that invokes the xjc compiler to compile XML schema 
+				into Java classes. -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>pmd-cpd-generate</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>pmd-cpd.xsd</schemaFiles>
+							<packageName>fr.sii.sonar.duplication.cpd.domain</packageName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
