@@ -7,6 +7,10 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationConstants;
+import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationFallbackProviderFactory;
+import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationSaverFactory;
+import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationSensor;
 import fr.sii.sonar.web.client.scss.quality.ScssQualityConstants;
 import fr.sii.sonar.web.client.scss.quality.ScssQualityReportProviderFactory;
 import fr.sii.sonar.web.client.scss.quality.ScssQualityReportSaverFactory;
@@ -59,7 +63,30 @@ public final class ScssPlugin extends SonarPlugin {
 				ScssQualityReportSaverFactory.class,
 				ScsslintRuleRepository.class,
 				ScssRuleProfile.class,
-				ScssQualitySensor.class
+				ScssQualitySensor.class,
+				
+				// Duplication configuration
+				PropertyDefinition.builder(ScssDuplicationConstants.REPORT_PATH_KEY)
+		            .defaultValue(ScssDuplicationConstants.REPORT_PATH_DEFVALUE)
+		            .category(ScssDuplicationConstants.CATEGORY)
+		            .subCategory(ScssDuplicationConstants.SUB_CATEGORY)
+		            .name("SCSS duplication report path")
+		            .description("The path to the SCSS report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(ScssDuplicationConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(ScssDuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(ScssDuplicationConstants.CATEGORY)
+		            .subCategory(ScssDuplicationConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+	            ScssDuplicationConstants.class,
+				ScssDuplicationFallbackProviderFactory.class,
+				ScssDuplicationSaverFactory.class,
+				ScssDuplicationSensor.class
 		);
 	}
 }

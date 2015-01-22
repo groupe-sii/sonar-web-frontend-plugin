@@ -7,6 +7,10 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.web.client.css.duplication.CssDuplicationConstants;
+import fr.sii.sonar.web.client.css.duplication.CssDuplicationFallbackProviderFactory;
+import fr.sii.sonar.web.client.css.duplication.CssDuplicationSaverFactory;
+import fr.sii.sonar.web.client.css.duplication.CssDuplicationSensor;
 import fr.sii.sonar.web.client.css.quality.CssQualityConstants;
 import fr.sii.sonar.web.client.css.quality.CssQualityReportProviderFactory;
 import fr.sii.sonar.web.client.css.quality.CssQualityReportSaverFactory;
@@ -59,7 +63,30 @@ public final class CssPlugin extends SonarPlugin {
 				CssQualityReportSaverFactory.class,
 				CsslintRuleRepository.class,
 				CssRuleProfile.class,
-				CssQualitySensor.class
+				CssQualitySensor.class,
+				
+				// Duplication configuration
+				PropertyDefinition.builder(CssDuplicationConstants.REPORT_PATH_KEY)
+		            .defaultValue(CssDuplicationConstants.REPORT_PATH_DEFVALUE)
+		            .category(CssDuplicationConstants.CATEGORY)
+		            .subCategory(CssDuplicationConstants.SUB_CATEGORY)
+		            .name("CSS duplication report path")
+		            .description("The path to the CSS report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(CssDuplicationConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(CssDuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(CssDuplicationConstants.CATEGORY)
+		            .subCategory(CssDuplicationConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+	            CssDuplicationConstants.class,
+				CssDuplicationFallbackProviderFactory.class,
+				CssDuplicationSaverFactory.class,
+				CssDuplicationSensor.class
 		);
 	}
 }

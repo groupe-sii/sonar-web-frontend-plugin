@@ -9,14 +9,14 @@ import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.coverage.lcov.factory.LcovProviderFactory;
 import fr.sii.sonar.report.core.coverage.factory.CoverageSaverFactory;
-import fr.sii.sonar.report.core.duplication.factory.DuplicationSaverFactory;
 import fr.sii.sonar.report.core.test.factory.TestSaverFactory;
 import fr.sii.sonar.report.test.junit.factory.JUnitFallbackProviderFactory;
 import fr.sii.sonar.web.client.js.coverage.LcovCoverageConstants;
 import fr.sii.sonar.web.client.js.coverage.LcovCoverageSensor;
-import fr.sii.sonar.web.client.js.duplication.DuplicationConstants;
-import fr.sii.sonar.web.client.js.duplication.DuplicationFallbackProviderFactory;
-import fr.sii.sonar.web.client.js.duplication.DuplicationSensor;
+import fr.sii.sonar.web.client.js.duplication.JsDuplicationConstants;
+import fr.sii.sonar.web.client.js.duplication.JsDuplicationFallbackProviderFactory;
+import fr.sii.sonar.web.client.js.duplication.JsDuplicationSaverFactory;
+import fr.sii.sonar.web.client.js.duplication.JsDuplicationSensor;
 import fr.sii.sonar.web.client.js.quality.JsQualityConstants;
 import fr.sii.sonar.web.client.js.quality.JsQualityReportProviderFactory;
 import fr.sii.sonar.web.client.js.quality.JsQualityReportSaverFactory;
@@ -143,27 +143,27 @@ public final class JsPlugin extends SonarPlugin {
 				JUnitIntegrationReportSensor.class,
 				
 				// Duplication configuration
-				PropertyDefinition.builder(DuplicationConstants.REPORT_PATH_KEY)
-		            .defaultValue(DuplicationConstants.REPORT_PATH_DEFVALUE)
-		            .category(DuplicationConstants.CATEGORY)
-		            .subCategory(DuplicationConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(JsDuplicationConstants.REPORT_PATH_KEY)
+		            .defaultValue(JsDuplicationConstants.REPORT_PATH_DEFVALUE)
+		            .category(JsDuplicationConstants.CATEGORY)
+		            .subCategory(JsDuplicationConstants.SUB_CATEGORY)
 		            .name("JavaScript duplication report path")
 		            .description("The path to the JavaScript report file to load")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
-				PropertyDefinition.builder(DuplicationConstants.FAIL_MISSING_FILE_KEY)
-		            .defaultValue(DuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
-		            .category(DuplicationConstants.CATEGORY)
-		            .subCategory(DuplicationConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(JsDuplicationConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(JsDuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(JsDuplicationConstants.CATEGORY)
+		            .subCategory(JsDuplicationConstants.SUB_CATEGORY)
 		            .name("Fail on missing source file")
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
 
-	            DuplicationConstants.class,
-				DuplicationFallbackProviderFactory.class,
-				DuplicationSaverFactory.class,
-				DuplicationSensor.class
+	            JsDuplicationConstants.class,
+				JsDuplicationFallbackProviderFactory.class,
+				JsDuplicationSaverFactory.class,
+				JsDuplicationSensor.class
 		);
 	}
 }

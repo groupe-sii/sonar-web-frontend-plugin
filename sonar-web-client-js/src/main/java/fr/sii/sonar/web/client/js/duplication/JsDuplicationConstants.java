@@ -3,7 +3,7 @@ package fr.sii.sonar.web.client.js.duplication;
 import fr.sii.sonar.report.core.common.ReportConstants;
 import fr.sii.sonar.web.client.js.JsConstants;
 
-public class DuplicationConstants extends JsConstants implements ReportConstants {
+public class JsDuplicationConstants extends JsConstants implements ReportConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.duplication.js.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.duplication.js.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/js-duplication.xml";

@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.js.duplication;
+package fr.sii.sonar.web.client.html.duplication;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ import fr.sii.sonar.report.core.duplication.domain.DuplicationReport;
  * @author Aurélien Baudet
  *
  */
-public class DuplicationFallbackProviderFactory implements ProviderFactory<DuplicationReport> {
+public class HtmlDuplicationFallbackProviderFactory implements ProviderFactory<DuplicationReport> {
 
 	@SuppressWarnings("unchecked")
 	public Provider<DuplicationReport> create(File reportFile) throws CreateException {

@@ -7,6 +7,10 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationConstants;
+import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationFallbackProviderFactory;
+import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationSaverFactory;
+import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationSensor;
 import fr.sii.sonar.web.client.html.quality.HtmlHintRuleRepository;
 import fr.sii.sonar.web.client.html.quality.HtmlQualityConstants;
 import fr.sii.sonar.web.client.html.quality.HtmlQualityReportProviderFactory;
@@ -59,7 +63,30 @@ public final class HtmlPlugin extends SonarPlugin {
 				HtmlQualityReportSaverFactory.class,
 				HtmlHintRuleRepository.class,
 				HtmlRuleProfile.class,
-				HtmlQualitySensor.class
+				HtmlQualitySensor.class,
+				
+				// Duplication configuration
+				PropertyDefinition.builder(HtmlDuplicationConstants.REPORT_PATH_KEY)
+		            .defaultValue(HtmlDuplicationConstants.REPORT_PATH_DEFVALUE)
+		            .category(HtmlDuplicationConstants.CATEGORY)
+		            .subCategory(HtmlDuplicationConstants.SUB_CATEGORY)
+		            .name("HTML duplication report path")
+		            .description("The path to the HTML report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(HtmlDuplicationConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(HtmlDuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(HtmlDuplicationConstants.CATEGORY)
+		            .subCategory(HtmlDuplicationConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+	            HtmlDuplicationConstants.class,
+	            HtmlDuplicationFallbackProviderFactory.class,
+				HtmlDuplicationSaverFactory.class,
+				HtmlDuplicationSensor.class
 		);
 	}
 }
