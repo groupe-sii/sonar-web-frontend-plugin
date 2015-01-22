@@ -6,8 +6,9 @@ import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import fr.sii.sonar.report.core.common.ReportSensor;
-import fr.sii.sonar.report.core.common.factory.ProviderFactory;
-import fr.sii.sonar.report.core.common.factory.SaverFactory;
+import fr.sii.sonar.report.core.quality.domain.report.QualityReport;
+import fr.sii.sonar.report.core.quality.factory.JsonQualityReportProviderFactory;
+import fr.sii.sonar.report.core.quality.factory.QualitySaverFactory;
 
 /**
  * Just a specific implementation to help dependency injection
@@ -15,12 +16,10 @@ import fr.sii.sonar.report.core.common.factory.SaverFactory;
  * @author Aurélien Baudet
  *
  */
-public class AngularQualitySensor extends ReportSensor {
+public class AngularQualitySensor extends ReportSensor<QualityReport> {
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public AngularQualitySensor(AngularQualityConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
-			AngularQualityReportProviderFactory providerFactory, AngularQualityReportSaverFactory saverFactory) {
-		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (ProviderFactory) providerFactory, (SaverFactory) saverFactory);
+	public AngularQualitySensor(AngularQualityConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective) {
+		super(constants, settings, ruleFinder, filesystem, resourcePerspective, new JsonQualityReportProviderFactory(), new QualitySaverFactory());
 	}
 
 }

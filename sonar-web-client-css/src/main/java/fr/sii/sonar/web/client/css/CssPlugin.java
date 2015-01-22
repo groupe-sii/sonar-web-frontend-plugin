@@ -8,12 +8,8 @@ import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.web.client.css.duplication.CssDuplicationConstants;
-import fr.sii.sonar.web.client.css.duplication.CssDuplicationFallbackProviderFactory;
-import fr.sii.sonar.web.client.css.duplication.CssDuplicationSaverFactory;
 import fr.sii.sonar.web.client.css.duplication.CssDuplicationSensor;
 import fr.sii.sonar.web.client.css.quality.CssQualityConstants;
-import fr.sii.sonar.web.client.css.quality.CssQualityReportProviderFactory;
-import fr.sii.sonar.web.client.css.quality.CssQualityReportSaverFactory;
 import fr.sii.sonar.web.client.css.quality.CssQualitySensor;
 import fr.sii.sonar.web.client.css.quality.CssRuleProfile;
 import fr.sii.sonar.web.client.css.quality.CsslintRuleRepository;
@@ -59,8 +55,6 @@ public final class CssPlugin extends SonarPlugin {
 		            .build(),
 
 				CssQualityConstants.class,
-				CssQualityReportProviderFactory.class,
-				CssQualityReportSaverFactory.class,
 				CsslintRuleRepository.class,
 				CssRuleProfile.class,
 				CssQualitySensor.class,
@@ -84,8 +78,6 @@ public final class CssPlugin extends SonarPlugin {
 		            .build(),
 
 	            CssDuplicationConstants.class,
-				CssDuplicationFallbackProviderFactory.class,
-				CssDuplicationSaverFactory.class,
 				CssDuplicationSensor.class
 		);
 	}

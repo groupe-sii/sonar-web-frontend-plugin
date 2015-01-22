@@ -17,5 +17,4 @@ public class CssDuplicationConstants extends CssConstants implements ReportConst
 	public String getMissingFileFailKey() {
 		return FAIL_MISSING_FILE_KEY;
 	}
-
 }

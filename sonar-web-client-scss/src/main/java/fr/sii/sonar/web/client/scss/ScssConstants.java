@@ -12,5 +12,4 @@ public abstract class ScssConstants implements ReportConstants {
 	public String getLanguageKey() {
 		return LANGUAGE_KEY;
 	}
-
 }

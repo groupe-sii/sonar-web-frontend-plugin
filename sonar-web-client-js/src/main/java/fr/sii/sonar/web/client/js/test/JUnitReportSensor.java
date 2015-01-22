@@ -6,8 +6,7 @@ import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import fr.sii.sonar.report.core.common.ReportSensor;
-import fr.sii.sonar.report.core.common.factory.ProviderFactory;
-import fr.sii.sonar.report.core.common.factory.SaverFactory;
+import fr.sii.sonar.report.core.test.domain.TestReport;
 import fr.sii.sonar.report.core.test.factory.TestSaverFactory;
 import fr.sii.sonar.report.test.junit.factory.JUnitFallbackProviderFactory;
 
@@ -17,12 +16,10 @@ import fr.sii.sonar.report.test.junit.factory.JUnitFallbackProviderFactory;
  * @author Aurélien Baudet
  *
  */
-public class JUnitReportSensor extends ReportSensor {
+public class JUnitReportSensor extends ReportSensor<TestReport> {
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public JUnitReportSensor(JUnitConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
-			JUnitFallbackProviderFactory providerFactory, TestSaverFactory saverFactory) {
-		super(constants, settings, ruleFinder, filesystem, resourcePerspective, (ProviderFactory) providerFactory, (SaverFactory) saverFactory);
+	public JUnitReportSensor(JUnitConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective) {
+		super(constants, settings, ruleFinder, filesystem, resourcePerspective, new JUnitFallbackProviderFactory(), new TestSaverFactory());
 	}
 
 }

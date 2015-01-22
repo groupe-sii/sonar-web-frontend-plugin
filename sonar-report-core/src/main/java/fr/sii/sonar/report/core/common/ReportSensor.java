@@ -38,19 +38,19 @@ import fr.sii.sonar.report.core.common.save.Saver;
  * @author Aurélien Baudet
  *
  */
-public abstract class ReportSensor implements Sensor {
+public abstract class ReportSensor<R extends Report> implements Sensor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ReportSensor.class);
 
 	private final PluginContext pluginContext;
-	private final ProviderFactory<Report> providerFactory;
-	private final SaverFactory<Report> saverFactory;
+	private final ProviderFactory<R> providerFactory;
+	private final SaverFactory<R> saverFactory;
 
 	/**
 	 * Use of IoC to get Settings
 	 */
 	public ReportSensor(ReportConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
-			ProviderFactory<Report> providerFactory, SaverFactory<Report> saverFactory) {
+			ProviderFactory<R> providerFactory, SaverFactory<R> saverFactory) {
 		super();
 		this.pluginContext = new PluginContext(settings, resourcePerspective, ruleFinder, filesystem, constants);
 		this.providerFactory = providerFactory;
@@ -94,8 +94,8 @@ public abstract class ReportSensor implements Sensor {
 	public void analyse(Project project, SensorContext sensorContext) {
 		File reportFile = getReportFile(project);
 		try {
-			Provider<Report> provider = providerFactory.create(reportFile);
-			Saver<Report> saver = saverFactory.create(pluginContext);
+			Provider<R> provider = providerFactory.create(reportFile);
+			Saver<R> saver = saverFactory.create(pluginContext);
 			saver.save(provider.get(), project, sensorContext);
 		} catch (ProviderException e) {
 			LOG.error(e.getMessage());

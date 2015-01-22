@@ -12,5 +12,4 @@ public abstract class CssConstants implements ReportConstants {
 	public String getLanguageKey() {
 		return LANGUAGE_KEY;
 	}
-
 }

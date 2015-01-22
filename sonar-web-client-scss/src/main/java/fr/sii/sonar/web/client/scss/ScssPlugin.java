@@ -8,12 +8,8 @@ import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationConstants;
-import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationFallbackProviderFactory;
-import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationSaverFactory;
 import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationSensor;
 import fr.sii.sonar.web.client.scss.quality.ScssQualityConstants;
-import fr.sii.sonar.web.client.scss.quality.ScssQualityReportProviderFactory;
-import fr.sii.sonar.web.client.scss.quality.ScssQualityReportSaverFactory;
 import fr.sii.sonar.web.client.scss.quality.ScssQualitySensor;
 import fr.sii.sonar.web.client.scss.quality.ScssRuleProfile;
 import fr.sii.sonar.web.client.scss.quality.ScsslintRuleRepository;
@@ -59,8 +55,6 @@ public final class ScssPlugin extends SonarPlugin {
 		            .build(),
 
 				ScssQualityConstants.class,
-				ScssQualityReportProviderFactory.class,
-				ScssQualityReportSaverFactory.class,
 				ScsslintRuleRepository.class,
 				ScssRuleProfile.class,
 				ScssQualitySensor.class,
@@ -84,8 +78,6 @@ public final class ScssPlugin extends SonarPlugin {
 		            .build(),
 
 	            ScssDuplicationConstants.class,
-				ScssDuplicationFallbackProviderFactory.class,
-				ScssDuplicationSaverFactory.class,
 				ScssDuplicationSensor.class
 		);
 	}

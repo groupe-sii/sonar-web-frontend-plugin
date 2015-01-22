@@ -1,28 +1,14 @@
 package fr.sii.sonar.web.client.js;
 
-import org.apache.commons.lang.StringUtils;
 import org.sonar.api.config.Settings;
-import org.sonar.api.resources.AbstractLanguage;
 
-public class Js extends AbstractLanguage {
+import fr.sii.sonar.report.core.common.language.ConfigurableLanguage;
 
-	private Settings settings;
+public class Js extends ConfigurableLanguage {
 
-	public Js(Settings configuration) {
-		super(JsConstants.LANGUAGE_KEY, "JS");
-		this.settings = configuration;
+	public Js(Settings settings) {
+		super(settings, JsConstants.LANGUAGE_KEY, JsConstants.FILE_SUFFIXES_KEY, JsConstants.FILE_SUFFIXES_DEFVALUE, "JS");
 	}
 
-	public Settings getSettings() {
-		return this.settings;
-	}
-
-	public String[] getFileSuffixes() {
-		String[] suffixes = settings.getStringArray(JsConstants.FILE_SUFFIXES_KEY);
-		if (suffixes == null || suffixes.length == 0) {
-			suffixes = StringUtils.split(JsConstants.FILE_SUFFIXES_DEFVALUE, ",");
-		}
-		return suffixes;
-	}
 
 }

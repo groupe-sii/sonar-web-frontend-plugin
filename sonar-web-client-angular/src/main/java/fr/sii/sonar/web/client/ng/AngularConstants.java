@@ -12,5 +12,4 @@ public abstract class AngularConstants implements ReportConstants {
 	public String getLanguageKey() {
 		return LANGUAGE_KEY;
 	}
-
 }

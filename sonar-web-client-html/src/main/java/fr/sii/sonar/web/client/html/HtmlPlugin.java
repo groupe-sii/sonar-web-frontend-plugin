@@ -8,13 +8,9 @@ import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationConstants;
-import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationFallbackProviderFactory;
-import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationSaverFactory;
 import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationSensor;
 import fr.sii.sonar.web.client.html.quality.HtmlHintRuleRepository;
 import fr.sii.sonar.web.client.html.quality.HtmlQualityConstants;
-import fr.sii.sonar.web.client.html.quality.HtmlQualityReportProviderFactory;
-import fr.sii.sonar.web.client.html.quality.HtmlQualityReportSaverFactory;
 import fr.sii.sonar.web.client.html.quality.HtmlQualitySensor;
 import fr.sii.sonar.web.client.html.quality.HtmlRuleProfile;
 
@@ -59,8 +55,6 @@ public final class HtmlPlugin extends SonarPlugin {
 		            .build(),
 
 	            HtmlQualityConstants.class,
-				HtmlQualityReportProviderFactory.class,
-				HtmlQualityReportSaverFactory.class,
 				HtmlHintRuleRepository.class,
 				HtmlRuleProfile.class,
 				HtmlQualitySensor.class,
@@ -84,8 +78,6 @@ public final class HtmlPlugin extends SonarPlugin {
 		            .build(),
 
 	            HtmlDuplicationConstants.class,
-	            HtmlDuplicationFallbackProviderFactory.class,
-				HtmlDuplicationSaverFactory.class,
 				HtmlDuplicationSensor.class
 		);
 	}

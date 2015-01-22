@@ -7,19 +7,11 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
-import fr.sii.sonar.coverage.lcov.factory.LcovProviderFactory;
-import fr.sii.sonar.report.core.coverage.factory.CoverageSaverFactory;
-import fr.sii.sonar.report.core.test.factory.TestSaverFactory;
-import fr.sii.sonar.report.test.junit.factory.JUnitFallbackProviderFactory;
 import fr.sii.sonar.web.client.js.coverage.LcovCoverageConstants;
 import fr.sii.sonar.web.client.js.coverage.LcovCoverageSensor;
 import fr.sii.sonar.web.client.js.duplication.JsDuplicationConstants;
-import fr.sii.sonar.web.client.js.duplication.JsDuplicationFallbackProviderFactory;
-import fr.sii.sonar.web.client.js.duplication.JsDuplicationSaverFactory;
 import fr.sii.sonar.web.client.js.duplication.JsDuplicationSensor;
 import fr.sii.sonar.web.client.js.quality.JsQualityConstants;
-import fr.sii.sonar.web.client.js.quality.JsQualityReportProviderFactory;
-import fr.sii.sonar.web.client.js.quality.JsQualityReportSaverFactory;
 import fr.sii.sonar.web.client.js.quality.JsQualitySensor;
 import fr.sii.sonar.web.client.js.quality.JsRuleProfile;
 import fr.sii.sonar.web.client.js.quality.JshintRuleRepository;
@@ -69,8 +61,6 @@ public final class JsPlugin extends SonarPlugin {
 		            .build(),
 
 	            JsQualityConstants.class,
-				JsQualityReportProviderFactory.class,
-				JsQualityReportSaverFactory.class,
 				JshintRuleRepository.class,
 				JsRuleProfile.class,
 				JsQualitySensor.class,
@@ -94,8 +84,6 @@ public final class JsPlugin extends SonarPlugin {
 		            .build(),
 
 				LcovCoverageConstants.class,
-				LcovProviderFactory.class,
-				CoverageSaverFactory.class,
 				LcovCoverageSensor.class,
 				
 				// Unit testing configuration
@@ -117,8 +105,6 @@ public final class JsPlugin extends SonarPlugin {
 		            .build(),
 
 				JUnitConstants.class,
-				JUnitFallbackProviderFactory.class,
-				TestSaverFactory.class,
 				JUnitReportSensor.class,
 				
 				// Integration testing configuration
@@ -161,8 +147,6 @@ public final class JsPlugin extends SonarPlugin {
 		            .build(),
 
 	            JsDuplicationConstants.class,
-				JsDuplicationFallbackProviderFactory.class,
-				JsDuplicationSaverFactory.class,
 				JsDuplicationSensor.class
 		);
 	}
