@@ -38,6 +38,7 @@
 						<configuration>
 							<schemaFiles>simian.xsd</schemaFiles>
 							<packageName>fr.sii.sonar.duplication.simian.domain</packageName>
+							<target>2.1</target>
 						</configuration>
 					</execution>
 				</executions>
