@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.client.widget;
+package fr.sii.sonar.web.widget;
 
 import org.sonar.api.web.AbstractRubyTemplate;
 import org.sonar.api.web.RubyRailsWidget;
@@ -29,12 +29,13 @@ public class MultiLanguageIssuesWidget extends AbstractRubyTemplate implements R
 	}
 
 	public String getTitle() {
-		return "Web client issues";
+		return "Multi-languages issues";
 	}
 
 	@Override
 	protected String getTemplatePath() {
-		return "/fr/sii/sonar/web/client/widget/issues/multilanguageissues.html.erb";
+		return "/home/aurelien/developpement/git/depot01/sonar-web-client-plugin/sonar-web-client/src/main/resources/fr/sii/sonar/web/widget/issues/multi_language_issues.html.erb";
+//		return "/fr/sii/sonar/web/widget/issues/multi_language_issues.html.erb";
 	}
 
 }

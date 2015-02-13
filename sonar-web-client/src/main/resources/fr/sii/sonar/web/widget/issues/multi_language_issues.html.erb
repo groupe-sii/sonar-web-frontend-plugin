@@ -1,0 +1,98 @@
+<%
+   require 'json'
+   
+   languages = WidgetHelper.getLanguages(widget_properties)
+   
+   issues = @snapshot.measure('violations')
+   blocker_issues = @snapshot.measure('blocker_violations')
+   critical_issues = @snapshot.measure('critical_violations')
+   major_issues = @snapshot.measure('major_violations')
+   minor_issues = @snapshot.measure('minor_violations')
+   info_issues = @snapshot.measure('info_violations')
+   
+   severities = ['blocker', 'critical', 'major', 'minor', 'info']
+   
+   values = [blocker_issues, critical_issues, major_issues, minor_issues, info_issues]
+   if dashboard_configuration.selected_period?
+     values = values.map { |m| m ? (m.variation(dashboard_configuration.period_index)||0) : 0 }
+   else
+     values = values.map { |m| m ? (m.value||0) : 0 }
+   end
+   max = values.map { |val| val.abs }.max
+%>
+
+<link href="<%= url_for_static(:plugin => 'sonarwebclient', :path => 'css/multiLangIssues.css') %>" rel="stylesheet" type="text/css" />
+<div class="loading" id="issues-by-language">
+	<div class="progressbar">
+		<div class="progress"></div>
+	</div>
+   <ul>
+ 		<% languages.each do |language| %>
+ 	   		<li><a href="#<%=language.downcase-%>-issues"><span class="widget-label"><%= language.upcase -%> (<span class="total-count"></span>)</span></a>
+ 	   	<% end %>
+   </ul>
+   
+   <%
+      languages.each do |language|
+          all_severities_params = {:componentRoots => @project.key, :resolved => false, :languages => language, :sort => 'SEVERITY', :asc => false}
+   %>
+        <div class="widget-span" id="<%=language.downcase-%>-issues">
+         <div class="widget-span widget-span-6">
+          <div class="widget-measure-container">
+           <div class="widget-measure widget-measure-main">
+		    <div class="widget-label">Issues for <%= language.upcase -%></div>
+		    <div class="nowrap">
+		     <span class="link-rules-issues">
+		      <%= link_to 0, {:controller => 'issues', :action => 'search', :anchor => all_severities_params.map{|k,v| "#{k}=#{v}"}.join('|') }, :class => 'widget-link total-count' -%>
+		     </span>
+		    </div>
+		   </div>
+		  </div>
+		 </div>
+		 <div class="widget-span widget-span-6">
+	      <table class="data widget-barchar">
+	    
+	    
+	    
+	    	<% severities.each do |severity| %>
+	    		<%
+	    		   severity_params = {:componentRoots => @project.key, :severities => severity.upcase, :resolved => false, :languages => language}
+	    		%>
+	    		<tr>
+			        <td class="nowrap">
+			          <i class="icon-severity-<%=severity-%>"></i>
+			          <%= message(severity) -%>
+			        </td>
+			        <td class="thin right nowrap">
+			          <%= link_to 0, {:controller => 'issues', :action => 'search', :anchor => severity_params.map{|k,v| "#{k}=#{v}"}.join('|') }, :class => 'widget-link drilldown_'+severity+' '+severity+'-count' -%>
+			        </td>
+			        <td class="nowrap barchart-<%=severity-%>">
+			          <% if max > 0 %>
+			            <% if dashboard_configuration.selected_period? %>
+			              <%= barchart(:width => 35, :percent => (0<0 ? (100 * 0 / max).to_i : 0), :color => '#85bb43') %>
+			              <%= barchart(:width => 35, :percent => (0>0 ? (100 * 0 / max).to_i : 0), :color => '#d4333f') %>
+			            <% else %>
+			              <%= barchart(:width => 70, :percent => (100 * 0 / max).to_i) %>
+			            <% end %>
+			          <% end %>
+			        </td>
+		        </tr>
+		    <% end %>    
+		    
+		    
+		    
+	      </table>
+	     </div>
+	   </div>
+	<% end %>
+	
+	<script src="<%= url_for_static(:plugin => 'sonarwebclient', :path => 'js/multiLangIssues.js') %>" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery("#issues-by-language").tabs();
+		MultiLanguageIssues.display(<%= languages.to_json %>,
+									<%= WidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
+									<%= severities.to_json %>, 
+									<%= @project.key.to_json %>,
+									<%= max %>)
+	</script>
+</div>

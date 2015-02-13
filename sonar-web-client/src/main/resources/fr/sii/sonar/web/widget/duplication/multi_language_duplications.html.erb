@@ -1,0 +1,65 @@
+<%
+   require 'json'
+
+   languages = WidgetHelper.getLanguages(widget_properties)
+
+%>
+
+
+<link href="<%= url_for_static(:plugin => 'sonarwebclient', :path => 'css/multiLangDuplications.css') %>" rel="stylesheet" type="text/css" />
+<div class="loading" id="duplications-by-language">
+	<div class="progressbar">
+		<div class="progress"></div>
+	</div>
+   <ul>
+ 		<% languages.each do |language| %>
+ 	   		<li><a href="#<%=language.downcase-%>-duplications"><span class="widget-label"><%= language.upcase -%> (<span class="total-count"></span>)</span></a>
+ 	   	<% end %>
+   </ul>
+   
+   <%
+      languages.each do |language|
+   %>
+        <div class="widget-span widget-span-12" id="<%=language.downcase-%>-duplications">
+         <div class="widget-span widget-span-12">
+
+		    <div class="widget-measure widget-measure-main">
+		      <span class="widget-label"><%= message('widget.duplications.duplications') -%></span>
+		      <span class="nowrap">
+		        <span class="duplications-percent"></span>
+		      </span>
+		    </div>
+		
+		    <div class="widget-measure">
+		      <span class="widget-label"><%= message('widget.duplications.lines.suffix') -%></span>
+		      <span class="nowrap">
+		        <span class="duplications-lines"></span>
+		      </span>
+		    </div>
+		
+		    <div class="widget-measure">
+		      <span class="widget-label"><%= message('widget.duplications.blocks.suffix') -%></span>
+		      <span class="nowrap">
+		        <span class="duplications-blocks"></span>
+		      </span>
+		    </div>
+		
+		    <div class="widget-measure">
+		      <span class="widget-label"><%= message('widget.duplications.files.suffix') -%></span>
+		      <span class="nowrap">
+		        <span class="duplications-files"></span>
+		      </span>
+		    </div>
+
+		 </div>
+	   </div>
+	<% end %>
+	
+	<script src="<%= url_for_static(:plugin => 'sonarwebclient', :path => 'js/multiLangDuplications.js') %>" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery("#duplications-by-language").tabs();
+		MultiLanguageDuplications.display(<%= languages.to_json %>,
+									<%= WidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
+									<%= @project.key.to_json %>)
+	</script>
+</div>

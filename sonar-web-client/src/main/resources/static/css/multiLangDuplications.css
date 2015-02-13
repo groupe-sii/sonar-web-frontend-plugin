@@ -1,0 +1,69 @@
+/* TODO : should not be defined here !!! */
+#duplications-by-language .ui-widget-header li a {
+	border-bottom: none;
+	color: #236a97;
+	padding: 10px 20px;
+	display: block;
+}
+#duplications-by-language .ui-tabs-nav li {
+	position: relative;
+	top: 0;
+	float: left;
+	border-right: 1px solid #cae3f2;
+	border-top: 1px solid #cae3f2;
+}
+#duplications-by-language .ui-tabs-nav li:first-child {
+	border-left: 1px solid #cae3f2;
+}
+#duplications-by-language .ui-tabs-panel {
+	clear: both;
+	padding: 10px 0;
+	border: 1px solid #cae3f2;
+	font-size: 0;
+}
+#duplications-by-language .ui-tabs-nav li.ui-tabs-active {
+	margin-bottom: -1px;
+	padding-bottom: 1px;
+	z-index: 1;
+	background: #fff;
+}
+
+/* override for sonar < 4.5 */
+#duplications-by-language .widget-label {
+	font-size: 13px;
+}
+#duplications-by-language .link-rules-issues {
+	font-size: 20px;
+	font-weight: bold;
+}
+#duplications-by-language table {
+	font-size: 12px;
+}
+#duplications-by-language {
+	min-height: 40px;
+}
+#duplications-by-language.loading {
+	background-position: center center;
+}
+#duplications-by-language.loading > * {
+	display: none !important;
+}
+#duplications-by-language > .progressbar {
+	display: none;
+}
+/*#duplications-by-language.loading > .progressbar {
+	display: block !important;
+	margin: 60px auto 0 auto;
+	width: 80%;
+	height: 5px;
+	border: 1px solid #cae3f2;
+	position: relative;
+}
+#duplications-by-language .progress {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	background: #236a97;
+}*/
