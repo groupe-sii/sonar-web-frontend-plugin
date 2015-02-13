@@ -5,7 +5,7 @@ MultiLanguageDuplications = (function() {
 			"url": "/api/resources",
 			"data": {
 				'resource': projectKey,
-				'metrics': "duplicated_files,duplicated_blocks,duplicated_lines,duplicated_lines_density",
+				'metrics': "duplicated_files,duplicated_blocks,duplicated_lines,duplicated_lines_density,lines",
 				'depth': -1,
 				'scopes': "FIL"
 			},
@@ -23,7 +23,9 @@ MultiLanguageDuplications = (function() {
 				dupByLang[lang] = {
 					"duplicated_lines": 0,
 					"duplicated_blocks": 0,
-					"duplicated_files": 0
+					"duplicated_files": 0,
+					"duplicated_lines_density": 0,
+					"lines": 0
 				};
 			}
 			if(result.msr) {
@@ -38,7 +40,7 @@ MultiLanguageDuplications = (function() {
 	
 	var setTotalCount = function(/*String*/lang, /*Object*/dups) {
 		jQuery("a[href='#"+lang+"-duplications'] .total-count").html(dups["duplicated_files"]);
-		jQuery("#"+lang+"-duplications .duplications-percent").html(dups["duplicated_lines"]/dups["duplicated_files"]);
+		jQuery("#"+lang+"-duplications .duplications-percent").html((Math.round(dups["duplicated_lines"]/dups["lines"]*1000)/10)+"%");
 		jQuery("#"+lang+"-duplications .duplications-blocks").html(dups["duplicated_blocks"]);
 		jQuery("#"+lang+"-duplications .duplications-lines").html(dups["duplicated_lines"]);
 		jQuery("#"+lang+"-duplications .duplications-files").html(dups["duplicated_files"]);
