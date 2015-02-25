@@ -39,6 +39,25 @@
 							<schemaFiles>simian.xsd</schemaFiles>
 							<packageName>fr.sii.sonar.duplication.simian.domain</packageName>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${basedir}/src/main/generated-sources/jaxb</source>
+							</sources>
 						</configuration>
 					</execution>
 				</executions>

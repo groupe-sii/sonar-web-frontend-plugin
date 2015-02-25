@@ -39,6 +39,7 @@
 							<schemaFiles>junit-1.0.xsd</schemaFiles>
 							<packageName>fr.sii.sonar.test.junit.domain.v1</packageName>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -51,6 +52,7 @@
 							<packageName>fr.sii.sonar.test.junit.domain.v2</packageName>
 							<clearOutputDir>false</clearOutputDir>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -63,6 +65,7 @@
 							<packageName>fr.sii.sonar.test.junit.domain.v3</packageName>
 							<clearOutputDir>false</clearOutputDir>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -75,6 +78,7 @@
 							<packageName>fr.sii.sonar.test.junit.domain.v4</packageName>
 							<clearOutputDir>false</clearOutputDir>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -87,6 +91,7 @@
 							<packageName>fr.sii.sonar.test.junit.domain.v5</packageName>
 							<clearOutputDir>false</clearOutputDir>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -99,6 +104,7 @@
 							<packageName>fr.sii.sonar.test.junit.domain.v6</packageName>
 							<clearOutputDir>false</clearOutputDir>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
@@ -111,6 +117,25 @@
 							<packageName>fr.sii.sonar.test.junit.domain.v7</packageName>
 							<clearOutputDir>false</clearOutputDir>
 							<target>2.1</target>
+							<outputDirectory>${basedir}/src/main/generated-sources/jaxb</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${basedir}/src/main/generated-sources/jaxb</source>
+							</sources>
 						</configuration>
 					</execution>
 				</executions>
