@@ -1,7 +1,7 @@
 <%
    require 'json'
    
-   languages = WidgetHelper.getLanguages(widget_properties)
+   languages = SiiWidgetHelper.getLanguages(widget_properties)
    
    issues = @snapshot.measure('violations')
    blocker_issues = @snapshot.measure('blocker_violations')
@@ -90,7 +90,7 @@
 	<script type="text/javascript">
 		jQuery("#issues-by-language").tabs();
 		MultiLanguageIssues.display(<%= languages.to_json %>,
-									<%= WidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
+									<%= SiiWidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
 									<%= severities.to_json %>, 
 									<%= @project.key.to_json %>,
 									<%= max %>)

@@ -1,4 +1,4 @@
-class WidgetHelper
+class SiiWidgetHelper
   def self.getLanguages(widgetProperties)
     return widgetProperties["languages"].split(/,\s*/)
   end

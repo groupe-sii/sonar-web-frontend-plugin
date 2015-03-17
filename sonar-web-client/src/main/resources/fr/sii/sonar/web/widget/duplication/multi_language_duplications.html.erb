@@ -1,7 +1,7 @@
 <%
    require 'json'
 
-   languages = WidgetHelper.getLanguages(widget_properties)
+   languages = SiiWidgetHelper.getLanguages(widget_properties)
 
 %>
 
@@ -59,7 +59,7 @@
 	<script type="text/javascript">
 		jQuery("#duplications-by-language").tabs();
 		MultiLanguageDuplications.display(<%= languages.to_json %>,
-									<%= WidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
+									<%= SiiWidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
 									<%= @project.key.to_json %>)
 	</script>
 </div>

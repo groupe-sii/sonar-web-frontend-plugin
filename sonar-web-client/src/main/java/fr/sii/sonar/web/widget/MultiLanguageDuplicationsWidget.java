@@ -34,8 +34,8 @@ public class MultiLanguageDuplicationsWidget extends AbstractRubyTemplate implem
 
 	@Override
 	protected String getTemplatePath() {
-		return "/home/aurelien/developpement/git/depot01/sonar-web-client-plugin/sonar-web-client/src/main/resources/fr/sii/sonar/web/widget/duplication/multi_language_duplications.html.erb";
-//		return "/fr/sii/sonar/web/widget/duplication/multi_language_duplications.html.erb";
+//		return "/home/aurelien/developpement/sts-workspace/sonar-web-client-plugin/sonar-web-client/src/main/resources/fr/sii/sonar/web/widget/duplication/multi_language_duplications.html.erb";
+		return "/fr/sii/sonar/web/widget/duplication/multi_language_duplications.html.erb";
 	}
 
 }
