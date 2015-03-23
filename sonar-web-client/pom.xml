@@ -36,6 +36,11 @@
 			<artifactId>sonar-web-client-scss</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-web-client-angular</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

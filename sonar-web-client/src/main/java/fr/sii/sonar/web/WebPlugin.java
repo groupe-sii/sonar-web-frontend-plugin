@@ -8,6 +8,7 @@ import org.sonar.api.SonarPlugin;
 import fr.sii.sonar.web.client.css.CssPlugin;
 import fr.sii.sonar.web.client.html.HtmlPlugin;
 import fr.sii.sonar.web.client.js.JsPlugin;
+import fr.sii.sonar.web.client.ng.AngularPlugin;
 import fr.sii.sonar.web.client.scss.ScssPlugin;
 import fr.sii.sonar.web.widget.MultiLanguageDuplicationsWidget;
 import fr.sii.sonar.web.widget.MultiLanguageIssuesWidget;
@@ -25,6 +26,7 @@ public final class WebPlugin extends SonarPlugin {
 		extensions.addAll(new CssPlugin().getExtensions());
 		extensions.addAll(new HtmlPlugin().getExtensions());
 		extensions.addAll(new ScssPlugin().getExtensions());
+		extensions.addAll(new AngularPlugin().getExtensions());
 
 		// add widgets
 		extensions.add(MultiLanguageIssuesWidget.class);
