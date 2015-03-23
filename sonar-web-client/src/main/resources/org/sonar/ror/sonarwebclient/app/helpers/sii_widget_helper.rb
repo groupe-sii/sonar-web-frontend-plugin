@@ -1,9 +1,9 @@
-class SiiWidgetHelper
-  def self.getLanguages(widgetProperties)
+module SiiWidgetHelper
+  def SiiWidgetHelper.getLanguages(widgetProperties)
     return widgetProperties["languages"].split(/,\s*/)
   end
   
-  def self.hideEmptyTabs?(widgetProperties)
+  def SiiWidgetHelper.hideEmptyTabs?(widgetProperties)
     return widgetProperties["hide empty tabs"]
   end
 end
