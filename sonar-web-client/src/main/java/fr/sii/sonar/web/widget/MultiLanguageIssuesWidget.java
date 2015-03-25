@@ -11,7 +11,7 @@ import org.sonar.api.web.WidgetPropertyType;
 @WidgetProperties({
 	@WidgetProperty(
 			key = "languages",
-			defaultValue = "js,css,html,scss",
+			defaultValue = "js,css,html,scss,angularjs",
 			description = "Languages to display in the widget (comma separated list)",
 			type = WidgetPropertyType.STRING
 	),
