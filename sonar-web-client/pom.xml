@@ -38,6 +38,11 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-web-client-angular</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
 			<artifactId>sonar-web-client-eslint-angular</artifactId>
 			<version>${project.version}</version>
 		</dependency>

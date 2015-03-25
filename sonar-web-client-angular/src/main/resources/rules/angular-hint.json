@@ -37,7 +37,7 @@
 	"key": "directives-using-deprecated-options",
 	"name": "Deprecated directive option",
 	"description": "Avoid using deprecated options in directives",
-	"severity": "WARNING"
+	"severity": "MINOR"
 }, {
 	"key": "directives-using-ngrepeat-incorrectly",
 	"name": "Order of ngRepeat options",
@@ -62,7 +62,7 @@
 	"key": "interpolation-variable-suggestion",
 	"name": "Variable suggestion",
 	"description": "Undefined variable value suggestion",
-	"severity": "WARNING"
+	"severity": "MINOR"
 }, {
 	"key": "modules-creating-and-loading-modules",
 	"name": "Creation and loading of modules",

@@ -40,7 +40,7 @@ public class StaticRuleProfile extends ProfileDefinition {
 		for (Rule rule : repository.createRules()) {
 			profile.activateRule(rule, null);
 		}
-		profile.setDefaultProfile(true);
+//		profile.setDefaultProfile(true);
 		return profile;
 	}
 }

@@ -27,6 +27,7 @@
 		<module>sonar-web-client-scss</module>
 		<module>sonar-web-client-html</module>
 		<module>sonar-web-client-js</module>
+		<module>sonar-web-client-angular</module>
 		<module>sonar-web-client-eslint-angular</module>
 		<module>sonar-duplication-cpd</module>
 		<module>sonar-duplication-simian</module>
