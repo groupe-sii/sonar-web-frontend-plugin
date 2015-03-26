@@ -61,6 +61,7 @@
 		jQuery("#duplications-by-language").tabs();
 		MultiLanguageDuplications.display(<%= languages.to_json %>,
 									<%= SiiWidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
-									<%= @project.key.to_json %>)
+									<%= @project.key.to_json %>,
+									"<%= url_for(:controller => 'api', :action => 'resources') %>")
 	</script>
 </div>

@@ -94,6 +94,7 @@
 									<%= SiiWidgetHelper.hideEmptyTabs?(widget_properties).to_json %>,
 									<%= severities.to_json %>, 
 									<%= @project.key.to_json %>,
-									<%= max %>)
+									<%= max %>,
+									"<%= url_for(:controller => 'api/issues', :action => 'search') %>")
 	</script>
 </div>

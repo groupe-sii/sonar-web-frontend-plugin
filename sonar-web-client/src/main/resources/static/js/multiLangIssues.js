@@ -18,9 +18,9 @@ MultiLanguageIssues = (function() {
 		jQuery("#"+lang+"-issues .barchart-"+severity.toLowerCase()+" .barchart > div").width((100 * count / max)+"%");
 	};
 	
-	var search = function(/*String*/lang, /*String*/severity, /*String*/projectKey) {
+	var search = function(/*String*/lang, /*String*/severity, /*String*/projectKey, /*String*/url) {
 		return jQuery.ajax({
-			"url": "/api/issues/search",
+			"url": url,
 			"data": {
 				'languages': lang,
 				'componentRoots': projectKey,
@@ -36,7 +36,7 @@ MultiLanguageIssues = (function() {
 		totalByLang[lang] += countBySeverity[lang][severity] = data.paging.total;
 	};
 	
-	var next = function(languages, hideEmpty, severities, projectKey, max, langIdx, severityIdx) {
+	var next = function(languages, hideEmpty, severities, projectKey, max, url, langIdx, severityIdx) {
 		// all severities are done => next language
 		if(severityIdx>=severities.length) {
 			severityIdx = 0;
@@ -49,10 +49,10 @@ MultiLanguageIssues = (function() {
 				totalByLang[lang] = 0;
 				countBySeverity[lang] = {};
 			}
-			search(lang, severity, projectKey)
+			search(lang, severity, projectKey, url)
 				.then(countTotalByLang.bind(this, lang, severity))
 				.then(setSeverityCount.bind(this, lang, severity, max))
-				.always(next.bind(this, languages, hideEmpty, severities, projectKey, max, langIdx, severityIdx+1));
+				.always(next.bind(this, languages, hideEmpty, severities, projectKey, max, url, langIdx, severityIdx+1));
 		} else {
 			// all languages are done => finish
 			languages.forEach(setTotalCount);
@@ -63,12 +63,12 @@ MultiLanguageIssues = (function() {
 	};
 	
 	return {
-		display: function(/*Array*/languages, /*boolean*/hideEmpty, /*Array*/severities, /*String*/projectKey, /*int*/max) {
+		display: function(/*Array*/languages, /*boolean*/hideEmpty, /*Array*/severities, /*String*/projectKey, /*int*/max, /*String*/url) {
 			totalByLang = {};
 			countBySeverity = {};
 			progress.currentStep = 0;
 			progress.numSteps = languages.length*severities.length;
-			next(languages, hideEmpty, severities, projectKey, max, 0, 0);
+			next(languages, hideEmpty, severities, projectKey, max, url, 0, 0);
 		}
 	}
 })();

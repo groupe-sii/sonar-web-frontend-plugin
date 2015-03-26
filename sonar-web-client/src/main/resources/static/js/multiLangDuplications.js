@@ -1,8 +1,8 @@
 MultiLanguageDuplications = (function() {
 	
-	var search = function(/*String*/projectKey) {
+	var search = function(/*String*/projectKey, /*String*/url) {
 		return jQuery.ajax({
-			"url": "/api/resources",
+			"url": url,
 			"data": {
 				'resource': projectKey,
 				'metrics': "duplicated_files,duplicated_blocks,duplicated_lines,duplicated_lines_density,lines",
@@ -13,21 +13,27 @@ MultiLanguageDuplications = (function() {
 		});
 	};
 	
-	var groupByLang = function(/*Array*/results) {
+	var initByLang = function(/*Array*/languages) {
 		var dupByLang = {};
+		for(var i=0, l=languages.length ; i<l ; i++) {
+			var lang = languages[i];
+			dupByLang[lang] = {
+				"duplicated_lines": 0,
+				"duplicated_blocks": 0,
+				"duplicated_files": 0,
+				"duplicated_lines_density": 0,
+				"lines": 0
+			};
+		}
+		return dupByLang;
+	};
+	
+	var groupByLang = function(/*Array*/languages, /*Array*/results) {
+		var dupByLang = initByLang(languages);
 		for(var i=0, l=results.length ; i<l ; i++) {
 			var result = results[i];
 			// TODO: get language file suffix
 			var lang = result.lang;
-			if(!dupByLang[lang]) {
-				dupByLang[lang] = {
-					"duplicated_lines": 0,
-					"duplicated_blocks": 0,
-					"duplicated_files": 0,
-					"duplicated_lines_density": 0,
-					"lines": 0
-				};
-			}
 			if(result.msr) {
 				for(var j=0, k=result.msr.length ; j<k ; j++) {
 					var item = result.msr[j];
@@ -48,9 +54,9 @@ MultiLanguageDuplications = (function() {
 	
 	
 	return {
-		display: function(/*Array*/languages, /*boolean*/hideEmpty, /*String*/projectKey) {
-			var results = search(projectKey).then(function(results) {
-				var dupByLang = groupByLang(results);
+		display: function(/*Array*/languages, /*boolean*/hideEmpty, /*String*/projectKey, /*String*/url) {
+			var results = search(projectKey, url).then(function(results) {
+				var dupByLang = groupByLang(languages, results);
 				for(var i=0, l=languages.length ; i<l ; i++) {
 					var lang = languages[i];
 					setTotalCount(lang, dupByLang[lang]);

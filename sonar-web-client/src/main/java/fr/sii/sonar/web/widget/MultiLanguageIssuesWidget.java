@@ -7,11 +7,13 @@ import org.sonar.api.web.WidgetProperties;
 import org.sonar.api.web.WidgetProperty;
 import org.sonar.api.web.WidgetPropertyType;
 
+import fr.sii.sonar.web.WebPlugin;
+
 @WidgetCategory({"Issues", "Technical Debt"})
 @WidgetProperties({
 	@WidgetProperty(
 			key = "languages",
-			defaultValue = "js,css,html,scss,angularjs",
+			defaultValue = WebPlugin.LANGUAGES,
 			description = "Languages to display in the widget (comma separated list)",
 			type = WidgetPropertyType.STRING
 	),
