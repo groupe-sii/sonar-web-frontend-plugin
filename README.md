@@ -104,7 +104,7 @@ The linters (JSHint, HTMLHint, CSSLint, SCSSLint) provide many information about
 
 ## Test results
 
-Jasmine can generate a JUnit report indicating the test results (which tests have failed, which have succeed and which have been ignored). The plugin consumes this JUnit file and add test results information into Sonar. The plugin can also differentiate unit testing from integration testing.
+Jasmine can generate a JUnit report indicating the test results (which tests have failed, which have succeed and which have been ignored). See [gulp-jasmine documentation](https://www.npmjs.com/package/gulp-jasmine) to know how to generate JUnit report. The plugin consumes this JUnit file and add test results information into Sonar. The plugin can also differentiate unit testing from integration testing.
 
 ## Code coverage
 
