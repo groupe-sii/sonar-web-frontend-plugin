@@ -1,5 +1,5 @@
-Sonar plugin for JS/CSS/HTML
-============================
+Sonar plugin for JS/CSS/HTML/SASS/AngularJS
+===========================================
 
 # Introduction
 
@@ -38,9 +38,19 @@ The plugin is able to consume any report and save measures in Sonar. There exist
 
 ## Code quality with CSS Lint
 
+# SASS
+
+## Code quality with SCSS Lint
+
 # HTML
 
 ## Code quality with HTML Lint
+
+# AngularJS
+
+## Code quality with Angular Lint
+
+## Code quality with ESLint Angular
 
 
 # Create your own plugin
