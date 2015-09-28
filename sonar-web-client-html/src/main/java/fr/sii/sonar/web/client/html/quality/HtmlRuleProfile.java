@@ -1,5 +1,7 @@
 package fr.sii.sonar.web.client.html.quality;
 
+import org.sonar.api.rules.RuleFinder;
+
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
 /**
@@ -10,8 +12,8 @@ import fr.sii.sonar.report.core.quality.StaticRuleProfile;
  */
 public class HtmlRuleProfile extends StaticRuleProfile {
 
-	public HtmlRuleProfile(HtmlHintRuleRepository repository, HtmlQualityConstants constants) {
-		super(repository, constants);
+	public HtmlRuleProfile(RuleFinder ruleFinder, HtmlQualityConstants constants) {
+		super(ruleFinder, constants);
 	}
 
 }

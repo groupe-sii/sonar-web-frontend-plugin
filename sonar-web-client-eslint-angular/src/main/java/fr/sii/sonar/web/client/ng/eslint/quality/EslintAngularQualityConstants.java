@@ -1,9 +1,10 @@
 package fr.sii.sonar.web.client.ng.eslint.quality;
 
+import fr.sii.sonar.report.core.common.rules.RulesDefinitionConstants;
 import fr.sii.sonar.report.core.quality.QualityConstants;
 import fr.sii.sonar.web.client.ng.eslint.EslintAngularConstants;
 
-public class EslintAngularQualityConstants extends EslintAngularConstants implements QualityConstants {
+public class EslintAngularQualityConstants extends EslintAngularConstants implements QualityConstants, RulesDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.eslint.angular.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.eslint.angular.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/eslint-angular.json";
@@ -28,5 +29,13 @@ public class EslintAngularQualityConstants extends EslintAngularConstants implem
 
 	public String getMissingFileFailKey() {
 		return FAIL_MISSING_FILE_KEY;
+	}
+
+	public String getRepositoryName() {
+		return REPOSITORY_NAME;
+	}
+
+	public String getRulesJsonPath() {
+		return RULES_PATH;
 	}
 }

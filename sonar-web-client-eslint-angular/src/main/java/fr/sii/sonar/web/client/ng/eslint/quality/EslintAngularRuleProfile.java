@@ -1,5 +1,7 @@
 package fr.sii.sonar.web.client.ng.eslint.quality;
 
+import org.sonar.api.rules.RuleFinder;
+
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
 /**
@@ -10,8 +12,8 @@ import fr.sii.sonar.report.core.quality.StaticRuleProfile;
  */
 public class EslintAngularRuleProfile extends StaticRuleProfile {
 
-	public EslintAngularRuleProfile(EslintAngularRuleRepository repository, EslintAngularQualityConstants constants) {
-		super(repository, constants);
+	public EslintAngularRuleProfile(RuleFinder ruleFinder, EslintAngularQualityConstants constants) {
+		super(ruleFinder, constants);
 	}
 
 }

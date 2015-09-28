@@ -14,7 +14,7 @@ import fr.sii.sonar.web.client.js.duplication.JsDuplicationSensor;
 import fr.sii.sonar.web.client.js.quality.JsQualityConstants;
 import fr.sii.sonar.web.client.js.quality.JsQualitySensor;
 import fr.sii.sonar.web.client.js.quality.JsRuleProfile;
-import fr.sii.sonar.web.client.js.quality.JshintRuleRepository;
+import fr.sii.sonar.web.client.js.quality.JshintRulesDefinition;
 import fr.sii.sonar.web.client.js.test.JUnitConstants;
 import fr.sii.sonar.web.client.js.test.JUnitIntegrationConstants;
 import fr.sii.sonar.web.client.js.test.JUnitIntegrationReportSensor;
@@ -61,7 +61,7 @@ public final class JsPlugin extends SonarPlugin {
 		            .build(),
 
 	            JsQualityConstants.class,
-				JshintRuleRepository.class,
+				JshintRulesDefinition.class,
 				JsRuleProfile.class,
 				JsQualitySensor.class,
 				

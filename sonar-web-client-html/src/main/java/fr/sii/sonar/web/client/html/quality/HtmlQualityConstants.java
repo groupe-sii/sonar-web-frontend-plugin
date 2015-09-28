@@ -1,9 +1,10 @@
 package fr.sii.sonar.web.client.html.quality;
 
+import fr.sii.sonar.report.core.common.rules.RulesDefinitionConstants;
 import fr.sii.sonar.report.core.quality.QualityConstants;
 import fr.sii.sonar.web.client.html.HtmlConstants;
 
-public class HtmlQualityConstants extends HtmlConstants implements QualityConstants {
+public class HtmlQualityConstants extends HtmlConstants implements QualityConstants, RulesDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.html.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.html.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/htmlhint.json";
@@ -28,5 +29,13 @@ public class HtmlQualityConstants extends HtmlConstants implements QualityConsta
 
 	public String getMissingFileFailKey() {
 		return FAIL_MISSING_FILE_KEY;
+	}
+
+	public String getRepositoryName() {
+		return REPOSITORY_NAME;
+	}
+
+	public String getRulesJsonPath() {
+		return RULES_PATH;
 	}
 }

@@ -1,9 +1,10 @@
 package fr.sii.sonar.web.client.scss.quality;
 
+import fr.sii.sonar.report.core.common.rules.RulesDefinitionConstants;
 import fr.sii.sonar.report.core.quality.QualityConstants;
 import fr.sii.sonar.web.client.scss.ScssConstants;
 
-public class ScssQualityConstants extends ScssConstants implements QualityConstants {
+public class ScssQualityConstants extends ScssConstants implements QualityConstants, RulesDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.scss.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.scss.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/scsslint.json";
@@ -28,5 +29,13 @@ public class ScssQualityConstants extends ScssConstants implements QualityConsta
 
 	public String getMissingFileFailKey() {
 		return FAIL_MISSING_FILE_KEY;
+	}
+
+	public String getRepositoryName() {
+		return REPOSITORY_NAME;
+	}
+
+	public String getRulesJsonPath() {
+		return RULES_PATH;
 	}
 }

@@ -1,5 +1,7 @@
 package fr.sii.sonar.web.client.js.quality;
 
+import org.sonar.api.rules.RuleFinder;
+
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
 /**
@@ -10,8 +12,8 @@ import fr.sii.sonar.report.core.quality.StaticRuleProfile;
  */
 public class JsRuleProfile extends StaticRuleProfile {
 
-	public JsRuleProfile(JshintRuleRepository repository, JsQualityConstants constants) {
-		super(repository, constants);
+	public JsRuleProfile(RuleFinder ruleFinder, JsQualityConstants constants) {
+		super(ruleFinder, constants);
 	}
 
 }

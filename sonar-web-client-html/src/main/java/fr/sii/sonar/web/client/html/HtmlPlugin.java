@@ -9,7 +9,7 @@ import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationConstants;
 import fr.sii.sonar.web.client.html.duplication.HtmlDuplicationSensor;
-import fr.sii.sonar.web.client.html.quality.HtmlHintRuleRepository;
+import fr.sii.sonar.web.client.html.quality.HtmlHintRulesDefinition;
 import fr.sii.sonar.web.client.html.quality.HtmlQualityConstants;
 import fr.sii.sonar.web.client.html.quality.HtmlQualitySensor;
 import fr.sii.sonar.web.client.html.quality.HtmlRuleProfile;
@@ -55,7 +55,7 @@ public final class HtmlPlugin extends SonarPlugin {
 		            .build(),
 
 	            HtmlQualityConstants.class,
-				HtmlHintRuleRepository.class,
+				HtmlHintRulesDefinition.class,
 				HtmlRuleProfile.class,
 				HtmlQualitySensor.class,
 				

@@ -1,9 +1,10 @@
 package fr.sii.sonar.web.client.ng.quality;
 
+import fr.sii.sonar.report.core.common.rules.RulesDefinitionConstants;
 import fr.sii.sonar.report.core.quality.QualityConstants;
 import fr.sii.sonar.web.client.ng.AngularConstants;
 
-public class AngularQualityConstants extends AngularConstants implements QualityConstants {
+public class AngularQualityConstants extends AngularConstants implements QualityConstants, RulesDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.angular.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.angular.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/angular-hint.json";
@@ -28,5 +29,13 @@ public class AngularQualityConstants extends AngularConstants implements Quality
 
 	public String getMissingFileFailKey() {
 		return FAIL_MISSING_FILE_KEY;
+	}
+
+	public String getRepositoryName() {
+		return REPOSITORY_NAME;
+	}
+
+	public String getRulesJsonPath() {
+		return RULES_PATH;
 	}
 }

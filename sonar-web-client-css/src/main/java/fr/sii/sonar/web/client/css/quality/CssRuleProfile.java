@@ -1,5 +1,7 @@
 package fr.sii.sonar.web.client.css.quality;
 
+import org.sonar.api.rules.RuleFinder;
+
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
 /**
@@ -10,8 +12,8 @@ import fr.sii.sonar.report.core.quality.StaticRuleProfile;
  */
 public class CssRuleProfile extends StaticRuleProfile {
 
-	public CssRuleProfile(CsslintRuleRepository repository, CssQualityConstants constants) {
-		super(repository, constants);
+	public CssRuleProfile(RuleFinder ruleFinder, CssQualityConstants constants) {
+		super(ruleFinder, constants);
 	}
 
 }

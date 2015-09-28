@@ -7,7 +7,7 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
-import fr.sii.sonar.web.client.ng.quality.AngularHintRuleRepository;
+import fr.sii.sonar.web.client.ng.quality.AngularHintRulesDefinition;
 import fr.sii.sonar.web.client.ng.quality.AngularQualityConstants;
 import fr.sii.sonar.web.client.ng.quality.AngularQualitySensor;
 import fr.sii.sonar.web.client.ng.quality.AngularRuleProfile;
@@ -53,7 +53,7 @@ public final class AngularPlugin extends SonarPlugin {
 		            .build(),
 
 				AngularQualityConstants.class,
-				AngularHintRuleRepository.class,
+				AngularHintRulesDefinition.class,
 				AngularRuleProfile.class,
 				AngularQualitySensor.class
 		);

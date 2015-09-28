@@ -12,7 +12,7 @@ import fr.sii.sonar.web.client.scss.duplication.ScssDuplicationSensor;
 import fr.sii.sonar.web.client.scss.quality.ScssQualityConstants;
 import fr.sii.sonar.web.client.scss.quality.ScssQualitySensor;
 import fr.sii.sonar.web.client.scss.quality.ScssRuleProfile;
-import fr.sii.sonar.web.client.scss.quality.ScsslintRuleRepository;
+import fr.sii.sonar.web.client.scss.quality.ScsslintRulesDefinition;
 
 /**
  * This class is the entry point for all extensions
@@ -55,7 +55,7 @@ public final class ScssPlugin extends SonarPlugin {
 		            .build(),
 
 				ScssQualityConstants.class,
-				ScsslintRuleRepository.class,
+				ScsslintRulesDefinition.class,
 				ScssRuleProfile.class,
 				ScssQualitySensor.class,
 				

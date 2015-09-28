@@ -7,7 +7,7 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
-import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularRuleRepository;
+import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularRulesDefinition;
 import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularQualityConstants;
 import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularQualitySensor;
 import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularRuleProfile;
@@ -53,7 +53,7 @@ public final class EslintAngularPlugin extends SonarPlugin {
 		            .build(),
 
 				EslintAngularQualityConstants.class,
-				EslintAngularRuleRepository.class,
+				EslintAngularRulesDefinition.class,
 				EslintAngularRuleProfile.class,
 				EslintAngularQualitySensor.class
 		);

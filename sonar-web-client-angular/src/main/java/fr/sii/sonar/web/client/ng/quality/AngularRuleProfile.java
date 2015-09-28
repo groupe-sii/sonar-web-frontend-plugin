@@ -1,5 +1,7 @@
 package fr.sii.sonar.web.client.ng.quality;
 
+import org.sonar.api.rules.RuleFinder;
+
 import fr.sii.sonar.report.core.quality.StaticRuleProfile;
 
 /**
@@ -10,8 +12,8 @@ import fr.sii.sonar.report.core.quality.StaticRuleProfile;
  */
 public class AngularRuleProfile extends StaticRuleProfile {
 
-	public AngularRuleProfile(AngularHintRuleRepository repository, AngularQualityConstants constants) {
-		super(repository, constants);
+	public AngularRuleProfile(RuleFinder ruleFinder, AngularQualityConstants constants) {
+		super(ruleFinder, constants);
 	}
 
 }

@@ -1,9 +1,10 @@
 package fr.sii.sonar.web.client.js.quality;
 
+import fr.sii.sonar.report.core.common.rules.RulesDefinitionConstants;
 import fr.sii.sonar.report.core.quality.QualityConstants;
 import fr.sii.sonar.web.client.js.JsConstants;
 
-public class JsQualityConstants extends JsConstants implements QualityConstants {
+public class JsQualityConstants extends JsConstants implements QualityConstants, RulesDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.js.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.js.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/jshint.json";
@@ -28,6 +29,14 @@ public class JsQualityConstants extends JsConstants implements QualityConstants 
 
 	public String getMissingFileFailKey() {
 		return FAIL_MISSING_FILE_KEY;
+	}
+
+	public String getRepositoryName() {
+		return REPOSITORY_NAME;
+	}
+
+	public String getRulesJsonPath() {
+		return RULES_PATH;
 	}
 
 }
