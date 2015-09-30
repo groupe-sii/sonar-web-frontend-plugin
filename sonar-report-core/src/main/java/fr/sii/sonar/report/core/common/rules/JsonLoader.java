@@ -17,6 +17,12 @@ import com.google.common.io.Closeables;
 
 import fr.sii.sonar.report.core.common.exception.RuleException;
 
+/**
+ * Loader that loads rules from JSON file
+ * 
+ * @author Aurélien Baudet
+ *
+ */
 public class JsonLoader implements RulesDefinitionLoader {
 	private static final Logger LOG = LoggerFactory.getLogger(JsonLoader.class);
 
@@ -57,8 +63,12 @@ public class JsonLoader implements RulesDefinitionLoader {
 			NewRule newRule = repository.createRule(getStringValue(rule, "key"));
 			newRule.setName(getStringValue(rule, "name"));
 			newRule.setHtmlDescription(getStringValue(rule, "description"));
-			newRule.setSeverity(getStringValue(rule, "severity") == null ? null : getStringValue(rule, "severity").toUpperCase());
-			newRule.setStatus(getStringValue(rule, "status") == null ? null : RuleStatus.valueOf(getStringValue(rule, "status")));
+			if(getStringValue(rule, "severity") != null) {
+				newRule.setSeverity(getStringValue(rule, "severity").toUpperCase());
+			}
+			if(getStringValue(rule, "status") != null) {
+				newRule.setStatus(RuleStatus.valueOf(getStringValue(rule, "status")));
+			}
 			// TODO: manage tags
 			// TODO: manage params
 			// TODO: manage debt

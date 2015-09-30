@@ -6,13 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
+import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.CoverageMeasuresBuilder;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PropertiesBuilder;
-import org.sonar.api.resources.File;
 import org.sonar.api.resources.Project;
-import org.sonar.api.scan.filesystem.FileQuery;
 
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.save.Saver;
@@ -52,14 +51,14 @@ public class CoverageSaver implements Saver<CoverageReport> {
 		// the list of files in the report file may not cover all sources files =>
 		// must create empty coverage entry for each file that is not present in
 		// report file
-		for (java.io.File sourceFile : pluginContext.getFilesystem().files(FileQuery.onSource().onLanguage(pluginContext.getConstants().getLanguageKey()))) {
+		for (InputFile sourceFile : pluginContext.getFilesystem().inputFiles(pluginContext.getFilesystem().predicates().hasLanguage(pluginContext.getConstants().getLanguageKey()))) {
 			try {
 				if (!hasCoverage(report, sourceFile)) {
-					saveZeroValueForResource(File.fromIOFile(sourceFile, project), context);
+					saveZeroValueForResource(sourceFile, context);
 				}
 			} catch (IOException e) {
-				LOG.warn("failed to determine if coverage is provided by coverage report for " + sourceFile.getAbsolutePath());
-				saveZeroValueForResource(File.fromIOFile(sourceFile, project), context);
+				LOG.warn("failed to determine if coverage is provided by coverage report for " + sourceFile.absolutePath());
+				saveZeroValueForResource(sourceFile, context);
 			}
 		}
 	}
@@ -76,10 +75,10 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 * @throws IOException
 	 *             when a file can't be read
 	 */
-	protected boolean hasCoverage(CoverageReport report, java.io.File sourceFile) throws IOException {
+	protected boolean hasCoverage(CoverageReport report, InputFile sourceFile) throws IOException {
 		for (FileCoverage file : report.getFiles()) {
-			java.io.File coverageFile = getAnalyzedFilePath(report, file);
-			if (sourceFile.getCanonicalPath().equals(coverageFile.getCanonicalPath())) {
+			InputFile coverageFile = getAnalyzedFilePath(report, file);
+			if (sourceFile.absolutePath().equals(coverageFile.absolutePath())) {
 				return true;
 			}
 		}
@@ -100,8 +99,8 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 */
 	protected void saveCoverage(Project project, SensorContext context, CoverageReport report, FileCoverage file) {
 		// try to load the sonar file from real file system
-		File sonarFile = getSourceFile(project, report, file);
-		if (FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file).getAbsolutePath(), "No coverage will be generated for this file")) {
+		InputFile sonarFile = getSourceFile(project, report, file);
+		if (FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file).absolutePath(), "No coverage will be generated for this file")) {
 			CoverageMeasuresBuilder result = CoverageMeasuresBuilder.create();
 			for (LineCoverage line : file.getLines()) {
 				// generate line coverage measure
@@ -125,15 +124,15 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 * already stored about the source file in sonar. This is done with another
 	 * {@link Sensor} that provides quality information
 	 * 
-	 * @param resource
+	 * @param sourceFile
 	 *            the sonar source file
 	 * @param context
 	 *            the sonar context
 	 */
-	protected void saveZeroValueForResource(File resource, SensorContext context) {
+	protected void saveZeroValueForResource(InputFile sourceFile, SensorContext context) {
 		PropertiesBuilder<Integer, Integer> lineHitsData = new PropertiesBuilder<Integer, Integer>(CoreMetrics.COVERAGE_LINE_HITS_DATA);
 
-		Measure measure = context.getMeasure(resource, CoreMetrics.LINES);
+		Measure<Integer> measure = context.getMeasure(context.getResource(sourceFile), CoreMetrics.LINES);
 		if (measure != null) {
 			for (int x = 1; x < measure.getIntValue(); x++) {
 				lineHitsData.add(x, 0);
@@ -141,11 +140,11 @@ public class CoverageSaver implements Saver<CoverageReport> {
 		}
 
 		// use non comment lines of code for coverage calculation
-		Measure ncloc = context.getMeasure(resource, CoreMetrics.NCLOC);
+		Measure<Integer> ncloc = context.getMeasure(context.getResource(sourceFile), CoreMetrics.NCLOC);
 		if (ncloc != null) {
-			context.saveMeasure(resource, lineHitsData.build());
-			context.saveMeasure(resource, CoreMetrics.LINES_TO_COVER, ncloc.getValue());
-			context.saveMeasure(resource, CoreMetrics.UNCOVERED_LINES, ncloc.getValue());
+			context.saveMeasure(sourceFile, lineHitsData.build());
+			context.saveMeasure(sourceFile, CoreMetrics.LINES_TO_COVER, ncloc.getValue());
+			context.saveMeasure(sourceFile, CoreMetrics.UNCOVERED_LINES, ncloc.getValue());
 		}
 	}
 
@@ -161,8 +160,8 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 *            the report file information that contains path
 	 * @return the sonar file
 	 */
-	private File getSourceFile(Project project, CoverageReport report, FileCoverage file) {
-		return FileUtil.getSonarFile(file.getPath(), pluginContext.getFilesystem());
+	private InputFile getSourceFile(Project project, CoverageReport report, FileCoverage file) {
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
 	}
 
 	/**
@@ -175,8 +174,8 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 *            relative to the report)
 	 * @return the real path to the file
 	 */
-	private java.io.File getAnalyzedFilePath(CoverageReport report, FileCoverage file) {
-		return FileUtil.getSystemFile(file.getPath(), pluginContext.getFilesystem());
+	private InputFile getAnalyzedFilePath(CoverageReport report, FileCoverage file) {
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
 	}
 
 }

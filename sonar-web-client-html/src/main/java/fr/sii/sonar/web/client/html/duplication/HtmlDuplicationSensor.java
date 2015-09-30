@@ -1,9 +1,9 @@
 package fr.sii.sonar.web.client.html.duplication;
 
+import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.rules.RuleFinder;
-import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import fr.sii.sonar.duplication.cpd.provider.CpdProvider;
 import fr.sii.sonar.duplication.simian.provider.SimianProvider;
@@ -21,7 +21,7 @@ import fr.sii.sonar.report.core.duplication.factory.DuplicationSaverFactory;
 public class HtmlDuplicationSensor extends ReportSensor<DuplicationReport> {
 
 	@SuppressWarnings("unchecked")
-	public HtmlDuplicationSensor(HtmlDuplicationConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective) {
+	public HtmlDuplicationSensor(HtmlDuplicationConstants constants, Settings settings, RuleFinder ruleFinder, FileSystem filesystem, ResourcePerspectives resourcePerspective) {
 		super(constants, settings, ruleFinder, filesystem, resourcePerspective, new FallbackProviderFactory<DuplicationReport>(CpdProvider.class, SimianProvider.class), new DuplicationSaverFactory());
 	}
 

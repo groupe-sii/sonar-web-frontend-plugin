@@ -77,8 +77,6 @@ public class TestCase {
 	 *            the test name
 	 * @param message
 	 *            the information message indicating why the test was skipped
-	 * @param duration
-	 *            the test duration
 	 * @return the test case
 	 */
 	public static TestCase skipped(String name, String message) {

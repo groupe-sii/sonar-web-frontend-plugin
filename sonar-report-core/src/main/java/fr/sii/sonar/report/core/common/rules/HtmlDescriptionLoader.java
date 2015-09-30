@@ -35,7 +35,7 @@ public class HtmlDescriptionLoader implements RulesDefinitionLoader {
 					LOG.error("failed to read current HTML description for rule "+rule.key());
 				}
 			} else {
-				LOG.info("No HTML description for rule "+rule.key()+" for repository "+repository.key());
+				LOG.debug("No HTML description for rule "+rule.key()+" for repository "+repository.key());
 			}
 		}
 	}

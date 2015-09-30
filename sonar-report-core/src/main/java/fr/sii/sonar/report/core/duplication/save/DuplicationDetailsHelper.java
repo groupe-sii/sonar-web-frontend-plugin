@@ -1,6 +1,7 @@
 package fr.sii.sonar.report.core.duplication.save;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.resources.Project;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
@@ -34,7 +35,7 @@ public class DuplicationDetailsHelper {
 	 * @throws DuplicationException
 	 *             when the duplication details couldn't be generated for the file
 	 */
-	public static String toXml(Project project, ModuleFileSystem fileSystem, DuplicationReport report, DuplicationFileInformation file) throws DuplicationException {
+	public static String toXml(Project project, FileSystem fileSystem, DuplicationReport report, DuplicationFileInformation file) throws DuplicationException {
 		try {
 			StringBuilder xml = new StringBuilder();
 			xml.append("<duplications>");

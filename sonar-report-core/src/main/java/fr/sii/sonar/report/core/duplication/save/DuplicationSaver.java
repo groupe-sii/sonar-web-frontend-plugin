@@ -3,10 +3,10 @@ package fr.sii.sonar.report.core.duplication.save;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
+import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PersistenceMode;
-import org.sonar.api.resources.File;
 import org.sonar.api.resources.Project;
 
 import fr.sii.sonar.report.core.common.PluginContext;
@@ -30,7 +30,7 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	public void save(DuplicationReport report, Project project, SensorContext context) {
 		this.project = project;
 		for (DuplicationFileInformation file : GroupByFileHelper.group(report)) {
-			File sonarFile = getSourceFile(report, project, file);
+			InputFile sonarFile = getSourceFile(report, project, file);
 			if (FileUtil.checkMissing(pluginContext, sonarFile, file.getPath(), "No duplication will be generated for this file")) {
 				// save general information about duplications for the file
 				saveGeneralMetrics(context, file, sonarFile);
@@ -52,7 +52,7 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	 * @param sonarFile
 	 *            the Sonar file used to store information in Sonar
 	 */
-	private void saveGeneralMetrics(SensorContext context, DuplicationFileInformation file, File sonarFile) {
+	private void saveGeneralMetrics(SensorContext context, DuplicationFileInformation file, InputFile sonarFile) {
 		context.saveMeasure(sonarFile, CoreMetrics.DUPLICATED_FILES, 1.0);
 		context.saveMeasure(sonarFile, CoreMetrics.DUPLICATED_LINES, Integer.valueOf(file.getLines()).doubleValue());
 		context.saveMeasure(sonarFile, CoreMetrics.DUPLICATED_BLOCKS, Integer.valueOf(file.getBlocks().size()).doubleValue());
@@ -78,7 +78,7 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	 * @param sonarFile
 	 *            the Sonar file used to store information in Sonar
 	 */
-	private void saveDetails(SensorContext context, DuplicationReport report, DuplicationFileInformation file, File sonarFile) {
+	private void saveDetails(SensorContext context, DuplicationReport report, DuplicationFileInformation file, InputFile sonarFile) {
 		try {
 			String xml = DuplicationDetailsHelper.toXml(project, pluginContext.getFilesystem(), report, file);
 			if (xml != null) {
@@ -102,8 +102,8 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	 *            the file information that contains path
 	 * @return the sonar file
 	 */
-	private File getSourceFile(DuplicationReport report, Project project, DuplicationFileInformation file) {
-		return FileUtil.getSonarFile(file.getPath(), pluginContext.getFilesystem());
+	private InputFile getSourceFile(DuplicationReport report, Project project, DuplicationFileInformation file) {
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
 	}
 
 }

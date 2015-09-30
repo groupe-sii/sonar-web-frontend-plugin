@@ -19,10 +19,10 @@ import org.sonar.api.utils.ValidationMessages;
 public class StaticRuleProfile extends ProfileDefinition {
 
 	/**
-	 * The repository that provides rules
+	 * The finder used to get rules for a particular repository
 	 */
 	private final RuleFinder ruleFinder;
-	
+
 	/**
 	 * The constants that provide profile name and language key
 	 */

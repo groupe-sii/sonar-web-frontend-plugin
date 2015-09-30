@@ -6,12 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
+import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rules.RuleFinder;
-import org.sonar.api.scan.filesystem.ModuleFileSystem;
-import org.sonar.api.utils.SonarException;
 
 import fr.sii.sonar.report.core.common.domain.Report;
 import fr.sii.sonar.report.core.common.exception.CreateException;
@@ -49,7 +48,7 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 	/**
 	 * Use of IoC to get Settings
 	 */
-	public ReportSensor(ReportConstants constants, Settings settings, RuleFinder ruleFinder, ModuleFileSystem filesystem, ResourcePerspectives resourcePerspective,
+	public ReportSensor(ReportConstants constants, Settings settings, RuleFinder ruleFinder, FileSystem filesystem, ResourcePerspectives resourcePerspective,
 			ProviderFactory<R> providerFactory, SaverFactory<R> saverFactory) {
 		super();
 		this.pluginContext = new PluginContext(settings, resourcePerspective, ruleFinder, filesystem, constants);
@@ -99,10 +98,10 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 			saver.save(provider.get(), project, sensorContext);
 		} catch (ProviderException e) {
 			LOG.error(e.getMessage());
-			throw new SonarException("Cannot parse report " + reportFile, e);
+			throw new IllegalArgumentException("Cannot parse report " + reportFile, e);
 		} catch (CreateException e) {
 			LOG.error(e.getMessage());
-			throw new SonarException("Cannot initialize provider or saver", e);
+			throw new IllegalStateException("Cannot initialize provider or saver", e);
 		}
 	}
 

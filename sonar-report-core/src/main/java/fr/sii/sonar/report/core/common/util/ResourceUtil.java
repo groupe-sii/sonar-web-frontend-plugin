@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.resources.File;
 import org.sonar.api.resources.Project;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
@@ -35,7 +36,7 @@ public class ResourceUtil {
 	 * @throws KeyException
 	 *             when the key couldn't be generated
 	 */
-	public static String getKey(Project project, String path, ModuleFileSystem fileSystem) throws KeyException {
+	public static String getKey(Project project, String path, FileSystem fileSystem) throws KeyException {
 		return getKey(project, path, fileSystem.baseDir());
 	}
 
