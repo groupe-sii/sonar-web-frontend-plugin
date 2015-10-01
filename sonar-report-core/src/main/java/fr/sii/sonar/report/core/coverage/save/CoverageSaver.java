@@ -16,6 +16,7 @@ import org.sonar.api.resources.Project;
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.common.util.FileUtil;
+import fr.sii.sonar.report.core.coverage.CoverageConstants;
 import fr.sii.sonar.report.core.coverage.domain.CoverageReport;
 import fr.sii.sonar.report.core.coverage.domain.FileCoverage;
 import fr.sii.sonar.report.core.coverage.domain.LineCoverage;
@@ -51,7 +52,7 @@ public class CoverageSaver implements Saver<CoverageReport> {
 		// the list of files in the report file may not cover all sources files =>
 		// must create empty coverage entry for each file that is not present in
 		// report file
-		for (InputFile sourceFile : pluginContext.getFilesystem().inputFiles(pluginContext.getFilesystem().predicates().hasLanguage(pluginContext.getConstants().getLanguageKey()))) {
+		for (InputFile sourceFile : getFilesForLanguage()) {
 			try {
 				if (!hasCoverage(report, sourceFile)) {
 					saveZeroValueForResource(sourceFile, context);
@@ -61,6 +62,11 @@ public class CoverageSaver implements Saver<CoverageReport> {
 				saveZeroValueForResource(sourceFile, context);
 			}
 		}
+	}
+
+	private Iterable<InputFile> getFilesForLanguage() {
+		String languageKey = ((CoverageConstants) pluginContext.getConstants()).getLanguageKey();
+		return pluginContext.getFilesystem().inputFiles(pluginContext.getFilesystem().predicates().hasLanguage(languageKey));
 	}
 
 	/**

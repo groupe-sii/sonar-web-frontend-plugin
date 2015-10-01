@@ -1,5 +1,8 @@
 package fr.sii.sonar.report.core.quality.domain.rule;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class BasicRule {
 	private String key;
 

@@ -24,11 +24,6 @@ public interface ReportConstants extends BatchExtension, ServerExtension {
 	public String getReportPathKey();
 
 	/**
-	 * The language key
-	 */
-	public String getLanguageKey();
-
-	/**
 	 * The key for the configuration entry in sonar properties to indicate what
 	 * to do if a sonar source file doesn't exist
 	 */

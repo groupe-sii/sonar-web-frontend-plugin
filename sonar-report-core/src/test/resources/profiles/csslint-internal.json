@@ -1,0 +1,8 @@
+{
+	"name": "csslint",
+	"language": "css",
+	"repositories": [{
+		"key": "csslint",
+		"rules": "/rules/csslint.json"
+	}]
+}

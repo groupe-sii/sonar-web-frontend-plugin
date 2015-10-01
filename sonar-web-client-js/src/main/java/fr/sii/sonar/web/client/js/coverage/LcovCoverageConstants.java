@@ -1,9 +1,10 @@
 package fr.sii.sonar.web.client.js.coverage;
 
 import fr.sii.sonar.report.core.common.ReportConstants;
+import fr.sii.sonar.report.core.coverage.CoverageConstants;
 import fr.sii.sonar.web.client.js.JsLanguageConstants;
 
-public class LcovCoverageConstants extends JsLanguageConstants implements ReportConstants {
+public class LcovCoverageConstants extends JsLanguageConstants implements ReportConstants, CoverageConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.coverage.js.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.coverage.js.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/js.lcov";

@@ -57,23 +57,25 @@ public class ProfileFileDefinition extends ProfileDefinition {
 	@Override
 	public RulesProfile createProfile(ValidationMessages validation) {
 		try {
-			LOG.error("ODIIIILE");
 			Profile jsonProfile = parser.parse(stream);
 			LOG.info("Creating profile " + jsonProfile.getName() + " for language " + jsonProfile.getLanguage());
 			profile.setName(jsonProfile.getName());
 			profile.setLanguage(jsonProfile.getLanguage());
 			// define rules provided by the profile directly
+			LOG.info("Found "+jsonProfile.getRules().size()+" rules");
 			for (ProfileRule jsonRule : jsonProfile.getRules()) {
 				defineRule(validation, jsonRule.getRepositoryKey(), jsonRule.getKey());
 			}
 			for(ProfileRepository repository : jsonProfile.getRepositories()) {
 				// define rules provided by repository
+				LOG.info("Found "+repository.getRules().size()+" rules for "+repository.getKey());
 				for(BasicRule rule : repository.getRules()) {
 					defineRule(validation, repository.getKey(), rule.getKey());
 				}
 			}
 		} catch (ParseException e) {
-			validation.addErrorText("Profile file is not valid: " + e.getMessage());
+			String cause = e.getCause()!=null ? ". Cause: "+e.getCause().getMessage() : "";
+			validation.addErrorText("Profile file is not valid: " + e.getMessage() + cause);
 		}
 		return profile;
 	}

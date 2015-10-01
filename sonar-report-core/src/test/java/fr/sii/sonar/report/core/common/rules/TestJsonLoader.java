@@ -6,7 +6,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,12 +16,9 @@ import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 import fr.sii.sonar.report.core.common.exception.RuleDefinitionException;
-import fr.sii.sonar.report.core.common.parser.JsonParser;
-import fr.sii.sonar.report.core.quality.domain.rule.RuleDefinition;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestJsonLoader {
@@ -39,7 +35,7 @@ public class TestJsonLoader {
 	
 	@Test
 	public void csslintRules() throws RuleDefinitionException, JsonParseException, JsonMappingException, IOException {
-		FileLoader loader = new FileLoader(getClass().getResourceAsStream("/rules/csslint.json"), new JsonParser<List<RuleDefinition>>(new TypeReference<List<RuleDefinition>>() {}));
+		FileLoader loader = new JsonFileLoader(getClass().getResourceAsStream("/rules/csslint.json"));
 		loader.load(repository);
 		verify(newRule, times(37)).setName(anyString());
 		verify(newRule, times(37)).setHtmlDescription(anyString());

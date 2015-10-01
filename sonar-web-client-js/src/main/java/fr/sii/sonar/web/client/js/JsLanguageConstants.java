@@ -1,8 +1,9 @@
 package fr.sii.sonar.web.client.js;
 
 import fr.sii.sonar.report.core.common.ReportConstants;
+import fr.sii.sonar.report.core.common.language.LanguageConstants;
 
-public abstract class JsLanguageConstants implements ReportConstants {
+public abstract class JsLanguageConstants implements ReportConstants, LanguageConstants {
 	public static final String FILE_SUFFIXES_KEY = "sonar.sii.js.suffixes";
 	public static final String FILE_SUFFIXES_DEFVALUE = ".js";
 	public static final String LANGUAGE_KEY = "js";

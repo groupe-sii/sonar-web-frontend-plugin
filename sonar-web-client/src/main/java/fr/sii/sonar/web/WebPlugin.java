@@ -15,6 +15,7 @@ import fr.sii.sonar.web.client.ng.AngularHintPlugin;
 import fr.sii.sonar.web.client.ng.eslint.EslintAngularPlugin;
 import fr.sii.sonar.web.client.scss.ScssLanguageConstants;
 import fr.sii.sonar.web.client.scss.ScssPlugin;
+import fr.sii.sonar.web.profile.AllJSLintersProfileDefinition;
 import fr.sii.sonar.web.widget.MultiLanguageDuplicationsWidget;
 import fr.sii.sonar.web.widget.MultiLanguageIssuesWidget;
 
@@ -38,6 +39,9 @@ public final class WebPlugin extends SonarPlugin {
 		extensions.addAll(new ScssPlugin().getExtensions());
 		extensions.addAll(new AngularHintPlugin().getExtensions());
 		extensions.addAll(new EslintAngularPlugin().getExtensions());
+		
+		// aggregated profile definitions
+		extensions.add(AllJSLintersProfileDefinition.class);
 
 		// add widgets
 		extensions.add(MultiLanguageIssuesWidget.class);

@@ -18,7 +18,7 @@
 		<jdk.min.version>1.5</jdk.min.version>
 		<maven.compiler.source>${jdk.min.version}</maven.compiler.source>
 		<maven.compiler.target>${jdk.min.version}</maven.compiler.target>
-		<jackson.version>2.4.1.1</jackson.version>
+		<jackson.version>2.6.2</jackson.version>
 	</properties>
 
 	<modules>

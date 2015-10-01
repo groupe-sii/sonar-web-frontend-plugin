@@ -2,8 +2,7 @@ package fr.sii.sonar.web.client.css.quality;
 
 import org.sonar.api.rules.RuleFinder;
 
-import fr.sii.sonar.report.core.common.parser.JsonParser;
-import fr.sii.sonar.report.core.quality.domain.profile.Profile;
+import fr.sii.sonar.report.core.quality.profile.JsonProfileParser;
 import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 
 /**
@@ -15,7 +14,7 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 public class CssLintProfile extends ProfileFileDefinition {
 
 	public CssLintProfile(RuleFinder ruleFinder, CssLintQualityConstants constants) {
-		super(CssLintProfile.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonParser<Profile>(), ruleFinder);
+		super(CssLintProfile.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonProfileParser(), ruleFinder);
 	}
 
 }

@@ -1,5 +1,6 @@
 package fr.sii.sonar.report.core.quality.domain.profile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Profile {
@@ -10,6 +11,19 @@ public class Profile {
 	private List<ProfileRule> rules;
 	
 	private List<ProfileRepository> repositories;
+
+	
+	public Profile() {
+		this(null, null, new ArrayList<ProfileRule>(), new ArrayList<ProfileRepository>());
+	}
+
+	public Profile(String name, String language, List<ProfileRule> rules, List<ProfileRepository> repositories) {
+		super();
+		this.name = name;
+		this.language = language;
+		this.rules = rules;
+		this.repositories = repositories;
+	}
 
 	public String getName() {
 		return name;

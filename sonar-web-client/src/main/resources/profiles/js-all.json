@@ -1,0 +1,14 @@
+{
+	"name": "All linters",
+	"language": "js",
+	"repositories": [{
+		"key": "jshint",
+		"rules": "/rules/jshint.json"
+	}, {
+		"key": "angular-hint",
+		"rules": "/rules/angular-hint.json"
+	}, {
+		"key": "eslint-angular",
+		"rules": "/rules/eslint-angular.json"
+	}]
+}

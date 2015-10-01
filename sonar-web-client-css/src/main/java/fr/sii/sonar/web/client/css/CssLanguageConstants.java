@@ -1,8 +1,9 @@
 package fr.sii.sonar.web.client.css;
 
 import fr.sii.sonar.report.core.common.ReportConstants;
+import fr.sii.sonar.report.core.common.language.LanguageConstants;
 
-public abstract class CssLanguageConstants implements ReportConstants {
+public abstract class CssLanguageConstants implements ReportConstants, LanguageConstants {
 	public static final String LANGUAGE_KEY = "css";
 	public static final String FILE_SUFFIXES_KEY = "sonar.sii.css.suffixes";
 	public static final String FILE_SUFFIXES_DEFVALUE = ".css";
