@@ -125,23 +125,28 @@
 }, {
 	"key": "selector-newline",
 	"name": "Disallow new-line characters in selectors",
-	"description": "New-line characters in selectors are usually a forgotten comma and not a descendant combinator."
+	"description": "New-line characters in selectors are usually a forgotten comma and not a descendant combinator.",
+	"severity": "MINOR"
 }, {
 	"key": "shorthand",
 	"name": "Require shorthand properties",
-	"description": "Use shorthand properties where possible."
+	"description": "Use shorthand properties where possible.",
+	"severity": "MAJOR"
 }, {
 	"key": "star-property-hack",
 	"name": "Disallow properties with a star prefix",
-	"description": "Checks for the star property hack (targets IE6/7)"
+	"description": "Checks for the star property hack (targets IE6/7)",
+	"severity": "BLOCKER"
 }, {
 	"key": "text-indent",
 	"name": "Disallow negative text-indent",
-	"description": "Checks for text indent less than -99px"
+	"description": "Checks for text indent less than -99px",
+	"severity": "CRITICAL"
 }, {
 	"key": "underscore-property-hack",
 	"name": "Disallow properties with an underscore prefix",
-	"description": "Checks for the underscore property hack (targets IE6)"
+	"description": "Checks for the underscore property hack (targets IE6)",
+	"severity": "major"
 }, {
 	"key": "bulletproof-font-face",
 	"name": "Use the bulletproof @font-face syntax",

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.sonar.api.server.rule.RulesDefinition;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+
 import fr.sii.sonar.report.core.common.parser.JsonParser;
 import fr.sii.sonar.report.core.quality.domain.rule.RuleDefinition;
 
@@ -116,7 +118,7 @@ public class ComposableRulesDefinition implements RulesDefinition {
 	public ComposableRulesDefinition(String repositoryKey, String language, String name, String jsonPath) {
 		// @formatter:off
 		this(repositoryKey, language, name,
-				new FileLoader(ComposableRulesDefinition.class.getResourceAsStream(jsonPath), new JsonParser<List<RuleDefinition>>()),
+				new FileLoader(ComposableRulesDefinition.class.getResourceAsStream(jsonPath), new JsonParser<List<RuleDefinition>>(new TypeReference<List<RuleDefinition>>() {})),
 				new DefaultRuleLoader(),
 				new MarkdownDescriptionLoader(),
 				new HtmlDescriptionLoader(),
