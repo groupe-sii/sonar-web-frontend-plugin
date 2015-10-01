@@ -3,12 +3,16 @@ package fr.sii.sonar.report.core.common.util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.sonar.api.batch.fs.FilePredicate;
+import org.sonar.api.batch.fs.FilePredicates;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
+import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.resources.File;
 
 import fr.sii.sonar.report.core.common.PluginContext;
@@ -297,18 +301,36 @@ public class FileUtil {
 		}
 	}
 
-	public static InputFile getInputFile(FileSystem fileSystem, String path) {
+	public static InputFile getInputFile(FileSystem fileSystem, String path, Type... types) {
+		// search the file accros the file system
+		FilePredicate searchPredicate = searchFilePredicate(fileSystem, path);
+		// filter according to provided type(s)
+		FilePredicate typePredicate = filterTypePredicate(fileSystem, types);
+		// get the file matching both path and types
+		return fileSystem.inputFile(fileSystem.predicates().and(typePredicate, searchPredicate));
+	}
+
+	private static FilePredicate searchFilePredicate(FileSystem fileSystem, String path) {
+		FilePredicates predicatesFactory = fileSystem.predicates();
+		Collection<FilePredicate> searchPredicates = new ArrayList<FilePredicate>();
 		// try to find the file directly using the provided path (absolute or relative)
-		InputFile file = fileSystem.inputFile(fileSystem.predicates().hasPath(path));
+		searchPredicates.add(predicatesFactory.hasPath(path));
 		// if not found, maybe the path starts with '/'
 		// in this case, Sonar thinks it's an absolute path => manually try relative
-		if(file==null && path.startsWith("/")) {
-			file = fileSystem.inputFile(fileSystem.predicates().hasRelativePath(path.substring(1)));
+		if(path.startsWith("/")) {
+			searchPredicates.add(predicatesFactory.hasRelativePath(path.substring(1)));
 		}
 		// if not found, try to search it everywhere
-		if(file==null) {
-			file = fileSystem.inputFile(fileSystem.predicates().matchesPathPattern("**"+path));
+		searchPredicates.add(predicatesFactory.matchesPathPattern("**"+path));
+		return predicatesFactory.or(searchPredicates);
+	}
+	
+	private static FilePredicate filterTypePredicate(FileSystem fileSystem, Type... types) {
+		FilePredicates predicatesFactory = fileSystem.predicates();
+		Collection<FilePredicate> typePredicates = new ArrayList<FilePredicate>(types.length);
+		for(Type type : types) {
+			typePredicates.add(predicatesFactory.hasType(type));
 		}
-		return file;
+		return typePredicates.isEmpty() ? predicatesFactory.all() : predicatesFactory.or(typePredicates);
 	}
 }

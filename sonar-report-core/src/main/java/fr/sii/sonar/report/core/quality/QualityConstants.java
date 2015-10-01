@@ -15,9 +15,4 @@ public interface QualityConstants extends ReportConstants {
 	 */
 	public String getRepositoryKey();
 
-	/**
-	 * The name of the profile for rules
-	 */
-	public String getRulesProfileName();
-
 }

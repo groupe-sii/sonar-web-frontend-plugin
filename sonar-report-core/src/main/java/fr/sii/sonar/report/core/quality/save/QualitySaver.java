@@ -1,5 +1,7 @@
 package fr.sii.sonar.report.core.quality.save;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.issue.Issuable;
@@ -23,6 +25,8 @@ import fr.sii.sonar.report.core.quality.domain.report.QualityReport;
  *
  */
 public class QualitySaver implements Saver<QualityReport> {
+	private static final Logger LOG = LoggerFactory.getLogger(QualitySaver.class);
+	
 	private final PluginContext pluginContext;
 
 	public QualitySaver(PluginContext pluginContext) {
@@ -115,6 +119,7 @@ public class QualitySaver implements Saver<QualityReport> {
 					// @formatter:on
 				}
 				issuable.addIssue(issueBuilder.build());
+				LOG.debug("Add issue "+issue.getRulekey()+" "+issue.getSeverity()+" on file "+file.getPath());
 			}
 		}
 	}

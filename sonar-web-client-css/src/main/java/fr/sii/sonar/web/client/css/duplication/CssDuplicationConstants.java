@@ -1,9 +1,9 @@
 package fr.sii.sonar.web.client.css.duplication;
 
 import fr.sii.sonar.report.core.common.ReportConstants;
-import fr.sii.sonar.web.client.css.CssConstants;
+import fr.sii.sonar.web.client.css.CssLanguageConstants;
 
-public class CssDuplicationConstants extends CssConstants implements ReportConstants {
+public class CssDuplicationConstants extends CssLanguageConstants implements ReportConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.duplication.css.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.duplication.css.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/css-duplication.xml";

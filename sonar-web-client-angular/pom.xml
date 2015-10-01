@@ -31,7 +31,7 @@
 				<version>1.3</version>
 				<extensions>true</extensions>
 				<configuration>
-					<pluginClass>fr.sii.sonar.web.client.ng.AngularPlugin</pluginClass>
+					<pluginClass>fr.sii.sonar.web.client.ng.AngularHintPlugin</pluginClass>
 				</configuration>
 			</plugin>
 		</plugins>

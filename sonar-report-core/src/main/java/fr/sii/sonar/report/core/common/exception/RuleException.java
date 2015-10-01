@@ -7,10 +7,6 @@ public class RuleException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = 3294454761734818290L;
 
-	public RuleException() {
-		super();
-	}
-
 	public RuleException(String message, Throwable cause) {
 		super(message, cause);
 	}

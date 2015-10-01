@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.sonar.api.server.rule.RulesDefinition;
 
+import fr.sii.sonar.report.core.common.parser.JsonParser;
+import fr.sii.sonar.report.core.quality.domain.rule.RuleDefinition;
+
 /**
  * Implementation of {@link RulesDefinition} that delegates the loading of rules
  * to one or several {@link RulesDefinitionLoader}.
@@ -12,7 +15,7 @@ import org.sonar.api.server.rule.RulesDefinition;
  * <p>
  * By default, it uses the following loaders:
  * <ul>
- * <li> {@link JsonLoader} to load rules from JSON file</li>
+ * <li> {@link FileLoader} to load rules from JSON file</li>
  * <li> {@link DefaultRuleLoader} to add a default rule if the rule provided in a
  * report doesn't exists in the rule repository</li>
  * <li> {@link MarkdownDescriptionLoader} to add markdown description from .md
@@ -89,7 +92,7 @@ public class ComposableRulesDefinition implements RulesDefinition {
 	/**
 	 * Default behavior that uses the following loaders:
 	 * <ul>
-	 * <li> {@link JsonLoader} to load rules from provided JSON file (jsonPath
+	 * <li> {@link FileLoader} to load rules from provided JSON file (jsonPath
 	 * argument)</li>
 	 * <li> {@link DefaultRuleLoader} to add a default rule if the rule provided
 	 * in a report doesn't exists in the rule repository</li>
@@ -113,7 +116,7 @@ public class ComposableRulesDefinition implements RulesDefinition {
 	public ComposableRulesDefinition(String repositoryKey, String language, String name, String jsonPath) {
 		// @formatter:off
 		this(repositoryKey, language, name,
-				new JsonLoader(ComposableRulesDefinition.class.getResourceAsStream(jsonPath)),
+				new FileLoader(ComposableRulesDefinition.class.getResourceAsStream(jsonPath), new JsonParser<List<RuleDefinition>>()),
 				new DefaultRuleLoader(),
 				new MarkdownDescriptionLoader(),
 				new HtmlDescriptionLoader(),
@@ -125,7 +128,7 @@ public class ComposableRulesDefinition implements RulesDefinition {
 	 * Default behavior based on provided configuration values that uses the
 	 * following loaders:
 	 * <ul>
-	 * <li> {@link JsonLoader} to load rules from provided JSON file (jsonPath
+	 * <li> {@link FileLoader} to load rules from provided JSON file (jsonPath
 	 * argument)</li>
 	 * <li> {@link DefaultRuleLoader} to add a default rule if the rule provided
 	 * in a report doesn't exists in the rule repository</li>

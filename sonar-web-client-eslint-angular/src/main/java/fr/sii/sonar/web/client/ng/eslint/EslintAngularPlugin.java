@@ -10,7 +10,7 @@ import org.sonar.api.resources.Qualifiers;
 import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularRulesDefinition;
 import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularQualityConstants;
 import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularQualitySensor;
-import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularRuleProfile;
+import fr.sii.sonar.web.client.ng.eslint.quality.EslintAngularProfileDefinition;
 
 /**
  * This class is the entry point for all extensions
@@ -22,18 +22,6 @@ public final class EslintAngularPlugin extends SonarPlugin {
 	@SuppressWarnings({ "rawtypes" })
 	public List getExtensions() {
 		return Arrays.asList(
-				// general configuration
-				PropertyDefinition.builder(EslintAngularConstants.FILE_SUFFIXES_KEY)
-		            .defaultValue(EslintAngularConstants.FILE_SUFFIXES_DEFVALUE)
-		            .category(EslintAngularConstants.CATEGORY)
-		            .subCategory(EslintAngularConstants.SUB_CATEGORY)
-		            .name("File suffixes for AngularJS files")
-		            .description("Comma-separated list of suffixes for files to analyze.")
-		            .onQualifiers(Qualifiers.PROJECT)
-		            .build(),
-				
-	            EslintAngular.class,
-
 	            // Quality configuration
 				PropertyDefinition.builder(EslintAngularQualityConstants.REPORT_PATH_KEY)
 		            .defaultValue(EslintAngularQualityConstants.REPORT_PATH_DEFVALUE)
@@ -54,7 +42,7 @@ public final class EslintAngularPlugin extends SonarPlugin {
 
 				EslintAngularQualityConstants.class,
 				EslintAngularRulesDefinition.class,
-				EslintAngularRuleProfile.class,
+				EslintAngularProfileDefinition.class,
 				EslintAngularQualitySensor.class
 		);
 	}

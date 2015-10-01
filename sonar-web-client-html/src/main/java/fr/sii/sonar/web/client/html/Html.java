@@ -7,7 +7,7 @@ import fr.sii.sonar.report.core.common.language.ConfigurableLanguage;
 public class Html extends ConfigurableLanguage {
 
 	public Html(Settings settings) {
-		super(settings, HtmlConstants.LANGUAGE_KEY, HtmlConstants.FILE_SUFFIXES_KEY, HtmlConstants.FILE_SUFFIXES_DEFVALUE, "HTML");
+		super(settings, HtmlLanguageConstants.LANGUAGE_KEY, HtmlLanguageConstants.FILE_SUFFIXES_KEY, HtmlLanguageConstants.FILE_SUFFIXES_DEFVALUE, "HTML");
 	}
 
 

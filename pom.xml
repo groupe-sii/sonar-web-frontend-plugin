@@ -16,6 +16,8 @@
 
 		<sonar.buildVersion>4.5.5</sonar.buildVersion>
 		<jdk.min.version>1.5</jdk.min.version>
+		<maven.compiler.source>${jdk.min.version}</maven.compiler.source>
+		<maven.compiler.target>${jdk.min.version}</maven.compiler.target>
 		<jackson.version>2.4.1.1</jackson.version>
 	</properties>
 
@@ -80,10 +82,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
-				<configuration>
-					<source>${jdk.min.version}</source>
-					<target>${jdk.min.version}</target>
-				</configuration>
 			</plugin>
 			<plugin>
 				<!-- UTF-8 bundles are not supported by Java, so they must be converted 

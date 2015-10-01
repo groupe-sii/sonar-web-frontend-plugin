@@ -11,9 +11,9 @@ import fr.sii.sonar.web.client.js.coverage.LcovCoverageConstants;
 import fr.sii.sonar.web.client.js.coverage.LcovCoverageSensor;
 import fr.sii.sonar.web.client.js.duplication.JsDuplicationConstants;
 import fr.sii.sonar.web.client.js.duplication.JsDuplicationSensor;
-import fr.sii.sonar.web.client.js.quality.JsQualityConstants;
-import fr.sii.sonar.web.client.js.quality.JsQualitySensor;
-import fr.sii.sonar.web.client.js.quality.JsRuleProfile;
+import fr.sii.sonar.web.client.js.quality.JsHintQualityConstants;
+import fr.sii.sonar.web.client.js.quality.JsHintQualitySensor;
+import fr.sii.sonar.web.client.js.quality.JshintProfileDefinition;
 import fr.sii.sonar.web.client.js.quality.JshintRulesDefinition;
 import fr.sii.sonar.web.client.js.test.JUnitConstants;
 import fr.sii.sonar.web.client.js.test.JUnitIntegrationConstants;
@@ -31,10 +31,10 @@ public final class JsPlugin extends SonarPlugin {
 	public List getExtensions() {
 		return Arrays.asList(
 				// general configuration
-				PropertyDefinition.builder(JsConstants.FILE_SUFFIXES_KEY)
-		            .defaultValue(JsConstants.FILE_SUFFIXES_DEFVALUE)
-		            .category(JsConstants.CATEGORY)
-		            .subCategory(JsConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(JsLanguageConstants.FILE_SUFFIXES_KEY)
+		            .defaultValue(JsLanguageConstants.FILE_SUFFIXES_DEFVALUE)
+		            .category(JsLanguageConstants.CATEGORY)
+		            .subCategory(JsLanguageConstants.SUB_CATEGORY)
 		            .name("File suffixes for JavaScript files")
 		            .description("Comma-separated list of suffixes for files to analyze.")
 		            .onQualifiers(Qualifiers.PROJECT)
@@ -43,27 +43,27 @@ public final class JsPlugin extends SonarPlugin {
 		        Js.class,
 		            
 		        // Quality configuration
-				PropertyDefinition.builder(JsQualityConstants.REPORT_PATH_KEY)
-		            .defaultValue(JsQualityConstants.REPORT_PATH_DEFVALUE)
-		            .category(JsQualityConstants.CATEGORY)
-		            .subCategory(JsQualityConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(JsHintQualityConstants.REPORT_PATH_KEY)
+		            .defaultValue(JsHintQualityConstants.REPORT_PATH_DEFVALUE)
+		            .category(JsHintQualityConstants.CATEGORY)
+		            .subCategory(JsHintQualityConstants.SUB_CATEGORY)
 		            .name("JavaScript quality report path")
 		            .description("The path to the JavaScript report file to load")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
-				PropertyDefinition.builder(JsQualityConstants.FAIL_MISSING_FILE_KEY)
-		            .defaultValue(JsQualityConstants.FAIL_MISSING_FILE_DEFVALUE)
-		            .category(JsQualityConstants.CATEGORY)
-		            .subCategory(JsQualityConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(JsHintQualityConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(JsHintQualityConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(JsHintQualityConstants.CATEGORY)
+		            .subCategory(JsHintQualityConstants.SUB_CATEGORY)
 		            .name("Fail on missing source file")
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
 
-	            JsQualityConstants.class,
+	            JsHintQualityConstants.class,
 				JshintRulesDefinition.class,
-				JsRuleProfile.class,
-				JsQualitySensor.class,
+				JshintProfileDefinition.class,
+				JsHintQualitySensor.class,
 				
 				// Coverage configuration
 				PropertyDefinition.builder(LcovCoverageConstants.REPORT_PATH_KEY)

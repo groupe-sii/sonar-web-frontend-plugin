@@ -10,7 +10,7 @@ import fr.sii.sonar.report.core.common.rules.ComposableRulesDefinition;
  */
 public class JshintRulesDefinition extends ComposableRulesDefinition {
 
-	public JshintRulesDefinition(JsQualityConstants constants) {
+	public JshintRulesDefinition(JsHintQualityConstants constants) {
 		super(constants);
 	}
 

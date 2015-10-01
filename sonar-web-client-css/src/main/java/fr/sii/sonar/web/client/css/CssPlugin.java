@@ -9,9 +9,9 @@ import org.sonar.api.resources.Qualifiers;
 
 import fr.sii.sonar.web.client.css.duplication.CssDuplicationConstants;
 import fr.sii.sonar.web.client.css.duplication.CssDuplicationSensor;
-import fr.sii.sonar.web.client.css.quality.CssQualityConstants;
-import fr.sii.sonar.web.client.css.quality.CssQualitySensor;
-import fr.sii.sonar.web.client.css.quality.CssRuleProfile;
+import fr.sii.sonar.web.client.css.quality.CssLintQualityConstants;
+import fr.sii.sonar.web.client.css.quality.CssLintQualitySensor;
+import fr.sii.sonar.web.client.css.quality.CssLintProfile;
 import fr.sii.sonar.web.client.css.quality.CsslintRulesDefinition;
 
 /**
@@ -25,10 +25,10 @@ public final class CssPlugin extends SonarPlugin {
 	public List getExtensions() {
 		return Arrays.asList(
 				// general configuration
-				PropertyDefinition.builder(CssConstants.FILE_SUFFIXES_KEY)
-		            .defaultValue(CssConstants.FILE_SUFFIXES_DEFVALUE)
-		            .category(CssConstants.CATEGORY)
-		            .subCategory(CssConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(CssLanguageConstants.FILE_SUFFIXES_KEY)
+		            .defaultValue(CssLanguageConstants.FILE_SUFFIXES_DEFVALUE)
+		            .category(CssLanguageConstants.CATEGORY)
+		            .subCategory(CssLanguageConstants.SUB_CATEGORY)
 		            .name("File suffixes for css files")
 		            .description("Comma-separated list of suffixes for files to analyze.")
 		            .onQualifiers(Qualifiers.PROJECT)
@@ -37,27 +37,27 @@ public final class CssPlugin extends SonarPlugin {
 	            Css.class,
 
 	            // Quality configuration
-				PropertyDefinition.builder(CssQualityConstants.REPORT_PATH_KEY)
-		            .defaultValue(CssQualityConstants.REPORT_PATH_DEFVALUE)
-		            .category(CssQualityConstants.CATEGORY)
-		            .subCategory(CssQualityConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(CssLintQualityConstants.REPORT_PATH_KEY)
+		            .defaultValue(CssLintQualityConstants.REPORT_PATH_DEFVALUE)
+		            .category(CssLintQualityConstants.CATEGORY)
+		            .subCategory(CssLintQualityConstants.SUB_CATEGORY)
 		            .name("CSS report path")
 		            .description("The path to the CSS report file to load")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
-				PropertyDefinition.builder(CssQualityConstants.FAIL_MISSING_FILE_KEY)
-		            .defaultValue(CssQualityConstants.FAIL_MISSING_FILE_DEFVALUE)
-		            .category(CssQualityConstants.CATEGORY)
-		            .subCategory(CssQualityConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(CssLintQualityConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(CssLintQualityConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(CssLintQualityConstants.CATEGORY)
+		            .subCategory(CssLintQualityConstants.SUB_CATEGORY)
 		            .name("Fail on missing source file")
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
 
-				CssQualityConstants.class,
+				CssLintQualityConstants.class,
 				CsslintRulesDefinition.class,
-				CssRuleProfile.class,
-				CssQualitySensor.class,
+				CssLintProfile.class,
+				CssLintQualitySensor.class,
 				
 				// Duplication configuration
 				PropertyDefinition.builder(CssDuplicationConstants.REPORT_PATH_KEY)

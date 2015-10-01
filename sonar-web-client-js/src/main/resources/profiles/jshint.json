@@ -1,0 +1,8 @@
+{
+	"name": "jshint",
+	"language": "js",
+	"repositories": [{
+		"key": "jshint",
+		"rules": "/rules/jshint.json"
+	}]
+}

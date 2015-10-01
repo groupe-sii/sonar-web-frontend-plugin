@@ -1,0 +1,8 @@
+{
+	"name": "htmlhint",
+	"language": "html",
+	"repositories": [{
+		"key": "htmlhint",
+		"rules": "/rules/htmlhint.json"
+	}]
+}

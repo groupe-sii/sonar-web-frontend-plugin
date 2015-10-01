@@ -27,6 +27,7 @@ public class HtmlDescriptionLoader implements RulesDefinitionLoader {
 			InputStream stream = getClass().getResourceAsStream("/rules/"+repository.key().toLowerCase()+"/"+sanitize(rule.key())+".html");
 			if(stream!=null) {
 				try {
+					LOG.debug("Adding HTML description for rule "+repository.key()+":"+rule.key());
 					String description = IOUtils.toString(stream);
 					rule.setHtmlDescription("<p>"+RuleUtil.getHtmlDescription(rule)+"</p><div class=\"extended-html-description\">"+description+"</div>");
 				} catch (IOException e) {

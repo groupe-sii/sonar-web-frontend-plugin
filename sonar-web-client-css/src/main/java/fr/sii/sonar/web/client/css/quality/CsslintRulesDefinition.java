@@ -4,7 +4,7 @@ import fr.sii.sonar.report.core.common.rules.ComposableRulesDefinition;
 
 public class CsslintRulesDefinition extends ComposableRulesDefinition {
 
-	public CsslintRulesDefinition(CssQualityConstants constants) {
+	public CsslintRulesDefinition(CssLintQualityConstants constants) {
 		super(constants);
 	}
 

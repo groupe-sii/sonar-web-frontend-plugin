@@ -42,6 +42,7 @@ public class CustomStylesLoader implements RulesDefinitionLoader {
 				String css = IOUtils.toString(stream);
 				for(NewRule rule : repository.rules()) {
 					rule.setHtmlDescription("<style>"+css+"</style><div id=\""+containerNodeId+"\">"+RuleUtil.getHtmlDescription(rule)+"</div>");
+					LOG.error("Adding custom CSS for HTML description for rule "+repository.key()+":"+rule.key());
 				}
 			} catch (IOException e) {
 				LOG.error("failed to load CSS file for repository "+repository.key());

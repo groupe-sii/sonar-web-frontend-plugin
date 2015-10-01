@@ -1,0 +1,8 @@
+{
+	"name": "eslint-angular",
+	"language": "js",
+	"repositories": [{
+		"key": "eslint-angular",
+		"rules": "/rules/eslint-angular.json"
+	}]
+}

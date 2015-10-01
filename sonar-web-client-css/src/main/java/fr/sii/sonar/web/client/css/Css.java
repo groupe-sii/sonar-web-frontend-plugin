@@ -7,7 +7,7 @@ import fr.sii.sonar.report.core.common.language.ConfigurableLanguage;
 public class Css extends ConfigurableLanguage {
 
 	public Css(Settings settings) {
-		super(settings, CssConstants.LANGUAGE_KEY, CssConstants.FILE_SUFFIXES_KEY, CssConstants.FILE_SUFFIXES_DEFVALUE, "CSS");
+		super(settings, CssLanguageConstants.LANGUAGE_KEY, CssLanguageConstants.FILE_SUFFIXES_KEY, CssLanguageConstants.FILE_SUFFIXES_DEFVALUE, "CSS");
 	}
 
 }

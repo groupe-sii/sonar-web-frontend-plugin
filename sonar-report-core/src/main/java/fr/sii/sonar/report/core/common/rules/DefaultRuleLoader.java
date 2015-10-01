@@ -1,5 +1,7 @@
 package fr.sii.sonar.report.core.common.rules;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
 
@@ -11,6 +13,7 @@ import org.sonar.api.server.rule.RulesDefinition.NewRule;
  *
  */
 public class DefaultRuleLoader implements RulesDefinitionLoader {
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultRuleLoader.class);
 
 	/**
 	 * The default rule key
@@ -37,6 +40,7 @@ public class DefaultRuleLoader implements RulesDefinitionLoader {
 	}
 
 	public void load(NewRepository repository) {
+		LOG.error("Adding default rule for "+repository.key());
 		// add default rule
 		NewRule rule = repository.createRule(ruleKey);
 		rule.setName(ruleName);

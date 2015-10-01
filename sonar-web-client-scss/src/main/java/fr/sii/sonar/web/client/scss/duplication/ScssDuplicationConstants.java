@@ -1,9 +1,9 @@
 package fr.sii.sonar.web.client.scss.duplication;
 
 import fr.sii.sonar.report.core.common.ReportConstants;
-import fr.sii.sonar.web.client.scss.ScssConstants;
+import fr.sii.sonar.web.client.scss.ScssLanguageConstants;
 
-public class ScssDuplicationConstants extends ScssConstants implements ReportConstants {
+public class ScssDuplicationConstants extends ScssLanguageConstants implements ReportConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.duplication.scss.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.duplication.scss.file.missing.fail";
 	public static final String REPORT_PATH_DEFVALUE = "/report/scss-duplication.xml";

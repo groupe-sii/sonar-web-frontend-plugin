@@ -1,0 +1,8 @@
+{
+	"name": "angular-hint",
+	"language": "js",
+	"repositories": [{
+		"key": "angular-hint",
+		"rules": "/rules/angular-hint.json"
+	}]
+}
