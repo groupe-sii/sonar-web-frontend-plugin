@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<sonar.buildVersion>4.5.5</sonar.buildVersion>
-		<jdk.min.version>1.5</jdk.min.version>
+		<jdk.min.version>1.6</jdk.min.version>
 		<maven.compiler.source>${jdk.min.version}</maven.compiler.source>
 		<maven.compiler.target>${jdk.min.version}</maven.compiler.target>
 		<jackson.version>2.6.2</jackson.version>
