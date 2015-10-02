@@ -28,98 +28,6 @@ import fr.sii.sonar.report.core.common.exception.SaveException;
 public class FileUtil {
 	private static final Logger LOG = LoggerFactory.getLogger(FileUtil.class);
 
-//	/**
-//	 * Get the list of directories for base, sources and tests.
-//	 * 
-//	 * @param fileSystem
-//	 *            Sonar abstraction of the file system that give pointers to
-//	 *            useful directories manipulated by Sonar
-//	 * @return the list of directories for base, sources and tests
-//	 */
-//	public static List<java.io.File> getSrcAndTestParents(FileSystem fileSystem) {
-//		List<java.io.File> parents = new ArrayList<java.io.File>();
-//		parents.add(fileSystem.baseDir());
-//		parents.addAll(fileSystem.sourceDirs());
-//		parents.addAll(fileSystem.testDirs());
-//		return parents;
-//	}
-//
-//	/**
-//	 * Get the list of directories for base, tests and sources.
-//	 * 
-//	 * @param fileSystem
-//	 *            Sonar abstraction of the file system that give pointers to
-//	 *            useful directories manipulated by Sonar
-//	 * @return the list of directories for base, tests and sources
-//	 */
-//	public static List<java.io.File> getTestAndSrcParents(FileSystem fileSystem) {
-//		List<java.io.File> parents = new ArrayList<java.io.File>();
-//		parents.add(fileSystem.baseDir());
-//		parents.addAll(fileSystem.testDirs());
-//		parents.addAll(fileSystem.sourceDirs());
-//		return parents;
-//	}
-
-//	/**
-//	 * Get the sonar file from the provided absolute or relative path. The
-//	 * relative path provided in a report may represent the path either relative
-//	 * to the project, relative to a source directory or relative to a test
-//	 * directory. This helper searches into:
-//	 * <ul>
-//	 * <li>base directory of the project</li>
-//	 * <li>every source directory of the project</li>
-//	 * <li>every test directory of the project</li>
-//	 * </ul>
-//	 * The first file that exists on the system file is the returned one. If the
-//	 * path is absolute, then it is returned if it really exists.
-//	 * 
-//	 * @param path
-//	 *            The absolute or relative path to the file
-//	 * @param fileSystem
-//	 *            Sonar abstraction of the file system that give pointers to
-//	 *            useful directories manipulated by Sonar
-//	 * @return the sonar source file if found, null otherwise
-//	 */
-//	public static File getSonarFile(String path, FileSystem fileSystem) {
-//		return getSonarFile(path, getSrcAndTestParents(fileSystem));
-//	}
-
-//	/**
-//	 * Get the sonar file from the provided absolute or relative path. The
-//	 * relative path provided in a report may represent either the path relative
-//	 * to the project, relative to a source directory or relative to a test
-//	 * directory. This helper searches into the provided list of parents. The
-//	 * first file that exists on the system file is the returned one. If the
-//	 * path is absolute, then it is returned if it really exists.
-//	 * 
-//	 * @param path
-//	 *            The absolute or relative path to the file
-//	 * @param possibleParents
-//	 *            The list of directories that may contain the file
-//	 * @return the sonar source file
-//	 */
-//	public static File getSonarFile(String path, List<java.io.File> possibleParents) {
-//		return File.fromIOFile(getSystemFile(path, possibleParents), possibleParents);
-//	}
-
-//	/**
-//	 * Get the sonar file from the provided absolute or relative path. The
-//	 * relative path provided in a report may represent either the path relative
-//	 * to the project, relative to a source directory or relative to a test
-//	 * directory. This helper searches into the provided list of parents. The
-//	 * first file that exists on the system file is the returned one. If the
-//	 * path is absolute, then it is returned if it really exists.
-//	 * 
-//	 * @param path
-//	 *            The absolute or relative path to the file
-//	 * @param possibleParents
-//	 *            The list of directories that may contain the file
-//	 * @return the sonar source file
-//	 */
-//	public static File getSonarFile(String path, java.io.File... possibleParents) {
-//		return getSonarFile(path, Arrays.asList(possibleParents));
-//	}
-
 	/**
 	 * Search for real file on the file system using the provided absolute or
 	 * relative path. The relative path provided in a report may represent the
@@ -144,29 +52,6 @@ public class FileUtil {
 		java.io.File absoluteFile = new java.io.File(path);
 		return absoluteFile.exists() ? absoluteFile : null;
 	}
-
-//	/**
-//	 * Search for real file on the file system using the provided absolute or
-//	 * relative path. The relative path provided in a report may represent the
-//	 * path either relative to the project, relative to a source directory or
-//	 * relative to a test directory. This helper searches into:
-//	 * <ul>
-//	 * <li>base directory of the project</li>
-//	 * <li>every source directory of the project</li>
-//	 * <li>every test directory of the project</li>
-//	 * </ul>
-//	 * The first file that exists on the system file is the returned one.
-//	 * 
-//	 * @param path
-//	 *            The relative path to the file
-//	 * @param fileSystem
-//	 *            Sonar abstraction of the file system that give pointers to
-//	 *            useful directories manipulated by Sonar
-//	 * @return the system file if found, null otherwise
-//	 */
-//	public static java.io.File getSystemFile(String path, FileSystem fileSystem) {
-//		return getSystemFile(path, getSrcAndTestParents(fileSystem));
-//	}
 
 	/**
 	 * Helper function that checks if the sonar file exists. If the file doesn't
@@ -236,25 +121,6 @@ public class FileUtil {
 		}
 	}
 
-//	/**
-//	 * Get the relative path from the provided path. The path will be compared
-//	 * to base, source and test directories. If the file is relative to one of
-//	 * these parents, the relative path will be returned. If the path is already
-//	 * relative, then the path is directly returned.
-//	 * 
-//	 * @param path
-//	 *            the path to make relative if not
-//	 * @param fileSystem
-//	 *            the Sonar file system used to get base, source and test
-//	 *            directories
-//	 * @return the relative path
-//	 * @throws IOException
-//	 *             if the path couldn't be read on file system
-//	 */
-//	public static String getRelativePath(String path, FileSystem fileSystem) throws IOException {
-//		return getRelativePath(path, getSrcAndTestParents(fileSystem));
-//	}
-
 	/**
 	 * Get the relative path from the provided path. The path will be compared
 	 * to provided parent directories. If the file is relative to one of these
@@ -301,7 +167,28 @@ public class FileUtil {
 		}
 	}
 
+	/**
+	 * Search a file for the provided path on the Sonar file system. The path
+	 * must not be null.
+	 * 
+	 * <p>
+	 * You can also provide a filter to get only source file ({@link Type#MAIN})
+	 * or test file ({@link Type#TEST}).
+	 * 
+	 * @param fileSystem
+	 *            the Sonar file system
+	 * @param path
+	 *            the path of the file to load
+	 * @param types
+	 *            the type filters
+	 * @return the found Sonar file or null if not found
+	 * @throws IllegalArgumentException
+	 *             if path is null
+	 */
 	public static InputFile getInputFile(FileSystem fileSystem, String path, Type... types) {
+		if (path == null) {
+			throw new IllegalArgumentException("The path of the file must not be null");
+		}
 		// search the file accros the file system
 		FilePredicate searchPredicate = searchFilePredicate(fileSystem, path);
 		// filter according to provided type(s)
@@ -313,22 +200,24 @@ public class FileUtil {
 	private static FilePredicate searchFilePredicate(FileSystem fileSystem, String path) {
 		FilePredicates predicatesFactory = fileSystem.predicates();
 		Collection<FilePredicate> searchPredicates = new ArrayList<FilePredicate>();
-		// try to find the file directly using the provided path (absolute or relative)
+		// try to find the file directly using the provided path (absolute or
+		// relative)
 		searchPredicates.add(predicatesFactory.hasPath(path));
 		// if not found, maybe the path starts with '/'
-		// in this case, Sonar thinks it's an absolute path => manually try relative
-		if(path.startsWith("/")) {
+		// in this case, Sonar thinks it's an absolute path => manually try
+		// relative
+		if (path.startsWith("/")) {
 			searchPredicates.add(predicatesFactory.hasRelativePath(path.substring(1)));
 		}
 		// if not found, try to search it everywhere
-		searchPredicates.add(predicatesFactory.matchesPathPattern("**"+path));
+		searchPredicates.add(predicatesFactory.matchesPathPattern("**" + path));
 		return predicatesFactory.or(searchPredicates);
 	}
-	
+
 	private static FilePredicate filterTypePredicate(FileSystem fileSystem, Type... types) {
 		FilePredicates predicatesFactory = fileSystem.predicates();
 		Collection<FilePredicate> typePredicates = new ArrayList<FilePredicate>(types.length);
-		for(Type type : types) {
+		for (Type type : types) {
 			typePredicates.add(predicatesFactory.hasType(type));
 		}
 		return typePredicates.isEmpty() ? predicatesFactory.all() : predicatesFactory.or(typePredicates);
