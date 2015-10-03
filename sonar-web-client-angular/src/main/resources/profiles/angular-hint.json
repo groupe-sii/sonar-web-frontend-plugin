@@ -4,5 +4,9 @@
 	"repositories": [{
 		"key": "angular-hint",
 		"rules": "/rules/angular-hint.json"
+	}],
+	"rules": [{
+		"repositoryKey": "angular-hint",
+		"key": "unknown-rule"
 	}]
 }

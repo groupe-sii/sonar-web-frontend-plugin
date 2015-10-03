@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -18,6 +21,8 @@ public class ProfileRepositoryRulesDeserializer extends StdDeserializer<List<Bas
 	 * 
 	 */
 	private static final long serialVersionUID = 6028890747720770640L;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ProfileRepositoryRulesDeserializer.class);
 	
 	private ObjectMapper mapper;
 	
@@ -37,7 +42,9 @@ public class ProfileRepositoryRulesDeserializer extends StdDeserializer<List<Bas
 		// if it is a list, then just add rules
 		List<BasicRule> repositoryRules;
 		if(jp.getCurrentToken().isScalarValue()) {
-			repositoryRules = mapper.readValue(getClass().getResourceAsStream(jp.getValueAsString()), new TypeReference<List<BasicRule>>() {});
+			String refPath = jp.getValueAsString();
+			LOG.info("Loading rules from file "+refPath);
+			repositoryRules = mapper.readValue(getClass().getResourceAsStream(refPath), new TypeReference<List<BasicRule>>() {});
 		} else {
 			repositoryRules = jp.readValueAs(new TypeReference<List<BasicRule>>() {});
 		}

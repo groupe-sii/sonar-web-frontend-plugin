@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 public class ScssLintProfileDefinition extends ProfileFileDefinition {
 
 	public ScssLintProfileDefinition(RuleFinder ruleFinder, ScssLintQualityConstants constants) {
-		super(ScssLintProfileDefinition.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonProfileParser(), ruleFinder);
+		super(constants.getProfileJsonPath(), new JsonProfileParser(), ruleFinder);
 	}
 
 }

@@ -4,5 +4,9 @@
 	"repositories": [{
 		"key": "htmlhint",
 		"rules": "/rules/htmlhint.json"
+	}],
+	"rules": [{
+		"repositoryKey": "htmlhint",
+		"key": "unknown-rule"
 	}]
 }

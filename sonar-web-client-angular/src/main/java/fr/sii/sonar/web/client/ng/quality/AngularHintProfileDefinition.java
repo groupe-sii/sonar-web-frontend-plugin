@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 public class AngularHintProfileDefinition extends ProfileFileDefinition {
 
 	public AngularHintProfileDefinition(RuleFinder ruleFinder, AngularHintQualityConstants constants) {
-		super(AngularHintProfileDefinition.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonProfileParser(), ruleFinder);
+		super(constants.getProfileJsonPath(), new JsonProfileParser(), ruleFinder);
 	}
 
 }

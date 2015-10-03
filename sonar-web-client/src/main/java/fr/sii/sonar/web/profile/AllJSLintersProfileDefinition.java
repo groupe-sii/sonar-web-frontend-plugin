@@ -15,7 +15,7 @@ public class AllJSLintersProfileDefinition extends ProfileFileDefinition {
 	private static final String PROFILE_PATH = "/profiles/js-all.json";
 
 	public AllJSLintersProfileDefinition(RuleFinder ruleFinder) {
-		super(AllJSLintersProfileDefinition.class.getResourceAsStream(PROFILE_PATH), new JsonProfileParser(), ruleFinder);
+		super(PROFILE_PATH, new JsonProfileParser(), ruleFinder);
 	}
 
 }

@@ -4,5 +4,9 @@
 	"repositories": [{
 		"key": "csslint",
 		"rules": "/rules/csslint.json"
+	}],
+	"rules": [{
+		"repositoryKey": "csslint",
+		"key": "unknown-rule"
 	}]
 }

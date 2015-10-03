@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 public class HtmlHintProfileDefinition extends ProfileFileDefinition {
 
 	public HtmlHintProfileDefinition(RuleFinder ruleFinder, HtmlHintQualityConstants constants) {
-		super(HtmlHintProfileDefinition.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonProfileParser(), ruleFinder);
+		super(constants.getProfileJsonPath(), new JsonProfileParser(), ruleFinder);
 	}
 
 }

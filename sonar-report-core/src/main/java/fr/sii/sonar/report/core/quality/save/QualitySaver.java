@@ -75,10 +75,13 @@ public class QualitySaver implements Saver<QualityReport> {
 	 *            sonar file
 	 */
 	protected void saveFileAnalysis(SensorContext context, AnalyzedFile file, InputFile sonarFile) {
-		context.saveMeasure(sonarFile, CoreMetrics.FILES, 1.0);
-		context.saveMeasure(sonarFile, CoreMetrics.LINES, Double.valueOf(file.getNbLines()));
-		context.saveMeasure(sonarFile, CoreMetrics.NCLOC, Double.valueOf(file.getNbCloc()));
-		context.saveMeasure(sonarFile, CoreMetrics.COMMENT_LINES, Double.valueOf(file.getNbComments()));
+		// if already a metric, then another plugin has already stored the information => don't do it again
+		if(context.getMeasure(context.getResource(sonarFile), CoreMetrics.LINES) == null) {
+			context.saveMeasure(sonarFile, CoreMetrics.FILES, 1.0);
+			context.saveMeasure(sonarFile, CoreMetrics.LINES, Double.valueOf(file.getNbLines()));
+			context.saveMeasure(sonarFile, CoreMetrics.NCLOC, Double.valueOf(file.getNbCloc()));
+			context.saveMeasure(sonarFile, CoreMetrics.COMMENT_LINES, Double.valueOf(file.getNbComments()));
+		}
 	}
 
 	/**
@@ -98,6 +101,7 @@ public class QualitySaver implements Saver<QualityReport> {
 		for(Issue issue : file.getIssues()) {
 			Issuable issuable = pluginContext.getResourcePerspective().as(Issuable.class, sonarFile);
 			if (issuable != null) {
+				LOG.debug("Add issue "+issue.getRulekey()+" on file "+file.getPath());
 				// @formatter:off
 				IssueBuilder issueBuilder = issuable.newIssueBuilder()
 						.line(issue.getLine()==null ? null : issue.getLine().intValue())
@@ -106,20 +110,25 @@ public class QualitySaver implements Saver<QualityReport> {
 				// @formatter:on
 				// if rule is not registered in sonar => use the default one
 				String repositoryKey = ((QualityConstants) pluginContext.getConstants()).getRepositoryKey();
-				if(pluginContext.getRuleFinder().findByKey(repositoryKey, issue.getRulekey())==null) {
-					// @formatter:off
-					issueBuilder
-						.ruleKey(RuleKey.of(repositoryKey, "unknown-rule"))
-						.severity(issue.getSeverity().name());
-					// @formatter:on
-				} else {
+				if(pluginContext.getRuleFinder().findByKey(repositoryKey, issue.getRulekey())!=null) {
 					// @formatter:off
 					issueBuilder
 						.ruleKey(RuleKey.of(repositoryKey, issue.getRulekey()));
 					// @formatter:on
+				} else {
+					if(pluginContext.getRuleFinder().findByKey(repositoryKey, QualityConstants.DEFAULT_RULE_KEY)!=null) {
+						LOG.info("Unknown rule "+issue.getRulekey()+". Register it using default rule with custom severity "+issue.getSeverity());
+						// do this only if repository has default rule
+						// @formatter:off
+						issueBuilder
+							.ruleKey(RuleKey.of(repositoryKey, QualityConstants.DEFAULT_RULE_KEY))
+							.severity(issue.getSeverity().name());
+						// @formatter:on
+					} else {
+						LOG.warn("Unknown rule "+issue.getRulekey()+". Will not be registered in Sonar");
+					}
 				}
 				issuable.addIssue(issueBuilder.build());
-				LOG.debug("Add issue "+issue.getRulekey()+" "+issue.getSeverity()+" on file "+file.getPath());
 			}
 		}
 	}

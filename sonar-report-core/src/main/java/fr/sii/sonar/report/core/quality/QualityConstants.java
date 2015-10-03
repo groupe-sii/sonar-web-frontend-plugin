@@ -9,6 +9,7 @@ import fr.sii.sonar.report.core.common.ReportConstants;
  *
  */
 public interface QualityConstants extends ReportConstants {
+	public static final String DEFAULT_RULE_KEY = "unknown-rule";
 
 	/**
 	 * The key of the repository
