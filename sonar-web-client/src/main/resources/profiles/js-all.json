@@ -10,5 +10,15 @@
 	}, {
 		"key": "eslint-angular",
 		"rules": "/rules/eslint-angular.json"
+	}],
+	"rules": [{
+		"repositoryKey": "jshint",
+		"key": "unknown-rule"
+	}, {
+		"repositoryKey": "angular-hint",
+		"key": "unknown-rule"
+	}, {
+		"repositoryKey": "eslint-angular",
+		"key": "unknown-rule"
 	}]
 }

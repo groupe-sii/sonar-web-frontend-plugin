@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 public class EslintAngularProfileDefinition extends ProfileFileDefinition {
 
 	public EslintAngularProfileDefinition(RuleFinder ruleFinder, EslintAngularQualityConstants constants) {
-		super(EslintAngularProfileDefinition.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonProfileParser(), ruleFinder);
+		super(constants.getProfileJsonPath(), new JsonProfileParser(), ruleFinder);
 	}
 
 }

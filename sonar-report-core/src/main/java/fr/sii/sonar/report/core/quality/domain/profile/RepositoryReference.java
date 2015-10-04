@@ -8,17 +8,29 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.sii.sonar.report.core.jackson.ProfileRepositoryRulesDeserializer;
 import fr.sii.sonar.report.core.quality.domain.rule.BasicRule;
 
-public class ProfileRepository {
+/**
+ * The definition of rules provided by a repository.
+ * 
+ * @author Aurélien Baudet
+ *
+ */
+public class RepositoryReference {
+	/**
+	 * The repository key
+	 */
 	private String key;
-	
-	@JsonDeserialize(using=ProfileRepositoryRulesDeserializer.class)
+
+	/**
+	 * The list of rules that are defined by the repository
+	 */
+	@JsonDeserialize(using = ProfileRepositoryRulesDeserializer.class)
 	private List<BasicRule> rules;
-	
-	public ProfileRepository() {
+
+	public RepositoryReference() {
 		this(null, new ArrayList<BasicRule>());
 	}
 
-	public ProfileRepository(String key, List<BasicRule> rules) {
+	public RepositoryReference(String key, List<BasicRule> rules) {
 		super();
 		this.key = key;
 		this.rules = rules;

@@ -4,5 +4,9 @@
 	"repositories": [{
 		"key": "jshint",
 		"rules": "/rules/jshint.json"
+	}],
+	"rules": [{
+		"repositoryKey": "jshint",
+		"key": "unknown-rule"
 	}]
 }

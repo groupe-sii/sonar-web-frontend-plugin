@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
 
+import fr.sii.sonar.report.core.quality.QualityConstants;
+
 /**
  * Decorator that adds a default rule for managing all unknown rules that will
  * be provided by any report.
@@ -29,7 +31,7 @@ public class DefaultRuleLoader implements RulesDefinitionLoader {
 	private String ruleDescription;
 
 	public DefaultRuleLoader() {
-		this("unknown-rule", "Unknown rule", "All other rules");
+		this(QualityConstants.DEFAULT_RULE_KEY, "Unknown rule", "All other rules that are not known by the Sonar plugin");
 	}
 
 	public DefaultRuleLoader(String ruleKey, String ruleName, String ruleDescription) {
@@ -40,7 +42,7 @@ public class DefaultRuleLoader implements RulesDefinitionLoader {
 	}
 
 	public void load(NewRepository repository) {
-		LOG.error("Adding default rule for "+repository.key());
+		LOG.info("Adding default rule for "+repository.key());
 		// add default rule
 		NewRule rule = repository.createRule(ruleKey);
 		rule.setName(ruleName);

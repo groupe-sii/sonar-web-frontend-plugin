@@ -1,7 +1,5 @@
 package fr.sii.sonar.report.core.quality.profile;
 
-import java.io.InputStream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.profiles.ProfileDefinition;
@@ -14,8 +12,8 @@ import org.sonar.api.utils.ValidationMessages;
 import fr.sii.sonar.report.core.common.exception.ParseException;
 import fr.sii.sonar.report.core.common.parser.Parser;
 import fr.sii.sonar.report.core.quality.domain.profile.Profile;
-import fr.sii.sonar.report.core.quality.domain.profile.ProfileRepository;
-import fr.sii.sonar.report.core.quality.domain.profile.ProfileRule;
+import fr.sii.sonar.report.core.quality.domain.profile.RepositoryReference;
+import fr.sii.sonar.report.core.quality.domain.profile.RuleReference;
 import fr.sii.sonar.report.core.quality.domain.rule.BasicRule;
 
 /**
@@ -34,55 +32,50 @@ import fr.sii.sonar.report.core.quality.domain.rule.BasicRule;
 public class ProfileFileDefinition extends ProfileDefinition {
 	private static final Logger LOG = LoggerFactory.getLogger(ProfileFileDefinition.class);
 
-	private final InputStream stream;
+	private final String filePath;
 	
 	private final Parser<Profile> parser;
 
 	private final RuleFinder ruleFinder;
 
-	private final RulesProfile profile;
-
-	public ProfileFileDefinition(InputStream stream, Parser<Profile> parser, RuleFinder ruleFinder) {
-		this(stream, parser, RulesProfile.create(), ruleFinder);
-	}
-
-	protected ProfileFileDefinition(InputStream stream, Parser<Profile> parser, RulesProfile profile, RuleFinder ruleFinder) {
+	public ProfileFileDefinition(String filePath, Parser<Profile> parser, RuleFinder ruleFinder) {
 		super();
-		this.profile = profile;
 		this.parser = parser;
 		this.ruleFinder = ruleFinder;
-		this.stream = stream;
+		this.filePath = filePath;
 	}
 
 	@Override
 	public RulesProfile createProfile(ValidationMessages validation) {
+		RulesProfile profile = null;
 		try {
-			Profile jsonProfile = parser.parse(stream);
+			Profile jsonProfile = parser.parse(getClass().getResourceAsStream(filePath));
 			LOG.info("Creating profile " + jsonProfile.getName() + " for language " + jsonProfile.getLanguage());
-			profile.setName(jsonProfile.getName());
-			profile.setLanguage(jsonProfile.getLanguage());
-			// define rules provided by the profile directly
-			LOG.info("Found "+jsonProfile.getRules().size()+" rules");
-			for (ProfileRule jsonRule : jsonProfile.getRules()) {
-				defineRule(validation, jsonRule.getRepositoryKey(), jsonRule.getKey());
-			}
-			for(ProfileRepository repository : jsonProfile.getRepositories()) {
+			profile = RulesProfile.create(jsonProfile.getName(), jsonProfile.getLanguage());
+			for(RepositoryReference repository : jsonProfile.getRepositories()) {
 				// define rules provided by repository
 				LOG.info("Found "+repository.getRules().size()+" rules for "+repository.getKey());
 				for(BasicRule rule : repository.getRules()) {
-					defineRule(validation, repository.getKey(), rule.getKey());
+					defineRule(profile, validation, repository.getKey(), rule.getKey());
 				}
+			}
+			// define rules provided by the profile directly
+			LOG.info("Found "+jsonProfile.getRules().size()+" additional rules");
+			for (RuleReference jsonRule : jsonProfile.getRules()) {
+				defineRule(profile, validation, jsonRule.getRepositoryKey(), jsonRule.getKey());
 			}
 		} catch (ParseException e) {
 			String cause = e.getCause()!=null ? ". Cause: "+e.getCause().getMessage() : "";
+			LOG.error("Profile file is not valid: " + e.getMessage() + cause, e);
 			validation.addErrorText("Profile file is not valid: " + e.getMessage() + cause);
 		}
 		return profile;
 	}
 
-	private void defineRule(ValidationMessages validation, String repositoryKey, String ruleKey) {
+	private void defineRule(RulesProfile profile, ValidationMessages validation, String repositoryKey, String ruleKey) {
 		Rule rule = ruleFinder.findByKey(repositoryKey, ruleKey);
 		if (rule == null) {
+			LOG.error("Rule not found: [repository=" + repositoryKey + ", key=" + ruleKey + "]");
 			validation.addWarningText("Rule not found: [repository=" + repositoryKey + ", key=" + ruleKey + "]");
 		} else {
 			profile.activateRule(rule, null);

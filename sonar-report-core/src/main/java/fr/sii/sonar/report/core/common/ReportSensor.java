@@ -63,7 +63,9 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 		try {
 			File reportFile = getReportFile(project);
 			boolean exists = reportFile.exists();
-			if(!exists) {
+			if(exists) {
+				LOG.info("Loading and storing "+reportFile.getAbsolutePath()+" in Sonar");
+			} else {
 				LOG.warn("The report file "+reportFile.getAbsolutePath()+" doesn't exist");
 			}
 			return exists;

@@ -4,5 +4,9 @@
 	"repositories": [{
 		"key": "eslint-angular",
 		"rules": "/rules/eslint-angular.json"
+	}],
+	"rules": [{
+		"repositoryKey": "eslint-angular",
+		"key": "unknown-rule"
 	}]
 }

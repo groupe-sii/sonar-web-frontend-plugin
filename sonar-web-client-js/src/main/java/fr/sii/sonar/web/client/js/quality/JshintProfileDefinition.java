@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
 public class JshintProfileDefinition extends ProfileFileDefinition {
 
 	public JshintProfileDefinition(RuleFinder ruleFinder, JsHintQualityConstants constants) {
-		super(JshintProfileDefinition.class.getResourceAsStream(constants.getProfileJsonPath()), new JsonProfileParser(), ruleFinder);
+		super(constants.getProfileJsonPath(), new JsonProfileParser(), ruleFinder);
 	}
 
 }
