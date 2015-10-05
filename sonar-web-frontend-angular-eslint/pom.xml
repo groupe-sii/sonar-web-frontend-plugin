@@ -31,7 +31,7 @@
 				<version>${sonar.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<pluginClass>fr.sii.sonar.web.client.ng.eslint.EslintAngularPlugin</pluginClass>
+					<pluginClass>fr.sii.sonar.web.frontend.ng.eslint.EslintAngularPlugin</pluginClass>
 				</configuration>
 			</plugin>
 		</plugins>

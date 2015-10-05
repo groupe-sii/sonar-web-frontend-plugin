@@ -41,7 +41,7 @@
 				<version>${sonar.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<pluginClass>fr.sii.sonar.web.client.scss.ScssPlugin</pluginClass>
+					<pluginClass>fr.sii.sonar.web.frontend.scss.ScssPlugin</pluginClass>
 				</configuration>
 			</plugin>
 		</plugins>
