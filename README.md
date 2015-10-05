@@ -84,7 +84,7 @@ cd sonar-sii-plugin-parent
 mvn clean install
 ```
 
-This will generate a JAR file located at sonar-sii-plugin-parent/sonar-web-frontent-plugin/target/sonar-web-frontent-plugin-2.0-SNAPSHOT.jar.
+This will generate a JAR file located at sonar-sii-plugin-parent/sonar-web-frontend-plugin/target/sonar-web-frontend-plugin-2.0-SNAPSHOT.jar.
 
 ### Install the plugin
 

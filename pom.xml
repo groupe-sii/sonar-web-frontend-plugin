@@ -29,15 +29,15 @@
 		<module>sonar-report-core</module>
 		<module>sonar-coverage-lcov</module>
 		<module>sonar-test-junit</module>
-		<module>sonar-web-frontent-css</module>
-		<module>sonar-web-frontent-scss</module>
-		<module>sonar-web-frontent-html</module>
-		<module>sonar-web-frontent-js</module>
-		<module>sonar-web-frontent-angular-hint</module>
-		<module>sonar-web-frontent-angular-eslint</module>
+		<module>sonar-web-frontend-css</module>
+		<module>sonar-web-frontend-scss</module>
+		<module>sonar-web-frontend-html</module>
+		<module>sonar-web-frontend-js</module>
+		<module>sonar-web-frontend-angular-hint</module>
+		<module>sonar-web-frontend-angular-eslint</module>
 		<module>sonar-duplication-cpd</module>
 		<module>sonar-duplication-simian</module>
-		<module>sonar-web-frontent-plugin</module>
+		<module>sonar-web-frontend-plugin</module>
 	</modules>
 
 	<dependencies>
