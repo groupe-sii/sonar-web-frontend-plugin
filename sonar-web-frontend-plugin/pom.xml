@@ -5,40 +5,45 @@
 
 	<parent>
 		<groupId>fr.sii.sonar</groupId>
-		<artifactId>sonar-web-client-plugin</artifactId>
+		<artifactId>sonar-sii-plugin-parent</artifactId>
 		<version>2.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sonar-web-client-js</artifactId>
+	<artifactId>sonar-web-frontent-plugin</artifactId>
 	<packaging>sonar-plugin</packaging>
 
-	<name>SII web client plugin :: JS</name>
-	<description>Enable analysis and reporting on Web client side projects (quality and coverage)</description>
+	<name>SII web frontend plugin :: JS/CSS/HTML/SCSS</name>
+	<description>Consumes reports from various sources for code quality (jshint, csslint, htmlhint, scsslint, angular-hint, eslint-angular), reports for code duplication (Simian, CPD), reports for unit/integration tests (Jasmin), reports for code coverage (Istanbul). Aggregate all these reports and save information into Sonar</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-report-core</artifactId>
+			<artifactId>sonar-web-frontent-js</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-coverage-lcov</artifactId>
+			<artifactId>sonar-web-frontent-html</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-test-junit</artifactId>
+			<artifactId>sonar-web-frontent-css</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-duplication-cpd</artifactId>
+			<artifactId>sonar-web-frontent-scss</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.sii.sonar</groupId>
-			<artifactId>sonar-duplication-simian</artifactId>
+			<artifactId>sonar-web-frontent-angular-hint</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.sii.sonar</groupId>
+			<artifactId>sonar-web-frontent-angular-eslint</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
@@ -51,7 +56,7 @@
 				<version>${sonar.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<pluginClass>fr.sii.sonar.web.client.js.JsPlugin</pluginClass>
+					<pluginClass>fr.sii.sonar.web.WebPlugin</pluginClass>
 				</configuration>
 			</plugin>
 		</plugins>

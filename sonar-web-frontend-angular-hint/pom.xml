@@ -5,15 +5,15 @@
 
 	<parent>
 		<groupId>fr.sii.sonar</groupId>
-		<artifactId>sonar-web-client-plugin</artifactId>
+		<artifactId>sonar-sii-plugin-parent</artifactId>
 		<version>2.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>sonar-web-client-eslint-angular</artifactId>
+	<artifactId>sonar-web-frontent-angular-hint</artifactId>
 	<packaging>sonar-plugin</packaging>
 
-	<name>SII web client plugin :: ESLINT AngularJS</name>
-	<description>Enable analysis and reporting on Web client side projects</description>
+	<name>SII web frontent plugin :: angular-hint</name>
+	<description>Consume angular-hint reports and add report information into Sonar</description>
 
 	<dependencies>
 		<dependency>
@@ -31,7 +31,7 @@
 				<version>${sonar.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<pluginClass>fr.sii.sonar.web.client.ng.eslint.EslintAngularPlugin</pluginClass>
+					<pluginClass>fr.sii.sonar.web.client.ng.AngularHintPlugin</pluginClass>
 				</configuration>
 			</plugin>
 		</plugins>

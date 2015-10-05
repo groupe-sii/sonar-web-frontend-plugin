@@ -80,11 +80,11 @@ sonar.sourceEncoding=UTF-8
 Clone this git repository and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
 
 ```
-cd sonar-web-client-plugin
+cd sonar-sii-plugin-parent
 mvn clean install
 ```
 
-This will generate a JAR file located at sonar-web-client-plugin/sonar-web-client/target/sonar-web-client-2.0-SNAPSHOT.jar.
+This will generate a JAR file located at sonar-sii-plugin-parent/sonar-web-frontent-plugin/target/sonar-web-frontent-plugin-2.0-SNAPSHOT.jar.
 
 ### Install the plugin
 
