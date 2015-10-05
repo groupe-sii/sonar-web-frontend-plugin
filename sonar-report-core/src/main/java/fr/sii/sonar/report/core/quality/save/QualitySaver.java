@@ -98,31 +98,31 @@ public class QualitySaver implements Saver<QualityReport> {
 	 *            sonar file
 	 */
 	protected void saveIssues(SensorContext context, AnalyzedFile file, InputFile sonarFile) {
-		for(Issue issue : file.getIssues()) {
+		for (Issue issue : file.getIssues()) {
 			Violation violation;
 			boolean isDefaultRule = false;
 			// if rule is not registered in sonar => use the default one
 			String repositoryKey = ((QualityConstants) pluginContext.getConstants()).getRepositoryKey();
 			Rule rule = pluginContext.getRuleFinder().findByKey(repositoryKey, issue.getRulekey());
-			if(rule==null) {
+			if (rule == null) {
 				rule = pluginContext.getRuleFinder().findByKey(repositoryKey, QualityConstants.DEFAULT_RULE_KEY);
 				isDefaultRule = true;
 			}
-			if(rule!=null) {
+			if (rule != null) {
 				violation = Violation.create(rule, context.getResource(sonarFile));
-		        violation.setLineId(issue.getLine()==null ? null : issue.getLine().intValue());
-		        violation.setMessage(issue.getMessage());
-		        violation.setCost(1.0);
-//		        violation.setPersonId(issue.getReporter());
-				if(isDefaultRule) {
-					LOG.info("Unknown rule "+issue.getRulekey()+". Register it using default rule with custom severity "+issue.getSeverity());
-					if(issue.getSeverity()!=null) {
+				violation.setLineId(issue.getLine() == null ? null : issue.getLine().intValue());
+				violation.setMessage(issue.getMessage());
+				violation.setCost(1.0);
+//				violation.setPersonId(issue.getReporter());
+				if (isDefaultRule) {
+					LOG.info("Unknown rule " + issue.getRulekey() + ". Register it using default rule with custom severity " + issue.getSeverity());
+					if (issue.getSeverity() != null) {
 						violation.setSeverity(RulePriority.valueOfString(issue.getSeverity().name()));
 					}
 				}
 				context.saveViolation(violation);
 			} else {
-				LOG.warn("Unknown rule "+issue.getRulekey()+". Will not be registered in Sonar");
+				LOG.warn("Unknown rule " + issue.getRulekey() + ". Will not be registered in Sonar");
 			}
 		}
 	}
