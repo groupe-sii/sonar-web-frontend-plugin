@@ -28,7 +28,7 @@
 			<plugin>
 				<groupId>org.codehaus.sonar</groupId>
 				<artifactId>sonar-packaging-maven-plugin</artifactId>
-				<version>1.3</version>
+				<version>${sonar.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<pluginClass>fr.sii.sonar.web.client.ng.AngularHintPlugin</pluginClass>
