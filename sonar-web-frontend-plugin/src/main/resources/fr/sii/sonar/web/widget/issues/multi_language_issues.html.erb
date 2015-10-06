@@ -22,7 +22,7 @@
    max = values.map { |val| val.abs }.max
 %>
 
-<link href="<%= url_for_static(:plugin => 'sonarwebclient', :path => 'css/multiLangIssues.css') %>" rel="stylesheet" type="text/css" />
+<link href="<%= url_for_static(:plugin => 'webfrontend', :path => 'css/multiLangIssues.css') %>" rel="stylesheet" type="text/css" />
 <div class="loading" id="issues-by-language">
 	<div class="progressbar">
 		<div class="progress"></div>
@@ -87,7 +87,7 @@
 	   </div>
 	<% end %>
 	
-	<script src="<%= url_for_static(:plugin => 'sonarwebclient', :path => 'js/multiLangIssues.js') %>" type="text/javascript"></script>
+	<script src="<%= url_for_static(:plugin => 'webfrontend', :path => 'js/multiLangIssues.js') %>" type="text/javascript"></script>
 	<script type="text/javascript">
 		jQuery("#issues-by-language").tabs();
 		MultiLanguageIssues.display(<%= languages.to_json %>,

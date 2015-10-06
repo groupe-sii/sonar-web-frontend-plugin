@@ -1,6 +1,7 @@
 package fr.sii.sonar.web.frontend.widget;
 
 import org.sonar.api.web.AbstractRubyTemplate;
+import org.sonar.api.web.Description;
 import org.sonar.api.web.RubyRailsWidget;
 import org.sonar.api.web.WidgetCategory;
 import org.sonar.api.web.WidgetProperties;
@@ -10,6 +11,7 @@ import org.sonar.api.web.WidgetPropertyType;
 import fr.sii.sonar.web.frontend.WebPlugin;
 
 @WidgetCategory({"Issues", "Technical Debt"})
+@Description("Display issues for each language used by the project")
 @WidgetProperties({
 	@WidgetProperty(
 			key = "languages",
@@ -27,11 +29,11 @@ import fr.sii.sonar.web.frontend.WebPlugin;
 public class MultiLanguageIssuesWidget extends AbstractRubyTemplate implements RubyRailsWidget {
 
 	public String getId() {
-		return "sii-web-client-issues";
+		return "sii-web-frontend-issues";
 	}
 
 	public String getTitle() {
-		return "Multi-languages issues";
+		return "Issues by language";
 	}
 
 	@Override

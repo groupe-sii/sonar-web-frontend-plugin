@@ -11,7 +11,7 @@ public class CssLintQualityConstants extends CssLanguageConstants implements Qua
 	public static final String REPORT_PATH_DEFVALUE = "/report/csslint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/csslint.json";
-	public static final String REPOSITORY_NAME = "SII Web client - CSS";
+	public static final String REPOSITORY_NAME = "CSSLint";
 	public static final String REPOSITORY_KEY = "csslint";
 	public static final String SUB_CATEGORY = "Quality";
 	public static final String PROFILE_PATH = "/profiles/csslint.json";

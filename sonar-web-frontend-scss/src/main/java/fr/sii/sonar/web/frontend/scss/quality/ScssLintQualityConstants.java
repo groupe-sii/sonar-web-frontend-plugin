@@ -11,7 +11,7 @@ public class ScssLintQualityConstants extends ScssLanguageConstants implements Q
 	public static final String REPORT_PATH_DEFVALUE = "/report/scsslint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/scsslint.json";
-	public static final String REPOSITORY_NAME = "SII Web client - SCSS";
+	public static final String REPOSITORY_NAME = "SCSSLint";
 	public static final String REPOSITORY_KEY = "scsslint";
 	public static final String SUB_CATEGORY = "Quality";
 	public static final String PROFILE_PATH = "/profiles/scsslint.json";

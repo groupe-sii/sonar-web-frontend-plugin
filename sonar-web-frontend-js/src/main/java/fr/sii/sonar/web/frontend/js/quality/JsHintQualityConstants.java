@@ -11,7 +11,7 @@ public class JsHintQualityConstants extends JsLanguageConstants implements Quali
 	public static final String REPORT_PATH_DEFVALUE = "/report/jshint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/jshint.json";
-	public static final String REPOSITORY_NAME = "SII Web client - JS";
+	public static final String REPOSITORY_NAME = "JSHint";
 	public static final String REPOSITORY_KEY = "jshint";
 	public static final String SUB_CATEGORY = "Quality";
 	public static final String PROFILE_PATH = "/profiles/jshint.json";

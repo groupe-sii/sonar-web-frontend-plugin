@@ -11,7 +11,7 @@ public class AngularHintQualityConstants extends AngularHintConstants implements
 	public static final String REPORT_PATH_DEFVALUE = "/report/angular-hint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/angular-hint.json";
-	public static final String REPOSITORY_NAME = "SII Web client - AngularJS";
+	public static final String REPOSITORY_NAME = "Angular Hint";
 	public static final String REPOSITORY_KEY = "angular-hint";
 	public static final String SUB_CATEGORY = "Quality";
 	public static final String PROFILE_PATH = "/profiles/angular-hint.json";

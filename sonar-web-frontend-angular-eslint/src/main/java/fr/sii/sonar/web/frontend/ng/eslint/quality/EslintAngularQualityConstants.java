@@ -11,7 +11,7 @@ public class EslintAngularQualityConstants extends EslintAngularConstants implem
 	public static final String REPORT_PATH_DEFVALUE = "/report/eslint-angular.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/eslint-angular.json";
-	public static final String REPOSITORY_NAME = "SII Web client - Eslint/AngularJS";
+	public static final String REPOSITORY_NAME = "Eslint for AngularJS";
 	public static final String REPOSITORY_KEY = "eslint-angular";
 	public static final String SUB_CATEGORY = "Quality";
 	public static final String PROFILE_PATH = "/profiles/eslint-angular.json";
