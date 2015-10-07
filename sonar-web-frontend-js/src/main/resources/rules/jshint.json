@@ -218,14 +218,14 @@
     },
     {
         "key":"E037",
-        "name":"E037",
-        "description":"E037",
+        "name":"Constant not declared",
+        "description":"Constant {a} was not declared correctly.",
         "severity":"CRITICAL"
     },
     {
         "key":"E038",
-        "name":"E038",
-        "description":"E038",
+        "name":"Variable not declared",
+        "description":"Variable {a} was not declared correctly.",
         "severity":"CRITICAL"
     },
     {
@@ -260,8 +260,8 @@
     },
     {
         "key":"E044",
-        "name":"E044",
-        "description":"E044",
+        "name":"var already defined",
+        "description":"'{a}' is already defined and can't be redefined.",
         "severity":"CRITICAL"
     },
     {
@@ -278,8 +278,8 @@
     },
     {
         "key":"E047",
-        "name":"E047",
-        "description":"E047",
+        "name":"A generator function shall contain a yield statement.",
+        "description":"A generator function shall contain a yield statement.",
         "severity":"CRITICAL"
     },
     {
@@ -374,20 +374,20 @@
     },
     {
         "key":"W011",
-        "name":"W011",
-        "description":"W011",
+        "name":"Unexpected space after",
+        "description":"Unexpected space after '{a}'.",
         "severity":"CRITICAL"
     },
     {
         "key":"W012",
-        "name":"W012",
-        "description":"W012",
+        "name":"Unexpected space before",
+        "description":"Unexpected space before '{a}'.",
         "severity":"CRITICAL"
     },
     {
         "key":"W013",
-        "name":"W013",
-        "description":"W013",
+        "name":"Missing space after ",
+        "description":"Missing space after '{a}'.",
         "severity":"CRITICAL"
     },
     {
@@ -398,8 +398,8 @@
     },
     {
         "key":"W015",
-        "name":"W015",
-        "description":"W015",
+        "name":"Expected correct indentation",
+        "description":"Expected '{a}' to have an indentation at {b} instead at {c}.",
         "severity":"CRITICAL"
     },
     {
@@ -788,8 +788,8 @@
     },
     {
         "key":"W081",
-        "name":"W081",
-        "description":"W081",
+        "name":"Too many var statements.",
+        "description":"Too many var statements.",
         "severity":"CRITICAL"
     },
     {
@@ -890,8 +890,8 @@
     },
     {
         "key":"W099",
-        "name":"W099",
-        "description":"CRITICAL",
+        "name":"Mixed spaces and tabs.",
+        "description":"Mixed spaces and tabs.",
         "severity":"CRITICAL"
     },
     {
@@ -908,8 +908,8 @@
     },
     {
         "key":"W102",
-        "name":"W102",
-        "description":"W102",
+        "name":"Trailing whitespace.",
+        "description":"Trailing whitespace.",
         "severity":"MAJOR"
     },
     {
@@ -1052,8 +1052,8 @@
     },
     {
         "key":"I002",
-        "name":"I002",
-        "description":"I002",
+        "name":"Reserved words",
+        "description":"Reserved words as properties can be used under the 'es5' option.",
         "severity":"INFO"
     },
     {
