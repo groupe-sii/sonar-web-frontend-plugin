@@ -19,27 +19,27 @@ public class TestCase {
 	/**
 	 * The test name
 	 */
-	private String name;
+	protected String name;
 
 	/**
 	 * The test duration (in milliseconds)
 	 */
-	private long duration;
+	protected long duration;
 
 	/**
 	 * The test status
 	 */
-	private Status status;
+	protected Status status;
 
 	/**
 	 * The test message
 	 */
-	private String message;
+	protected String message;
 
 	/**
 	 * The stack trace when test has failed
 	 */
-	private String stackTrace;
+	protected String stackTrace;
 
 
 	/**
@@ -153,5 +153,14 @@ public class TestCase {
 
 	public String getStackTrace() {
 		return stackTrace;
+	}
+
+	public void setStackTrace(String stackTrace) {
+		this.stackTrace = stackTrace;
+	}
+
+	@Override
+	public String toString() {
+		return "{name=" + name + ", duration=" + duration + ", status=" + status + ", message=" + message + ", stackTrace=" + stackTrace + "}";
 	}
 }
