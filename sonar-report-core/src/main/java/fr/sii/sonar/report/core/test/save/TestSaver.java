@@ -148,7 +148,7 @@ public class TestSaver implements Saver<TestReport> {
 	 * @return the sonar source file
 	 */
 	private InputFile getTestFile(TestFile testFile) {
-		return FileUtil.getInputFile(pluginContext.getFilesystem(), testFile.getPath());
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), testFile.getPath(), org.sonar.api.batch.fs.InputFile.Type.TEST);
 	}
 
 }

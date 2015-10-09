@@ -15,6 +15,8 @@ import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.resources.File;
 
+import com.google.common.collect.Lists;
+
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.SaveException;
 
@@ -179,22 +181,36 @@ public class FileUtil {
 	 *            the Sonar file system
 	 * @param path
 	 *            the path of the file to load
+	 * @param preferredType
+	 *            the type of file to search if several are found
 	 * @param types
 	 *            the type filters
 	 * @return the found Sonar file or null if not found
 	 * @throws IllegalArgumentException
 	 *             if path is null
 	 */
-	public static InputFile getInputFile(FileSystem fileSystem, String path, Type... types) {
+	public static InputFile getInputFile(FileSystem fileSystem, String path, Type preferredType, Type... types) {
 		if (path == null) {
 			throw new IllegalArgumentException("The path of the file must not be null");
 		}
-		// search the file accros the file system
+		// search the file across the file system
 		FilePredicate searchPredicate = searchFilePredicate(fileSystem, path);
 		// filter according to provided type(s)
 		FilePredicate typePredicate = filterTypePredicate(fileSystem, types);
-		// get the file matching both path and types
-		return fileSystem.inputFile(fileSystem.predicates().and(typePredicate, searchPredicate));
+		// get the files matching both path and types
+		List<InputFile> files = Lists.newArrayList(fileSystem.inputFiles(fileSystem.predicates().and(typePredicate, searchPredicate)));
+		// if several files => select the best match
+		InputFile preferredFile = files.isEmpty() ? null : files.get(0);
+		if (files.size() > 1) {
+			for (InputFile file : files) {
+				if (file.type().equals(preferredType)) {
+					preferredFile = file;
+					break;
+				}
+			}
+			LOG.warn("There are several files matching path " + path + ". The selected file is " + preferredFile.absolutePath());
+		}
+		return preferredFile;
 	}
 
 	private static FilePredicate searchFilePredicate(FileSystem fileSystem, String path) {

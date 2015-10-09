@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
+import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.issue.Issuable;
 import org.sonar.api.issue.Issuable.IssueBuilder;
 import org.sonar.api.measures.CoreMetrics;
@@ -60,7 +61,7 @@ public class QualitySaver implements Saver<QualityReport> {
 	 * @return the sonar file
 	 */
 	private InputFile getSourceFile(QualityReport report, Project project, AnalyzedFile file) {
-		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath(), Type.MAIN);
 	}
 
 	/**
@@ -84,49 +85,6 @@ public class QualitySaver implements Saver<QualityReport> {
 		}
 	}
 
-//	/**
-//	 * Save issues information for the file (line, rules, issue message, issue
-//	 * reporter...). If a rule is provided in the quality report and this rule
-//	 * is not available in the rule repository, then add the issue information
-//	 * into "unknown-rule" with the severity provided by the quality report
-//	 * 
-//	 * @param context
-//	 *            sonar context
-//	 * @param file
-//	 *            quality information for the file
-//	 * @param sonarFile
-//	 *            sonar file
-//	 */
-//	protected void saveIssues(SensorContext context, AnalyzedFile file, InputFile sonarFile) {
-//		for (Issue issue : file.getIssues()) {
-//			Violation violation;
-//			boolean isDefaultRule = false;
-//			// if rule is not registered in sonar => use the default one
-//			String repositoryKey = ((QualityConstants) pluginContext.getConstants()).getRepositoryKey();
-//			Rule rule = pluginContext.getRuleFinder().findByKey(repositoryKey, issue.getRulekey());
-//			if (rule == null) {
-//				rule = pluginContext.getRuleFinder().findByKey(repositoryKey, QualityConstants.DEFAULT_RULE_KEY);
-//				isDefaultRule = true;
-//			}
-//			if (rule != null) {
-//				violation = Violation.create(rule, context.getResource(sonarFile));
-//				violation.setLineId(issue.getLine() == null ? null : issue.getLine().intValue());
-//				violation.setMessage(issue.getMessage());
-//				violation.setCost(1.0);
-////				violation.setPersonId(issue.getReporter());
-//				if (isDefaultRule) {
-//					LOG.info("Unknown rule " + issue.getRulekey() + ". Register it using default rule with custom severity " + issue.getSeverity());
-//					if (issue.getSeverity() != null) {
-//						violation.setSeverity(RulePriority.valueOfString(issue.getSeverity().name()));
-//					}
-//				}
-//				context.saveViolation(violation);
-//			} else {
-//				LOG.warn("Unknown rule " + issue.getRulekey() + ". Will not be registered in Sonar");
-//			}
-//		}
-//	}
-	
 	/**
 	 * Save issues information for the file (line, rules, issue message, issue
 	 * reporter...). If a rule is provided in the quality report and this rule

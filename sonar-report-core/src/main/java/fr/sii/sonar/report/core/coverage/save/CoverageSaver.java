@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
+import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.CoverageMeasuresBuilder;
 import org.sonar.api.measures.Measure;
@@ -83,8 +84,8 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 */
 	protected boolean hasCoverage(CoverageReport report, InputFile sourceFile) throws IOException {
 		for (FileCoverage file : report.getFiles()) {
-			InputFile coverageFile = getAnalyzedFilePath(report, file);
-			if (sourceFile.absolutePath().equals(coverageFile.absolutePath())) {
+			String coverageFilePath = getAnalyzedFilePath(report, file);
+			if (sourceFile.absolutePath().equals(coverageFilePath)) {
 				return true;
 			}
 		}
@@ -105,8 +106,8 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 */
 	protected void saveCoverage(Project project, SensorContext context, CoverageReport report, FileCoverage file) {
 		// try to load the sonar file from real file system
-		InputFile sonarFile = getSourceFile(project, report, file);
-		if (FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file).absolutePath(), "No coverage will be generated for this file")) {
+		InputFile sonarFile = getSourceFile(report, file);
+		if (FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file), "No coverage will be generated for this file")) {
 			CoverageMeasuresBuilder result = CoverageMeasuresBuilder.create();
 			for (LineCoverage line : file.getLines()) {
 				// generate line coverage measure
@@ -158,16 +159,14 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 * Get the sonar file from either absolute path or relative path to source
 	 * directories
 	 * 
-	 * @param report
-	 *            the quality report
 	 * @param project
 	 *            the project under plugin execution
 	 * @param file
 	 *            the report file information that contains path
 	 * @return the sonar file
 	 */
-	private InputFile getSourceFile(Project project, CoverageReport report, FileCoverage file) {
-		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
+	private InputFile getSourceFile(CoverageReport report, FileCoverage file) {
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath(), Type.MAIN);
 	}
 
 	/**
@@ -180,8 +179,9 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 *            relative to the report)
 	 * @return the real path to the file
 	 */
-	private InputFile getAnalyzedFilePath(CoverageReport report, FileCoverage file) {
-		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
+	private String getAnalyzedFilePath(CoverageReport report, FileCoverage file) {
+		InputFile sourceFile = getSourceFile(report, file);
+		return sourceFile==null ? file.getPath() : sourceFile.absolutePath();
 	}
 
 }

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
+import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PersistenceMode;
@@ -103,7 +104,7 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	 * @return the sonar file
 	 */
 	private InputFile getSourceFile(DuplicationReport report, Project project, DuplicationFileInformation file) {
-		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath());
+		return FileUtil.getInputFile(pluginContext.getFilesystem(), file.getPath(), Type.MAIN);
 	}
 
 }
