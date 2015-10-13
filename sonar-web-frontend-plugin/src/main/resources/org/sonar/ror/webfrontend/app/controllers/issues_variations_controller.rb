@@ -1,21 +1,24 @@
 class IssuesVariationsController < Api::ResourcesController
   def index
     begin
+      # handle parameters
       raise ApiException.new(400, "languages parameter required") unless params[:languages]
       raise ApiException.new(400, "resource parameter required") unless params[:resource]
       resource_id=params[:resource]
       period_index=params[:period].to_i if params[:period]
       start_date=params[:start]
+      languages=params[:languages].split(',')
       resource=Project.by_key(resource_id)
       raise ApiException.new(404, "Resource [#{resource_id}] not found") if resource.nil?
+      
+      # compute start date
       if start_date == nil
         start_date = get_start_date(resource, period_index)
       else
         start_date = Time.parse(start_date)
       end
 
-      languages=params[:languages].split(',')
-      
+      # load issues for provided language, resource and start date
       issues_by_lang = {}
       languages.each do |language|
         # get new and removed issues for the language
@@ -27,6 +30,7 @@ class IssuesVariationsController < Api::ResourcesController
         issues_by_lang[language] = issues_by_severity
       end
       
+      # generate response
       respond_to do |format|
         format.json { render :json => jsonp(issues_by_lang) }
         format.xml { render :xml => to_xml(objects) }
@@ -44,15 +48,17 @@ class IssuesVariationsController < Api::ResourcesController
       # use the last snapshot if nothing specified
       start_date = last_snapshot.created_at
     else
+      # FIXME: manage other periods (periods 4 and 5 are defined by user in settings)
       dates = [last_snapshot.created_at.beginning_of_day - 30.day]
       first = resource.snapshots.first
-      puts resource.processed_snapshots.map{ |s| s.created_at }
+      # period index starts with 1 and 1 is handled above
       date = dates[period_index - 2]
+      # filter snapshots to remove the first analysis and keep only snapshots after the provided date
       snapshots = resource.processed_snapshots.
                     reject{ |s| s.id==first.id }.
                     select{ |s| s.created_at>=date }.
                     sort_by{ |s| s.created_at }
-      puts snapshots.map{ |s| s.created_at }
+      # the first snapshot is the snaphost just after the selected date
       start_date = snapshots.first.created_at if snapshots.first
       start_date = first.created_at unless snapshots.first
     end
