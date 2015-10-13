@@ -1,6 +1,7 @@
 MultiLanguageDuplications = (function() {
 	
 	var search = function(/*String*/projectKey, /*String*/url) {
+		// FIXME: Sonar has hard coded limit of 500 results => if more than 500, information is wrong...
 		return jQuery.ajax({
 			"url": url,
 			"data": {

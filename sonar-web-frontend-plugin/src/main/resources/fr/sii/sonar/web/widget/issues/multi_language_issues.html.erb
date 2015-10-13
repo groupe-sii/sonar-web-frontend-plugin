@@ -15,11 +15,12 @@
    
    values = [blocker_issues, critical_issues, major_issues, minor_issues, info_issues]
    if dashboard_configuration.selected_period?
-     values = values.map { |m| m ? (m.variation(dashboard_configuration.period_index)||0) : 0 }
+     values = values.map { |m| 1 }
+     max = 1
    else
      values = values.map { |m| m ? (m.value||0) : 0 }
+     max = values.map { |val| val.abs }.max
    end
-   max = values.map { |val| val.abs }.max
 %>
 
 <link href="<%= url_for_static(:plugin => 'webfrontend', :path => 'css/multiLangIssues.css') %>" rel="stylesheet" type="text/css" />
@@ -29,7 +30,7 @@
 	</div>
    <ul>
  		<% languages.each do |language| %>
- 	   		<li><a href="#<%=language.downcase-%>-issues"><span class="widget-label"><%= language.upcase -%> (<span class="total-count"></span>)</span></a>
+ 	   		<li id="<%=language.downcase-%>-tab" class="tab"><a href="#<%=language.downcase-%>-issues"><span class="widget-label"><%= language.upcase -%> (<span class="total-count"></span> <span class="variation total-variation"><!-- fill it with JS --></span><span class="trend total-trend"><!-- fill it with JS --></span>)</span></a>
  	   	<% end %>
    </ul>
    
@@ -43,10 +44,24 @@
            <div class="widget-measure widget-measure-main">
 		    <div class="widget-label">Issues for <%= language.upcase -%></div>
 		    <div class="nowrap">
+		     <!-- Display total number of issues for the language with link to view it in issues page  -->
 		     <span class="link-rules-issues">
 		      <%= link_to 0, {:controller => 'issues', :action => 'search', :anchor => all_severities_params.map{|k,v| "#{k}=#{v}"}.join('|') }, :class => 'widget-link total-count' -%>
 		     </span>
+		     <!-- Display difference with previous analysis (either trend with arrow icon or variation with chart % of removed issues in green / % of added issues in red) -->
+		     <span class="variation total-variation"><!-- fill it with JS --></span>
+		     <span class="trend total-trend"><!-- fill it with JS --></span>
 		    </div>
+		   </div>
+		   <!-- Display difference with previous analysis (textual) -->
+		   <div class="widget-measure-delta">
+		    <% if @dashboard_configuration.selected_period? %>
+			   	<div class="small textual-variation total">
+			   		<!-- link on newly added issues -->
+			   		<p class="added small">Added: <a href="<%= url_for(:controller => 'drilldown', :action => 'issues', :id => @project.key, :period => dashboard_configuration.period_index) -%>" class="varw value"></a></p>
+			   		<p class="removed small">Removed: <span class="varb value"></span></p>
+			   	</div>
+			<% end %>
 		   </div>
 		  </div>
 		 </div>
@@ -59,21 +74,30 @@
 	    		<%
 	    		   severity_params = {:componentRoots => @project.key, :severities => severity.upcase, :resolved => false, :languages => language}
 	    		%>
+	    		<!-- Display one line by severity for the language -->
 	    		<tr>
+	    			<!-- Display the severity name and icon -->
 			        <td class="nowrap">
 			          <i class="icon-severity-<%=severity-%>"></i>
 			          <%= message(severity) -%>
 			        </td>
+	    			<!-- Display the number of issues for current severity and language -->
 			        <td class="thin right nowrap">
 			          <%= link_to 0, {:controller => 'issues', :action => 'search', :anchor => severity_params.map{|k,v| "#{k}=#{v}"}.join('|') }, :class => 'widget-link drilldown_'+severity+' '+severity+'-count' -%>
 			        </td>
+			        <td class="thin">
+		    		 <!-- Display difference with previous analysis (either trend with arrow icon or variation with chart % of removed issues in green / % of added issues in red) -->
+				     <span class="variation <%=severity-%>-variation"><!-- fill it with JS --></span>
+				     <span class="trend <%=severity-%>-trend"><!-- fill it with JS --></span>
+			        </td>
 			        <td class="nowrap barchart-<%=severity-%>">
 			          <% if max > 0 %>
+			          	<!-- empty variations by default and updated in JS -->
 			            <% if dashboard_configuration.selected_period? %>
-			              <%= barchart(:width => 35, :percent => (0<0 ? (100 * 0 / max).to_i : 0), :color => '#85bb43') %>
-			              <%= barchart(:width => 35, :percent => (0>0 ? (100 * 0 / max).to_i : 0), :color => '#d4333f') %>
+			              <%= barchart(:width => 35, :percent => 0, :color => '#85bb43', :tooltip => "removed issues for #{language.upcase}") %>
+			              <%= barchart(:width => 35, :percent => 0, :color => '#d4333f', :tooltip => "added issues for #{language.upcase}") %>
 			            <% else %>
-			              <%= barchart(:width => 70, :percent => (100 * 0 / max).to_i) %>
+			              <%= barchart(:width => 70, :percent => 0) %>
 			            <% end %>
 			          <% end %>
 			        </td>
@@ -96,5 +120,16 @@
 									<%= @project.key.to_json %>,
 									<%= max %>,
 									"<%= url_for(:controller => 'api/issues', :action => 'search') %>")
+		
+		<% if dashboard_configuration.selected_period? %>
+			MultiLanguageIssues.displayVariations(<%= languages.to_json %>,
+										<%= @project.key.to_json %>,
+										<%= dashboard_configuration.period_index %>,
+										"<%= url_for(:controller => 'issues_variations', :action => 'index') %>")
+		<% else %>
+			MultiLanguageIssues.displayTrends(<%= languages.to_json %>,
+										<%= @project.key.to_json %>,
+										"<%= url_for(:controller => 'issues_variations', :action => 'index') %>")
+		<% end %>
 	</script>
 </div>

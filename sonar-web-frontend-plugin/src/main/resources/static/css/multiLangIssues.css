@@ -67,3 +67,8 @@
 	margin: 0;
 	background: #236a97;
 }
+
+
+#issues-by-language .tab .variation {
+	/*font-size: 0.8em;*/
+}
