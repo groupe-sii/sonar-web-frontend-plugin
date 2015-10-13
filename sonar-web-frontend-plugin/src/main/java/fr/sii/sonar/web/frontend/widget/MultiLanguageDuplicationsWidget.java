@@ -21,8 +21,8 @@ import fr.sii.sonar.web.frontend.WebPlugin;
 	),
 	@WidgetProperty(
 			key = "hide empty tabs",
-			defaultValue = "true",
-			description = "Automatically hide tabs with no issues",
+			defaultValue = "false",
+			description = "Automatically hide tabs with no duplications",
 			type = WidgetPropertyType.BOOLEAN
 	)
 })

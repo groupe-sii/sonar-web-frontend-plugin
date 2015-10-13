@@ -14,7 +14,7 @@
 	</div>
    <ul>
  		<% languages.each do |language| %>
- 	   		<li><a href="#<%=language.downcase-%>-duplications"><span class="widget-label"><%= language.upcase -%> (<span class="total-count"></span>)</span></a>
+ 	   		<li id="<%=language.downcase-%>-duplications-tab" class="tab"><a href="#<%=language.downcase-%>-duplications"><span class="widget-label"><%= language.upcase -%> (<span class="total-count"></span>)</span></a>
  	   	<% end %>
    </ul>
    

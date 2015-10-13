@@ -6,10 +6,14 @@ MultiLanguageIssues = (function() {
 		numSteps: 0
 	};
 	
-	var setTotalCount = function(/*String*/lang) {
+	var setTotalCount = function(/*boolean*/hideEmpty, /*String*/lang) {
 		var total = totalByLang[lang];
 		jQuery("a[href='#"+lang+"-issues'] .total-count").html(total);
 		jQuery("#"+lang+"-issues .total-count").html(total);
+		if(hideEmpty && !total) {
+			jQuery("#"+lang+"-issues-tab").hide();
+			jQuery("#"+lang+"-issues").hide();
+		}
 	};
 	
 	var setSeverityCount = function(/*String*/lang, /*String*/severity, /*int*/max) {
@@ -59,7 +63,7 @@ MultiLanguageIssues = (function() {
 				.always(next.bind(this, languages, hideEmpty, severities, projectKey, max, url, langIdx, severityIdx+1));
 		} else {
 			// all languages are done => finish
-			languages.forEach(setTotalCount);
+			languages.forEach(setTotalCount.bind(this, hideEmpty));
 			jQuery("#issues-by-language").removeClass("loading");
 		}
 		progress.currentStep++;
@@ -78,7 +82,7 @@ MultiLanguageIssues = (function() {
 	
 	var setTotalVariation = function(/*String*/lang, /*Object*/totalVariations) {
 		jQuery("#"+lang+"-issues .total-variation").html(formatVariation(totalVariations.delta, true)).addClass(variationClass(totalVariations.delta));
-		jQuery("#"+lang+"-tab .total-variation").html(formatVariation(totalVariations.delta)).addClass(variationClass(totalVariations.delta));
+		jQuery("#"+lang+"-issues-tab .total-variation").html(formatVariation(totalVariations.delta)).addClass(variationClass(totalVariations.delta));
 		jQuery("#"+lang+"-issues .total.textual-variation .added .value").html(totalVariations.added);
 		jQuery("#"+lang+"-issues .total.textual-variation .removed .value").html(totalVariations.removed);
 	};
@@ -126,7 +130,7 @@ MultiLanguageIssues = (function() {
 	
 	var setTotalTrend = function(/*String*/lang, /*Object*/totalVariations) {
 		jQuery("#"+lang+"-issues .total-trend").html(trendIcon(totalVariations.delta, totalVariations.delta));
-		jQuery("#"+lang+"-tab .total-trend").html(trendIcon(totalVariations.delta, totalVariations.delta));
+		jQuery("#"+lang+"-issues-tab .total-trend").html(trendIcon(totalVariations.delta, totalVariations.delta));
 	};
 	
 	var setSeverityTrend = function(/*String*/lang, /*String*/severity, /*Object*/variations, /*Object*/totalVariations) {

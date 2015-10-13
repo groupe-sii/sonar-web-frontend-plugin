@@ -53,6 +53,12 @@ MultiLanguageDuplications = (function() {
 		jQuery("#"+lang+"-duplications .duplications-files").html(dups["duplicated_files"]);
 	};
 	
+	var hideTab = function(/*String*/lang, /*Object*/dups, /*boolean*/hideEmpty) {
+		if(hideEmpty && !dups["duplicated_files"]) {
+			jQuery("#"+lang+"-duplications-tab").hide();
+			jQuery("#"+lang+"-duplications").hide();
+		}
+	};
 	
 	return {
 		display: function(/*Array*/languages, /*boolean*/hideEmpty, /*String*/projectKey, /*String*/url) {
@@ -61,6 +67,7 @@ MultiLanguageDuplications = (function() {
 				for(var i=0, l=languages.length ; i<l ; i++) {
 					var lang = languages[i];
 					setTotalCount(lang, dupByLang[lang]);
+					hideTab(lang, dupByLang[lang], hideEmpty);
 				}
 				jQuery("#duplications-by-language").removeClass("loading");
 			});
