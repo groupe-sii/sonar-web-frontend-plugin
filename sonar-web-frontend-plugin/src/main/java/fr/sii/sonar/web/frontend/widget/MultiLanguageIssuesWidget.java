@@ -38,7 +38,7 @@ public class MultiLanguageIssuesWidget extends AbstractRubyTemplate implements R
 
 	@Override
 	protected String getTemplatePath() {
-//		return "/home/aurelien/developpement/sts-workspace/sonar-sii-plugin-parent/sonar-web-frontend-plugin/src/main/resources/fr/sii/sonar/web/widget/duplication/multi_language_duplications.html.erb";
+//		return "/home/aurelien/developpement/sts-workspace/sonar-sii-plugin-parent/sonar-web-frontend-plugin/src/main/resources/fr/sii/sonar/web/widget/issues/multi_language_issues.html.erb";
 		return "/fr/sii/sonar/web/widget/issues/multi_language_issues.html.erb";
 	}
 
