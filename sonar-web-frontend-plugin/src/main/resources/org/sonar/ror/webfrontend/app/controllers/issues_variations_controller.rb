@@ -20,14 +20,16 @@ class IssuesVariationsController < Api::ResourcesController
 
       # load issues for provided language, resource and start date
       issues_by_lang = {}
-      languages.each do |language|
-        # get new and removed issues for the language
-        new_issues = get_new_issues(start_date, resource.id, language)
-        closed_issues = get_closed_issues(start_date, resource.id, language)
-  
-        # aggregate
-        issues_by_severity = aggregate(new_issues, closed_issues)
-        issues_by_lang[language] = issues_by_severity
+        if start_date
+        languages.each do |language|
+          # get new and removed issues for the language
+          new_issues = get_new_issues(start_date, resource.id, language)
+          closed_issues = get_closed_issues(start_date, resource.id, language)
+    
+          # aggregate
+          issues_by_severity = aggregate(new_issues, closed_issues)
+          issues_by_lang[language] = issues_by_severity
+        end
       end
       
       # generate response
@@ -43,14 +45,14 @@ class IssuesVariationsController < Api::ResourcesController
   
   def get_start_date(resource, period_index)
     last_snapshot=(resource && resource.last_snapshot)
+    first = resource.snapshots.first
     raise ApiException.new(401, "Unauthorized") unless has_role?(:user, last_snapshot)
     if period_index<=1
       # use the last snapshot if nothing specified
-      start_date = last_snapshot.created_at
+      start_date = last_snapshot.created_at unless first.id==last_snapshot.id
     else
       # FIXME: manage other periods (periods 4 and 5 are defined by user in settings)
       dates = [last_snapshot.created_at.beginning_of_day - 30.day]
-      first = resource.snapshots.first
       # period index starts with 1 and 1 is handled above
       date = dates[period_index - 2]
       # filter snapshots to remove the first analysis and keep only snapshots after the provided date
