@@ -2,25 +2,27 @@
    require 'json'
    require 'sii_widget_helper'
    
-   languages = SiiWidgetHelper.getLanguages(widget_properties)
+   if SiiWidgetHelper.isDisplayWidget(@snapshot, widget_properties)
    
-   issues = @snapshot.measure('violations')
-   blocker_issues = @snapshot.measure('blocker_violations')
-   critical_issues = @snapshot.measure('critical_violations')
-   major_issues = @snapshot.measure('major_violations')
-   minor_issues = @snapshot.measure('minor_violations')
-   info_issues = @snapshot.measure('info_violations')
-   
-   severities = ['blocker', 'critical', 'major', 'minor', 'info']
-   
-   values = [blocker_issues, critical_issues, major_issues, minor_issues, info_issues]
-   if dashboard_configuration.selected_period?
-     values = values.map { |m| 1 }
-     max = 1
-   else
-     values = values.map { |m| m ? (m.value||0) : 0 }
-     max = values.map { |val| val.abs }.max
-   end
+	   languages = SiiWidgetHelper.getLanguages(widget_properties)
+	   
+	   issues = @snapshot.measure('violations')
+	   blocker_issues = @snapshot.measure('blocker_violations')
+	   critical_issues = @snapshot.measure('critical_violations')
+	   major_issues = @snapshot.measure('major_violations')
+	   minor_issues = @snapshot.measure('minor_violations')
+	   info_issues = @snapshot.measure('info_violations')
+	   
+	   severities = ['blocker', 'critical', 'major', 'minor', 'info']
+	   
+	   values = [blocker_issues, critical_issues, major_issues, minor_issues, info_issues]
+	   if dashboard_configuration.selected_period?
+	     values = values.map { |m| 1 }
+	     max = 1
+	   else
+	     values = values.map { |m| m ? (m.value||0) : 0 }
+	     max = values.map { |val| val.abs }.max
+	   end
 %>
 
 <link href="<%= url_for_static(:plugin => 'webfrontend', :path => 'css/multiLangIssues.css') %>" rel="stylesheet" type="text/css" />
@@ -133,3 +135,4 @@
 		<% end %>
 	</script>
 </div>
+<% end %>

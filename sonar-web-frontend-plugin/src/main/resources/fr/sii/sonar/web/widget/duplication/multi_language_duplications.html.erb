@@ -2,7 +2,9 @@
    require 'json'
    require 'sii_widget_helper'
 
-   languages = SiiWidgetHelper.getLanguages(widget_properties)
+   if SiiWidgetHelper.isDisplayWidget(@snapshot, widget_properties)
+   
+      languages = SiiWidgetHelper.getLanguages(widget_properties)
 
 %>
 
@@ -65,3 +67,4 @@
 									"<%= url_for(:controller => 'api', :action => 'resources') %>")
 	</script>
 </div>
+<% end %>
