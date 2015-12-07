@@ -82,7 +82,7 @@ To build from source, you need to ensure that:
 - [Maven](https://maven.apache.org/download.cgi) is installed
 
 Clone this git repository.
-Go into the grabbed folder and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
+Go into the cloned folder (sonar-web-frontend-plugin by default) and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
 
 ```
 mvn clean install
