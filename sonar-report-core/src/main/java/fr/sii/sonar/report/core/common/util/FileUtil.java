@@ -13,7 +13,10 @@ import org.sonar.api.batch.fs.FilePredicates;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
+import org.sonar.api.batch.fs.internal.DefaultInputFile;
+import org.sonar.api.batch.fs.internal.PathPattern;
 import org.sonar.api.resources.File;
+import org.sonar.api.scan.filesystem.FileExclusions;
 
 import com.google.common.collect.Lists;
 
@@ -77,16 +80,7 @@ public class FileUtil {
 	 *         plugin is configured to not fail
 	 */
 	public static boolean checkMissing(PluginContext pluginContext, File sonarFile, String path, String message) throws SaveException {
-		if (sonarFile == null) {
-			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
-				throw new SaveException("The file " + path + " doesn't exist");
-			} else {
-				LOG.warn("The file " + path + " doesn't exist. " + message);
-			}
-			return false;
-		} else {
-			return true;
-		}
+		return checkMissing(pluginContext, (Object) sonarFile, path, message);
 	}
 
 	/**
@@ -111,16 +105,7 @@ public class FileUtil {
 	 *         plugin is configured to not fail
 	 */
 	public static boolean checkMissing(PluginContext pluginContext, InputFile sonarFile, String path, String message) throws SaveException {
-		if (sonarFile == null) {
-			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
-				throw new SaveException("The file " + path + " doesn't exist");
-			} else {
-				LOG.warn("The file " + path + " doesn't exist. " + message);
-			}
-			return false;
-		} else {
-			return true;
-		}
+		return checkMissing(pluginContext, (Object) sonarFile, path, message);
 	}
 
 	/**
@@ -237,5 +222,27 @@ public class FileUtil {
 			typePredicates.add(predicatesFactory.hasType(type));
 		}
 		return typePredicates.isEmpty() ? predicatesFactory.all() : predicatesFactory.or(typePredicates);
+	}
+	
+	private static boolean checkMissing(PluginContext pluginContext, Object sonarFile, String path, String message) {
+		if (sonarFile == null) {
+			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
+				// check if the file doesn't exist in Sonar due to exclusion patterns
+				DefaultInputFile inputFile = new DefaultInputFile(path);
+				FilePredicate predicate = pluginContext.getFilesystem().predicates().matchesPathPatterns(new FileExclusions(pluginContext.getSettings()).sourceExclusions());
+				// if this is an excluded file => just log it
+				// otherwise, throw an error to indicate that the file is required
+				if(predicate.apply(inputFile)) {
+					LOG.info("The file " + path + " is marked as excluded. " + message);
+				} else {
+					throw new SaveException("The file " + path + " doesn't exist");
+				}
+			} else {
+				LOG.warn("The file " + path + " doesn't exist. " + message);
+			}
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
