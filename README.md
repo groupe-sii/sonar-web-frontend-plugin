@@ -77,16 +77,20 @@ sonar.sourceEncoding=UTF-8
 
 ### Generate from sources
 
-Clone this git repository and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
+To build from source, you need to ensure that:
+- Java JDK is installed (be sure to use JDK and not JRE)
+- [Maven](https://maven.apache.org/download.cgi) is installed
+
+Clone this git repository.
+Go into the cloned folder (sonar-web-frontend-plugin by default) and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
 
 ```
-cd sonar-sii-plugin-parent
 mvn clean install
 ```
 
-This will generate a JAR file located at sonar-sii-plugin-parent/sonar-web-frontend-plugin/target/sonar-web-frontend-plugin-2.0-SNAPSHOT.jar.
+This will generate a JAR file located at sonar-web-frontend-plugin/target/sonar-web-frontend-plugin-2.0-SNAPSHOT.jar.
 
-### Install the plugin
+### Install the plugin in Sonar
 
 Copy the JAR file into your Sonarqube server plugins directory (SONARQUBE_HOME/extensions/plugins directory) and restart the Sonarqube server.
 

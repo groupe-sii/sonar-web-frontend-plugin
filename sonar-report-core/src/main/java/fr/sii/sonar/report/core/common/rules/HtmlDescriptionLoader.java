@@ -21,6 +21,17 @@ import fr.sii.sonar.report.core.common.util.RuleUtil;
 public class HtmlDescriptionLoader implements RulesDefinitionLoader {
 	private static final Logger LOG = LoggerFactory.getLogger(HtmlDescriptionLoader.class);
 
+	private String htmlDescriptionClass;
+	
+	public HtmlDescriptionLoader() {
+		this("ehd");
+	}
+	
+	public HtmlDescriptionLoader(String htmlDescriptionClass) {
+		super();
+		this.htmlDescriptionClass = htmlDescriptionClass;
+	}
+
 	public void load(NewRepository repository) {
 		Collection<NewRule> rules = repository.rules();
 		for(NewRule rule : rules) {
@@ -29,7 +40,7 @@ public class HtmlDescriptionLoader implements RulesDefinitionLoader {
 				try {
 					LOG.debug("Adding HTML description for rule "+repository.key()+":"+rule.key());
 					String description = IOUtils.toString(stream);
-					rule.setHtmlDescription("<p>"+RuleUtil.getHtmlDescription(rule)+"</p><div class=\"extended-html-description\">"+description+"</div>");
+					rule.setHtmlDescription("<p>"+RuleUtil.getHtmlDescription(rule)+"</p><div class=\""+htmlDescriptionClass+"\">"+description+"</div>");
 				} catch (IOException e) {
 					LOG.error("failed to load HTML description for rule "+rule.key());
 				} catch (RuleDefinitionException e) {

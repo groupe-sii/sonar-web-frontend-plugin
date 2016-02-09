@@ -27,7 +27,7 @@ public class CustomStylesLoader implements RulesDefinitionLoader {
 	private String containerNodeId;
 	
 	public CustomStylesLoader() {
-		this("custom-rule-description");
+		this("crd");
 	}
 	
 	public CustomStylesLoader(String containerNodeId) {

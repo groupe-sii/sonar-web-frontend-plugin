@@ -1,4 +1,9 @@
+require 'application_helper'
+require 'sii_version_helper'
+
 class IssuesVariationsController < Api::ResourcesController
+  include ApplicationHelper
+  
   def index
     begin
       # handle parameters
@@ -69,13 +74,21 @@ class IssuesVariationsController < Api::ResourcesController
 
   def get_new_issues(start_date, project_id, language)
     # TODO: should use ActiveRecord but Issues are not ActiveRecord...
-    new_issues_query = "select i.severity from issues i left outer join projects p on p.id=i.component_id where i.created_at>'#{start_date.to_s(:db)}' and i.status='OPEN' and i.root_component_id=#{project_id} and p.language='#{language}'"
+    if SiiVersionHelper.isGreaterOrEqual(sonar_version, "5.0")
+      new_issues_query = "select i.severity from issues i left outer join projects p on p.uuid=i.component_uuid where i.created_at>#{start_date.to_i} and i.status='OPEN' and p.root_id=#{project_id} and p.language='#{language}'"
+    else
+      new_issues_query = "select i.severity from issues i left outer join projects p on p.id=i.component_id where i.created_at>'#{start_date.to_s(:db)}' and i.status='OPEN' and i.root_component_id=#{project_id} and p.language='#{language}'"
+    end
     ActiveRecord::Base.connection.execute(new_issues_query)
   end
   
   def get_closed_issues(start_date, project_id, language)
     # TODO: should use ActiveRecord but Issues are not ActiveRecord...
-    closed_issues_query = "select i.severity from issues i left outer join projects p on p.id=i.component_id left outer join issue_changes ic on i.kee=ic.issue_key where ic.issue_change_creation_date>'#{start_date.to_s(:db)}' and i.status='CLOSED' and i.root_component_id=#{project_id} and p.language='#{language}'"
+    if SiiVersionHelper.isGreaterOrEqual(sonar_version, "5.0")
+      closed_issues_query = "select i.severity from issues i left outer join projects p on p.uuid=i.component_uuid left outer join issue_changes ic on i.kee=ic.issue_key where ic.issue_change_creation_date>#{start_date.to_i} and i.status='CLOSED' and p.root_id=#{project_id} and p.language='#{language}'"
+    else
+      closed_issues_query = "select i.severity from issues i left outer join projects p on p.id=i.component_id left outer join issue_changes ic on i.kee=ic.issue_key where ic.issue_change_creation_date>'#{start_date.to_s(:db)}' and i.status='CLOSED' and i.root_component_id=#{project_id} and p.language='#{language}'"
+    end
     ActiveRecord::Base.connection.execute(closed_issues_query)
   end
 
