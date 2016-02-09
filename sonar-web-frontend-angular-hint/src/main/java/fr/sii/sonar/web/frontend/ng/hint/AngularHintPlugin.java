@@ -39,6 +39,14 @@ public final class AngularHintPlugin extends SonarPlugin {
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
+				PropertyDefinition.builder(AngularHintQualityConstants.SKIP_FILE_METRICS_KEY)
+		            .defaultValue(AngularHintQualityConstants.SKIP_FILE_METRICS_DEFVALUE)
+		            .category(AngularHintQualityConstants.CATEGORY)
+		            .subCategory(AngularHintQualityConstants.SUB_CATEGORY)
+		            .name("Skip save of file metrics")
+		            .description("If you have several plugins that are able to handle JavaScript, you may have an error (Can not add the same measure twice). Set it to true to let the other plugin save the metrics")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
 
 				AngularHintQualityConstants.class,
 				AngularHintRulesDefinition.class,

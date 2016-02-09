@@ -77,11 +77,13 @@ public class QualitySaver implements Saver<QualityReport> {
 	 */
 	protected void saveFileAnalysis(SensorContext context, AnalyzedFile file, InputFile sonarFile) {
 		// if already a metric, then another plugin has already stored the information => don't do it again
-		if(context.getMeasure(context.getResource(sonarFile), CoreMetrics.LINES) == null) {
+		if(!pluginContext.getSettings().getBoolean(((QualityConstants) pluginContext.getConstants()).getSkipFileMetricsKey()) && context.getMeasure(context.getResource(sonarFile), CoreMetrics.LINES) == null) {
 			context.saveMeasure(sonarFile, CoreMetrics.FILES, 1.0);
 			context.saveMeasure(sonarFile, CoreMetrics.LINES, Double.valueOf(file.getNbLines()));
 			context.saveMeasure(sonarFile, CoreMetrics.NCLOC, Double.valueOf(file.getNbCloc()));
 			context.saveMeasure(sonarFile, CoreMetrics.COMMENT_LINES, Double.valueOf(file.getNbComments()));
+		} else {
+			LOG.debug("Saving metrics skipped");
 		}
 	}
 

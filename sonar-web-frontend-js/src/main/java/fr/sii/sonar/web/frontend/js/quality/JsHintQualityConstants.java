@@ -8,6 +8,8 @@ import fr.sii.sonar.web.frontend.js.JsLanguageConstants;
 public class JsHintQualityConstants extends JsLanguageConstants implements QualityConstants, RulesDefinitionConstants, ProfileDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.js.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.js.file.missing.fail";
+	public static final String SKIP_FILE_METRICS_KEY = "sonar.sii.quality.js.file.metrics.skip";
+	public static final String SKIP_FILE_METRICS_DEFVALUE = "false";
 	public static final String REPORT_PATH_DEFVALUE = "/report/jshint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/jshint.json";
@@ -38,6 +40,10 @@ public class JsHintQualityConstants extends JsLanguageConstants implements Quali
 
 	public String getProfileJsonPath() {
 		return PROFILE_PATH;
+	}
+
+	public String getSkipFileMetricsKey() {
+		return SKIP_FILE_METRICS_KEY;
 	}
 
 }

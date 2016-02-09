@@ -53,6 +53,14 @@ public final class CssPlugin extends SonarPlugin {
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
+				PropertyDefinition.builder(CssLintQualityConstants.SKIP_FILE_METRICS_KEY)
+		            .defaultValue(CssLintQualityConstants.SKIP_FILE_METRICS_DEFVALUE)
+		            .category(CssLintQualityConstants.CATEGORY)
+		            .subCategory(CssLintQualityConstants.SUB_CATEGORY)
+		            .name("Skip save of file metrics")
+		            .description("If you have several plugins that are able to handle CSS, you may have an error (Can not add the same measure twice). Set it to true to let the other plugin save the metrics")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
 
 				CssLintQualityConstants.class,
 				CsslintRulesDefinition.class,
@@ -74,6 +82,14 @@ public final class CssPlugin extends SonarPlugin {
 		            .subCategory(CssDuplicationConstants.SUB_CATEGORY)
 		            .name("Fail on missing source file")
 		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(CssDuplicationConstants.SKIP_DUPLICATION_KEY)
+		            .defaultValue(CssDuplicationConstants.SKIP_DUPLICATION_DEFVAL)
+		            .category(CssDuplicationConstants.CATEGORY)
+		            .subCategory(CssDuplicationConstants.SUB_CATEGORY)
+		            .name("Skip duplication analysis")
+		            .description("True to skip code duplication analysis done by this plugin")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
 

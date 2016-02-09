@@ -8,6 +8,8 @@ import fr.sii.sonar.web.frontend.scss.ScssLanguageConstants;
 public class ScssLintQualityConstants extends ScssLanguageConstants implements QualityConstants, RulesDefinitionConstants, ProfileDefinitionConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.quality.scss.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.scss.file.missing.fail";
+	public static final String SKIP_FILE_METRICS_KEY = "sonar.sii.quality.scss.file.metrics.skip";
+	public static final String SKIP_FILE_METRICS_DEFVALUE = "false";
 	public static final String REPORT_PATH_DEFVALUE = "/report/scsslint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/scsslint.json";
@@ -38,5 +40,9 @@ public class ScssLintQualityConstants extends ScssLanguageConstants implements Q
 
 	public String getProfileJsonPath() {
 		return PROFILE_PATH;
+	}
+
+	public String getSkipFileMetricsKey() {
+		return SKIP_FILE_METRICS_KEY;
 	}
 }

@@ -1,9 +1,14 @@
 package fr.sii.sonar.report.core.duplication.factory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.CreateException;
 import fr.sii.sonar.report.core.common.factory.SaverFactory;
+import fr.sii.sonar.report.core.common.save.NoOpSaver;
 import fr.sii.sonar.report.core.common.save.Saver;
+import fr.sii.sonar.report.core.duplication.DuplicationConstants;
 import fr.sii.sonar.report.core.duplication.domain.DuplicationReport;
 import fr.sii.sonar.report.core.duplication.save.DuplicationSaver;
 
@@ -14,9 +19,16 @@ import fr.sii.sonar.report.core.duplication.save.DuplicationSaver;
  *
  */
 public class DuplicationSaverFactory implements SaverFactory<DuplicationReport> {
-
+	private static final Logger LOG = LoggerFactory.getLogger(DuplicationSaverFactory.class);
+	
 	public Saver<DuplicationReport> create(PluginContext pluginContext) throws CreateException {
-		return new DuplicationSaver(pluginContext);
+		// if duplication skipped => provide no op saver to do nothing
+		if(pluginContext.getSettings().getBoolean(((DuplicationConstants) pluginContext.getConstants()).getSkipDuplicationKey())) {
+			LOG.debug("Saving duplications skipped");
+			return new NoOpSaver<DuplicationReport>();
+		} else {
+			return new DuplicationSaver(pluginContext);
+		}
 	}
 
 }
