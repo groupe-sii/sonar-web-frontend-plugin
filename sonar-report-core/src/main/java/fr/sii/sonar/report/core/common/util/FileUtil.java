@@ -1,6 +1,7 @@
 package fr.sii.sonar.report.core.common.util;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,9 +15,9 @@ import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.batch.fs.internal.DefaultInputFile;
-import org.sonar.api.batch.fs.internal.PathPattern;
 import org.sonar.api.resources.File;
 import org.sonar.api.scan.filesystem.FileExclusions;
+import org.sonar.api.utils.PathUtils;
 
 import com.google.common.collect.Lists;
 
@@ -228,7 +229,7 @@ public class FileUtil {
 		if (sonarFile == null) {
 			if (pluginContext.getSettings().getBoolean(pluginContext.getConstants().getMissingFileFailKey())) {
 				// check if the file doesn't exist in Sonar due to exclusion patterns
-				DefaultInputFile inputFile = new DefaultInputFile(path);
+				InputFile inputFile = new FakeInputFile(path);
 				FilePredicate predicate = pluginContext.getFilesystem().predicates().matchesPathPatterns(new FileExclusions(pluginContext.getSettings()).sourceExclusions());
 				// if this is an excluded file => just log it
 				// otherwise, throw an error to indicate that the file is required
@@ -243,6 +244,56 @@ public class FileUtil {
 			return false;
 		} else {
 			return true;
+		}
+	}
+
+	private static class FakeInputFile implements InputFile {
+		private static final long serialVersionUID = 5071146874830330861L;
+		
+		private String path;
+		
+		public FakeInputFile(String path) {
+			super();
+			this.path = PathUtils.sanitize(path);
+		}
+
+		@Override
+		public String relativePath() {
+			return path;
+		}
+
+		@Override
+		public String absolutePath() {
+			return path;
+		}
+
+		@Override
+		public java.io.File file() {
+			return null;
+		}
+
+		public Path path() {
+			return null;
+		}
+
+		@Override
+		public String language() {
+			return null;
+		}
+
+		@Override
+		public Type type() {
+			return null;
+		}
+
+		@Override
+		public Status status() {
+			return null;
+		}
+
+		@Override
+		public int lines() {
+			return 0;
 		}
 	}
 }
