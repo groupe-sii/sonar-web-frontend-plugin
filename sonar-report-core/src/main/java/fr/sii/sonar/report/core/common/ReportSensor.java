@@ -2,8 +2,6 @@ package fr.sii.sonar.report.core.common;
 
 import java.io.File;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.FileSystem;
@@ -11,6 +9,8 @@ import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rules.RuleFinder;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.domain.Report;
 import fr.sii.sonar.report.core.common.exception.CreateException;
@@ -39,7 +39,7 @@ import fr.sii.sonar.report.core.common.save.Saver;
  */
 public abstract class ReportSensor<R extends Report> implements Sensor {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ReportSensor.class);
+	private static final Logger LOG = Loggers.get(ReportSensor.class);
 
 	private final PluginContext pluginContext;
 	private final ProviderFactory<R> providerFactory;

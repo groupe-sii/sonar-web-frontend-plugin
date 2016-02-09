@@ -2,8 +2,6 @@ package fr.sii.sonar.report.core.coverage.save;
 
 import java.io.IOException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
@@ -13,6 +11,8 @@ import org.sonar.api.measures.CoverageMeasuresBuilder;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PropertiesBuilder;
 import org.sonar.api.resources.Project;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.save.Saver;
@@ -33,7 +33,7 @@ import fr.sii.sonar.report.core.coverage.domain.LineCoverage;
  *
  */
 public class CoverageSaver implements Saver<CoverageReport> {
-	private static final Logger LOG = LoggerFactory.getLogger(CoverageSaver.class);
+	private static final Logger LOG = Loggers.get(CoverageSaver.class);
 
 	/**
 	 * The sonar plugin context

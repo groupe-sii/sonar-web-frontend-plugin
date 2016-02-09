@@ -1,13 +1,13 @@
 package fr.sii.sonar.report.core.quality.profile;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.profiles.ProfileDefinition;
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.rules.Rule;
 import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.utils.ValidationMessages;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.exception.ParseException;
 import fr.sii.sonar.report.core.common.parser.Parser;
@@ -30,7 +30,7 @@ import fr.sii.sonar.report.core.quality.domain.rule.BasicRule;
  *
  */
 public class ProfileFileDefinition extends ProfileDefinition {
-	private static final Logger LOG = LoggerFactory.getLogger(ProfileFileDefinition.class);
+	private static final Logger LOG = Loggers.get(ProfileFileDefinition.class);
 
 	private final String filePath;
 	

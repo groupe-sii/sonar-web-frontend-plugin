@@ -1,9 +1,9 @@
 package fr.sii.sonar.report.core.common.rules;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.quality.QualityConstants;
 
@@ -15,7 +15,7 @@ import fr.sii.sonar.report.core.quality.QualityConstants;
  *
  */
 public class DefaultRuleLoader implements RulesDefinitionLoader {
-	private static final Logger LOG = LoggerFactory.getLogger(DefaultRuleLoader.class);
+	private static final Logger LOG = Loggers.get(DefaultRuleLoader.class);
 
 	/**
 	 * The default rule key

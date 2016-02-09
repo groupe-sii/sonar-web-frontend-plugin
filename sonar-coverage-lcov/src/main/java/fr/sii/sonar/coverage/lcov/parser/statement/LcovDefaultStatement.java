@@ -1,7 +1,7 @@
 package fr.sii.sonar.coverage.lcov.parser.statement;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.coverage.lcov.parser.LcovParseException;
 import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
@@ -15,7 +15,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
  *
  */
 public class LcovDefaultStatement implements LcovStatement {
-	private static final Logger LOG = LoggerFactory.getLogger(LcovDefaultStatement.class);
+	private static final Logger LOG = Loggers.get(LcovDefaultStatement.class);
 
 	public boolean supports(String line) {
 		return true;

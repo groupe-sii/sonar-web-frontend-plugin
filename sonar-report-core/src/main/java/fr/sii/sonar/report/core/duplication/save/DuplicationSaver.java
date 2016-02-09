@@ -1,7 +1,5 @@
 package fr.sii.sonar.report.core.duplication.save;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
@@ -9,6 +7,8 @@ import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PersistenceMode;
 import org.sonar.api.resources.Project;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.DuplicationException;
@@ -17,7 +17,7 @@ import fr.sii.sonar.report.core.common.util.FileUtil;
 import fr.sii.sonar.report.core.duplication.domain.DuplicationReport;
 
 public class DuplicationSaver implements Saver<DuplicationReport> {
-	private static final Logger LOG = LoggerFactory.getLogger(DuplicationSaver.class);
+	private static final Logger LOG = Loggers.get(DuplicationSaver.class);
 
 	private final PluginContext pluginContext;
 

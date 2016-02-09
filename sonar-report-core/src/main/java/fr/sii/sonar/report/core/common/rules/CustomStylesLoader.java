@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.exception.RuleDefinitionException;
 import fr.sii.sonar.report.core.common.util.RuleUtil;
@@ -18,7 +18,7 @@ import fr.sii.sonar.report.core.common.util.RuleUtil;
  * @author Aurélien Baudet
  */
 public class CustomStylesLoader implements RulesDefinitionLoader {
-	private static final Logger LOG = LoggerFactory.getLogger(CustomStylesLoader.class);
+	private static final Logger LOG = Loggers.get(CustomStylesLoader.class);
 	
 	/**
 	 * The id of the node to insert that will be used to control CSS rules

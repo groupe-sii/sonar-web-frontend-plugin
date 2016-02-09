@@ -1,7 +1,7 @@
 package fr.sii.sonar.report.core.duplication.factory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.CreateException;
@@ -19,7 +19,7 @@ import fr.sii.sonar.report.core.duplication.save.DuplicationSaver;
  *
  */
 public class DuplicationSaverFactory implements SaverFactory<DuplicationReport> {
-	private static final Logger LOG = LoggerFactory.getLogger(DuplicationSaverFactory.class);
+	private static final Logger LOG = Loggers.get(DuplicationSaverFactory.class);
 	
 	public Saver<DuplicationReport> create(PluginContext pluginContext) throws CreateException {
 		// if duplication skipped => provide no op saver to do nothing

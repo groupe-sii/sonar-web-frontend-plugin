@@ -3,10 +3,10 @@ package fr.sii.sonar.report.core.common.rules;
 import java.io.InputStream;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.report.core.common.exception.ParseException;
 import fr.sii.sonar.report.core.common.exception.RuleException;
@@ -23,7 +23,7 @@ import fr.sii.sonar.report.core.quality.domain.rule.RuleDefinition;
  *
  */
 public class FileLoader implements RulesDefinitionLoader {
-	private static final Logger LOG = LoggerFactory.getLogger(FileLoader.class);
+	private static final Logger LOG = Loggers.get(FileLoader.class);
 
 	private final InputStream stream;
 	

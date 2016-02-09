@@ -2,8 +2,8 @@ package fr.sii.sonar.coverage.lcov.parser;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
 import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
@@ -30,7 +30,7 @@ import fr.sii.sonar.coverage.lcov.parser.statement.LcovTestNameStatement;
  *
  */
 public class LcovParser {
-	private static final Logger LOG = LoggerFactory.getLogger(LcovParser.class);
+	private static final Logger LOG = Loggers.get(LcovParser.class);
 	
 	/**
 	 * List of statement parsers. Order is important !
