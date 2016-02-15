@@ -271,7 +271,6 @@ public class FileUtil {
 			return null;
 		}
 
-		@Override
 		public Path path() {
 			return null;
 		}
