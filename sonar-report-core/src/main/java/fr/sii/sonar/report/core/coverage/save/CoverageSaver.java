@@ -144,7 +144,7 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 */
 	protected void saveZeroValueForResource(InputFile sourceFile, SensorContext context) {
 		CoverageMeasureBuilder builder = this.builder.reset();
-		for (int l=0 ; l<sourceFile.lines() ; l++) {
+		for (int l=1 ; l<sourceFile.lines() ; l++) {
 			builder.setHits(l, 0);
 		}
 		// save generated measures
