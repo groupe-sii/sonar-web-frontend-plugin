@@ -3,13 +3,12 @@ package fr.sii.sonar.report.core.coverage.save;
 import java.util.Collection;
 import java.util.SortedMap;
 
+import org.sonar.api.internal.google.common.collect.Lists;
+import org.sonar.api.internal.google.common.collect.Maps;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PersistenceMode;
 import org.sonar.api.utils.KeyValueFormat;
-
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 
 public class OverallCoverageMeasureBuilder implements CoverageMeasureBuilder {
 	private int totalCoveredLines = 0, totalConditions = 0, totalCoveredConditions = 0;

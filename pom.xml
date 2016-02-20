@@ -14,7 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<sonar.buildVersion>5.1</sonar.buildVersion>
+		<sonar.buildVersion>5.3</sonar.buildVersion>
 		<jdk.min.version>1.7</jdk.min.version>
 		<maven.compiler.source>${jdk.min.version}</maven.compiler.source>
 		<maven.compiler.target>${jdk.min.version}</maven.compiler.target>
@@ -42,7 +42,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.codehaus.sonar</groupId>
+			<groupId>org.sonarsource.sonarqube</groupId>
 			<artifactId>sonar-plugin-api</artifactId>
 			<version>${sonar.buildVersion}</version>
 			<scope>provided</scope>
@@ -55,7 +55,7 @@
 
 		<!-- unit tests -->
 		<dependency>
-			<groupId>org.codehaus.sonar</groupId>
+			<groupId>org.sonarsource.sonarqube</groupId>
 			<artifactId>sonar-testing-harness</artifactId>
 			<version>${sonar.buildVersion}</version>
 			<scope>test</scope>

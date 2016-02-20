@@ -12,13 +12,14 @@ import org.sonar.api.batch.fs.FilePredicates;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
+import org.sonar.api.batch.fs.TextPointer;
+import org.sonar.api.batch.fs.TextRange;
+import org.sonar.api.internal.google.common.collect.Lists;
 import org.sonar.api.resources.File;
 import org.sonar.api.scan.filesystem.FileExclusions;
 import org.sonar.api.utils.PathUtils;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
-
-import com.google.common.collect.Lists;
 
 import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.SaveException;
@@ -293,6 +294,41 @@ public class FileUtil {
 		@Override
 		public int lines() {
 			return 0;
+		}
+
+		@Override
+		public String key() {
+			return null;
+		}
+
+		@Override
+		public boolean isFile() {
+			return false;
+		}
+
+		@Override
+		public boolean isEmpty() {
+			return false;
+		}
+
+		@Override
+		public TextPointer newPointer(int line, int lineOffset) {
+			return null;
+		}
+
+		@Override
+		public TextRange newRange(TextPointer start, TextPointer end) {
+			return null;
+		}
+
+		@Override
+		public TextRange newRange(int startLine, int startLineOffset, int endLine, int endLineOffset) {
+			return null;
+		}
+
+		@Override
+		public TextRange selectLine(int line) {
+			return null;
 		}
 		
 	}

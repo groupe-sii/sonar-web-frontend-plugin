@@ -10,8 +10,7 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-
-import com.google.common.io.Closeables;
+import org.sonar.api.internal.google.common.io.Closeables;
 
 import fr.sii.sonar.coverage.lcov.parser.LcovParser;
 import fr.sii.sonar.coverage.lcov.parser.domain.BranchCoverageDetail;
