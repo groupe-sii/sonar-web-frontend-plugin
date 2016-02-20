@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
+import org.sonar.api.batch.sensor.duplication.NewDuplication;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.PersistenceMode;
@@ -14,6 +15,8 @@ import fr.sii.sonar.report.core.common.PluginContext;
 import fr.sii.sonar.report.core.common.exception.DuplicationException;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.common.util.FileUtil;
+import fr.sii.sonar.report.core.duplication.domain.DuplicatedBlock;
+import fr.sii.sonar.report.core.duplication.domain.DuplicationGroup;
 import fr.sii.sonar.report.core.duplication.domain.DuplicationReport;
 
 public class DuplicationSaver implements Saver<DuplicationReport> {
@@ -30,13 +33,25 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 
 	public void save(DuplicationReport report, Project project, SensorContext context) {
 		this.project = project;
-		for (DuplicationFileInformation file : GroupByFileHelper.group(report)) {
-			InputFile sonarFile = getSourceFile(report, project, file);
-			if (FileUtil.checkMissing(pluginContext, sonarFile, file.getPath(), "No duplication will be generated for this file")) {
-				// save general information about duplications for the file
-				saveGeneralMetrics(context, file, sonarFile);
-				// save duplication details (duplicated lines on the file)
-				saveDetails(context, report, file, sonarFile);
+//		for (DuplicationFileInformation file : GroupByFileHelper.group(report)) {
+//			InputFile sonarFile = getSourceFile(report, project, file);
+//			if (FileUtil.checkMissing(pluginContext, sonarFile, file.getPath(), "No duplication will be generated for this file")) {
+//				// save general information about duplications for the file
+//				saveGeneralMetrics(context, file, sonarFile);
+//				// save duplication details (duplicated lines on the file)
+//				saveDetails(context, report, file, sonarFile);
+//			}
+//		}
+		for(DuplicationGroup duplication : report.getDuplicationGroups()) {
+			NewDuplication dups = context.newDuplication();
+			boolean first = true;
+			for(DuplicatedBlock block : duplication.getDuplicatedBlocks()) {
+				InputFile sonarFile = FileUtil.getInputFile(pluginContext.getFilesystem(), block.getSourceFile(), Type.MAIN);
+				if(first) {
+					dups.originBlock(sonarFile, block.getStartLine(), block.getEndLine());
+				} else {
+					dups.isDuplicatedBy(sonarFile, block.getStartLine(), block.getEndLine());
+				}
 			}
 		}
 	}
