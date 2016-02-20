@@ -6,12 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
+import org.sonar.api.batch.fs.FilePredicates;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.measures.CoreMetrics;
-import org.sonar.api.measures.CoverageMeasuresBuilder;
 import org.sonar.api.measures.Measure;
-import org.sonar.api.measures.PropertiesBuilder;
 import org.sonar.api.resources.Project;
 
 import fr.sii.sonar.report.core.common.PluginContext;
@@ -40,9 +39,15 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 */
 	private PluginContext pluginContext;
 
-	public CoverageSaver(PluginContext pluginContext) {
+	/**
+	 * Builder for generating coverage measures
+	 */
+	private CoverageMeasureBuilder builder;
+
+	public CoverageSaver(PluginContext pluginContext, CoverageMeasureBuilder builder) {
 		super();
 		this.pluginContext = pluginContext;
+		this.builder = builder;
 	}
 
 	public void save(CoverageReport report, Project project, SensorContext context) {
@@ -67,7 +72,8 @@ public class CoverageSaver implements Saver<CoverageReport> {
 
 	private Iterable<InputFile> getFilesForLanguage() {
 		String languageKey = ((CoverageConstants) pluginContext.getConstants()).getLanguageKey();
-		return pluginContext.getFilesystem().inputFiles(pluginContext.getFilesystem().predicates().hasLanguage(languageKey));
+		FilePredicates predicates = pluginContext.getFilesystem().predicates();
+		return pluginContext.getFilesystem().inputFiles(predicates.and(predicates.hasLanguage(languageKey), predicates.hasType(Type.MAIN)));
 	}
 
 	/**
@@ -108,17 +114,17 @@ public class CoverageSaver implements Saver<CoverageReport> {
 		// try to load the sonar file from real file system
 		InputFile sonarFile = getSourceFile(report, file);
 		if (FileUtil.checkMissing(pluginContext, sonarFile, getAnalyzedFilePath(report, file), "No coverage will be generated for this file")) {
-			CoverageMeasuresBuilder result = CoverageMeasuresBuilder.create();
+			CoverageMeasureBuilder builder = this.builder.reset();
 			for (LineCoverage line : file.getLines()) {
 				// generate line coverage measure
-				result.setHits(line.getLine(), line.getExecutionCount());
+				builder.setHits(line.getLine(), line.getExecutionCount());
 				// generate branch coverage measure
 				if(line.getBranchCoverage()!=null) {
-					result.setConditions(line.getLine(), line.getBranchCoverage().getConditions(), line.getBranchCoverage().getCovered());
+					builder.setConditions(line.getLine(), line.getBranchCoverage().getConditions(), line.getBranchCoverage().getCovered());
 				}
 			}
 			// save generated measures
-			for (Measure measure : result.createMeasures()) {
+			for (Measure measure : builder.createMeasures()) {
 				context.saveMeasure(sonarFile, measure);
 			}
 		}
@@ -137,21 +143,13 @@ public class CoverageSaver implements Saver<CoverageReport> {
 	 *            the sonar context
 	 */
 	protected void saveZeroValueForResource(InputFile sourceFile, SensorContext context) {
-		PropertiesBuilder<Integer, Integer> lineHitsData = new PropertiesBuilder<Integer, Integer>(CoreMetrics.COVERAGE_LINE_HITS_DATA);
-
-		Measure<Integer> measure = context.getMeasure(context.getResource(sourceFile), CoreMetrics.LINES);
-		if (measure != null) {
-			for (int x = 1; x < measure.getIntValue(); x++) {
-				lineHitsData.add(x, 0);
-			}
+		CoverageMeasureBuilder builder = this.builder.reset();
+		for (int l=0 ; l<sourceFile.lines() ; l++) {
+			builder.setHits(l, 0);
 		}
-
-		// use non comment lines of code for coverage calculation
-		Measure<Integer> ncloc = context.getMeasure(context.getResource(sourceFile), CoreMetrics.NCLOC);
-		if (ncloc != null) {
-			context.saveMeasure(sourceFile, lineHitsData.build());
-			context.saveMeasure(sourceFile, CoreMetrics.LINES_TO_COVER, ncloc.getValue());
-			context.saveMeasure(sourceFile, CoreMetrics.UNCOVERED_LINES, ncloc.getValue());
+		// save generated measures
+		for (Measure measure : builder.createMeasures()) {
+			context.saveMeasure(sourceFile, measure);
 		}
 	}
 
