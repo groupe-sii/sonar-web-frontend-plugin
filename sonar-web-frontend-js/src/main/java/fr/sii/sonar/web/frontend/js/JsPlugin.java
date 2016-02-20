@@ -7,8 +7,12 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
-import fr.sii.sonar.web.frontend.js.coverage.LcovCoverageConstants;
-import fr.sii.sonar.web.frontend.js.coverage.LcovCoverageSensor;
+import fr.sii.sonar.web.frontend.js.coverage.LcovIntegrationCoverageConstants;
+import fr.sii.sonar.web.frontend.js.coverage.LcovIntegrationCoverageSensor;
+import fr.sii.sonar.web.frontend.js.coverage.LcovOverallCoverageConstants;
+import fr.sii.sonar.web.frontend.js.coverage.LcovOverallCoverageSensor;
+import fr.sii.sonar.web.frontend.js.coverage.LcovUnitCoverageConstants;
+import fr.sii.sonar.web.frontend.js.coverage.LcovUnitCoverageSensor;
 import fr.sii.sonar.web.frontend.js.duplication.JsDuplicationConstants;
 import fr.sii.sonar.web.frontend.js.duplication.JsDuplicationSensor;
 import fr.sii.sonar.web.frontend.js.quality.JsHintQualityConstants;
@@ -73,26 +77,68 @@ public final class JsPlugin extends SonarPlugin {
 				JshintProfileDefinition.class,
 				JsHintQualitySensor.class,
 				
-				// Coverage configuration
-				PropertyDefinition.builder(LcovCoverageConstants.REPORT_PATH_KEY)
-		            .defaultValue(LcovCoverageConstants.REPORT_PATH_DEFVALUE)
-		            .category(LcovCoverageConstants.CATEGORY)
-		            .subCategory(LcovCoverageConstants.SUB_CATEGORY)
-		            .name("JavaScript coverage report path")
-		            .description("The path to the JavaScript report file to load")
+				// Unit coverage configuration
+				PropertyDefinition.builder(LcovUnitCoverageConstants.REPORT_PATH_KEY)
+		            .defaultValue(LcovUnitCoverageConstants.REPORT_PATH_DEFVALUE)
+		            .category(LcovUnitCoverageConstants.CATEGORY)
+		            .subCategory(LcovUnitCoverageConstants.SUB_CATEGORY)
+		            .name("JavaScript unit tests coverage report path")
+		            .description("The path to the JavaScript report file to load for unit tests coverage")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
-				PropertyDefinition.builder(LcovCoverageConstants.FAIL_MISSING_FILE_KEY)
-		            .defaultValue(LcovCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
-		            .category(LcovCoverageConstants.CATEGORY)
-		            .subCategory(LcovCoverageConstants.SUB_CATEGORY)
+				PropertyDefinition.builder(LcovUnitCoverageConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(LcovUnitCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(LcovUnitCoverageConstants.CATEGORY)
+		            .subCategory(LcovUnitCoverageConstants.SUB_CATEGORY)
 		            .name("Fail on missing source file")
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
 
-				LcovCoverageConstants.class,
-				LcovCoverageSensor.class,
+				LcovUnitCoverageConstants.class,
+				LcovUnitCoverageSensor.class,
+				
+				// Integration coverage configuration
+				PropertyDefinition.builder(LcovIntegrationCoverageConstants.REPORT_PATH_KEY)
+		            .defaultValue(LcovIntegrationCoverageConstants.REPORT_PATH_DEFVALUE)
+		            .category(LcovIntegrationCoverageConstants.CATEGORY)
+		            .subCategory(LcovIntegrationCoverageConstants.SUB_CATEGORY)
+		            .name("JavaScript integration tests coverage report path")
+		            .description("The path to the JavaScript report file to load for integration tests coverage")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(LcovIntegrationCoverageConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(LcovIntegrationCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(LcovIntegrationCoverageConstants.CATEGORY)
+		            .subCategory(LcovIntegrationCoverageConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				LcovIntegrationCoverageConstants.class,
+				LcovIntegrationCoverageSensor.class,
+				
+				// Overall coverage configuration
+				PropertyDefinition.builder(LcovOverallCoverageConstants.REPORT_PATH_KEY)
+		            .defaultValue(LcovOverallCoverageConstants.REPORT_PATH_DEFVALUE)
+		            .category(LcovOverallCoverageConstants.CATEGORY)
+		            .subCategory(LcovOverallCoverageConstants.SUB_CATEGORY)
+		            .name("JavaScript overall tests coverage report path")
+		            .description("The path to the JavaScript report file to load for overall tests coverage")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(LcovOverallCoverageConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(LcovOverallCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(LcovOverallCoverageConstants.CATEGORY)
+		            .subCategory(LcovOverallCoverageConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				LcovOverallCoverageConstants.class,
+				LcovOverallCoverageSensor.class,
 				
 				// Unit testing configuration
 				PropertyDefinition.builder(JUnitConstants.REPORT_PATH_KEY)

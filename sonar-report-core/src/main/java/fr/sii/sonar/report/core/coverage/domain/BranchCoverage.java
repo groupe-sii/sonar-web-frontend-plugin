@@ -27,6 +27,10 @@ public class BranchCoverage {
 		this.covered = covered;
 	}
 
+	public BranchCoverage(BranchCoverage other) {
+		this(other.getConditions(), other.getCovered());
+	}
+
 	public int getConditions() {
 		return conditions;
 	}

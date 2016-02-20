@@ -1,5 +1,6 @@
 package fr.sii.sonar.report.core.coverage.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class CoverageReport implements Report {
 	private List<FileCoverage> files;
 
 	public CoverageReport(FileCoverage... files) {
-		this(Arrays.asList(files));
+		this(new ArrayList<FileCoverage>(Arrays.asList(files)));
 	}
 
 	public CoverageReport(List<FileCoverage> files) {

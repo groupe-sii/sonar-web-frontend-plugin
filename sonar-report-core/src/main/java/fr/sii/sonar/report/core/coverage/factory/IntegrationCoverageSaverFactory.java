@@ -6,6 +6,7 @@ import fr.sii.sonar.report.core.common.factory.SaverFactory;
 import fr.sii.sonar.report.core.common.save.Saver;
 import fr.sii.sonar.report.core.coverage.domain.CoverageReport;
 import fr.sii.sonar.report.core.coverage.save.CoverageSaver;
+import fr.sii.sonar.report.core.coverage.save.IntegrationCoverageMeasureBuilder;
 
 /**
  * Factory that creates a CoverageSaver instance with provided sonar context
@@ -13,10 +14,10 @@ import fr.sii.sonar.report.core.coverage.save.CoverageSaver;
  * @author Aurélien Baudet
  *
  */
-public class CoverageSaverFactory implements SaverFactory<CoverageReport> {
+public class IntegrationCoverageSaverFactory implements SaverFactory<CoverageReport> {
 
 	public Saver<CoverageReport> create(PluginContext pluginContext) throws CreateException {
-		return new CoverageSaver(pluginContext);
+		return new CoverageSaver(pluginContext, new IntegrationCoverageMeasureBuilder());
 	}
 
 }

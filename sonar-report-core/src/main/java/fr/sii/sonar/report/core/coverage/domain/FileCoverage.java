@@ -1,5 +1,6 @@
 package fr.sii.sonar.report.core.coverage.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,8 +24,12 @@ public class FileCoverage {
 	 */
 	private List<LineCoverage> lines;
 
+	public FileCoverage(FileCoverage other) {
+		this(other.getPath(), copy(other.getLines()));
+	}
+
 	public FileCoverage(String path, LineCoverage... lines) {
-		this(path, Arrays.asList(lines));
+		this(path, new ArrayList<LineCoverage>(Arrays.asList(lines)));
 	}
 
 	public FileCoverage(String path, List<LineCoverage> lines) {
@@ -47,5 +52,13 @@ public class FileCoverage {
 	
 	public void addLine(LineCoverage line) {
 		lines.add(line);
+	}
+
+	private static List<LineCoverage> copy(List<LineCoverage> lines) {
+		List<LineCoverage> copies = new ArrayList<LineCoverage>(lines.size());
+		for(LineCoverage line : lines) {
+			copies.add(new LineCoverage(line));
+		}
+		return copies;
 	}
 }

@@ -39,12 +39,20 @@ public class LineCoverage {
 		this.branchCoverage = branchCoverage;
 	}
 
+	public LineCoverage(LineCoverage other) {
+		this(other.getLine(), other.getExecutionCount(), new BranchCoverage(other.getBranchCoverage()));
+	}
+
 	public int getLine() {
 		return line;
 	}
 
 	public int getExecutionCount() {
 		return executionCount;
+	}
+	
+	public void addExecutionCount(int count) {
+		executionCount += count;
 	}
 
 	public BranchCoverage getBranchCoverage() {
