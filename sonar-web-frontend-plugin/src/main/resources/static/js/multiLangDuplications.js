@@ -46,8 +46,9 @@ MultiLanguageDuplications = (function() {
 	}
 	
 	var setTotalCount = function(/*String*/lang, /*Object*/dups) {
-		jQuery("a[href='#"+lang+"-duplications'] .total-count").html(dups["duplicated_files"]);
-		jQuery("#"+lang+"-duplications .duplications-percent").html((Math.round(dups["duplicated_lines"]/dups["lines"]*1000)/10)+"%");
+		var percent = (Math.round(dups["duplicated_lines"]/dups["lines"]*1000)/10)+"%";
+		jQuery("a[href='#"+lang+"-duplications'] .total-count").html(percent);
+		jQuery("#"+lang+"-duplications .duplications-percent").html(percent);
 		jQuery("#"+lang+"-duplications .duplications-blocks").html(dups["duplicated_blocks"]);
 		jQuery("#"+lang+"-duplications .duplications-lines").html(dups["duplicated_lines"]);
 		jQuery("#"+lang+"-duplications .duplications-files").html(dups["duplicated_files"]);
