@@ -3,9 +3,17 @@ package fr.sii.sonar.web.frontend.js;
 import java.util.Arrays;
 import java.util.List;
 
+import org.sonar.api.PropertyType;
 import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
+import org.sonar.plugins.javascript.JavaScriptPlugin;
+import org.sonar.plugins.javascript.JavaScriptProfile;
+import org.sonar.plugins.javascript.JavaScriptSecurityProfile;
+import org.sonar.plugins.javascript.JavaScriptSquidSensor;
+import org.sonar.plugins.javascript.rules.JavaScriptCommonRulesDecorator;
+import org.sonar.plugins.javascript.rules.JavaScriptCommonRulesEngine;
+import org.sonar.plugins.javascript.rules.JavaScriptRulesDefinition;
 
 import fr.sii.sonar.web.frontend.js.coverage.LcovIntegrationCoverageConstants;
 import fr.sii.sonar.web.frontend.js.coverage.LcovIntegrationCoverageSensor;
@@ -29,6 +37,9 @@ import fr.sii.sonar.web.frontend.js.test.JUnitReportSensor;
  */
 public final class JsPlugin extends SonarPlugin {
 
+
+	private static final String LIBRARIES = "Libraries";
+	private static final String GENERAL = "General";
 
 	// This is where you're going to declare all your Sonar extensions
 	@SuppressWarnings({ "rawtypes" })
@@ -208,8 +219,52 @@ public final class JsPlugin extends SonarPlugin {
 		            .onQualifiers(Qualifiers.PROJECT)
 		            .build(),
 
-	            JsDuplicationConstants.class,
-				JsDuplicationSensor.class
+				// include Sonar JavaScript plugin
+				JsDuplicationConstants.class,
+				JsDuplicationSensor.class,
+
+				JavaScriptSquidSensor.class,
+				JavaScriptRulesDefinition.class,
+				JavaScriptProfile.class,
+				JavaScriptSecurityProfile.class,
+
+				JavaScriptCommonRulesEngine.class,
+				JavaScriptCommonRulesDecorator.class,
+			      
+				PropertyDefinition.builder(JavaScriptPlugin.FILE_SUFFIXES_KEY)
+					.defaultValue(JavaScriptPlugin.FILE_SUFFIXES_DEFVALUE)
+					.name("File Suffixes")
+					.description("Comma-separated list of suffixes for files to analyze.")
+					.subCategory(GENERAL)
+					.onQualifiers(Qualifiers.PROJECT)
+					.build(),
+				
+				PropertyDefinition.builder(JavaScriptPlugin.IGNORE_HEADER_COMMENTS)
+					.defaultValue(JavaScriptPlugin.IGNORE_HEADER_COMMENTS_DEFAULT_VALUE.toString())
+					.name("Ignore header comments")
+					.description("True to not count file header comments in comment metrics.")
+					.onQualifiers(Qualifiers.MODULE, Qualifiers.PROJECT)
+					.subCategory(GENERAL)
+					.type(PropertyType.BOOLEAN)
+					.build(),
+				
+				
+				PropertyDefinition.builder(JavaScriptPlugin.JQUERY_OBJECT_ALIASES)
+					.defaultValue(JavaScriptPlugin.JQUERY_OBJECT_ALIASES_DEFAULT_VALUE)
+					.name("jQuery object aliases")
+					.description("Comma-separated list of names used to address jQuery object.")
+					.onQualifiers(Qualifiers.MODULE, Qualifiers.PROJECT)
+					.subCategory(LIBRARIES)
+					.build(),
+				
+				PropertyDefinition.builder(JavaScriptPlugin.EXCLUDE_MINIFIED_FILES)
+					.defaultValue(JavaScriptPlugin.EXCLUDE_MINIFIED_FILES_DEFAULT_VALUE.toString())
+					.name("Exclude minified files")
+					.description("Exclude minified files from the analysis.")
+					.onQualifiers(Qualifiers.PROJECT)
+					.subCategory(GENERAL)
+					.type(PropertyType.BOOLEAN)
+					.build()
 		);
 	}
 }
