@@ -3,7 +3,6 @@ package fr.sii.sonar.report.core.common.rules;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
@@ -11,6 +10,7 @@ import org.sonar.api.server.rule.RulesDefinition.NewRule;
 
 import fr.sii.sonar.report.core.common.exception.RuleDefinitionException;
 import fr.sii.sonar.report.core.common.util.RuleUtil;
+import fr.sii.sonar.report.core.common.util.compat.IOUtils;
 
 /**
  * Decorator that adds a custom CSS file to include into HTML description
@@ -53,5 +53,4 @@ public class CustomStylesLoader implements RulesDefinitionLoader {
 			LOG.info("No CSS file for repository "+repository.key());
 		}
 	}
-
 }
