@@ -59,17 +59,6 @@
 			<artifactId>sonar-testing-harness</artifactId>
 			<version>${sonar.buildVersion}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.collections</groupId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.google.guava</groupId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.commons</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
