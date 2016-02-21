@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import fr.sii.sonar.report.core.common.util.compat.StringUtils;
+
 
 /**
  * Group same duplicated code and provide information about context for each duplicated code block:

@@ -1,13 +1,12 @@
 package fr.sii.sonar.report.core.duplication.save;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.resources.Project;
-import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import fr.sii.sonar.report.core.common.exception.DuplicationException;
 import fr.sii.sonar.report.core.common.exception.KeyException;
 import fr.sii.sonar.report.core.common.util.ResourceUtil;
+import fr.sii.sonar.report.core.common.util.compat.StringEscapeUtils;
 import fr.sii.sonar.report.core.duplication.domain.DuplicatedBlock;
 import fr.sii.sonar.report.core.duplication.domain.DuplicationGroup;
 import fr.sii.sonar.report.core.duplication.domain.DuplicationReport;
