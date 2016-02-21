@@ -1,5 +1,6 @@
 package fr.sii.sonar.report.core.test.save;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.sonar.api.batch.SensorContext;
@@ -124,7 +125,7 @@ public class TestSaver implements Saver<TestReport> {
 	 * @return the list of Sonar measures
 	 */
 	public List<Measure<Double>> generateMeasures(TestStats testStats) {
-		List<Measure<Double>> measures = Lists.newArrayList();
+		List<Measure<Double>> measures = new ArrayList<>();
 		if (testStats.getTotal() > 0) {
 			measures.add(new Measure<Double>(CoreMetrics.SKIPPED_TESTS, (double) testStats.getSkipped()));
 			measures.add(new Measure<Double>(CoreMetrics.TESTS, (double) testStats.getTotal()));

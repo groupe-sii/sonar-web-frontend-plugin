@@ -14,7 +14,6 @@ import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.batch.fs.TextPointer;
 import org.sonar.api.batch.fs.TextRange;
-import org.sonar.api.internal.google.common.collect.Lists;
 import org.sonar.api.resources.File;
 import org.sonar.api.scan.filesystem.FileExclusions;
 import org.sonar.api.utils.PathUtils;
@@ -184,7 +183,10 @@ public class FileUtil {
 		// filter according to provided type(s)
 		FilePredicate typePredicate = filterTypePredicate(fileSystem, types);
 		// get the files matching both path and types
-		List<InputFile> files = Lists.newArrayList(fileSystem.inputFiles(fileSystem.predicates().and(typePredicate, searchPredicate)));
+		List<InputFile> files = new ArrayList<>();
+		for(InputFile file : fileSystem.inputFiles(fileSystem.predicates().and(typePredicate, searchPredicate))) {
+			files.add(file);
+		}
 		// if several files => select the best match
 		InputFile preferredFile = files.isEmpty() ? null : files.get(0);
 		if (files.size() > 1) {

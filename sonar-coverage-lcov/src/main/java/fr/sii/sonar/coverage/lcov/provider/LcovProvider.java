@@ -1,6 +1,7 @@
 package fr.sii.sonar.coverage.lcov.provider;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -8,16 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.sonar.api.internal.google.common.io.Closeables;
-
 import fr.sii.sonar.coverage.lcov.parser.LcovParser;
 import fr.sii.sonar.coverage.lcov.parser.domain.BranchCoverageDetail;
 import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 import fr.sii.sonar.coverage.lcov.parser.domain.LineCoverageDetail;
 import fr.sii.sonar.report.core.common.exception.ProviderException;
 import fr.sii.sonar.report.core.common.provider.Provider;
+import fr.sii.sonar.report.core.common.util.compat.IOUtils;
 import fr.sii.sonar.report.core.coverage.domain.BranchCoverage;
 import fr.sii.sonar.report.core.coverage.domain.CoverageReport;
 import fr.sii.sonar.report.core.coverage.domain.FileCoverage;
@@ -37,17 +35,11 @@ public class LcovProvider implements Provider<CoverageReport> {
 	private final List<String> lines;
 
 	public LcovProvider(File reportFile) throws IOException {
-		super();
-		lines = FileUtils.readLines(reportFile);
+		this(new FileInputStream(reportFile));
 	}
 
 	public LcovProvider(InputStream stream) throws IOException {
-		super();
-		try {
-			lines = IOUtils.readLines(stream);
-		} finally {
-			Closeables.closeQuietly(stream);
-		}
+		this(IOUtils.readLines(stream));
 	}
 
 	public LcovProvider(List<String> lines) {

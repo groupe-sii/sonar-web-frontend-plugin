@@ -1,93 +1,52 @@
 package fr.sii.sonar.report.core.coverage.save;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.SortedMap;
 
-import org.sonar.api.internal.google.common.collect.Lists;
-import org.sonar.api.internal.google.common.collect.Maps;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
-import org.sonar.api.measures.PersistenceMode;
-import org.sonar.api.utils.KeyValueFormat;
 
-public class IntegrationCoverageMeasureBuilder implements CoverageMeasureBuilder {
-	private int totalCoveredLines = 0, totalConditions = 0, totalCoveredConditions = 0;
-	private SortedMap<Integer, Integer> hitsByLine = Maps.newTreeMap();
-	private SortedMap<Integer, Integer> conditionsByLine = Maps.newTreeMap();
-	private SortedMap<Integer, Integer> coveredConditionsByLine = Maps.newTreeMap();
+public class IntegrationCoverageMeasureBuilder extends DelegateAndConvertMeasureBuilder {
 
 	@Override
-	public CoverageMeasureBuilder setHits(int lineId, int hits) {
-		if (!hitsByLine.containsKey(lineId)) {
-			hitsByLine.put(lineId, hits);
-			if (hits > 0) {
-				totalCoveredLines += 1;
-			}
-		}
-		return this;
-	}
-
-	@Override
-	public CoverageMeasureBuilder setConditions(int lineId, int conditions, int coveredConditions) {
-		if (conditions > 0 && !conditionsByLine.containsKey(lineId)) {
-			totalConditions += conditions;
-			totalCoveredConditions += coveredConditions;
-			conditionsByLine.put(lineId, conditions);
-			coveredConditionsByLine.put(lineId, coveredConditions);
-		}
-		return this;
-	}
-
-	@Override
-	public Collection<Measure> createMeasures() {
-		Collection<Measure> measures = Lists.newArrayList();
-		if (getLinesToCover() > 0) {
-			measures.add(new Measure(CoreMetrics.IT_LINES_TO_COVER, (double) getLinesToCover()));
-			measures.add(new Measure(CoreMetrics.IT_UNCOVERED_LINES, (double) (getLinesToCover() - getCoveredLines())));
-			measures.add(new Measure(CoreMetrics.IT_COVERAGE_LINE_HITS_DATA).setData(KeyValueFormat.format(hitsByLine)).setPersistenceMode(PersistenceMode.DATABASE));
-		}
-		if (getConditions() > 0) {
-			measures.add(new Measure(CoreMetrics.IT_CONDITIONS_TO_COVER, (double) getConditions()));
-			measures.add(new Measure(CoreMetrics.IT_UNCOVERED_CONDITIONS, (double) (getConditions() - getCoveredConditions())));
-			measures.add(createConditionsByLine());
-			measures.add(createCoveredConditionsByLine());
+	protected Collection<Measure> convert(Collection<Measure> unitMeasures) {
+		Collection<Measure> measures = new ArrayList<Measure>(unitMeasures.size());
+		for (Measure m : unitMeasures) {
+			measures.add(convertForIT(m));
 		}
 		return measures;
 	}
 
-	@Override
-	public CoverageMeasureBuilder reset() {
-		totalCoveredLines = 0;
-		totalConditions = 0;
-		totalCoveredConditions = 0;
-		hitsByLine.clear();
-		conditionsByLine.clear();
-		coveredConditionsByLine.clear();
-		return this;
-	}
+	/**
+	 * Copied from Java plugin... This is how they handle it...
+	 * 
+	 * @param measure
+	 * @return converted measure
+	 */
+	private Measure convertForIT(Measure measure) {
+		Measure itMeasure = null;
+		if (CoreMetrics.LINES_TO_COVER.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_LINES_TO_COVER, measure.getValue());
 
-	public int getCoveredLines() {
-		return totalCoveredLines;
-	}
+		} else if (CoreMetrics.UNCOVERED_LINES.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_UNCOVERED_LINES, measure.getValue());
 
-	public int getLinesToCover() {
-		return hitsByLine.size();
-	}
+		} else if (CoreMetrics.COVERAGE_LINE_HITS_DATA.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_COVERAGE_LINE_HITS_DATA, measure.getData());
 
-	public int getConditions() {
-		return totalConditions;
-	}
+		} else if (CoreMetrics.CONDITIONS_TO_COVER.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_CONDITIONS_TO_COVER, measure.getValue());
 
-	public int getCoveredConditions() {
-		return totalCoveredConditions;
-	}
+		} else if (CoreMetrics.UNCOVERED_CONDITIONS.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_UNCOVERED_CONDITIONS, measure.getValue());
 
-	private Measure createCoveredConditionsByLine() {
-		return new Measure(CoreMetrics.IT_COVERED_CONDITIONS_BY_LINE).setData(KeyValueFormat.format(coveredConditionsByLine)).setPersistenceMode(PersistenceMode.DATABASE);
-	}
+		} else if (CoreMetrics.COVERED_CONDITIONS_BY_LINE.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_COVERED_CONDITIONS_BY_LINE, measure.getData());
 
-	private Measure createConditionsByLine() {
-		return new Measure(CoreMetrics.IT_CONDITIONS_BY_LINE).setData(KeyValueFormat.format(conditionsByLine)).setPersistenceMode(PersistenceMode.DATABASE);
+		} else if (CoreMetrics.CONDITIONS_BY_LINE.equals(measure.getMetric())) {
+			itMeasure = new Measure(CoreMetrics.IT_CONDITIONS_BY_LINE, measure.getData());
+		}
+		return itMeasure;
 	}
 
 }

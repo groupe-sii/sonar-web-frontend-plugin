@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 
-import org.apache.commons.io.IOUtils;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
+
+import fr.sii.sonar.report.core.common.util.compat.IOUtils;
 
 /**
  * Decorator that adds an Markdown description on rules if the .md file exists
