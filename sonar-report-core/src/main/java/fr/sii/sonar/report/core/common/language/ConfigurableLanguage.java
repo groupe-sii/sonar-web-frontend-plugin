@@ -1,8 +1,9 @@
 package fr.sii.sonar.report.core.common.language;
 
-import org.apache.commons.lang.StringUtils;
 import org.sonar.api.config.Settings;
 import org.sonar.api.resources.AbstractLanguage;
+
+import fr.sii.sonar.report.core.common.util.compat.StringUtils;
 
 /**
  * Declaration of a language that is configurable i.e. the file suffix can be configured in Sonar.

@@ -1,7 +1,10 @@
 package fr.sii.sonar.report.core.common.util.compat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +13,7 @@ import java.util.List;
  * Sonar dependencies, we use our own utility classes.
  * 
  * <p>
- * Currently, we are still using Apache Commons. But if Sonar removes it, either
- * we manually include it or we only update this code and not all classes
+ * Soanr 5.3 removes utility libraries
  * 
  * @author Aurélien Baudet
  */
@@ -32,7 +34,15 @@ public class IOUtils {
 	 *             if an I/O error occurs
 	 */
 	public static List<String> readLines(InputStream stream) throws IOException {
-		return org.apache.commons.io.IOUtils.readLines(stream);
+		try(BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+			List<String> lines = new ArrayList<>();
+			String line = reader.readLine();
+			while(line!=null) {
+				lines.add(line);
+				line = reader.readLine();
+			}
+			return lines;
+		}
 	}
 
 	/**
@@ -51,6 +61,14 @@ public class IOUtils {
 	 *             if an I/O error occurs
 	 */
 	public static String toString(InputStream stream) throws IOException {
-		return org.apache.commons.io.IOUtils.toString(stream);
+		try(BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+			StringBuilder sb = new StringBuilder();
+			String line = reader.readLine();
+			while(line!=null) {
+				sb.append(line);
+				line = reader.readLine();
+			}
+			return sb.toString();
+		}
 	}
 }
