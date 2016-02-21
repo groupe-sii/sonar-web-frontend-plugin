@@ -21,7 +21,7 @@
 		<jackson.version>2.6.2</jackson.version>
 
 		<!-- maven plugins -->
-		<sonar.plugin.version>1.12.1</sonar.plugin.version>
+		<sonar.plugin.version>1.15</sonar.plugin.version>
 		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
 	</properties>
 
