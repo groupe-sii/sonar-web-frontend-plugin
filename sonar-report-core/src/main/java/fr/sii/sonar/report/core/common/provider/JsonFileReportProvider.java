@@ -5,13 +5,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Closeables;
 
 import fr.sii.sonar.report.core.common.domain.Report;
 import fr.sii.sonar.report.core.common.exception.ProviderException;
@@ -46,16 +47,14 @@ public class JsonFileReportProvider<R extends Report> implements Provider<R> {
 	 * Parse a JSON file to get the report (of any kind)
 	 */
 	public R get() throws ProviderException {
-		try {
-			return objectMapper.readValue(stream, type);
+		try(Reader reader = new InputStreamReader(stream)) {
+			return objectMapper.readValue(reader, type);
 		} catch (JsonParseException e) {
 			throw new ProviderException("failed to parse json file. Cause: "+e.getMessage(), e);
 		} catch (JsonMappingException e) {
 			throw new ProviderException("failed to parse json file. Cause: "+e.getMessage(), e);
 		} catch (IOException e) {
 			throw new ProviderException("failed to parse json file. Cause: "+e.getMessage(), e);
-		} finally {
-			Closeables.closeQuietly(stream);
 		}
 	}
 	

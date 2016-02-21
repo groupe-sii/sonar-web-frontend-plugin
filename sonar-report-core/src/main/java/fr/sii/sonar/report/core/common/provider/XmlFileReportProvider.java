@@ -3,13 +3,14 @@ package fr.sii.sonar.report.core.common.provider;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-
-import com.google.common.io.Closeables;
 
 import fr.sii.sonar.report.core.common.domain.Report;
 import fr.sii.sonar.report.core.common.exception.ProviderException;
@@ -101,7 +102,7 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 	 * raw xml structure. The adapter must transform the raw structure into the
 	 * final report structure.
 	 * 
-	 * @param stream
+	 * @param reportFile
 	 *            the xml file to parse
 	 * @param xmlClass
 	 *            the class that will be instantiated and filled with the stream
@@ -132,9 +133,9 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 
 	@SuppressWarnings("unchecked")
 	public R get() throws ProviderException {
-		try {
+		try(Reader reader = new InputStreamReader(stream)) {
 			Unmarshaller unmarshaller = JAXBContext.newInstance(xmlClass).createUnmarshaller();
-			Object rawStructure = unmarshaller.unmarshal(stream);
+			Object rawStructure = unmarshaller.unmarshal(reader);
 			if (adapter != null) {
 				return adapter.adapt(xmlClass.cast(rawStructure));
 			} else {
@@ -142,8 +143,8 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 			}
 		} catch (JAXBException e) {
 			throw new ProviderException("failed to parse XML report", e);
-		} finally {
-			Closeables.closeQuietly(stream);
+		} catch (IOException e) {
+			throw new ProviderException("failed to parse XML report", e);
 		}
 	}
 
