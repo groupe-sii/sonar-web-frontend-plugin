@@ -1,5 +1,7 @@
 package fr.sii.sonar.report.core.quality.domain.rule;
 
+import java.util.List;
+
 import org.sonar.api.rule.RuleStatus;
 
 public class RuleDefinition extends BasicRule {
@@ -11,6 +13,10 @@ public class RuleDefinition extends BasicRule {
 	
 	private RuleStatus status;
 
+	private List<String> tags;
+	
+	private Debt debt;
+	
 	public String getName() {
 		return name;
 	}
@@ -41,5 +47,21 @@ public class RuleDefinition extends BasicRule {
 
 	public void setStatus(RuleStatus status) {
 		this.status = status;
+	}
+
+	public List<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
+
+	public Debt getDebt() {
+		return debt;
+	}
+
+	public void setDebt(Debt debt) {
+		this.debt = debt;
 	}
 }
