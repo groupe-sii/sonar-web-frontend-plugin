@@ -298,37 +298,30 @@ public class FileUtil {
 			return 0;
 		}
 
-		@Override
 		public String key() {
 			return null;
 		}
 
-		@Override
 		public boolean isFile() {
 			return false;
 		}
 
-		@Override
 		public boolean isEmpty() {
 			return false;
 		}
 
-		@Override
 		public TextPointer newPointer(int line, int lineOffset) {
 			return null;
 		}
 
-		@Override
 		public TextRange newRange(TextPointer start, TextPointer end) {
 			return null;
 		}
 
-		@Override
 		public TextRange newRange(int startLine, int startLineOffset, int endLine, int endLineOffset) {
 			return null;
 		}
 
-		@Override
 		public TextRange selectLine(int line) {
 			return null;
 		}
