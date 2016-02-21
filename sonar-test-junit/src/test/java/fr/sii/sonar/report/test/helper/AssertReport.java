@@ -2,10 +2,10 @@ package fr.sii.sonar.report.test.helper;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import edu.emory.mathcs.backport.java.util.Collections;
 import fr.sii.sonar.report.core.test.domain.TestCase;
 import fr.sii.sonar.report.core.test.domain.TestFile;
 import fr.sii.sonar.report.core.test.domain.TestReport;
