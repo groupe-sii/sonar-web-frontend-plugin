@@ -5,9 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.text.StrBuilder;
 
 /**
  * Sonar changes libraries inclusions... Some libraries like guava are shaded
@@ -70,11 +67,11 @@ public class StringUtils {
         }
         Object first = iterator.next();
         if (!iterator.hasNext()) {
-            return ObjectUtils.toString(first);
+            return first==null ? "" : first.toString();
         }
 
         // two or more elements
-        StrBuilder buf = new StrBuilder(256); // Java default is 16, probably too small
+        StringBuilder buf = new StringBuilder(256);
         if (first != null) {
             buf.append(first);
         }
@@ -145,7 +142,7 @@ public class StringUtils {
         }
         int len = str.length();
         if (len == 0) {
-            return ArrayUtils.EMPTY_STRING_ARRAY;
+            return new String[] {};
         }
         List list = new ArrayList();
         int sizePlus1 = 1;
