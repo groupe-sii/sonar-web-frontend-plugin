@@ -4,43 +4,57 @@
         "key":"E001",
         "name":"Bad option",
         "description":"Bad option: '{a}'.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint"]
     },
     {
         "key":"E002",
         "name":"Bad option value",
         "description":"Bad option value.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint"]
     },
     {
         "key":"E003",
         "name":"Expected a JSON value",
         "description":"Expected a JSON value.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint"]
     },
     {
         "key":"E004",
         "name":"Input is neither a string nor an array of strings",
         "description":"Input is neither a string nor an array of strings.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint"]
     },
     {
         "key":"E005",
         "name":"Input is empty",
         "description":"Input is empty.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint"]
     },
     {
         "key":"E006",
         "name":"Unexpected early end of program",
         "description":"Unexpected early end of program.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint"]
     },
     {
         "key":"E007",
         "name":"Missing use strict",
         "description":"Missing \"use strict\" statement.",
-        "severity":"MINOR"
+        "severity":"MINOR",
+        "tags": ["convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "TRANSPORTABILITY"
+		}
     },
     {
         "key":"E008",

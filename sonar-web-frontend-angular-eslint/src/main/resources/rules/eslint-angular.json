@@ -3,7 +3,8 @@
         "key": "ng_angularelement",
         "name": " ng angularelement  ",
         "description": " The angular.element method should be used instead of the $ or jQuery object (if you are using jQuery of course). If the jQuery library is imported, angular.element will be a wrapper around the jQuery object. ",
-        "severity": "MAJOR"
+        "severity": "MAJOR",
+        "tags": ["angular", "eslint", "bad-practice"]
     },
     {
         "key": "ng_controller_as",
@@ -39,7 +40,15 @@
         "key": "ng_definedundefined",
         "name": " ng definedundefined ",
         "description": " You should use the angular.isUndefined or angular.isDefined methods instead of using the keyword undefined. We also check the use of !angular.isUndefined and !angular.isDefined (should prefer the reverse function)",
-        "severity": "CRITICAL"
+        "severity": "CRITICAL",
+        "tags": ["angular", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1min"
+			},
+			"sqaleSubCharacteristic": "MAINTAINABILITY_COMPLIANCE"
+		}
     },
     {
         "key": "ng_di",
