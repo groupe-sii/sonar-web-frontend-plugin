@@ -515,7 +515,7 @@
         "name":"A yield statement out of generator",
         "description":"A yield statement shall be within a generator function (with syntax: `function*`)",
         "severity":"CRITICAL",
-        "tags": ["jshint", "cross-browser"],
+        "tags": ["jshint", "cross-browser", "es6"],
 		"debt": {
 			"sqaleRemediation": {
 				"type": "constant",
@@ -529,7 +529,7 @@
         "name":"A generator function shall contain a yield statement.",
         "description":"A generator function shall contain a yield statement.",
         "severity":"CRITICAL",
-        "tags": ["jshint", "design"],
+        "tags": ["jshint", "design", "es6"],
 		"debt": {
 			"sqaleRemediation": {
 				"type": "constant",
@@ -571,7 +571,7 @@
         "name":"Yield parenthesis",
         "description":"Mozilla requires the yield expression to be parenthesized here.",
         "severity":"CRITICAL",
-        "tags": ["jshint", "cross-browser"],
+        "tags": ["jshint", "cross-browser", "es6"],
 		"debt": {
 			"sqaleRemediation": {
 				"type": "constant",
@@ -627,7 +627,7 @@
         "name":"Overwrite value (IE8-)",
         "description":"Value of '{a}' may be overwritten in IE 8 and earlier.",
         "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser", "bad-practice"],
+        "tags": ["jshint", "cross-browser", "bad-practice", "ie"],
 		"debt": {
 			"sqaleRemediation": {
 				"type": "constant",
@@ -988,31 +988,71 @@
         "key":"W034",
         "name":"Unnecessary directive",
         "description":"Unnecessary directive \"{a}\".",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1min"
+			},
+			"sqaleSubCharacteristic": "CHANGEABILITY_COMPLIANCE"
+		}
     },
     {
         "key":"W035",
         "name":"Empty block",
         "description":"Empty block.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "suspicious"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W036",
         "name":"Unexpected /*member",
         "description":"Unexpected /*member '{a}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "suspicious", "typo"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W037",
         "name":"statement label",
         "description":"'{a}' is a statement label.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "pitfall", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W038",
         "name":"used out of scope",
         "description":"'{a}' used out of scope.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W039",
@@ -1042,7 +1082,15 @@
         "key":"W043",
         "name":"Bad escaping of EOL",
         "description":"Bad escaping of EOL. Use option multistr if needed.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "cross-browser"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W044",
@@ -1066,7 +1114,15 @@
         "key":"W047",
         "name":"trailing decimal point",
         "description":"A trailing decimal point can be confused with a dot: '{a}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W048",
@@ -1090,7 +1146,15 @@
         "key":"W051",
         "name":"Variables should not be deleted",
         "description":"Variables should not be deleted.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "bug"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W052",
@@ -1102,25 +1166,57 @@
         "key":"W053",
         "name":"constructor",
         "description":"Do not use {a} as a constructor.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W054",
         "name":"Function constructor",
         "description":"The Function constructor is a form of eval.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "security", "performance"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "API_ABUSE"
+		}
     },
     {
         "key":"W055",
         "name":"Constructor case",
         "description":"A constructor name should start with an uppercase letter.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W056",
         "name":"Bad constructor",
         "description":"Bad constructor.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W057",
@@ -1132,37 +1228,85 @@
         "key":"W058",
         "name":"Missing '()'",
         "description":"Missing '()' invoking a constructor.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W059",
         "name":"Avoid arguments",
         "description":"Avoid arguments.{a}.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "deprecated"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "MAINTAINABILITY_COMPLIANCE"
+		}
     },
     {
         "key":"W060",
         "name":"document.write",
         "description":"document.write can be a form of eval.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "security", "performance"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "API_ABUSE"
+		}
     },
     {
         "key":"W061",
         "name":"eval",
         "description":"eval can be harmful.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "security", "performance"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "API_ABUSE"
+		}
     },
     {
         "key":"W062",
         "name":"Reading",
         "description":"Wrap an immediate function invocation in parens to assist the reader in understanding that the expression is the result of a function, and not the function itself.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention", "confusing", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W063",
         "name":"Math is not a function",
         "description":"Math is not a function.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W064",
@@ -1174,133 +1318,309 @@
         "key":"W065",
         "name":"Missing radix parameter",
         "description":"Missing radix parameter.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W066",
         "name":"Implied eval",
         "description":"Implied eval. Consider passing a function instead of a string.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "security", "performance"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "API_ABUSE"
+		}
     },
     {
         "key":"W067",
         "name":"Bad invocation",
         "description":"Bad invocation.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W068",
         "name":"non-IIFE function literals",
         "description":"Wrapping non-IIFE function literals in parens is unnecessary.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention", "confusing", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W069",
         "name":"dot notation",
         "description":"['{a}'] is better written in dot notation.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W070",
         "name":"Extra comma",
         "description":"Extra comma. (it breaks older versions of IE)",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "cross-browser", "pitfall", "ie"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "SOFTWARE_RELATED_PORTABILITY"
+		}
     },
     {
         "key":"W071",
         "name":"too many statements",
         "description":"This function has too many statements. ({a})",
-        "severity":"MAJOR"
+        "severity":"CRITICAL",
+        "tags": ["jshint", "brain-overload"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1h"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W072",
         "name":"too many parameters",
         "description":"This function has too many parameters. ({a})",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W073",
         "name":"too many nested blocks",
         "description":"Blocks are nested too deeply. ({a})",
-        "severity":"MAJOR"
+        "severity":"CRITICAL",
+        "tags": ["jshint", "brain-overload"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1h"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W074",
         "name":"cyclomatic complexity",
         "description":"This function's cyclomatic complexity is too high. ({a})",
-        "severity":"MAJOR"
+        "severity":"CRITICAL",
+        "tags": ["jshint", "brain-overload"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1h"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W075",
         "name":"Duplicate key",
         "description":"Duplicate key '{a}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W076",
         "name":"Unexpected parameter",
         "description":"Unexpected parameter '{a}' in get {b} function.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W077",
         "name":"Expected a single parameter",
         "description":"Expected a single parameter in set {a} function.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W078",
         "name":"Setter/getter",
         "description":"Setter is defined without getter.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "RELIABILITY_COMPLIANCE"
+		}
     },
     {
         "key":"W079",
         "name":"Redefinition",
         "description":"Redefinition of '{a}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug", "security", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W080",
         "name":"initialization to undefined",
         "description":"It's not necessary to initialize '{a}' to 'undefined'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "useless", "dead-code"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W081",
         "name":"Too many var statements.",
         "description":"Too many var statements.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W082",
         "name":"Function declarations",
         "description":"Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "cross-browser", "pitfall", "bad-practice"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W083",
         "name":"functions within a loop",
         "description":"Don't make functions within a loop.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug", "bad-practice", "performance", "scope"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1h"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W084",
         "name":"Expected a conditional expression",
         "description":"Expected a conditional expression and instead saw an assignment.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W085",
         "name":"Don't use 'with'",
         "description":"Don't use 'with'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "performance", "cross-browser", "confusing"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W086",
         "name":"Expected a 'break'",
         "description":"Expected a 'break' statement before '{a}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W087",
@@ -1312,31 +1632,71 @@
         "key":"W088",
         "name":"global 'for' variable",
         "description":"Creating global 'for' variable. Should be 'for (var {a} ...'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug", "pitfall", "bad-practice"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W089",
         "name":"for in body",
         "description":"The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "pitfall", "bad-practice"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W090",
         "name":"not a statement label",
         "description":"'{a}' is not a statement label.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W091",
         "name":"out of scope",
         "description":"'{a}' is out of scope.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "scope"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W093",
         "name":"return a conditional ?",
         "description":"Did you mean to return a conditional instead of an assignment?",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "confusing", "pitfall"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W094",
@@ -1360,19 +1720,43 @@
         "key":"W097",
         "name":"function form of \"use strict\"",
         "description":"Use the function form of \"use strict\".",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
+		}
     },
     {
         "key":"W098",
         "name":"Variable never used",
         "description":"'{a}' is defined but never used.",
-        "severity":"MINOR"
+        "severity":"MINOR",
+        "tags": ["jshint", "dead-code"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W099",
         "name":"Mixed spaces and tabs.",
         "description":"Mixed spaces and tabs.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W100",
@@ -1384,13 +1768,29 @@
         "key":"W101",
         "name":"Line is too long",
         "description":"Line is too long.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W102",
         "name":"Trailing whitespace.",
         "description":"Trailing whitespace.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W103",
@@ -1402,19 +1802,43 @@
         "key":"W104",
         "name":"ES6",
         "description":"'{a}' is available in ES6 (use esnext option) or Mozilla JS extensions (use moz).",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "es6", "cross-browser"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
+		}
     },
     {
         "key":"W105",
         "name":"Unexpected {a} in '{b}'",
         "description":"Unexpected {a} in '{b}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W106",
         "name":"Identifier case",
         "description":"Identifier '{a}' is not in camel case.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W107",
@@ -1426,25 +1850,57 @@
         "key":"W108",
         "name":"Strings must use doublequote",
         "description":"Strings must use doublequote.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W109",
         "name":"Strings must use singlequote",
         "description":"Strings must use singlequote.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "2min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W110",
         "name":"Mixed double and single quotes",
         "description":"Mixed double and single quotes.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "convention"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "READABILITY"
+		}
     },
     {
         "key":"W112",
         "name":"Unclosed string",
         "description":"Unclosed string.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug", "pitfall"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W113",
@@ -1462,7 +1918,15 @@
         "key":"W115",
         "name":"Octal literals",
         "description":"Octal literals are not allowed in strict mode.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "deprecated", "bug"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W116",
@@ -1474,49 +1938,113 @@
         "key":"W117",
         "name":"Variable not defined",
         "description":"'{a}' is not defined.",
-        "severity":"CRITICAL"
+        "severity":"CRITICAL",
+        "tags": ["jshint", "pitfall", "confusing"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
+		}
     },
     {
         "key":"W118",
         "name":"Mozilla only",
         "description":"'{a}' is only available in Mozilla JavaScript extensions (use moz option).",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "cross-browser", "mozilla"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "SOFTWARE_RELATED_PORTABILITY"
+		}
     },
     {
         "key":"W119",
         "name":"ES6 only",
         "description":"'{a}' is only available in ES6 (use esnext option).",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "cross-browser", "es6"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1h"
+			},
+			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
+		}
     },
     {
         "key":"W120",
         "name":"variable leak",
         "description":"You might be leaking a variable ({a}) here.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
+		}
     },
     {
         "key":"W121",
         "name":"Extending prototype of native object",
         "description":"Extending prototype of native object: '{a}'.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bad-practice", "pitfall"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "1h"
+			},
+			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
+		}
     },
     {
         "key":"W122",
         "name":"Invalid typeof value",
         "description":"Invalid typeof value '{a}'",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "bug"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "5min"
+			},
+			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
+		}
     },
     {
         "key":"W123",
         "name":"already defined in outer scope",
         "description":"'{a}' is already defined in outer scope.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "scope", "confusing", "pitfall"],
+        "debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "30min"
+			},
+			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
+		}
     },
     {
         "key":"W124",
         "name":"generator without yield",
         "description":"A generator function shall contain a yield statement.",
-        "severity":"MAJOR"
+        "severity":"MAJOR",
+        "tags": ["jshint", "design", "es6"],
+		"debt": {
+			"sqaleRemediation": {
+				"type": "constant",
+				"offset": "10min"
+			},
+			"sqaleSubCharacteristic": "RELIABILITY_COMPLIANCE"
+		}
     },
     {
         "key":"W125",
