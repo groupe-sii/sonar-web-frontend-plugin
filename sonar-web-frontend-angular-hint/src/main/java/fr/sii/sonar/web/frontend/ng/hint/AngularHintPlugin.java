@@ -7,6 +7,7 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.report.core.common.PluginDependencies;
 import fr.sii.sonar.web.frontend.ng.hint.quality.AngularHintProfileDefinition;
 import fr.sii.sonar.web.frontend.ng.hint.quality.AngularHintQualityConstants;
 import fr.sii.sonar.web.frontend.ng.hint.quality.AngularHintQualitySensor;
@@ -22,6 +23,9 @@ public final class AngularHintPlugin extends SonarPlugin {
 	@SuppressWarnings({ "rawtypes" })
 	public List getExtensions() {
 		return Arrays.asList(
+				// needed here for standalone version
+				PluginDependencies.class,
+				
 	            // Quality configuration
 				PropertyDefinition.builder(AngularHintQualityConstants.REPORT_PATH_KEY)
 		            .defaultValue(AngularHintQualityConstants.REPORT_PATH_DEFVALUE)
