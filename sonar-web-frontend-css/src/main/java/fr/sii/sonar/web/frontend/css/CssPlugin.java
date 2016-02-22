@@ -7,6 +7,7 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.report.core.common.PluginDependencies;
 import fr.sii.sonar.web.frontend.css.duplication.CssDuplicationConstants;
 import fr.sii.sonar.web.frontend.css.duplication.CssDuplicationSensor;
 import fr.sii.sonar.web.frontend.css.quality.CssLintProfile;
@@ -24,6 +25,9 @@ public final class CssPlugin extends SonarPlugin {
 	@SuppressWarnings({ "rawtypes" })
 	public List getExtensions() {
 		return Arrays.asList(
+				// needed here for standalone version
+				PluginDependencies.class,
+				
 				// general configuration
 				PropertyDefinition.builder(CssLanguageConstants.FILE_SUFFIXES_KEY)
 		            .defaultValue(CssLanguageConstants.FILE_SUFFIXES_DEFVALUE)

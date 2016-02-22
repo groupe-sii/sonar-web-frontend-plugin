@@ -1,10 +1,6 @@
 package fr.sii.sonar.web.frontend.ng.eslint.quality;
 
-import org.sonar.api.batch.fs.FileSystem;
-import org.sonar.api.component.ResourcePerspectives;
-import org.sonar.api.config.Settings;
-import org.sonar.api.rules.RuleFinder;
-
+import fr.sii.sonar.report.core.common.PluginDependencies;
 import fr.sii.sonar.report.core.common.ReportSensor;
 import fr.sii.sonar.report.core.quality.domain.report.QualityReport;
 import fr.sii.sonar.report.core.quality.factory.JsonQualityReportProviderFactory;
@@ -18,8 +14,8 @@ import fr.sii.sonar.report.core.quality.factory.QualitySaverFactory;
  */
 public class EslintAngularQualitySensor extends ReportSensor<QualityReport> {
 
-	public EslintAngularQualitySensor(EslintAngularQualityConstants constants, Settings settings, RuleFinder ruleFinder, FileSystem filesystem, ResourcePerspectives resourcePerspective) {
-		super(constants, settings, ruleFinder, filesystem, resourcePerspective, new JsonQualityReportProviderFactory(), new QualitySaverFactory());
+	public EslintAngularQualitySensor(EslintAngularQualityConstants constants, PluginDependencies pluginDependencies) {
+		super(constants, pluginDependencies, new JsonQualityReportProviderFactory(), new QualitySaverFactory());
 	}
 
 }

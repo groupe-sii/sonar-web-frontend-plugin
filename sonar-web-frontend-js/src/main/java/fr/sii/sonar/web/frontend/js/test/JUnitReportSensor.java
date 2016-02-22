@@ -1,10 +1,6 @@
 package fr.sii.sonar.web.frontend.js.test;
 
-import org.sonar.api.batch.fs.FileSystem;
-import org.sonar.api.component.ResourcePerspectives;
-import org.sonar.api.config.Settings;
-import org.sonar.api.rules.RuleFinder;
-
+import fr.sii.sonar.report.core.common.PluginDependencies;
 import fr.sii.sonar.report.core.common.ReportSensor;
 import fr.sii.sonar.report.core.test.domain.TestReport;
 import fr.sii.sonar.report.core.test.factory.TestSaverFactory;
@@ -18,8 +14,8 @@ import fr.sii.sonar.report.test.junit.factory.JUnitFallbackProviderFactory;
  */
 public class JUnitReportSensor extends ReportSensor<TestReport> {
 
-	public JUnitReportSensor(JUnitConstants constants, Settings settings, RuleFinder ruleFinder, FileSystem filesystem, ResourcePerspectives resourcePerspective) {
-		super(constants, settings, ruleFinder, filesystem, resourcePerspective, new JUnitFallbackProviderFactory(), new TestSaverFactory());
+	public JUnitReportSensor(JUnitConstants constants, PluginDependencies pluginDependencies) {
+		super(constants, pluginDependencies, new JUnitFallbackProviderFactory(), new TestSaverFactory());
 	}
 
 }
