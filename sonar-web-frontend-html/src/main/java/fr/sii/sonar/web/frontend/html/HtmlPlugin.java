@@ -7,6 +7,7 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.report.core.common.PluginDependencies;
 import fr.sii.sonar.web.frontend.html.duplication.HtmlDuplicationConstants;
 import fr.sii.sonar.web.frontend.html.duplication.HtmlDuplicationSensor;
 import fr.sii.sonar.web.frontend.html.quality.HtmlHintProfileDefinition;
@@ -24,6 +25,9 @@ public final class HtmlPlugin extends SonarPlugin {
 	@SuppressWarnings({ "rawtypes" })
 	public List getExtensions() {
 		return Arrays.asList(
+				// needed here for standalone version
+				PluginDependencies.class,
+				
 				// General configuration
 				PropertyDefinition.builder(HtmlLanguageConstants.FILE_SUFFIXES_KEY)
 		            .defaultValue(HtmlLanguageConstants.FILE_SUFFIXES_DEFVALUE)

@@ -12,40 +12,34 @@ import org.sonar.api.rules.RuleFinder;
  *
  */
 public class PluginContext {
-	private final Settings settings;
-	private final ResourcePerspectives resourcePerspective;
-	private final RuleFinder ruleFinder;
-	private final FileSystem filesystem;
+	private final PluginDependencies pluginDependencies;
 	private final ReportConstants constants;
 	
 	
-	public PluginContext(Settings settings, ResourcePerspectives resourcePerspective, RuleFinder ruleFinder, FileSystem filesystem, ReportConstants constants) {
+	public PluginContext(ReportConstants constants, PluginDependencies pluginDependencies) {
 		super();
-		this.settings = settings;
-		this.resourcePerspective = resourcePerspective;
-		this.ruleFinder = ruleFinder;
-		this.filesystem = filesystem;
+		this.pluginDependencies = pluginDependencies;
 		this.constants = constants;
 	}
 
 
 	public Settings getSettings() {
-		return settings;
+		return pluginDependencies.getSettings();
 	}
 
 
 	public ResourcePerspectives getResourcePerspective() {
-		return resourcePerspective;
+		return pluginDependencies.getResourcePerspective();
 	}
 
 
 	public RuleFinder getRuleFinder() {
-		return ruleFinder;
+		return pluginDependencies.getRuleFinder();
 	}
 
 
 	public FileSystem getFilesystem() {
-		return filesystem;
+		return pluginDependencies.getFilesystem();
 	}
 
 

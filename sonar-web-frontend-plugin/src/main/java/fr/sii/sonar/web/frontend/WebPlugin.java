@@ -1,7 +1,9 @@
 package fr.sii.sonar.web.frontend;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.sonar.api.SonarPlugin;
 
@@ -46,6 +48,12 @@ public final class WebPlugin extends SonarPlugin {
 		// add widgets
 		extensions.add(MultiLanguageIssuesWidget.class);
 		extensions.add(MultiLanguageDuplicationsWidget.class);
+		
+		// remove duplicates (PluginDependencies)
+		Set temp = new HashSet(extensions);
+		extensions.clear();
+		extensions.addAll(temp);
+		
 		return extensions;
 	}
 
