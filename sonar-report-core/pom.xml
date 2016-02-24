@@ -31,11 +31,13 @@
 			<groupId>org.sonarsource.sonarqube</groupId>
 			<artifactId>sonar-batch</artifactId>
 			<version>${sonar.buildVersion}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.sonarsource.sonarqube</groupId>
 			<artifactId>sonar-batch-protocol</artifactId>
 			<version>${sonar.buildVersion}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

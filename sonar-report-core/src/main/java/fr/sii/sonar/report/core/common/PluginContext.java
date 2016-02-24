@@ -4,6 +4,8 @@ import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.rules.RuleFinder;
+import org.sonar.batch.index.BatchComponentCache;
+import org.sonar.batch.report.ReportPublisher;
 
 /**
  * Class that just groups resources that are needed by sonar plugins.
@@ -45,5 +47,13 @@ public class PluginContext {
 
 	public ReportConstants getConstants() {
 		return constants;
+	}
+	
+	public BatchComponentCache getBatchComponentCache() {
+		return pluginDependencies.getBatchComponentCache();
+	}
+	
+	public ReportPublisher getReportPublisher() {
+		return pluginDependencies.getReportPublisher();
 	}
 }
