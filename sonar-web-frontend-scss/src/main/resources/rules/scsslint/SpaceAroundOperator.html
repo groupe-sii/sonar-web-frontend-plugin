@@ -1,0 +1,16 @@
+<h1>Details</h1>
+<p>Operators should be formatted with a single space on both sides of an infix
+operator. These include <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>,
+and <code>&lt;=</code>.</p><p><strong>Bad: no space around operator</strong></p><div class="highlight highlight-source-scss"><pre>margin: 5px+5px;</pre></div><p><strong>Bad: more than one space around operator</strong></p><div class="highlight highlight-source-scss"><pre>margin: 5px   +   5px;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre>margin: 5px + 5px;</pre></div><p>Note that this linter only applies to actual, evaluated operators. So values
+like <code>nth-child(2n+1)</code>, <code>10px/12px</code>, and <code>my-font</code> will not be linted, as they
+are valid CSS.</p><p>The <code>style</code> option allows you to specify a different preferred style.</p><table><thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>style</code></td>
+<td><code>one_space</code>, <code>at_least_one_space</code>, <code>no_space</code> (default <strong>one_space</strong>)</td>
+</tr>
+</tbody></table>

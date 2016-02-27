@@ -1,12 +1,10 @@
 <h1>Details</h1>
-<p>Reports when you use improper spacing around <code>!</code> (the "bang") in <code>!important</code> and <code>!default</code> declarations.</p><p>You can prefer a single space or no space both before and after the <code>!</code>.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre>color: #000!important;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre>color: #000 !important;</pre></div><table>
-<thead>
+<p>Reports when you use improper spacing around <code>!</code> (the "bang") in <code>!default</code>, <code>!global</code>, <code>!important</code>, and <code>!optional</code> flags.</p><p>You can prefer a single space or no space both before and after the <code>!</code>.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre>color: #000!important;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre>color: #000 !important;</pre></div><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
 <td><code>space_before_bang</code></td>
 <td>Whether a space should be present <em>before</em> the <code>!</code>, as in <code>color: #000 !important;</code> (default <strong>true</strong>)</td>
@@ -15,5 +13,4 @@
 <td><code>space_after_bang</code></td>
 <td>Whether a space should be present <em>after</em> the <code>!</code>, as in <code>color: #000 ! important;</code> (default <strong>false</strong>)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>

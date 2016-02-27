@@ -1,24 +1,33 @@
 <h1>Details</h1>
-<p>Use two spaces per indentation level.</p><p><strong>Bad: four spaces</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#f00</span>;
-}</pre></div><p><strong>Good: two spaces</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#f00</span>;
-}</pre></div><p>You can configure this linter to prefer tabs if you like.</p><table>
-<thead>
+<p>Use two spaces per indentation level.</p><p><strong>Bad: four spaces</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
+}</pre></div><p><strong>Good: two spaces</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
+}</pre></div><p>You can configure this linter to prefer tabs if you like.</p><p>For projects that follow BEM, you may prefer to allow arbitrary indentation for
+rule sets that aren't nested in order to give the visual hints of hierarchy
+without actually nesting selectors (which has a performance cost). For example:</p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.component</span> {}
+  <span class="pl-e">.component__image</span> {}
+  <span class="pl-e">.component__text</span> {}
+    <span class="pl-e">.component-subblock</span> {}
+    <span class="pl-e">.component-subblock__text</span> {}
+  <span class="pl-e">.component-category</span> {}
+    <span class="pl-e">.component-other</span> {}</pre></div><p>You can set <code>allow_non_nested_indentation</code> to <code>true</code> if this convention is
+preferred.</p><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
+<tr>
+<td><code>allow_non_nested_indentation</code></td>
+<td>Whether non-nested rule sets can be arbitrarily indented (default <strong>false</strong>)</td>
+</tr>
 <tr>
 <td><code>character</code></td>
-<td>
-<code>tab</code> or <code>space</code> (default <strong>space</strong>)</td>
+<td><code>tab</code> or <code>space</code> (default <strong>space</strong>)</td>
 </tr>
 <tr>
 <td><code>width</code></td>
 <td>Number of <code>character</code>s per indentation level (default <strong>2</strong>)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>

@@ -1,0 +1,28 @@
+<h1>Details</h1>
+<p><strong>Disabled by default</strong></p><p>Enforces that functions, mixins, and variables that follow the private naming
+convention (default to underscore-prefixed, e.g. <code>$_foo</code>) are defined and used
+within the same file.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;
+
+<span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#00f</span>;
+}</pre></div><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;
+}</pre></div><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;
+}
+
+<span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;
+
+<span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;
+}</pre></div><table><thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>prefix</code></td>
+<td>Prefix used to denote "private" (default <code>_</code>)</td>
+</tr>
+</tbody></table>

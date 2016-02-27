@@ -1,26 +1,22 @@
 <h1>Details</h1>
-<p>Place <code>@else</code> statements on the same line as the preceding curly brace.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-k">@if</span> {
+<p>Place <code>@else</code> statements on the same line as the preceding curly brace.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@if</span> {
   ...
 }
 <span class="pl-k">@else </span>{
   ...
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-k">@if</span> {
+}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@if</span> {
   ...
 } <span class="pl-k">@else </span>{
   ...
-}</pre></div><p>This will ignore single line <code>@if</code>/<code>@else</code> blocks, so you can write:</p><div class="highlight highlight-scss"><pre><span class="pl-k">@if</span> { ... } <span class="pl-k">@else </span>{ ... }</pre></div><p>You can prefer to enforce having <code>@else</code> on its own line by setting the <code>style</code>
-configuration option to <code>new_line</code>.</p><table>
-<thead>
+}</pre></div><p>This will ignore single line <code>@if</code>/<code>@else</code> blocks, so you can write:</p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@if</span> { ... } <span class="pl-k">@else </span>{ ... }</pre></div><p>You can prefer to enforce having <code>@else</code> on its own line by setting the <code>style</code>
+configuration option to <code>new_line</code>.</p><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
 <td><code>style</code></td>
-<td>
-<code>same_line</code> or <code>new_line</code> (default <code>same_line</code>)</td>
+<td><code>same_line</code> or <code>new_line</code> (default <code>same_line</code>)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
