@@ -2,8 +2,6 @@ package fr.sii.sonar.report.core.quality.domain.rule;
 
 import java.util.List;
 
-import org.sonar.api.rule.RuleStatus;
-
 public class RuleDefinition extends BasicRule {
 	private String name;
 	
@@ -11,7 +9,7 @@ public class RuleDefinition extends BasicRule {
 	
 	private String severity;
 	
-	private RuleStatus status;
+	private String status;
 
 	private List<String> tags;
 	
@@ -41,11 +39,11 @@ public class RuleDefinition extends BasicRule {
 		this.severity = severity;
 	}
 
-	public RuleStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(RuleStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
