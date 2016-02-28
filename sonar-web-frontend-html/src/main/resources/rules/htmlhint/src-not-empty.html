@@ -1,10 +1,7 @@
 <h1>Details</h1>
 <p>Src of img(script,link) must set value.</p>
-
 <p>Emtpy of src will visit current page twice.</p>
-
 <p>good:</p>
-
 <pre><code>&lt;img src="test.png" /&gt;
 &lt;script src="test.js"&gt;&lt;/script&gt;
 &lt;link href="test.css" type="text/css" /&gt;
@@ -13,9 +10,7 @@
 &lt;iframe src="test.html"&gt;
 &lt;object data="test.swf"&gt;
 </code></pre>
-
 <p>bad:</p>
-
 <pre><code>&lt;img src /&gt;
 &lt;script src=""&gt;&lt;/script&gt;
 &lt;script src&gt;&lt;/script&gt;
@@ -30,4 +25,8 @@
 &lt;object data=""&gt;
 &lt;object data&gt;
 </code></pre>
-
+<p>config value:</p>
+<ol>
+<li>true: enable rule</li>
+<li>false: disable rule</li>
+</ol>

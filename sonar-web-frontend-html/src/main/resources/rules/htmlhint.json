@@ -1,136 +1,209 @@
-[
-
-    {
-        "key":"attr-lowercase",
-        "name":"Attribute case",
-        "description":"Attribute name must be lowercase.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"attr-no-duplication",
-        "name":"Attribute duplicated",
-        "description":"Attribute name can not been duplication.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"attr-unsafe-chars",
-        "name":"Attribute contains unsafe chars.",
-        "description":"Attribute value cant not use unsafe chars.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"attr-value-double-quotes",
-        "name":"Use double quotes in attributes",
-        "description":"Attribute value must closed by double quotes.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"attr-value-not-empty",
-        "name":"Empty attribute value",
-        "description":"Attribute must set value.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"csslint",
-        "name":"csslint",
-        "description":"Scan css with csslint.",
-        "severity":"INFO"
-    },
-    {
-        "key":"doctype-first",
-        "name":"Doctype first",
-        "description":"Doctype must be first.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"doctype-html5",
-        "name":"Doctype html5",
-        "description":"Doctype must be html5.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"head-script-disabled",
-        "name":"Script in head",
-        "description":"The script tag can not be used in head.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"href-abs-or-rel",
-        "name":"Absolute or relative href",
-        "description":"Href must be absolute or relative.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"id-class-ad-disabled",
-        "name":"ad keyword",
-        "description":"Id and class can not use ad keyword, it will blocked by adblock software.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"id-class-value",
-        "name":"id and class naming",
-        "description":"Id and class value must meet some rules.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"id-unique",
-        "name":"Unique id",
-        "description":"Id must be unique.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"img-alt-require",
-        "name":"Alt required",
-        "description":"Alt of img tag must be set value.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"jshint",
-        "name":"jshint",
-        "description":"Scan script with jshint.",
-        "severity":"INFO"
-    },
-    {
-        "key":"space-tab-mixed-disabled",
-        "name":"Spaces or tabs",
-        "description":"Spaces and tabs can not mixed in front of line.",
-        "severity":"INFO"
-    },
-    {
-        "key":"spec-char-escape",
-        "name":"Special characters",
-        "description":"Special characters must be escaped.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"src-not-empty",
-        "name":"Empty src",
-        "description":"Src of img(script,link) must set value.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"style-disabled",
-        "name":"Style tag",
-        "description":"Style tag can not be use.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"tag-pair",
-        "name":"Tag pair",
-        "description":"Tag must be paired.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"tag-self-close",
-        "name":"Empty tag self close",
-        "description":"The empty tag must closed by self.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"tagname-lowercase",
-        "name":"Tag case",
-        "description":"Tagname must be lowercase.",
-        "severity":"MINOR"
-    }
-
-]
+[ {
+  "key" : "attr-lowercase",
+  "name" : "Attribute case",
+  "description" : "Attribute name must be lowercase.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "attr-no-duplication",
+  "name" : "Attribute duplicated",
+  "description" : "Attribute name can not been duplication.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "attr-unsafe-chars",
+  "name" : "Attribute contains unsafe chars.",
+  "description" : "Attribute value cant not use unsafe chars.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "attr-value-double-quotes",
+  "name" : "Use double quotes in attributes",
+  "description" : "Attribute value must closed by double quotes.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "attr-value-not-empty",
+  "name" : "Empty attribute value",
+  "description" : "Attribute must set value.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "csslint",
+  "name" : "csslint",
+  "description" : "Scan css with csslint.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "doctype-first",
+  "name" : "Doctype first",
+  "description" : "Doctype must be first.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "doctype-html5",
+  "name" : "Doctype html5",
+  "description" : "Doctype must be html5.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "head-script-disabled",
+  "name" : "Script in head",
+  "description" : "The script tag can not be used in head.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "href-abs-or-rel",
+  "name" : "Absolute or relative href",
+  "description" : "Href must be absolute or relative.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "id-class-ad-disabled",
+  "name" : "ad keyword",
+  "description" : "Id and class can not use ad keyword, it will blocked by adblock software.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "id-class-value",
+  "name" : "id and class naming",
+  "description" : "Id and class value must meet some rules.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "id-unique",
+  "name" : "Unique id",
+  "description" : "Id must be unique.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "img-alt-require",
+  "name" : "Alt required",
+  "description" : "Alt of img tag must be set value.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "jshint",
+  "name" : "jshint",
+  "description" : "Scan script with jshint.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "space-tab-mixed-disabled",
+  "name" : "Spaces or tabs",
+  "description" : "Spaces and tabs can not mixed in front of line.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "spec-char-escape",
+  "name" : "Special characters",
+  "description" : "Special characters must be escaped.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "src-not-empty",
+  "name" : "Empty src",
+  "description" : "Src of img(script,link) must set value.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "style-disabled",
+  "name" : "Style tag",
+  "description" : "Style tag can not be use.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "tag-pair",
+  "name" : "Tag pair",
+  "description" : "Tag must be paired.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "tag-self-close",
+  "name" : "Empty tag self close",
+  "description" : "The empty tag must closed by self.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "tagname-lowercase",
+  "name" : "Tag case",
+  "description" : "Tagname must be lowercase.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "title-require",
+  "name" : "title require",
+  "description" : "<p><code>&lt;title&gt;</code> must be present in <code>&lt;head&gt;</code> tag.</p>\r\n<p>Level: <code>error</code></p>\r\n<p>good:</p>\r\n<pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;\n</code></pre>\r\n<p>bad:</p>\r\n<pre><code>&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;\n&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;\n&lt;html&gt;&lt;title&gt;&lt;/title&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "alt-require",
+  "name" : "alt require",
+  "description" : "<p>Alt of img must be present and alt of area[href] and input[type=image] must be set value.</p>\r\n<p>Level: <code>warning</code></p>\r\n<p>good:</p>\r\n<pre><code>&lt;img src=\"test.png\" alt=\"test\"&gt;\n&lt;input type=\"image\" alt=\"test\"&gt;\n&lt;area shape=\"circle\" coords=\"180,139,14\" href =\"test.html\" alt=\"test\" /&gt;\n</code></pre>\r\n<p>bad:</p>\r\n<pre><code>&lt;img src=\"test.png\"&gt;\n&lt;input type=\"image\"&gt;\n&lt;area shape=\"circle\" coords=\"180,139,14\" href =\"test.html\" /&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "inline-style-disabled",
+  "name" : "inline style disabled",
+  "description" : "<p>Inline style cannot be use.</p>\r\n<p>Level: <code>warning</code></p>\r\n<p>bad:</p>\r\n<pre><code>&lt;div style=\"color:red\"&gt;&lt;/div&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "inline-script-disabled",
+  "name" : "inline script disabled",
+  "description" : "<p>Inline script cannot be use.</p>\r\n<p>Level: <code>warning</code></p>\r\n<p>bad:</p>\r\n<pre><code>&lt;img src=\"test.gif\" onclick=\"alert(1);\"&gt;\n&lt;img src=\"javascript:alert(1)\"&gt;\n&lt;a href=\"javascript:alert(1)\"&gt;test1&lt;/a&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+} ]

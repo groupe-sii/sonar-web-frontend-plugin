@@ -1,17 +1,17 @@
 <h1>Details</h1>
 <p>Spaces and tabs can not mixed in front of line.</p>
-
-
 <p>good:</p>
-
-<pre><code>        &lt;img src="tab.png" /&gt;
-          &lt;img src="space.png" /&gt;
+<pre><code>   →   →&lt;img src="tab.png" /&gt;
+········&lt;img src="space.png" /&gt;
 </code></pre>
-
 <p>bad:</p>
-
-<pre><code>         &lt;img src="tab_before_space.png" /&gt;
-    &lt;img src="space_before_tab.png" /&gt;
+<pre><code>   →····&lt;img src="tab_before_space.png" /&gt;
+····   →&lt;img src="space_before_tab.png" /&gt;
 </code></pre>
-
-<p>Tip: github will replace tab to space, read md file to read raw code.</p>
+<p>Note: in the examples above, spaces and tabs are represented by <code>·</code> and <code>→</code>, respectively, to make the difference visible.</p>
+<p>config value:</p>
+<ol>
+<li>space: space mode (only space for indentation)</li>
+<li>tab: tab mode (only tab for indentation)</li>
+<li>false: disable rule</li>
+</ol>
