@@ -1,2074 +1,2343 @@
-[
-
-    {
-        "key":"E001",
-        "name":"Bad option",
-        "description":"Bad option: '{a}'.",
-        "severity":"CRITICAL",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E002",
-        "name":"Bad option value",
-        "description":"Bad option value.",
-        "severity":"CRITICAL",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E003",
-        "name":"Expected a JSON value",
-        "description":"Expected a JSON value.",
-        "severity":"CRITICAL",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E004",
-        "name":"Input is neither a string nor an array of strings",
-        "description":"Input is neither a string nor an array of strings.",
-        "severity":"MAJOR",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E005",
-        "name":"Input is empty",
-        "description":"Input is empty.",
-        "severity":"MAJOR",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E006",
-        "name":"Unexpected early end of program",
-        "description":"Unexpected early end of program.",
-        "severity":"CRITICAL",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E007",
-        "name":"Missing use strict",
-        "description":"Missing \"use strict\" statement.",
-        "severity":"MINOR",
-        "tags": ["jshint", "convention", "be careful"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"E008",
-        "name":"strict violation",
-        "description":"Strict violation.",
-        "severity":"CRITICAL",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E009",
-        "name":"validthis",
-        "description":"Option 'validthis' can't be used in a global scope.",
-        "severity":"MAJOR",
-        "tags": ["jshint"]
-    },
-    {
-        "key":"E010",
-        "name":"with",
-        "description":"'with' is not allowed in strict mode.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "security", "obsolete", "performance"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "SECURITY_FEATURES"
-		}
-    },
-    {
-        "key":"E011",
-        "name":"const already declared",
-        "description":"const '{a}' has already been declared.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E012",
-        "name":"const undefined",
-        "description":"const '{a}' is initialized to 'undefined'.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "convention", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E013",
-        "name":"override a constant",
-        "description":"Attempting to override '{a}' which is a constant.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E014",
-        "name":"Regular expression literal",
-        "description":"A regular expression literal can be confused with '/='.",
-        "severity":"MINOR",
-        "tags": ["jshint", "convention", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"E015",
-        "name":"Unclosed regular expression",
-        "description":"Unclosed regular expression.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E016",
-        "name":"Invalid regular expression",
-        "description":"Invalid regular expression.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E017",
-        "name":"Unclosed comment",
-        "description":"Unclosed comment.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"E018",
-        "name":"Unbegun comment",
-        "description":"Unbegun comment.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"E019",
-        "name":"Unmatched",
-        "description":"Unmatched '{a}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"E020",
-        "name":"Expected match",
-        "description":"Expected '{a}' to match '{b}' from line {c} and instead saw '{d}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"E021",
-        "name":"Expected",
-        "description":"Expected '{a}' and instead saw '{b}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"E022",
-        "name":"Line breaking error",
-        "description":"Line breaking error '{a}'.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"E023",
-        "name":"Missing",
-        "description":"Missing '{a}'.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"E024",
-        "name":"Unexpected '{a}'",
-        "description":"Unexpected '{a}'.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"E025",
-        "name":"Missing ':'",
-        "description":"Missing ':' on a case clause.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E026",
-        "name":"Missing '}'",
-        "description":"Missing '}' to match '{' from line {a}.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "pitfall"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"E027",
-        "name":"Missing ']'",
-        "description":"Missing ']' to match '[' from line {a}.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "pitfall"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"E028",
-        "name":"Illegal comma",
-        "description":"Illegal comma.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"E029",
-        "name":"Unclosed string",
-        "description":"Unclosed string.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "pitfall"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E030",
-        "name":"Expected an identifier",
-        "description":"Expected an identifier and instead saw '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"E031",
-        "name":"Bad assignment",
-        "description":"Bad assignment.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E032",
-        "name":"Expected a small integer or 'false'",
-        "description":"Expected a small integer or 'false' and instead saw '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"E033",
-        "name":"Expected an operator",
-        "description":"Expected an operator and instead saw '{a}'.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "convention"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"E034",
-        "name":"get/set are ES5 features",
-        "description":"get/set are ES5 features.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"E035",
-        "name":"Missing property name",
-        "description":"Missing property name.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"E036",
-        "name":"Expected to see a statement",
-        "description":"Expected to see a statement and instead saw a block.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"E037",
-        "name":"Constant not declared",
-        "description":"Constant {a} was not declared correctly.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E038",
-        "name":"Variable not declared",
-        "description":"Variable {a} was not declared correctly.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E039",
-        "name":"Function declarations are not invocable",
-        "description":"Function declarations are not invocable. Wrap the whole function invocation in parens.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"E040",
-        "name":"Each value should have its own case label",
-        "description":"Each value should have its own case label.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"E041",
-        "name":"Unrecoverable syntax error",
-        "description":"Unrecoverable syntax error.",
-        "severity":"BLOCKER",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"E042",
-        "name":"Stopping",
-        "description":"Stopping.",
-        "severity":"BLOCKER",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1d"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"E043",
-        "name":"Too many errors",
-        "description":"Too many errors.",
-        "severity":"BLOCKER",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1d"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"E044",
-        "name":"var already defined",
-        "description":"'{a}' is already defined and can't be redefined.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"E045",
-        "name":"Invalid for each loop",
-        "description":"Invalid for each loop.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "cross-browser"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"E046",
-        "name":"A yield statement out of generator",
-        "description":"A yield statement shall be within a generator function (with syntax: `function*`)",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "cross-browser", "es6"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "20min"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"E047",
-        "name":"A generator function shall contain a yield statement.",
-        "description":"A generator function shall contain a yield statement.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "design", "es6"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "RELIABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key":"E048",
-        "name":"Let declaration not directly within block",
-        "description":"Let declaration not directly within block.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "design"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"E049",
-        "name":"Wrong name",
-        "description":"A {a} cannot be named '{b}'.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"E050",
-        "name":"Yield parenthesis",
-        "description":"Mozilla requires the yield expression to be parenthesized here.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "cross-browser", "es6"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "SOFTWARE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"E051",
-        "name":"Parameters order",
-        "description":"Regular parameters cannot come after default parameters.",
-        "severity":"MINOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"E052",
-        "name":"Unclosed template literal",
-        "description":"Unclosed template literal.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "bug", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W001",
-        "name":"hasOwnProperty",
-        "description":"'hasOwnProperty' is a really bad name.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "clumsy", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"W002",
-        "name":"Overwrite value (IE8-)",
-        "description":"Value of '{a}' may be overwritten in IE 8 and earlier.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser", "bad-practice", "ie"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "EXCEPTION_HANDLING"
-		}
-    },
-    {
-        "key":"W003",
-        "name":"Use before definition",
-        "description":"'{a}' was used before it was defined.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W004",
-        "name":"Already defined",
-        "description":"'{a}' is already defined.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W005",
-        "name":"Decimal point ?",
-        "description":"A dot following a number can be confused with a decimal point.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing", "suspicious"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W006",
-        "name":"Confusing minuses",
-        "description":"Confusing minuses.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing", "suspicious"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W007",
-        "name":"Confusing plusses",
-        "description":"Confusing plusses.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing", "suspicious"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W008",
-        "name":"Leading decimal point",
-        "description":"A leading decimal point can be confused with a dot: '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing", "suspicious"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W009",
-        "name":"array literal notation",
-        "description":"The array literal notation [] is preferable.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W010",
-        "name":"object literal notation",
-        "description":"The object literal notation {} is preferable.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W011",
-        "name":"Unexpected space after",
-        "description":"Unexpected space after '{a}'.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"W012",
-        "name":"Unexpected space before",
-        "description":"Unexpected space before '{a}'.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"W013",
-        "name":"Missing space after ",
-        "description":"Missing space after '{a}'.",
-        "severity":"CRITICAL"
-    },
-    {
-        "key":"W014",
-        "name":"Bad line breaking",
-        "description":"Bad line breaking before '{a}'.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"W015",
-        "name":"Expected correct indentation",
-        "description":"Expected '{a}' to have an indentation at {b} instead at {c}.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "format"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W016",
-        "name":"Unexpected use",
-        "description":"Unexpected use of '{a}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W017",
-        "name":"Bad operand",
-        "description":"Bad operand.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W018",
-        "name":"Confusing use",
-        "description":"Confusing use of '{a}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W019",
-        "name":"NaN",
-        "description":"Use the isNaN function to compare with NaN.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "pitfall", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W020",
-        "name":"Read only",
-        "description":"Read only.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "pitfall", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W021",
-        "name":"function",
-        "description":"'{a}' is a function.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W022",
-        "name":"Exception parameter assignment",
-        "description":"Do not assign to the exception parameter.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "EXCEPTION_HANDLING"
-		}
-    },
-    {
-        "key":"W023",
-        "name":"Expected an identifier in an assignment",
-        "description":"Expected an identifier in an assignment and instead saw a function invocation.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "20min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W024",
-        "name":"Reserved word",
-        "description":"Expected an identifier and instead saw '{a}' (a reserved word).",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W025",
-        "name":"Missing name",
-        "description":"Missing name in function declaration.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"W026",
-        "name":"Inner functions",
-        "description":"Inner functions should be listed at the top of the outer function.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W027",
-        "name":"Unreachable",
-        "description":"Unreachable '{a}' after '{b}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "dead-code"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W028",
-        "name":"Label '{a}' on {b} statement",
-        "description":"Label '{a}' on {b} statement.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W030",
-        "name":"Expected an assignment or function call",
-        "description":"Expected an assignment or function call and instead saw an expression.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "suspicious", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W031",
-        "name":"Do not use 'new'",
-        "description":"Do not use 'new' for side effects.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W032",
-        "name":"Unnecessary semicolon",
-        "description":"Unnecessary semicolon.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W033",
-        "name":"Missing semicolon",
-        "description":"Missing semicolon.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W034",
-        "name":"Unnecessary directive",
-        "description":"Unnecessary directive \"{a}\".",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "CHANGEABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key":"W035",
-        "name":"Empty block",
-        "description":"Empty block.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "suspicious"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W036",
-        "name":"Unexpected /*member",
-        "description":"Unexpected /*member '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "suspicious", "typo"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W037",
-        "name":"statement label",
-        "description":"'{a}' is a statement label.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "pitfall", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W038",
-        "name":"used out of scope",
-        "description":"'{a}' used out of scope.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W039",
-        "name":"not allowed",
-        "description":"'{a}' is not allowed.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W040",
-        "name":"Possible strict violation",
-        "description":"Possible strict violation.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W041",
-        "name":"compare",
-        "description":"Use '{a}' to compare with '{b}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W042",
-        "name":"Avoid EOL escaping",
-        "description":"Avoid EOL escaping.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W043",
-        "name":"Bad escaping of EOL",
-        "description":"Bad escaping of EOL. Use option multistr if needed.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "cross-browser"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W044",
-        "name":"Bad or unnecessary escaping",
-        "description":"Bad or unnecessary escaping.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W045",
-        "name":"Bad number",
-        "description":"Bad number '{a}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W046",
-        "name":"Don't use extra leading zeros",
-        "description":"Don't use extra leading zeros '{a}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W047",
-        "name":"trailing decimal point",
-        "description":"A trailing decimal point can be confused with a dot: '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W048",
-        "name":"Unexpected control character",
-        "description":"Unexpected control character in regular expression.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W049",
-        "name":"Unexpected escaped character",
-        "description":"Unexpected escaped character '{a}' in regular expression.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W050",
-        "name":"JavaScript URL",
-        "description":"JavaScript URL.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W051",
-        "name":"Variables should not be deleted",
-        "description":"Variables should not be deleted.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W052",
-        "name":"Unexpected '{a}'",
-        "description":"Unexpected '{a}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W053",
-        "name":"constructor",
-        "description":"Do not use {a} as a constructor.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W054",
-        "name":"Function constructor",
-        "description":"The Function constructor is a form of eval.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "security", "performance"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "API_ABUSE"
-		}
-    },
-    {
-        "key":"W055",
-        "name":"Constructor case",
-        "description":"A constructor name should start with an uppercase letter.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W056",
-        "name":"Bad constructor",
-        "description":"Bad constructor.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W057",
-        "name":"Weird construction",
-        "description":"Weird construction. Is 'new' necessary?",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W058",
-        "name":"Missing '()'",
-        "description":"Missing '()' invoking a constructor.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W059",
-        "name":"Avoid arguments",
-        "description":"Avoid arguments.{a}.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "deprecated"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "MAINTAINABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key":"W060",
-        "name":"document.write",
-        "description":"document.write can be a form of eval.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "security", "performance"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "API_ABUSE"
-		}
-    },
-    {
-        "key":"W061",
-        "name":"eval",
-        "description":"eval can be harmful.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "security", "performance"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "API_ABUSE"
-		}
-    },
-    {
-        "key":"W062",
-        "name":"Reading",
-        "description":"Wrap an immediate function invocation in parens to assist the reader in understanding that the expression is the result of a function, and not the function itself.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention", "confusing", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W063",
-        "name":"Math is not a function",
-        "description":"Math is not a function.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W064",
-        "name":"Missing 'new'",
-        "description":"Missing 'new' prefix when invoking a constructor.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W065",
-        "name":"Missing radix parameter",
-        "description":"Missing radix parameter.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W066",
-        "name":"Implied eval",
-        "description":"Implied eval. Consider passing a function instead of a string.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "security", "performance"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "API_ABUSE"
-		}
-    },
-    {
-        "key":"W067",
-        "name":"Bad invocation",
-        "description":"Bad invocation.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W068",
-        "name":"non-IIFE function literals",
-        "description":"Wrapping non-IIFE function literals in parens is unnecessary.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention", "confusing", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W069",
-        "name":"dot notation",
-        "description":"['{a}'] is better written in dot notation.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W070",
-        "name":"Extra comma",
-        "description":"Extra comma. (it breaks older versions of IE)",
-        "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser", "pitfall", "ie"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "SOFTWARE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"W071",
-        "name":"too many statements",
-        "description":"This function has too many statements. ({a})",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "brain-overload"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W072",
-        "name":"too many parameters",
-        "description":"This function has too many parameters. ({a})",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W073",
-        "name":"too many nested blocks",
-        "description":"Blocks are nested too deeply. ({a})",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "brain-overload"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W074",
-        "name":"cyclomatic complexity",
-        "description":"This function's cyclomatic complexity is too high. ({a})",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "brain-overload"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W075",
-        "name":"Duplicate key",
-        "description":"Duplicate key '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W076",
-        "name":"Unexpected parameter",
-        "description":"Unexpected parameter '{a}' in get {b} function.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W077",
-        "name":"Expected a single parameter",
-        "description":"Expected a single parameter in set {a} function.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W078",
-        "name":"Setter/getter",
-        "description":"Setter is defined without getter.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "RELIABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key":"W079",
-        "name":"Redefinition",
-        "description":"Redefinition of '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug", "security", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W080",
-        "name":"initialization to undefined",
-        "description":"It's not necessary to initialize '{a}' to 'undefined'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "useless", "dead-code"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W081",
-        "name":"Too many var statements.",
-        "description":"Too many var statements.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W082",
-        "name":"Function declarations",
-        "description":"Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser", "pitfall", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W083",
-        "name":"functions within a loop",
-        "description":"Don't make functions within a loop.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug", "bad-practice", "performance", "scope"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W084",
-        "name":"Expected a conditional expression",
-        "description":"Expected a conditional expression and instead saw an assignment.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W085",
-        "name":"Don't use 'with'",
-        "description":"Don't use 'with'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "performance", "cross-browser", "confusing"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W086",
-        "name":"Expected a 'break'",
-        "description":"Expected a 'break' statement before '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W087",
-        "name":"debugger",
-        "description":"Forgotten 'debugger' statement?",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W088",
-        "name":"global 'for' variable",
-        "description":"Creating global 'for' variable. Should be 'for (var {a} ...'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug", "pitfall", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W089",
-        "name":"for in body",
-        "description":"The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "pitfall", "bad-practice"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W090",
-        "name":"not a statement label",
-        "description":"'{a}' is not a statement label.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W091",
-        "name":"out of scope",
-        "description":"'{a}' is out of scope.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "scope"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W093",
-        "name":"return a conditional ?",
-        "description":"Did you mean to return a conditional instead of an assignment?",
-        "severity":"MAJOR",
-        "tags": ["jshint", "confusing", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W094",
-        "name":"Unexpected comma",
-        "description":"Unexpected comma.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W095",
-        "name":"Expected a string",
-        "description":"Expected a string and instead saw {a}.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W096",
-        "name":"key may produce unexpected results",
-        "description":"The '{a}' key may produce unexpected results.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W097",
-        "name":"function form of \"use strict\"",
-        "description":"Use the function form of \"use strict\".",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"W098",
-        "name":"Variable never used",
-        "description":"'{a}' is defined but never used.",
-        "severity":"MINOR",
-        "tags": ["jshint", "dead-code"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W099",
-        "name":"Mixed spaces and tabs.",
-        "description":"Mixed spaces and tabs.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W100",
-        "name":"character silently deleted",
-        "description":"This character may get silently deleted by one or more browsers.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W101",
-        "name":"Line is too long",
-        "description":"Line is too long.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W102",
-        "name":"Trailing whitespace.",
-        "description":"Trailing whitespace.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W103",
-        "name":"deprecated property",
-        "description":"The '{a}' property is deprecated.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W104",
-        "name":"ES6",
-        "description":"'{a}' is available in ES6 (use esnext option) or Mozilla JS extensions (use moz).",
-        "severity":"MAJOR",
-        "tags": ["jshint", "es6", "cross-browser"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"W105",
-        "name":"Unexpected {a} in '{b}'",
-        "description":"Unexpected {a} in '{b}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W106",
-        "name":"Identifier case",
-        "description":"Identifier '{a}' is not in camel case.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W107",
-        "name":"Script URL",
-        "description":"Script URL.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W108",
-        "name":"Strings must use doublequote",
-        "description":"Strings must use doublequote.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W109",
-        "name":"Strings must use singlequote",
-        "description":"Strings must use singlequote.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "2min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W110",
-        "name":"Mixed double and single quotes",
-        "description":"Mixed double and single quotes.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "convention"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "READABILITY"
-		}
-    },
-    {
-        "key":"W112",
-        "name":"Unclosed string",
-        "description":"Unclosed string.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug", "pitfall"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W113",
-        "name":"Control character",
-        "description":"Control character in string: {a}.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W114",
-        "name":"Avoid {a}",
-        "description":"Avoid {a}.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W115",
-        "name":"Octal literals",
-        "description":"Octal literals are not allowed in strict mode.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "deprecated", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W116",
-        "name":"Expected '{a}' and instead saw '{b}'",
-        "description":"Expected '{a}' and instead saw '{b}'.",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"W117",
-        "name":"Variable not defined",
-        "description":"'{a}' is not defined.",
-        "severity":"CRITICAL",
-        "tags": ["jshint", "pitfall", "confusing"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"W118",
-        "name":"Mozilla only",
-        "description":"'{a}' is only available in Mozilla JavaScript extensions (use moz option).",
-        "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser", "mozilla"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "SOFTWARE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"W119",
-        "name":"ES6 only",
-        "description":"'{a}' is only available in ES6 (use esnext option).",
-        "severity":"MAJOR",
-        "tags": ["jshint", "cross-browser", "es6"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "LANGUAGE_RELATED_PORTABILITY"
-		}
-    },
-    {
-        "key":"W120",
-        "name":"variable leak",
-        "description":"You might be leaking a variable ({a}) here.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "UNDERSTANDABILITY"
-		}
-    },
-    {
-        "key":"W121",
-        "name":"Extending prototype of native object",
-        "description":"Extending prototype of native object: '{a}'.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bad-practice", "pitfall"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1h"
-			},
-			"sqaleSubCharacteristic": "ARCHITECTURE_RELIABILITY"
-		}
-    },
-    {
-        "key":"W122",
-        "name":"Invalid typeof value",
-        "description":"Invalid typeof value '{a}'",
-        "severity":"MAJOR",
-        "tags": ["jshint", "bug"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "5min"
-			},
-			"sqaleSubCharacteristic": "INSTRUCTION_RELIABILITY"
-		}
-    },
-    {
-        "key":"W123",
-        "name":"already defined in outer scope",
-        "description":"'{a}' is already defined in outer scope.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "scope", "confusing", "pitfall"],
-        "debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "30min"
-			},
-			"sqaleSubCharacteristic": "LOGIC_RELIABILITY"
-		}
-    },
-    {
-        "key":"W124",
-        "name":"generator without yield",
-        "description":"A generator function shall contain a yield statement.",
-        "severity":"MAJOR",
-        "tags": ["jshint", "design", "es6"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "10min"
-			},
-			"sqaleSubCharacteristic": "RELIABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key":"W125",
-        "name":"non-breaking spaces",
-        "description":"This line contains non-breaking spaces: http://jshint.com/doc/options/#nonbsp",
-        "severity":"MAJOR"
-    },
-    {
-        "key":"I001",
-        "name":"Comma warnings",
-        "description":"Comma warnings can be turned off with 'laxcomma'.",
-        "severity":"MINOR"
-    },
-    {
-        "key":"I002",
-        "name":"Reserved words",
-        "description":"Reserved words as properties can be used under the 'es5' option.",
-        "severity":"INFO"
-    },
-    {
-        "key":"I003",
-        "name":"ES5 option",
-        "description":"ES5 option is now set per default",
-        "severity":"MINOR"
-    }
-
-]
+[ {
+  "key" : "E001",
+  "name" : "Bad option",
+  "description" : "Bad option: '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E002",
+  "name" : "Bad option value",
+  "description" : "Bad option value.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E003",
+  "name" : "Expected a JSON value",
+  "description" : "Expected a JSON value.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E004",
+  "name" : "Input is neither a string nor an array of strings",
+  "description" : "Input is neither a string nor an array of strings.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E005",
+  "name" : "Input is empty",
+  "description" : "Input is empty.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E006",
+  "name" : "Unexpected early end of program",
+  "description" : "Unexpected early end of program.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E007",
+  "name" : "Missing use strict",
+  "description" : "Missing \"use strict\" statement.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "be-careful" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "E008",
+  "name" : "strict violation",
+  "description" : "Strict violation.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E009",
+  "name" : "validthis",
+  "description" : "Option 'validthis' can't be used in a global scope.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint" ],
+  "debt" : null
+}, {
+  "key" : "E010",
+  "name" : "with",
+  "description" : "'with' is not allowed in strict mode.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "security", "obsolete", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "SECURITY_FEATURES"
+  }
+}, {
+  "key" : "E011",
+  "name" : "const already declared",
+  "description" : "const '{a}' has already been declared.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E012",
+  "name" : "const undefined",
+  "description" : "const '{a}' is initialized to 'undefined'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E013",
+  "name" : "override a constant",
+  "description" : "Attempting to override '{a}' which is a constant.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E014",
+  "name" : "Regular expression literal",
+  "description" : "A regular expression literal can be confused with '/='.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "E015",
+  "name" : "Unclosed regular expression",
+  "description" : "Unclosed regular expression.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E016",
+  "name" : "Invalid regular expression",
+  "description" : "Invalid regular expression.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E017",
+  "name" : "Unclosed comment",
+  "description" : "Unclosed comment.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "E018",
+  "name" : "Unbegun comment",
+  "description" : "Unbegun comment.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "E019",
+  "name" : "Unmatched",
+  "description" : "Unmatched '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E020",
+  "name" : "Expected match",
+  "description" : "Expected '{a}' to match '{b}' from line {c} and instead saw '{d}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E021",
+  "name" : "Expected",
+  "description" : "Expected '{a}' and instead saw '{b}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "E022",
+  "name" : "Line breaking error",
+  "description" : "Line breaking error '{a}'.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E023",
+  "name" : "Missing",
+  "description" : "Missing '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E024",
+  "name" : "Unexpected '{a}'",
+  "description" : "Unexpected '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E025",
+  "name" : "Missing ':'",
+  "description" : "Missing ':' on a case clause.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E026",
+  "name" : "Missing '}'",
+  "description" : "Missing '}' to match '{' from line {a}.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "E027",
+  "name" : "Missing ']'",
+  "description" : "Missing ']' to match '[' from line {a}.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "E028",
+  "name" : "Illegal comma",
+  "description" : "Illegal comma.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E029",
+  "name" : "Unclosed string",
+  "description" : "Unclosed string.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E030",
+  "name" : "Expected an identifier",
+  "description" : "Expected an identifier and instead saw '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "E031",
+  "name" : "Bad assignment",
+  "description" : "Bad assignment.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E032",
+  "name" : "Expected a small integer or 'false'",
+  "description" : "Expected a small integer or 'false' and instead saw '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "E033",
+  "name" : "Expected an operator",
+  "description" : "Expected an operator and instead saw '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "E034",
+  "name" : "get/set are ES5 features",
+  "description" : "get/set are ES5 features.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "E035",
+  "name" : "Missing property name",
+  "description" : "Missing property name.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E036",
+  "name" : "Expected to see a statement",
+  "description" : "Expected to see a statement and instead saw a block.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "E037",
+  "name" : "Constant not declared",
+  "description" : "Constant {a} was not declared correctly.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E038",
+  "name" : "Variable not declared",
+  "description" : "Variable {a} was not declared correctly.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E039",
+  "name" : "Function declarations are not invocable",
+  "description" : "Function declarations are not invocable. Wrap the whole function invocation in parens.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "E040",
+  "name" : "Each value should have its own case label",
+  "description" : "Each value should have its own case label.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E041",
+  "name" : "Unrecoverable syntax error",
+  "description" : "Unrecoverable syntax error.",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "E042",
+  "name" : "Stopping",
+  "description" : "Stopping.",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1d"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "E043",
+  "name" : "Too many errors",
+  "description" : "Too many errors.",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1d"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "E044",
+  "name" : "var already defined",
+  "description" : "'{a}' is already defined and can't be redefined.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "E045",
+  "name" : "Invalid for each loop",
+  "description" : "Invalid for each loop.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "E046",
+  "name" : "A yield statement out of generator",
+  "description" : "A yield statement shall be within a generator function (with syntax: `function*`)",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "E047",
+  "name" : "A generator function shall contain a yield statement.",
+  "description" : "A generator function shall contain a yield statement.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "design", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "RELIABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "E048",
+  "name" : "Let declaration not directly within block",
+  "description" : "Let declaration not directly within block.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "design" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "E049",
+  "name" : "Wrong name",
+  "description" : "A {a} cannot be named '{b}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E050",
+  "name" : "Yield parenthesis",
+  "description" : "Mozilla requires the yield expression to be parenthesized here.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "E051",
+  "name" : "Parameters order",
+  "description" : "Regular parameters cannot come after default parameters.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "E052",
+  "name" : "Unclosed template literal",
+  "description" : "Unclosed template literal.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W001",
+  "name" : "hasOwnProperty",
+  "description" : "'hasOwnProperty' is a really bad name.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "clumsy", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "W002",
+  "name" : "Overwrite value (IE8-)",
+  "description" : "Value of '{a}' may be overwritten in IE 8 and earlier.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "bad-practice", "ie" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "EXCEPTION_HANDLING"
+  }
+}, {
+  "key" : "W003",
+  "name" : "Use before definition",
+  "description" : "'{a}' was used before it was defined.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W004",
+  "name" : "Already defined",
+  "description" : "'{a}' is already defined.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W005",
+  "name" : "Decimal point ?",
+  "description" : "A dot following a number can be confused with a decimal point.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W006",
+  "name" : "Confusing minuses",
+  "description" : "Confusing minuses.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W007",
+  "name" : "Confusing plusses",
+  "description" : "Confusing plusses.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W008",
+  "name" : "Leading decimal point",
+  "description" : "A leading decimal point can be confused with a dot: '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W009",
+  "name" : "array literal notation",
+  "description" : "The array literal notation [] is preferable.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W010",
+  "name" : "object literal notation",
+  "description" : "The object literal notation {} is preferable.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W011",
+  "name" : "Unexpected space after",
+  "description" : "Unexpected space after '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W012",
+  "name" : "Unexpected space before",
+  "description" : "Unexpected space before '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W013",
+  "name" : "Missing space after ",
+  "description" : "Missing space after '{a}'.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W014",
+  "name" : "Bad line breaking",
+  "description" : "Bad line breaking before '{a}'.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W015",
+  "name" : "Expected correct indentation",
+  "description" : "Expected '{a}' to have an indentation at {b} instead at {c}.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "format" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W016",
+  "name" : "Unexpected use",
+  "description" : "Unexpected use of '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W017",
+  "name" : "Bad operand",
+  "description" : "Bad operand.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W018",
+  "name" : "Confusing use",
+  "description" : "Confusing use of '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W019",
+  "name" : "NaN",
+  "description" : "Use the isNaN function to compare with NaN.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W020",
+  "name" : "Read only",
+  "description" : "Read only.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W021",
+  "name" : "function",
+  "description" : "'{a}' is a function.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W022",
+  "name" : "Exception parameter assignment",
+  "description" : "Do not assign to the exception parameter.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "EXCEPTION_HANDLING"
+  }
+}, {
+  "key" : "W023",
+  "name" : "Expected an identifier in an assignment",
+  "description" : "Expected an identifier in an assignment and instead saw a function invocation.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W024",
+  "name" : "Reserved word",
+  "description" : "Expected an identifier and instead saw '{a}' (a reserved word).",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W025",
+  "name" : "Missing name",
+  "description" : "Missing name in function declaration.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "W026",
+  "name" : "Inner functions",
+  "description" : "Inner functions should be listed at the top of the outer function.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W027",
+  "name" : "Unreachable",
+  "description" : "Unreachable '{a}' after '{b}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W028",
+  "name" : "Label '{a}' on {b} statement",
+  "description" : "Label '{a}' on {b} statement.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W030",
+  "name" : "Expected an assignment or function call",
+  "description" : "Expected an assignment or function call and instead saw an expression.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "suspicious", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W031",
+  "name" : "Do not use 'new'",
+  "description" : "Do not use 'new' for side effects.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W032",
+  "name" : "Unnecessary semicolon",
+  "description" : "Unnecessary semicolon.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W033",
+  "name" : "Missing semicolon",
+  "description" : "Missing semicolon.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W034",
+  "name" : "Unnecessary directive",
+  "description" : "Unnecessary directive \"{a}\".",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "CHANGEABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "W035",
+  "name" : "Empty block",
+  "description" : "Empty block.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W036",
+  "name" : "Unexpected /*member",
+  "description" : "Unexpected /*member '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "suspicious", "typo" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W037",
+  "name" : "statement label",
+  "description" : "'{a}' is a statement label.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W038",
+  "name" : "used out of scope",
+  "description" : "'{a}' used out of scope.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W039",
+  "name" : "not allowed",
+  "description" : "'{a}' is not allowed.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W040",
+  "name" : "Possible strict violation",
+  "description" : "Possible strict violation.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W041",
+  "name" : "compare",
+  "description" : "Use '{a}' to compare with '{b}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W042",
+  "name" : "Avoid EOL escaping",
+  "description" : "Avoid EOL escaping.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W043",
+  "name" : "Bad escaping of EOL",
+  "description" : "Bad escaping of EOL. Use option multistr if needed.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W044",
+  "name" : "Bad or unnecessary escaping",
+  "description" : "Bad or unnecessary escaping.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W045",
+  "name" : "Bad number",
+  "description" : "Bad number '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W046",
+  "name" : "Don't use extra leading zeros",
+  "description" : "Don't use extra leading zeros '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W047",
+  "name" : "trailing decimal point",
+  "description" : "A trailing decimal point can be confused with a dot: '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W048",
+  "name" : "Unexpected control character",
+  "description" : "Unexpected control character in regular expression.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W049",
+  "name" : "Unexpected escaped character",
+  "description" : "Unexpected escaped character '{a}' in regular expression.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W050",
+  "name" : "JavaScript URL",
+  "description" : "JavaScript URL.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W051",
+  "name" : "Variables should not be deleted",
+  "description" : "Variables should not be deleted.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W052",
+  "name" : "Unexpected '{a}'",
+  "description" : "Unexpected '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W053",
+  "name" : "constructor",
+  "description" : "Do not use {a} as a constructor.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W054",
+  "name" : "Function constructor",
+  "description" : "The Function constructor is a form of eval.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "security", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "W055",
+  "name" : "Constructor case",
+  "description" : "A constructor name should start with an uppercase letter.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W056",
+  "name" : "Bad constructor",
+  "description" : "Bad constructor.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W057",
+  "name" : "Weird construction",
+  "description" : "Weird construction. Is 'new' necessary?",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W058",
+  "name" : "Missing '()'",
+  "description" : "Missing '()' invoking a constructor.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W059",
+  "name" : "Avoid arguments",
+  "description" : "Avoid arguments.{a}.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "deprecated" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "W060",
+  "name" : "document.write",
+  "description" : "document.write can be a form of eval.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "security", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "W061",
+  "name" : "eval",
+  "description" : "eval can be harmful.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "security", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "W062",
+  "name" : "Reading",
+  "description" : "Wrap an immediate function invocation in parens to assist the reader in understanding that the expression is the result of a function, and not the function itself.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W063",
+  "name" : "Math is not a function",
+  "description" : "Math is not a function.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W064",
+  "name" : "Missing 'new'",
+  "description" : "Missing 'new' prefix when invoking a constructor.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W065",
+  "name" : "Missing radix parameter",
+  "description" : "Missing radix parameter.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W066",
+  "name" : "Implied eval",
+  "description" : "Implied eval. Consider passing a function instead of a string.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "security", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "W067",
+  "name" : "Bad invocation",
+  "description" : "Bad invocation.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W068",
+  "name" : "non-IIFE function literals",
+  "description" : "Wrapping non-IIFE function literals in parens is unnecessary.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W069",
+  "name" : "dot notation",
+  "description" : "['{a}'] is better written in dot notation.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W070",
+  "name" : "Extra comma",
+  "description" : "Extra comma. (it breaks older versions of IE)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "pitfall", "ie" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "W071",
+  "name" : "too many statements",
+  "description" : "This function has too many statements. ({a})",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W072",
+  "name" : "too many parameters",
+  "description" : "This function has too many parameters. ({a})",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W073",
+  "name" : "too many nested blocks",
+  "description" : "Blocks are nested too deeply. ({a})",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W074",
+  "name" : "cyclomatic complexity",
+  "description" : "This function's cyclomatic complexity is too high. ({a})",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W075",
+  "name" : "Duplicate key",
+  "description" : "Duplicate key '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W076",
+  "name" : "Unexpected parameter",
+  "description" : "Unexpected parameter '{a}' in get {b} function.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W077",
+  "name" : "Expected a single parameter",
+  "description" : "Expected a single parameter in set {a} function.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W078",
+  "name" : "Setter/getter",
+  "description" : "Setter is defined without getter.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "RELIABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "W079",
+  "name" : "Redefinition",
+  "description" : "Redefinition of '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "security", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W080",
+  "name" : "initialization to undefined",
+  "description" : "It's not necessary to initialize '{a}' to 'undefined'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "useless", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W081",
+  "name" : "Too many var statements.",
+  "description" : "Too many var statements.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W082",
+  "name" : "Function declarations",
+  "description" : "Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W083",
+  "name" : "functions within a loop",
+  "description" : "Don't make functions within a loop.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "bad-practice", "performance", "scope" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W084",
+  "name" : "Expected a conditional expression",
+  "description" : "Expected a conditional expression and instead saw an assignment.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W085",
+  "name" : "Don't use 'with'",
+  "description" : "Don't use 'with'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "performance", "cross-browser", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W086",
+  "name" : "Expected a 'break'",
+  "description" : "Expected a 'break' statement before '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W087",
+  "name" : "debugger",
+  "description" : "Forgotten 'debugger' statement?",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W088",
+  "name" : "global 'for' variable",
+  "description" : "Creating global 'for' variable. Should be 'for (var {a} ...'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W089",
+  "name" : "for in body",
+  "description" : "The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W090",
+  "name" : "not a statement label",
+  "description" : "'{a}' is not a statement label.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W091",
+  "name" : "out of scope",
+  "description" : "'{a}' is out of scope.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "scope" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W093",
+  "name" : "return a conditional ?",
+  "description" : "Did you mean to return a conditional instead of an assignment?",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "confusing", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W094",
+  "name" : "Unexpected comma",
+  "description" : "Unexpected comma.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W095",
+  "name" : "Expected a string",
+  "description" : "Expected a string and instead saw {a}.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W096",
+  "name" : "key may produce unexpected results",
+  "description" : "The '{a}' key may produce unexpected results.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W097",
+  "name" : "function form of \"use strict\"",
+  "description" : "Use the function form of \"use strict\".",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "W098",
+  "name" : "Variable never used",
+  "description" : "'{a}' is defined but never used.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "jshint", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W099",
+  "name" : "Mixed spaces and tabs.",
+  "description" : "Mixed spaces and tabs.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W100",
+  "name" : "character silently deleted",
+  "description" : "This character may get silently deleted by one or more browsers.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W101",
+  "name" : "Line is too long",
+  "description" : "Line is too long.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W102",
+  "name" : "Trailing whitespace.",
+  "description" : "Trailing whitespace.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W103",
+  "name" : "deprecated property",
+  "description" : "The '{a}' property is deprecated.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W104",
+  "name" : "ES6",
+  "description" : "'{a}' is available in ES6 (use esnext option) or Mozilla JS extensions (use moz).",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "es6", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "W105",
+  "name" : "Unexpected {a} in '{b}'",
+  "description" : "Unexpected {a} in '{b}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W106",
+  "name" : "Identifier case",
+  "description" : "Identifier '{a}' is not in camel case.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W107",
+  "name" : "Script URL",
+  "description" : "Script URL.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W108",
+  "name" : "Strings must use doublequote",
+  "description" : "Strings must use doublequote.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W109",
+  "name" : "Strings must use singlequote",
+  "description" : "Strings must use singlequote.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W110",
+  "name" : "Mixed double and single quotes",
+  "description" : "Mixed double and single quotes.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W112",
+  "name" : "Unclosed string",
+  "description" : "Unclosed string.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W113",
+  "name" : "Control character",
+  "description" : "Control character in string: {a}.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W114",
+  "name" : "Avoid {a}",
+  "description" : "Avoid {a}.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W115",
+  "name" : "Octal literals",
+  "description" : "Octal literals are not allowed in strict mode.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "deprecated", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W116",
+  "name" : "Expected '{a}' and instead saw '{b}'",
+  "description" : "Expected '{a}' and instead saw '{b}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W117",
+  "name" : "Variable not defined",
+  "description" : "'{a}' is not defined.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "W118",
+  "name" : "Mozilla only",
+  "description" : "'{a}' is only available in Mozilla JavaScript extensions (use moz option).",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "mozilla" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "W119",
+  "name" : "ES6 only",
+  "description" : "'{a}' is only available in ES6 (use esnext option).",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "cross-browser", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "W120",
+  "name" : "variable leak",
+  "description" : "You might be leaking a variable ({a}) here.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "W121",
+  "name" : "Extending prototype of native object",
+  "description" : "Extending prototype of native object: '{a}'.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "W122",
+  "name" : "Invalid typeof value",
+  "description" : "Invalid typeof value '{a}'",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "W123",
+  "name" : "already defined in outer scope",
+  "description" : "'{a}' is already defined in outer scope.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "scope", "confusing", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "W124",
+  "name" : "generator without yield",
+  "description" : "A generator function shall contain a yield statement.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "design", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "RELIABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "W125",
+  "name" : "non-breaking spaces",
+  "description" : "This line contains non-breaking spaces: http://jshint.com/doc/options/#nonbsp",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "jshint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "I001",
+  "name" : "Comma warnings",
+  "description" : "Comma warnings can be turned off with 'laxcomma'.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "I002",
+  "name" : "Reserved words",
+  "description" : "Reserved words as properties can be used under the 'es5' option.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "jshint", "es5" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "I003",
+  "name" : "ES5 option",
+  "description" : "ES5 option is now set per default",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "jshint", "es5" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "E057",
+  "name" : "Invalid meta property: '{a}.{b}'.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E059",
+  "name" : "Incompatible values for the '{a}' and '{b}' linting options.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W132",
+  "name" : "`var` declarations are forbidden. Use `let` or `const` instead.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W136",
+  "name" : "'{a}' must be in function scope.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W133",
+  "name" : "Invalid for-{a} loop left-hand-side: {b}.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E056",
+  "name" : "'{a}' was used before it was declared, which is illegal for '{b}' variables.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E054",
+  "name" : "Class properties must be methods. Expected '(' but instead saw '{a}'.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W127",
+  "name" : "Unexpected use of a comma operator.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W137",
+  "name" : "Empty destructuring.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W138",
+  "name" : "Parameters order",
+  "description" : "Regular parameters should not come after default parameters.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "jshint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "W131",
+  "name" : "Invalid parameter after rest parameter.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W126",
+  "name" : "Unnecessary grouping operator.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W135",
+  "name" : "{a} may not be supported by non-browser environments.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E053",
+  "name" : "Export declaration must be in global scope.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W134",
+  "name" : "The '{a}' option is only available when linting ECMAScript {b} code.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W129",
+  "name" : "'{a}' is defined in a future version of JavaScript. Use a ",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "E055",
+  "name" : "The '{a}' option cannot be set after any executable code.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W128",
+  "name" : "Empty array elements require elision=true.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "W130",
+  "name" : "Invalid element after rest element.",
+  "description" : null,
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+} ]
