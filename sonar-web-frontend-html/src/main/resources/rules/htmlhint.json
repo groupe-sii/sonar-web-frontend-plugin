@@ -144,7 +144,7 @@
   "debt" : null
 }, {
   "key" : "style-disabled",
-  "name" : "Style tag",
+  "name" : "Style tag disabled",
   "description" : "Style tag can not be use.",
   "severity" : "MINOR",
   "status" : null,
@@ -168,24 +168,24 @@
   "debt" : null
 }, {
   "key" : "tagname-lowercase",
-  "name" : "Tag case",
-  "description" : "Tagname must be lowercase.",
+  "name" : "Tagname lowercase",
+  "description" : "Tagname must be lowercase",
   "severity" : "MINOR",
   "status" : null,
   "tags" : null,
   "debt" : null
 }, {
   "key" : "title-require",
-  "name" : "title require",
-  "description" : "<p><code>&lt;title&gt;</code> must be present in <code>&lt;head&gt;</code> tag.</p>\r\n<p>Level: <code>error</code></p>\r\n<p>good:</p>\r\n<pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;\n</code></pre>\r\n<p>bad:</p>\r\n<pre><code>&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;\n&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;\n&lt;html&gt;&lt;title&gt;&lt;/title&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "name" : "title required",
+  "description" : "title must be present in head",
   "severity" : null,
   "status" : null,
   "tags" : null,
   "debt" : null
 }, {
   "key" : "alt-require",
-  "name" : "alt require",
-  "description" : "<p>Alt of img must be present and alt of area[href] and input[type=image] must be set value.</p>\r\n<p>Level: <code>warning</code></p>\r\n<p>good:</p>\r\n<pre><code>&lt;img src=\"test.png\" alt=\"test\"&gt;\n&lt;input type=\"image\" alt=\"test\"&gt;\n&lt;area shape=\"circle\" coords=\"180,139,14\" href =\"test.html\" alt=\"test\" /&gt;\n</code></pre>\r\n<p>bad:</p>\r\n<pre><code>&lt;img src=\"test.png\"&gt;\n&lt;input type=\"image\"&gt;\n&lt;area shape=\"circle\" coords=\"180,139,14\" href =\"test.html\" /&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "name" : "alt required",
+  "description" : "Alt of img must be present and alt of area[href] and input[type=image] must be set value",
   "severity" : null,
   "status" : null,
   "tags" : null,
@@ -193,7 +193,7 @@
 }, {
   "key" : "inline-style-disabled",
   "name" : "inline style disabled",
-  "description" : "<p>Inline style cannot be use.</p>\r\n<p>Level: <code>warning</code></p>\r\n<p>bad:</p>\r\n<pre><code>&lt;div style=\"color:red\"&gt;&lt;/div&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "description" : "Inline style cannot be used",
   "severity" : null,
   "status" : null,
   "tags" : null,
@@ -201,7 +201,7 @@
 }, {
   "key" : "inline-script-disabled",
   "name" : "inline script disabled",
-  "description" : "<p>Inline script cannot be use.</p>\r\n<p>Level: <code>warning</code></p>\r\n<p>bad:</p>\r\n<pre><code>&lt;img src=\"test.gif\" onclick=\"alert(1);\"&gt;\n&lt;img src=\"javascript:alert(1)\"&gt;\n&lt;a href=\"javascript:alert(1)\"&gt;test1&lt;/a&gt;\n</code></pre>\r\n<p>config value:</p>\r\n<ol>\n<li>true: enable rule</li>\n<li>false: disable rule</li>\n</ol>",
+  "description" : "Inline script cannot be used",
   "severity" : null,
   "status" : null,
   "tags" : null,

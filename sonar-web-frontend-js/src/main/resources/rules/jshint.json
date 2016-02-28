@@ -48,8 +48,8 @@
   "debt" : null
 }, {
   "key" : "E007",
-  "name" : "Missing use strict",
-  "description" : "Missing \"use strict\" statement.",
+  "name" : "Missing 'use strict' statement",
+  "description" : "Missing 'use strict' statement",
   "severity" : "MINOR",
   "status" : null,
   "tags" : [ "jshint", "convention", "be-careful" ],
@@ -70,16 +70,16 @@
   "debt" : null
 }, {
   "key" : "E009",
-  "name" : "validthis",
-  "description" : "Option 'validthis' can't be used in a global scope.",
+  "name" : "Option 'validthis' can't be used in a global scope",
+  "description" : "Option 'validthis' can't be used in a global scope",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint" ],
   "debt" : null
 }, {
   "key" : "E010",
-  "name" : "with",
-  "description" : "'with' is not allowed in strict mode.",
+  "name" : "'with' is not allowed in strict mode",
+  "description" : "'with' is not allowed in strict mode",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "security", "obsolete", "performance" ],
@@ -92,8 +92,8 @@
   }
 }, {
   "key" : "E011",
-  "name" : "const already declared",
-  "description" : "const '{a}' has already been declared.",
+  "name" : "const '{a}' has already been declared",
+  "description" : "const '{a}' has already been declared",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -120,8 +120,8 @@
   }
 }, {
   "key" : "E013",
-  "name" : "override a constant",
-  "description" : "Attempting to override '{a}' which is a constant.",
+  "name" : "Attempting to override '{a}' which is a constant",
+  "description" : "Attempting to override '{a}' which is a constant",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -134,8 +134,8 @@
   }
 }, {
   "key" : "E014",
-  "name" : "Regular expression literal",
-  "description" : "A regular expression literal can be confused with '/='.",
+  "name" : "A regular expression literal can be confused with '/='",
+  "description" : "A regular expression literal can be confused with '/='",
   "severity" : "MINOR",
   "status" : null,
   "tags" : [ "jshint", "convention", "pitfall" ],
@@ -149,7 +149,7 @@
 }, {
   "key" : "E015",
   "name" : "Unclosed regular expression",
-  "description" : "Unclosed regular expression.",
+  "description" : "Unclosed regular expression",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -177,7 +177,7 @@
 }, {
   "key" : "E017",
   "name" : "Unclosed comment",
-  "description" : "Unclosed comment.",
+  "description" : "Unclosed comment",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug", "pitfall" ],
@@ -309,7 +309,7 @@
 }, {
   "key" : "E029",
   "name" : "Unclosed string",
-  "description" : "Unclosed string.",
+  "description" : "Unclosed string",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug", "pitfall" ],
@@ -337,7 +337,7 @@
 }, {
   "key" : "E031",
   "name" : "Bad assignment",
-  "description" : "Bad assignment.",
+  "description" : "Bad assignment",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -379,7 +379,7 @@
 }, {
   "key" : "E034",
   "name" : "get/set are ES5 features",
-  "description" : "get/set are ES5 features.",
+  "description" : "get/set are ES5 features",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "cross-browser" ],
@@ -442,8 +442,8 @@
   }
 }, {
   "key" : "E039",
-  "name" : "Function declarations are not invocable",
-  "description" : "Function declarations are not invocable. Wrap the whole function invocation in parens.",
+  "name" : "Function statements are not invocable. Wrap the whole function invocation in parens",
+  "description" : "Function statements are not invocable. Wrap the whole function invocation in parens",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -478,8 +478,8 @@
   }
 }, {
   "key" : "E042",
-  "name" : "Stopping",
-  "description" : "Stopping.",
+  "name" : "Stopping. ({a}% scanned)",
+  "description" : "Stopping. ({a}% scanned)",
   "severity" : "BLOCKER",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -618,8 +618,8 @@
   }
 }, {
   "key" : "E052",
-  "name" : "Unclosed template literal",
-  "description" : "Unclosed template literal.",
+  "name" : "Unclosed mega literal",
+  "description" : "Unclosed mega literal",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "bug", "pitfall" ],
@@ -632,8 +632,8 @@
   }
 }, {
   "key" : "W001",
-  "name" : "hasOwnProperty",
-  "description" : "'hasOwnProperty' is a really bad name.",
+  "name" : "'hasOwnProperty' is a really bad name",
+  "description" : "'hasOwnProperty' is a really bad name",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "clumsy", "bad-practice" ],
@@ -646,8 +646,8 @@
   }
 }, {
   "key" : "W002",
-  "name" : "Overwrite value (IE8-)",
-  "description" : "Value of '{a}' may be overwritten in IE 8 and earlier.",
+  "name" : "Value of '{a}' may be overwritten in IE8 and earlier",
+  "description" : "Value of '{a}' may be overwritten in IE8 and earlier",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "cross-browser", "bad-practice", "ie" ],
@@ -674,8 +674,8 @@
   }
 }, {
   "key" : "W004",
-  "name" : "Already defined",
-  "description" : "'{a}' is already defined.",
+  "name" : "{a} is already defined",
+  "description" : "{a} is already defined",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "pitfall" ],
@@ -688,8 +688,8 @@
   }
 }, {
   "key" : "W005",
-  "name" : "Decimal point ?",
-  "description" : "A dot following a number can be confused with a decimal point.",
+  "name" : "A dot following a number can be confused with a decimal point",
+  "description" : "A dot following a number can be confused with a decimal point",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing", "suspicious" ],
@@ -703,7 +703,7 @@
 }, {
   "key" : "W006",
   "name" : "Confusing minuses",
-  "description" : "Confusing minuses.",
+  "description" : "Confusing minuses",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing", "suspicious" ],
@@ -716,8 +716,8 @@
   }
 }, {
   "key" : "W007",
-  "name" : "Confusing plusses",
-  "description" : "Confusing plusses.",
+  "name" : "Confusing pluses",
+  "description" : "Confusing pluses",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing", "suspicious" ],
@@ -730,8 +730,8 @@
   }
 }, {
   "key" : "W008",
-  "name" : "Leading decimal point",
-  "description" : "A leading decimal point can be confused with a dot: '{a}'.",
+  "name" : "A leading decimal point can be confused with a dot: '{a}'",
+  "description" : "A leading decimal point can be confused with a dot: '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing", "suspicious" ],
@@ -744,8 +744,8 @@
   }
 }, {
   "key" : "W009",
-  "name" : "array literal notation",
-  "description" : "The array literal notation [] is preferable.",
+  "name" : "The array literal notation [] is preferrable",
+  "description" : "The array literal notation [] is preferrable",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -758,8 +758,8 @@
   }
 }, {
   "key" : "W010",
-  "name" : "object literal notation",
-  "description" : "The object literal notation {} is preferable.",
+  "name" : "The object literal notation {} is preferrable",
+  "description" : "The object literal notation {} is preferrable",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -842,8 +842,8 @@
   "debt" : null
 }, {
   "key" : "W019",
-  "name" : "NaN",
-  "description" : "Use the isNaN function to compare with NaN.",
+  "name" : "Use the isNaN function to compare with NaN",
+  "description" : "Use the isNaN function to compare with NaN",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "pitfall", "bad-practice" ],
@@ -857,7 +857,7 @@
 }, {
   "key" : "W020",
   "name" : "Read only",
-  "description" : "Read only.",
+  "description" : "Read only",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "pitfall", "bad-practice" ],
@@ -878,8 +878,8 @@
   "debt" : null
 }, {
   "key" : "W022",
-  "name" : "Exception parameter assignment",
-  "description" : "Do not assign to the exception parameter.",
+  "name" : "Do not assign to the exception parameter",
+  "description" : "Do not assign to the exception parameter",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing", "bad-practice" ],
@@ -906,8 +906,8 @@
   }
 }, {
   "key" : "W024",
-  "name" : "Reserved word",
-  "description" : "Expected an identifier and instead saw '{a}' (a reserved word).",
+  "name" : "Expected an identifier and instead saw '{a}' (a reserved word)",
+  "description" : "Expected an identifier and instead saw '{a}' (a reserved word)",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -920,8 +920,8 @@
   }
 }, {
   "key" : "W025",
-  "name" : "Missing name",
-  "description" : "Missing name in function declaration.",
+  "name" : "Missing name in function statement",
+  "description" : "Missing name in function statement",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -970,8 +970,8 @@
   "debt" : null
 }, {
   "key" : "W030",
-  "name" : "Expected an assignment or function call",
-  "description" : "Expected an assignment or function call and instead saw an expression.",
+  "name" : "Expected an assignment or function call and instead saw an expression",
+  "description" : "Expected an assignment or function call and instead saw an expression",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "suspicious", "pitfall" ],
@@ -984,8 +984,8 @@
   }
 }, {
   "key" : "W031",
-  "name" : "Do not use 'new'",
-  "description" : "Do not use 'new' for side effects.",
+  "name" : "Do not use 'new' for side effects",
+  "description" : "Do not use 'new' for side effects",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention", "pitfall" ],
@@ -999,7 +999,7 @@
 }, {
   "key" : "W032",
   "name" : "Unnecessary semicolon",
-  "description" : "Unnecessary semicolon.",
+  "description" : "Unnecessary semicolon",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1026,8 +1026,8 @@
   }
 }, {
   "key" : "W034",
-  "name" : "Unnecessary directive",
-  "description" : "Unnecessary directive \"{a}\".",
+  "name" : "Unnecessary 'use strict'",
+  "description" : "Unnecessary 'use strict'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1054,8 +1054,8 @@
   }
 }, {
   "key" : "W036",
-  "name" : "Unexpected /*member",
-  "description" : "Unexpected /*member '{a}'.",
+  "name" : "Unregistered property name '{a}'",
+  "description" : "Unregistered property name '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "suspicious", "typo" ],
@@ -1068,8 +1068,8 @@
   }
 }, {
   "key" : "W037",
-  "name" : "statement label",
-  "description" : "'{a}' is a statement label.",
+  "name" : "{a} is a statement label",
+  "description" : "{a} is a statement label",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "pitfall", "confusing" ],
@@ -1082,8 +1082,8 @@
   }
 }, {
   "key" : "W038",
-  "name" : "used out of scope",
-  "description" : "'{a}' used out of scope.",
+  "name" : "{a} used out of scope",
+  "description" : "{a} used out of scope",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing" ],
@@ -1128,8 +1128,8 @@
   "debt" : null
 }, {
   "key" : "W043",
-  "name" : "Bad escaping of EOL",
-  "description" : "Bad escaping of EOL. Use option multistr if needed.",
+  "name" : "Bad escapement of EOL. Use option multistr if needed",
+  "description" : "Bad escapement of EOL. Use option multistr if needed",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "cross-browser" ],
@@ -1166,8 +1166,8 @@
   "debt" : null
 }, {
   "key" : "W047",
-  "name" : "trailing decimal point",
-  "description" : "A trailing decimal point can be confused with a dot: '{a}'.",
+  "name" : "A trailing decimal point can be confused with a dot: '{a}'",
+  "description" : "A trailing decimal point can be confused with a dot: '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "confusing" ],
@@ -1204,8 +1204,8 @@
   "debt" : null
 }, {
   "key" : "W051",
-  "name" : "Variables should not be deleted",
-  "description" : "Variables should not be deleted.",
+  "name" : "Only properties should be deleted",
+  "description" : "Only properties should be deleted",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "bug" ],
@@ -1226,8 +1226,8 @@
   "debt" : null
 }, {
   "key" : "W053",
-  "name" : "constructor",
-  "description" : "Do not use {a} as a constructor.",
+  "name" : "Do not use {a} as a constructor",
+  "description" : "Do not use {a} as a constructor",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "pitfall" ],
@@ -1240,8 +1240,8 @@
   }
 }, {
   "key" : "W054",
-  "name" : "Function constructor",
-  "description" : "The Function constructor is a form of eval.",
+  "name" : "The Function constructor is eval",
+  "description" : "The Function constructor is eval",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "security", "performance" ],
@@ -1254,8 +1254,8 @@
   }
 }, {
   "key" : "W055",
-  "name" : "Constructor case",
-  "description" : "A constructor name should start with an uppercase letter.",
+  "name" : "A constructor name should start with an uppercase letter",
+  "description" : "A constructor name should start with an uppercase letter",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1269,7 +1269,7 @@
 }, {
   "key" : "W056",
   "name" : "Bad constructor",
-  "description" : "Bad constructor.",
+  "description" : "Bad constructor",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -1290,8 +1290,8 @@
   "debt" : null
 }, {
   "key" : "W058",
-  "name" : "Missing '()'",
-  "description" : "Missing '()' invoking a constructor.",
+  "name" : "Missing '()' invoking a constructor",
+  "description" : "Missing '()' invoking a constructor",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention", "confusing" ],
@@ -1304,8 +1304,8 @@
   }
 }, {
   "key" : "W059",
-  "name" : "Avoid arguments",
-  "description" : "Avoid arguments.{a}.",
+  "name" : "Avoid arguments.{a}",
+  "description" : "Avoid arguments.{a}",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "deprecated" ],
@@ -1332,8 +1332,8 @@
   }
 }, {
   "key" : "W061",
-  "name" : "eval",
-  "description" : "eval can be harmful.",
+  "name" : "eval is evil",
+  "description" : "eval is evil",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "security", "performance" ],
@@ -1346,8 +1346,8 @@
   }
 }, {
   "key" : "W062",
-  "name" : "Reading",
-  "description" : "Wrap an immediate function invocation in parens to assist the reader in understanding that the expression is the result of a function, and not the function itself.",
+  "name" : "Wrap an immediate function invocation in parentheses",
+  "description" : "Wrap an immediate function invocation in parentheses",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
@@ -1360,8 +1360,8 @@
   }
 }, {
   "key" : "W063",
-  "name" : "Math is not a function",
-  "description" : "Math is not a function.",
+  "name" : "'{a}' is not a function",
+  "description" : "'{a}' is not a function",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -1383,7 +1383,7 @@
 }, {
   "key" : "W065",
   "name" : "Missing radix parameter",
-  "description" : "Missing radix parameter.",
+  "description" : "Missing radix parameter",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "pitfall" ],
@@ -1396,8 +1396,8 @@
   }
 }, {
   "key" : "W066",
-  "name" : "Implied eval",
-  "description" : "Implied eval. Consider passing a function instead of a string.",
+  "name" : "Implied eval is evil. Pass a function instead of a string",
+  "description" : "Implied eval is evil. Pass a function instead of a string",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "security", "performance" ],
@@ -1424,8 +1424,8 @@
   }
 }, {
   "key" : "W068",
-  "name" : "non-IIFE function literals",
-  "description" : "Wrapping non-IIFE function literals in parens is unnecessary.",
+  "name" : "Do not wrap function literals in parens unless they are to be immediately invoked",
+  "description" : "Do not wrap function literals in parens unless they are to be immediately invoked",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
@@ -1438,8 +1438,8 @@
   }
 }, {
   "key" : "W069",
-  "name" : "dot notation",
-  "description" : "['{a}'] is better written in dot notation.",
+  "name" : "['{a}'] is better written in dot notation",
+  "description" : "['{a}'] is better written in dot notation",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1452,7 +1452,7 @@
   }
 }, {
   "key" : "W070",
-  "name" : "Extra comma",
+  "name" : "Extra comma. (it breaks older versions of IE)",
   "description" : "Extra comma. (it breaks older versions of IE)",
   "severity" : "MAJOR",
   "status" : null,
@@ -1480,7 +1480,7 @@
   }
 }, {
   "key" : "W072",
-  "name" : "too many parameters",
+  "name" : "This function has too many parameters. ({a})",
   "description" : "This function has too many parameters. ({a})",
   "severity" : "MAJOR",
   "status" : null,
@@ -1522,8 +1522,8 @@
   }
 }, {
   "key" : "W075",
-  "name" : "Duplicate key",
-  "description" : "Duplicate key '{a}'.",
+  "name" : "Duplicate key '{a}'",
+  "description" : "Duplicate key '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug", "confusing" ],
@@ -1536,8 +1536,8 @@
   }
 }, {
   "key" : "W076",
-  "name" : "Unexpected parameter",
-  "description" : "Unexpected parameter '{a}' in get {b} function.",
+  "name" : "Unexpected parameter '{a}' in get {b} function",
+  "description" : "Unexpected parameter '{a}' in get {b} function",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "confusing" ],
@@ -1578,8 +1578,8 @@
   }
 }, {
   "key" : "W079",
-  "name" : "Redefinition",
-  "description" : "Redefinition of '{a}'.",
+  "name" : "Redefinition of '{a}'",
+  "description" : "Redefinition of '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug", "security", "confusing" ],
@@ -1592,8 +1592,8 @@
   }
 }, {
   "key" : "W080",
-  "name" : "initialization to undefined",
-  "description" : "It's not necessary to initialize '{a}' to 'undefined'.",
+  "name" : "It is not necessary to initialize '{a}' to 'undefined'",
+  "description" : "It is not necessary to initialize '{a}' to 'undefined'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "useless", "dead-code" ],
@@ -1606,8 +1606,8 @@
   }
 }, {
   "key" : "W081",
-  "name" : "Too many var statements.",
-  "description" : "Too many var statements.",
+  "name" : "Combine this with the previous 'var' statement",
+  "description" : "Combine this with the previous 'var' statement",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1620,8 +1620,8 @@
   }
 }, {
   "key" : "W082",
-  "name" : "Function declarations",
-  "description" : "Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.",
+  "name" : "Function statements should not be placed in blocks",
+  "description" : "Function statements should not be placed in blocks",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "cross-browser", "pitfall", "bad-practice" ],
@@ -1634,8 +1634,8 @@
   }
 }, {
   "key" : "W083",
-  "name" : "functions within a loop",
-  "description" : "Don't make functions within a loop.",
+  "name" : "Don't make functions within a loop",
+  "description" : "Don't make functions within a loop",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug", "bad-practice", "performance", "scope" ],
@@ -1648,8 +1648,8 @@
   }
 }, {
   "key" : "W084",
-  "name" : "Expected a conditional expression",
-  "description" : "Expected a conditional expression and instead saw an assignment.",
+  "name" : "Unexpected assignment expression",
+  "description" : "Unexpected assignment expression",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "pitfall" ],
@@ -1662,8 +1662,8 @@
   }
 }, {
   "key" : "W085",
-  "name" : "Don't use 'with'",
-  "description" : "Don't use 'with'.",
+  "name" : "Unexpected 'with'",
+  "description" : "Unexpected 'with'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "performance", "cross-browser", "confusing" ],
@@ -1690,16 +1690,16 @@
   }
 }, {
   "key" : "W087",
-  "name" : "debugger",
-  "description" : "Forgotten 'debugger' statement?",
+  "name" : "All 'debugger' statements should be removed",
+  "description" : "All 'debugger' statements should be removed",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : null,
   "debt" : null
 }, {
   "key" : "W088",
-  "name" : "global 'for' variable",
-  "description" : "Creating global 'for' variable. Should be 'for (var {a} ...'.",
+  "name" : "Bad for-in variable '{a}'",
+  "description" : "Bad for-in variable '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug", "pitfall", "bad-practice" ],
@@ -1712,8 +1712,8 @@
   }
 }, {
   "key" : "W089",
-  "name" : "for in body",
-  "description" : "The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.",
+  "name" : "The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype",
+  "description" : "The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "pitfall", "bad-practice" ],
@@ -1726,8 +1726,8 @@
   }
 }, {
   "key" : "W090",
-  "name" : "not a statement label",
-  "description" : "'{a}' is not a statement label.",
+  "name" : "'{a}' is not a label",
+  "description" : "'{a}' is not a label",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bug" ],
@@ -1754,7 +1754,7 @@
   }
 }, {
   "key" : "W093",
-  "name" : "return a conditional ?",
+  "name" : "Did you mean to return a conditional instead of an assignment?",
   "description" : "Did you mean to return a conditional instead of an assignment?",
   "severity" : "MAJOR",
   "status" : null,
@@ -1792,8 +1792,8 @@
   "debt" : null
 }, {
   "key" : "W097",
-  "name" : "function form of \"use strict\"",
-  "description" : "Use the function form of \"use strict\".",
+  "name" : "Use the function form of 'use strict'",
+  "description" : "Use the function form of 'use strict'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1806,8 +1806,8 @@
   }
 }, {
   "key" : "W098",
-  "name" : "Variable never used",
-  "description" : "'{a}' is defined but never used.",
+  "name" : "Unused '{a}'",
+  "description" : "Unused '{a}'",
   "severity" : "MINOR",
   "status" : null,
   "tags" : [ "jshint", "dead-code" ],
@@ -1892,8 +1892,8 @@
   }
 }, {
   "key" : "W105",
-  "name" : "Unexpected {a} in '{b}'",
-  "description" : "Unexpected {a} in '{b}'.",
+  "name" : "Unexpected dangling '_' in '{a}'",
+  "description" : "Unexpected dangling '_' in '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1928,8 +1928,8 @@
   "debt" : null
 }, {
   "key" : "W108",
-  "name" : "Strings must use doublequote",
-  "description" : "Strings must use doublequote.",
+  "name" : "Strings must use {a}quote",
+  "description" : "Strings must use {a}quote",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -1957,7 +1957,7 @@
 }, {
   "key" : "W110",
   "name" : "Mixed double and single quotes",
-  "description" : "Mixed double and single quotes.",
+  "description" : "Mixed double and single quotes",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "convention" ],
@@ -2000,8 +2000,8 @@
   "debt" : null
 }, {
   "key" : "W115",
-  "name" : "Octal literals",
-  "description" : "Octal literals are not allowed in strict mode.",
+  "name" : "Don't use octal: '{a}'. Use '\\u...' instead",
+  "description" : "Don't use octal: '{a}'. Use '\\u...' instead",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "deprecated", "bug" ],
@@ -2022,8 +2022,8 @@
   "debt" : null
 }, {
   "key" : "W117",
-  "name" : "Variable not defined",
-  "description" : "'{a}' is not defined.",
+  "name" : "'{a}' was used before it was defined",
+  "description" : "'{a}' was used before it was defined",
   "severity" : "CRITICAL",
   "status" : null,
   "tags" : [ "jshint", "pitfall", "confusing" ],
@@ -2064,8 +2064,8 @@
   }
 }, {
   "key" : "W120",
-  "name" : "variable leak",
-  "description" : "You might be leaking a variable ({a}) here.",
+  "name" : "Variable {a} was not declared correctly",
+  "description" : "Variable {a} was not declared correctly",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice" ],
@@ -2078,8 +2078,8 @@
   }
 }, {
   "key" : "W121",
-  "name" : "Extending prototype of native object",
-  "description" : "Extending prototype of native object: '{a}'.",
+  "name" : "Extending prototype of native object: '{a}'",
+  "description" : "Extending prototype of native object: '{a}'",
   "severity" : "MAJOR",
   "status" : null,
   "tags" : [ "jshint", "bad-practice", "pitfall" ],
@@ -2092,7 +2092,7 @@
   }
 }, {
   "key" : "W122",
-  "name" : "Invalid typeof value",
+  "name" : "Invalid typeof value '{a}'",
   "description" : "Invalid typeof value '{a}'",
   "severity" : "MAJOR",
   "status" : null,
@@ -2170,7 +2170,7 @@
   }
 }, {
   "key" : "I003",
-  "name" : "ES5 option",
+  "name" : "ES5 option is now set per default",
   "description" : "ES5 option is now set per default",
   "severity" : "INFO",
   "status" : null,

@@ -1,6 +1,6 @@
 [ {
   "key" : "ng_angularelement",
-  "name" : "angularelement",
+  "name" : "use angular.element instead of $ or jQuery",
   "description" : "use angular.element instead of $ or jQuery",
   "severity" : "MAJOR",
   "status" : null,
@@ -8,7 +8,7 @@
   "debt" : null
 }, {
   "key" : "ng_controller_as",
-  "name" : "controller-as",
+  "name" : "disallow assignments to $scope in controllers (y031)",
   "description" : "disallow assignments to $scope in controllers",
   "severity" : "CRITICAL",
   "status" : null,
@@ -16,7 +16,7 @@
   "debt" : null
 }, {
   "key" : "ng_controller_as_route",
-  "name" : "controller-as-route",
+  "name" : "require the use of controllerAs in routes or states (y031)",
   "description" : "require the use of controllerAs in routes or states",
   "severity" : "CRITICAL",
   "status" : null,
@@ -24,7 +24,7 @@
   "debt" : null
 }, {
   "key" : "ng_controller_as_vm",
-  "name" : "controller-as-vm",
+  "name" : "require and specify a capture variable for this in controllers (y032)",
   "description" : "require and specify a capture variable for this in controllers",
   "severity" : "CRITICAL",
   "status" : null,
@@ -32,7 +32,7 @@
   "debt" : null
 }, {
   "key" : "ng_controller_name",
-  "name" : "controller-name",
+  "name" : "require and specify a prefix for all controller names (y123, y124)",
   "description" : "require and specify a prefix for all controller names",
   "severity" : "CRITICAL",
   "status" : null,
@@ -40,7 +40,7 @@
   "debt" : null
 }, {
   "key" : "ng_deferred",
-  "name" : "deferred",
+  "name" : "use $q(function(resolve, reject){}) instead of $q.deferred",
   "description" : "use $q(function(resolve, reject){}) instead of $q.deferred",
   "severity" : "MINOR",
   "status" : null,
@@ -48,7 +48,7 @@
   "debt" : null
 }, {
   "key" : "ng_definedundefined",
-  "name" : "definedundefined",
+  "name" : "use angular.isDefined and angular.isUndefined instead of other undefined checks",
   "description" : "use angular.isDefined and angular.isUndefined instead of other undefined checks",
   "severity" : "CRITICAL",
   "status" : null,
@@ -62,7 +62,7 @@
   }
 }, {
   "key" : "ng_di",
-  "name" : "di",
+  "name" : "require a consistent DI syntax",
   "description" : "require a consistent DI syntax",
   "severity" : "CRITICAL",
   "status" : null,
@@ -70,7 +70,7 @@
   "debt" : null
 }, {
   "key" : "ng_directive_name",
-  "name" : "directive-name",
+  "name" : "require and specify a prefix for all directive names (y073, y126)",
   "description" : "require and specify a prefix for all directive names",
   "severity" : "MINOR",
   "status" : null,
@@ -78,7 +78,7 @@
   "debt" : null
 }, {
   "key" : "ng_directive_restrict",
-  "name" : "directive-restrict",
+  "name" : "disallow any other directive restrict than 'A' or 'E' (y074)",
   "description" : "disallow any other directive restrict than 'A' or 'E'",
   "severity" : "MINOR",
   "status" : null,
@@ -86,7 +86,7 @@
   "debt" : null
 }, {
   "key" : "ng_component_limit",
-  "name" : "component-limit",
+  "name" : "limit the number of angular components per file (y001)",
   "description" : "limit the number of angular components per file",
   "severity" : "MINOR",
   "status" : null,
@@ -94,7 +94,7 @@
   "debt" : null
 }, {
   "key" : "ng_document_service",
-  "name" : "document-service",
+  "name" : "use $document instead of document (y180)",
   "description" : "use $document instead of document",
   "severity" : "CRITICAL",
   "status" : null,
@@ -102,7 +102,7 @@
   "debt" : null
 }, {
   "key" : "ng_empty_controller",
-  "name" : "empty-controller",
+  "name" : "disallow empty controllers",
   "description" : "disallow empty controllers",
   "severity" : "MINOR",
   "status" : null,
@@ -110,7 +110,7 @@
   "debt" : null
 }, {
   "key" : "ng_file_name",
-  "name" : "file-name",
+  "name" : "require and specify a consistent component name pattern (y120, y121)",
   "description" : "require and specify a consistent component name pattern",
   "severity" : "MINOR",
   "status" : null,
@@ -118,7 +118,7 @@
   "debt" : null
 }, {
   "key" : "ng_filter_name",
-  "name" : "filter-name",
+  "name" : "require and specify a prefix for all filter names",
   "description" : "require and specify a prefix for all filter names",
   "severity" : "MINOR",
   "status" : null,
@@ -126,7 +126,7 @@
   "debt" : null
 }, {
   "key" : "ng_foreach",
-  "name" : "foreach",
+  "name" : "use angular.forEach instead of native Array.prototype.forEach",
   "description" : "use angular.forEach instead of native Array.prototype.forEach",
   "severity" : "MINOR",
   "status" : null,
@@ -134,7 +134,7 @@
   "debt" : null
 }, {
   "key" : "ng_function_type",
-  "name" : "function-type",
+  "name" : "require and specify a consistent function style for components ('named' or 'anonymous') (y024)",
   "description" : "require and specify a consistent function style for components",
   "severity" : "MINOR",
   "status" : null,
@@ -142,7 +142,7 @@
   "debt" : null
 }, {
   "key" : "ng_interval_service",
-  "name" : "interval-service",
+  "name" : "use $interval instead of setInterval (y181)",
   "description" : "use $interval instead of setInterval",
   "severity" : "CRITICAL",
   "status" : null,
@@ -150,7 +150,7 @@
   "debt" : null
 }, {
   "key" : "ng_json_functions",
-  "name" : "json-functions",
+  "name" : "use angular.fromJson and 'angular.toJson' instead of JSON.parse and JSON.stringify",
   "description" : "enforce use ofangular.fromJson and 'angular.toJson'",
   "severity" : "CRITICAL",
   "status" : null,
@@ -158,7 +158,7 @@
   "debt" : null
 }, {
   "key" : "ng_log",
-  "name" : "log",
+  "name" : "use the $log service instead of the console methods",
   "description" : "use the $log service instead of the console methods",
   "severity" : "CRITICAL",
   "status" : null,
@@ -174,7 +174,7 @@
   "debt" : null
 }, {
   "key" : "ng_module_getter",
-  "name" : "module-getter",
+  "name" : "disallow to reference modules with variables and require to use the getter syntax instead angular.module('myModule') (y022)",
   "description" : "enforce to reference modules with the getter syntax",
   "severity" : "CRITICAL",
   "status" : null,
@@ -182,7 +182,7 @@
   "debt" : null
 }, {
   "key" : "ng_module_name",
-  "name" : "module-name",
+  "name" : "require and specify a prefix for all module names (y127)",
   "description" : "require and specify a prefix for all module names",
   "severity" : "MINOR",
   "status" : null,
@@ -190,7 +190,7 @@
   "debt" : null
 }, {
   "key" : "ng_module_setter",
-  "name" : "module-setter",
+  "name" : "disallow to assign modules to variables (linked to module-getter (y021)",
   "description" : "disallow to assign modules to variables",
   "severity" : "CRITICAL",
   "status" : null,
@@ -214,7 +214,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_cookiestore",
-  "name" : "no-cookiestore",
+  "name" : "use $cookies instead of $cookieStore",
   "description" : "use $cookies instead of $cookieStore",
   "severity" : "CRITICAL",
   "status" : null,
@@ -230,7 +230,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_jquery_angularelement",
-  "name" : "no-jquery-angularelement",
+  "name" : "disallow to wrap angular.element objects with jQuery or $",
   "description" : "disallow to wrap angular.element objects with jQuery or $",
   "severity" : "CRITICAL",
   "status" : null,
@@ -238,7 +238,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_private_call",
-  "name" : "no-private-call",
+  "name" : "disallow use of internal angular properties prefixed with $$",
   "description" : "disallow use of internal angular properties prefixed with $$",
   "severity" : "CRITICAL",
   "status" : null,
@@ -246,7 +246,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_services",
-  "name" : "no-services",
+  "name" : "disallow DI of specified services for other angular components ($http for controllers, filters and directives)",
   "description" : "disallow DI of specified services",
   "severity" : "CRITICAL",
   "status" : null,
@@ -254,7 +254,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_service_method",
-  "name" : "no-service-method",
+  "name" : "use factory() instead of service() (y040)",
   "description" : "use factory() instead of service()",
   "severity" : "CRITICAL",
   "status" : null,
@@ -262,7 +262,7 @@
   "debt" : null
 }, {
   "key" : "ng_on_watch",
-  "name" : "on-watch",
+  "name" : "require $on and $watch deregistration callbacks to be saved in a variable",
   "description" : "require $on and $watch deregistration callbacks to be saved in a variable",
   "severity" : "CRITICAL",
   "status" : null,
@@ -270,7 +270,7 @@
   "debt" : null
 }, {
   "key" : "ng_rest_service",
-  "name" : "rest-service",
+  "name" : "disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
   "description" : "disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
   "severity" : "MINOR",
   "status" : null,
@@ -278,7 +278,7 @@
   "debt" : null
 }, {
   "key" : "ng_service_name",
-  "name" : "service-name",
+  "name" : "require and specify a prefix for all service names (y125)",
   "description" : "require and specify a prefix for all service names",
   "severity" : "CRITICAL",
   "status" : null,
@@ -286,7 +286,7 @@
   "debt" : null
 }, {
   "key" : "ng_timeout_service",
-  "name" : "timeout-service",
+  "name" : "use $timeout instead of setTimeout (y181)",
   "description" : "use $timeout instead of setTimeout",
   "severity" : "CRITICAL",
   "status" : null,
@@ -294,7 +294,7 @@
   "debt" : null
 }, {
   "key" : "ng_typecheck_array",
-  "name" : "typecheck-array",
+  "name" : "use angular.isArray instead of typeof comparisons",
   "description" : "use angular.isArray instead of typeof comparisons",
   "severity" : "CRITICAL",
   "status" : null,
@@ -310,7 +310,7 @@
   "debt" : null
 }, {
   "key" : "ng_typecheck_date",
-  "name" : "typecheck-date",
+  "name" : "use angular.isDate instead of typeof comparisons",
   "description" : "use angular.isDate instead of typeof comparisons",
   "severity" : "CRITICAL",
   "status" : null,
@@ -318,7 +318,7 @@
   "debt" : null
 }, {
   "key" : "ng_typecheck_function",
-  "name" : "typecheck-function",
+  "name" : "use angular.isFunction instead of typeof comparisons",
   "description" : "use angular.isFunction instead of typeof comparisons",
   "severity" : "CRITICAL",
   "status" : null,
@@ -326,7 +326,7 @@
   "debt" : null
 }, {
   "key" : "ng_typecheck_number",
-  "name" : "typecheck-number",
+  "name" : "use angular.isNumber instead of typeof comparisons",
   "description" : "use angular.isNumber instead of typeof comparisons",
   "severity" : "CRITICAL",
   "status" : null,
@@ -334,7 +334,7 @@
   "debt" : null
 }, {
   "key" : "ng_typecheck_object",
-  "name" : "typecheck-object",
+  "name" : "use angular.isObject instead of typeof comparisons",
   "description" : "use angular.isObject instead of typeof comparisons",
   "severity" : "CRITICAL",
   "status" : null,
@@ -350,7 +350,7 @@
   "debt" : null
 }, {
   "key" : "ng_typecheck_string",
-  "name" : "typecheck-string",
+  "name" : "use angular.isString instead of typeof comparisons",
   "description" : "use angular.isString instead of typeof comparisons",
   "severity" : "CRITICAL",
   "status" : null,
@@ -358,7 +358,7 @@
   "debt" : null
 }, {
   "key" : "ng_watchers_execution",
-  "name" : "watchers-execution",
+  "name" : "require and specify consistent use $scope.digest() or $scope.apply()",
   "description" : "require and specify consistent use $scope.digest() or $scope.apply()",
   "severity" : "MINOR",
   "status" : null,
@@ -366,7 +366,7 @@
   "debt" : null
 }, {
   "key" : "ng_window_service",
-  "name" : "window-service",
+  "name" : "use $window instead of window (y180)",
   "description" : "use $window instead of window",
   "severity" : "CRITICAL",
   "status" : null,
@@ -374,7 +374,7 @@
   "debt" : null
 }, {
   "key" : "ng_di_unused",
-  "name" : "di-unused",
+  "name" : "disallow unused DI parameters",
   "description" : "disallow unused DI parameters",
   "severity" : null,
   "status" : null,
@@ -382,7 +382,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_controller",
-  "name" : "no-controller",
+  "name" : "disallow use of controllers (according to the component first pattern)",
   "description" : "disallow use of controllers (according to the component first pattern)",
   "severity" : null,
   "status" : null,
@@ -390,7 +390,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_inline_template",
-  "name" : "no-inline-template",
+  "name" : "disallow the use of inline templates",
   "description" : "disallow the use of inline templates",
   "severity" : null,
   "status" : null,
@@ -398,7 +398,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_run_logic",
-  "name" : "no-run-logic",
+  "name" : "keep run functions clean and simple (y171)",
   "description" : "keep run functions clean and simple",
   "severity" : null,
   "status" : null,
@@ -406,7 +406,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_directive_replace",
-  "name" : "no-directive-replace",
+  "name" : "disallow the deprecated directive replace property",
   "description" : "disallow the deprecated directive replace property",
   "severity" : null,
   "status" : null,
@@ -414,7 +414,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_http_callback",
-  "name" : "no-http-callback",
+  "name" : "disallow the $http methods success() and error()",
   "description" : "disallow the $http methods success() and error()",
   "severity" : null,
   "status" : null,
@@ -422,7 +422,7 @@
   "debt" : null
 }, {
   "key" : "ng_di_order",
-  "name" : "di-order",
+  "name" : "require DI parameters to be sorted alphabetically",
   "description" : "require DI parameters to be sorted alphabetically",
   "severity" : null,
   "status" : null,
@@ -430,7 +430,7 @@
   "debt" : null
 }, {
   "key" : "ng_dumb_inject",
-  "name" : "dumb-inject",
+  "name" : "unittest inject functions should only consist of assignments from injected values to describe block variables",
   "description" : "unittest inject functions should only consist of assignments from injected values to describe block variables",
   "severity" : null,
   "status" : null,
@@ -438,7 +438,7 @@
   "debt" : null
 }, {
   "key" : "ng_module_dependency_order",
-  "name" : "module-dependency-order",
+  "name" : "require a consistent order of module dependencies",
   "description" : "require a consistent order of module dependencies",
   "severity" : null,
   "status" : null,
@@ -446,7 +446,7 @@
   "debt" : null
 }, {
   "key" : "ng_one_dependency_per_line",
-  "name" : "one-dependency-per-line",
+  "name" : "require all DI parameters to be located in their own line",
   "description" : "require all DI parameters to be located in their own line",
   "severity" : null,
   "status" : null,
@@ -454,7 +454,7 @@
   "debt" : null
 }, {
   "key" : "ng_no_angular_mock",
-  "name" : "no-angular-mock",
+  "name" : "require to use angular.mock methods directly",
   "description" : "require to use angular.mock methods directly",
   "severity" : null,
   "status" : null,
