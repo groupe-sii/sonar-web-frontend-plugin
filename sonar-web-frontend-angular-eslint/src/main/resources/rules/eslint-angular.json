@@ -1,287 +1,463 @@
-[
-    {
-        "key": "ng_angularelement",
-        "name": " ng angularelement  ",
-        "description": " The angular.element method should be used instead of the $ or jQuery object (if you are using jQuery of course). If the jQuery library is imported, angular.element will be a wrapper around the jQuery object. ",
-        "severity": "MAJOR",
-        "tags": ["angular", "eslint", "bad-practice"]
+[ {
+  "key" : "ng_angularelement",
+  "name" : " ng angularelement  ",
+  "description" : " The angular.element method should be used instead of the $ or jQuery object (if you are using jQuery of course). If the jQuery library is imported, angular.element will be a wrapper around the jQuery object. ",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : null
+}, {
+  "key" : "ng_controller_as",
+  "name" : " ng controller as ",
+  "description" : " You should not set properties on $scope in controllers. Use controllerAs syntax and add data to 'this'. Implements 'this' check part of [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y031). The second parameter can be a Regexp for identifying controller functions (when using something like Browserify) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_controller_as_route",
+  "name" : " ng controller as route ",
+  "description" : " You should use Angular's controllerAs syntax when defining routes or states. Implements route part [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y031) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_controller_as_vm",
+  "name" : " ng controller as vm ",
+  "description" : " You should use a capture variable for 'this' when using the controllerAs syntax. [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y032). The second parameter specifies the capture variable you want to use in your application. The third parameter can be a Regexp for identifying controller functions (when using something like Browserify) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_controller_name",
+  "name" : " ng controller name  ",
+  "description" : " All your controllers should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. (\"ng_controller_name\":  [2, \"ng\"])  [Y123](https://github.com/johnpapa/angularjs-styleguide#style-y123), [Y124](https://github.com/johnpapa/angularjs-styleguide#style-y124)",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_deferred",
+  "name" : " ng deferred ",
+  "description" : " When you want to create a new promise, you should not use the $q.deferred anymore. Prefer the new syntax : $q(function(resolve, reject){})",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_definedundefined",
+  "name" : " ng definedundefined ",
+  "description" : " You should use the angular.isUndefined or angular.isDefined methods instead of using the keyword undefined. We also check the use of !angular.isUndefined and !angular.isDefined (should prefer the reverse function)",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
     },
-    {
-        "key": "ng_controller_as",
-        "name": " ng controller as ",
-        "description": " You should not set properties on $scope in controllers. Use controllerAs syntax and add data to 'this'. Implements 'this' check part of [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y031). The second parameter can be a Regexp for identifying controller functions (when using something like Browserify) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_controller_as_route",
-        "name": " ng controller as route ",
-        "description": " You should use Angular's controllerAs syntax when defining routes or states. Implements route part [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y031) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_controller_as_vm",
-        "name": " ng controller as vm ",
-        "description": " You should use a capture variable for 'this' when using the controllerAs syntax. [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y032). The second parameter specifies the capture variable you want to use in your application. The third parameter can be a Regexp for identifying controller functions (when using something like Browserify) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_controller_name",
-        "name": " ng controller name  ",
-        "description": " All your controllers should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. (\"ng_controller_name\":  [2, \"ng\"])  [Y123](https://github.com/johnpapa/angularjs-styleguide#style-y123), [Y124](https://github.com/johnpapa/angularjs-styleguide#style-y124)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_deferred",
-        "name": " ng deferred ",
-        "description": " When you want to create a new promise, you should not use the $q.deferred anymore. Prefer the new syntax : $q(function(resolve, reject){})",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_definedundefined",
-        "name": " ng definedundefined ",
-        "description": " You should use the angular.isUndefined or angular.isDefined methods instead of using the keyword undefined. We also check the use of !angular.isUndefined and !angular.isDefined (should prefer the reverse function)",
-        "severity": "CRITICAL",
-        "tags": ["angular", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "MAINTAINABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key": "ng_di",
-        "name": " ng di ",
-        "description": " All your DI should use the same syntax : the Array or function syntaxes (\"ng_di\":  [2, \"function or array\"])",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_directive_name",
-        "name": " ng directive name ",
-        "description": " All your directives should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your directives by \"ng\" (reserved keyword for AngularJS directives) (\"ng_directive_name\":  [2, \"ng\"]) [Y073](https://github.com/johnpapa/angularjs-styleguide#style-y073), [Y126](https://github.com/johnpapa/angularjs-styleguide#style-y126) ",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_directive_restrict",
-        "name": " ng directive restrict ",
-        "description": " Not all directive restrictions may be desirable. Also it might be desirable to define default restrictions, or explicitly not. The default configuration limits the restrictions AE Y074 and disallows explicitly specifying a default. (\"directive-restrict\": [0, {\"restrict\": \"AE\", \"explicit\": \"never\"}])",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_component_limit",
-        "name": " ng component limit ",
-        "description": " The number of AngularJS components in one file should be limited. The default limit is one, which follows [Y001](https://github.com/johnpapa/angular-styleguide#style-y001)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_document_service",
-        "name": " ng document service ",
-        "description": " Instead of the default document object, you should prefer the AngularJS wrapper service $document. [Y180](https://github.com/johnpapa/angularjs-styleguide#style-y180) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_empty_controller",
-        "name": " ng empty controller ",
-        "description": " If you have one empty controller, maybe you have linked it in your Router configuration or in one of your views. You can remove this declaration because this controller is useless ",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_file_name",
-        "name": " ng file name ",
-        "description": " All your file names should match the angular component name. The second parameter can be a config object [2, {nameStyle: 'dash', typeSeparator: 'dot', ignoreTypeSuffix: true, ignorePrefix: 'ui'}] to match 'avenger-profile.directive.js' or 'avanger-api.service.js'. Possible values for 'typeSeparator' and 'nameStyle' are 'dot', 'dash' and 'underscore'. The options 'ignoreTypeSuffix' ignores camel cased suffixes like 'someController' or 'myService' and 'ignorePrefix' ignores namespace prefixes like 'ui'. [Y120](https://github.com/johnpapa/angular-styleguide#style-y120) [Y121](https://github.com/johnpapa/angular-styleguide#style-y121)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_filter_name",
-        "name": " ng filter name ",
-        "description": " All your filters should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. (\"ng_filter_name\":  [2, \"ng\"]) ",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_foreach",
-        "name": " ng foreach ",
-        "description": " You should use the angular.forEach method instead of the default JavaScript implementation [].forEach.",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_function_type",
-        "name": " ng function type ",
-        "description": " Anonymous or named functions inside AngularJS components. The first parameter sets which type of function is required and can be 'named' or 'anonymous'. The second parameter is an optional list of angular object names. [Y024](https://github.com/johnpapa/angular-styleguide/blob/master/README.md#style-y024)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_interval_service",
-        "name": " ng interval service ",
-        "description": " Instead of the default setInterval function, you should use the AngularJS wrapper service $interval  [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_json_functions",
-        "name": " ng json functions ",
-        "description": " You should use angular.fromJson or angular.toJson instead of JSON.parse and JSON.stringify ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_log",
-        "name": " ng log ",
-        "description": " You should use $log service instead of console for the methods 'log', 'debug', 'error', 'info', 'warn'",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_dependency_order",
-        "name": " ng dependency order ",
-        "description": " Module dependencies should be sorted in a logical manner. This rule provides two ways to sort modules, grouped or ungrouped. In grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules. The modules should be sorted alphabetically within its group. A prefix can be specified to determine which prefix the custom modules have. Without grouped set to false all dependencies combined should be sorted alphabetically. ('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_module_getter",
-        "name": " ng module getter ",
-        "description": " When using a module, avoid using a variable and instead use chaining with the getter syntax [Y022](https://github.com/johnpapa/angular-styleguide#style-y022)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_module_name",
-        "name": " ng module name  ",
-        "description": " When you create a new module, its name should start with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your modules by \"ng\" (reserved keyword for AngularJS modules) (\"ng_module_name\":  [2, \"ng\"])  [Y127](https://github.com/johnpapa/angularjs-styleguide#style-y127)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_module_setter",
-        "name": " ng module setter ",
-        "description": " Declare modules without a variable using the setter syntax.[Y021](https://github.com/johnpapa/angular-styleguide#style-y021)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "no_angular_mock",
-        "name": " ng no angular mock ",
-        "description": " All methods defined in the angular.mock object are also available in the object window. So you can remove angular.mock from your code",
-        "severity": "MINOR"
-    },
-    {
-        "key": "no_controller",
-        "name": " ng no controller ",
-        "description": " According to the Component-First pattern, we should avoid the use of AngularJS controller.",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_no_cookiestore",
-        "name": " ng no cookiestore ",
-        "description": " In Angular 1.4, the $cookieStore service is now deprected. Please use the $cookies service instead",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_digest",
-        "name": " ng no digest ",
-        "description": " The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_jquery_angularelement",
-        "name": " ng no jquery angularelement ",
-        "description": " You should not wrap angular.element object into jQuery(), because angular.element already return jQLite element",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_private_call",
-        "name": " ng no private call ",
-        "description": " All scope's properties/methods starting with $$ are used interally by AngularJS. You should not use them directly. ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_services",
-        "name": " ng no services  ",
-        "description": " Some services should be used only in a specific AngularJS service (Ajax-based service for example), in order to follow the separation of concerns paradigm ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_service_method",
-        "name": " ng no service method  ",
-        "description": " You should prefer the factory() method instead of service() [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_on_watch",
-        "name": " ng on watch ",
-        "description": " Watch and On methods on the scope object should be assigned to a variable, in order to be deleted in a $destroy event handler [Y035](https://github.com/johnpapa/angularjs-styleguide#style-y035) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_rest_service",
-        "name": " ng rest service ",
-        "description": " Check the service used to send request to your REST API. This rule can have one parameter, with one of the following values: $http, $resource or Restangular ('rest-service': [0, '$http']).",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_service_name",
-        "name": " ng service name ",
-        "description": " All your services should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your services by \"$\" (reserved keyword for AngularJS services) (\"ng_service_name\":  [2, \"ng\"]) [Y125](https://github.com/johnpapa/angularjs-styleguide#style-y125) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_timeout_service",
-        "name": " ng timeout service ",
-        "description": " Instead of the default setTimeout function, you should use the AngularJS wrapper service $timeout [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_array",
-        "name": " ng typecheck array ",
-        "description": " You should use the angular.isArray method instead of the default JavaScript implementation (typeof [] === \"[object Array]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_boolean",
-        "name": " ng typecheck boolean ",
-        "description": " You should use the angular.isBoolean method instead of the default JavaScript implementation (typeof true === \"[object Boolean]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_date",
-        "name": " ng typecheck date ",
-        "description": " You should use the angular.isDate method instead of the default JavaScript implementation (typeof new Date() === \"[object Date]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_function",
-        "name": " ng typecheck function ",
-        "description": " You should use the angular.isFunction method instead of the default JavaScript implementation (typeof function(){} ===\"[object Function]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_number",
-        "name": " ng typecheck number ",
-        "description": " You should use the angular.isNumber method instead of the default JavaScript implementation (typeof 3 === \"[object Number]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_object",
-        "name": " ng typecheck object ",
-        "description": " You should use the angular.isObject method instead of the default JavaScript implementation (typeof {} === \"[object Object]\").  ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_regexp",
-        "name": " ng typecheck regexp ",
-        "description": " You should use the angular.isRegexp method instead of the default JavaScript implementation (toString.call(/^A/) === \"[object RegExp]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_string",
-        "name": " ng typecheck string ",
-        "description": " You should use the angular.isString method instead of the default JavaScript implementation (typeof \"\" === \"[object String]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_watchers_execution",
-        "name": " ng watchers execution ",
-        "description": " For the execution of the watchers, the $digest method will start from the scope in which we call the method. This will cause an performance improvement comparing to the $apply method, who start from the $rootScope",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_window_service",
-        "name": " ng window service ",
-        "description": " Instead of the default window object, you should prefer the AngularJS wrapper service $window. [Y180](https://github.com/johnpapa/angularjs-styleguide#style-y180) ",
-        "severity": "CRITICAL"
-    }
-]
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_di",
+  "name" : " ng di ",
+  "description" : " All your DI should use the same syntax : the Array or function syntaxes (\"ng_di\":  [2, \"function or array\"])",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_directive_name",
+  "name" : " ng directive name ",
+  "description" : " All your directives should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your directives by \"ng\" (reserved keyword for AngularJS directives) (\"ng_directive_name\":  [2, \"ng\"]) [Y073](https://github.com/johnpapa/angularjs-styleguide#style-y073), [Y126](https://github.com/johnpapa/angularjs-styleguide#style-y126) ",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_directive_restrict",
+  "name" : " ng directive restrict ",
+  "description" : " Not all directive restrictions may be desirable. Also it might be desirable to define default restrictions, or explicitly not. The default configuration limits the restrictions AE Y074 and disallows explicitly specifying a default. (\"directive-restrict\": [0, {\"restrict\": \"AE\", \"explicit\": \"never\"}])",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_component_limit",
+  "name" : " ng component limit ",
+  "description" : " The number of AngularJS components in one file should be limited. The default limit is one, which follows [Y001](https://github.com/johnpapa/angular-styleguide#style-y001)",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_document_service",
+  "name" : " ng document service ",
+  "description" : " Instead of the default document object, you should prefer the AngularJS wrapper service $document. [Y180](https://github.com/johnpapa/angularjs-styleguide#style-y180) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_empty_controller",
+  "name" : " ng empty controller ",
+  "description" : " If you have one empty controller, maybe you have linked it in your Router configuration or in one of your views. You can remove this declaration because this controller is useless ",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_file_name",
+  "name" : " ng file name ",
+  "description" : " All your file names should match the angular component name. The second parameter can be a config object [2, {nameStyle: 'dash', typeSeparator: 'dot', ignoreTypeSuffix: true, ignorePrefix: 'ui'}] to match 'avenger-profile.directive.js' or 'avanger-api.service.js'. Possible values for 'typeSeparator' and 'nameStyle' are 'dot', 'dash' and 'underscore'. The options 'ignoreTypeSuffix' ignores camel cased suffixes like 'someController' or 'myService' and 'ignorePrefix' ignores namespace prefixes like 'ui'. [Y120](https://github.com/johnpapa/angular-styleguide#style-y120) [Y121](https://github.com/johnpapa/angular-styleguide#style-y121)",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_filter_name",
+  "name" : " ng filter name ",
+  "description" : " All your filters should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. (\"ng_filter_name\":  [2, \"ng\"]) ",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_foreach",
+  "name" : " ng foreach ",
+  "description" : " You should use the angular.forEach method instead of the default JavaScript implementation [].forEach.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_function_type",
+  "name" : " ng function type ",
+  "description" : " Anonymous or named functions inside AngularJS components. The first parameter sets which type of function is required and can be 'named' or 'anonymous'. The second parameter is an optional list of angular object names. [Y024](https://github.com/johnpapa/angular-styleguide/blob/master/README.md#style-y024)",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_interval_service",
+  "name" : " ng interval service ",
+  "description" : " Instead of the default setInterval function, you should use the AngularJS wrapper service $interval  [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_json_functions",
+  "name" : " ng json functions ",
+  "description" : " You should use angular.fromJson or angular.toJson instead of JSON.parse and JSON.stringify ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_log",
+  "name" : " ng log ",
+  "description" : " You should use $log service instead of console for the methods 'log', 'debug', 'error', 'info', 'warn'",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_dependency_order",
+  "name" : " ng dependency order ",
+  "description" : " Module dependencies should be sorted in a logical manner. This rule provides two ways to sort modules, grouped or ungrouped. In grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules. The modules should be sorted alphabetically within its group. A prefix can be specified to determine which prefix the custom modules have. Without grouped set to false all dependencies combined should be sorted alphabetically. ('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_module_getter",
+  "name" : " ng module getter ",
+  "description" : " When using a module, avoid using a variable and instead use chaining with the getter syntax [Y022](https://github.com/johnpapa/angular-styleguide#style-y022)",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_module_name",
+  "name" : " ng module name  ",
+  "description" : " When you create a new module, its name should start with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your modules by \"ng\" (reserved keyword for AngularJS modules) (\"ng_module_name\":  [2, \"ng\"])  [Y127](https://github.com/johnpapa/angularjs-styleguide#style-y127)",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_module_setter",
+  "name" : " ng module setter ",
+  "description" : " Declare modules without a variable using the setter syntax.[Y021](https://github.com/johnpapa/angular-styleguide#style-y021)",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no_angular_mock",
+  "name" : " ng no angular mock ",
+  "description" : " All methods defined in the angular.mock object are also available in the object window. So you can remove angular.mock from your code",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no_controller",
+  "name" : " ng no controller ",
+  "description" : " According to the Component-First pattern, we should avoid the use of AngularJS controller.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_cookiestore",
+  "name" : " ng no cookiestore ",
+  "description" : " In Angular 1.4, the $cookieStore service is now deprected. Please use the $cookies service instead",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_digest",
+  "name" : " ng no digest ",
+  "description" : " The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_jquery_angularelement",
+  "name" : " ng no jquery angularelement ",
+  "description" : " You should not wrap angular.element object into jQuery(), because angular.element already return jQLite element",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_private_call",
+  "name" : " ng no private call ",
+  "description" : " All scope's properties/methods starting with $$ are used interally by AngularJS. You should not use them directly. ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_services",
+  "name" : " ng no services  ",
+  "description" : " Some services should be used only in a specific AngularJS service (Ajax-based service for example), in order to follow the separation of concerns paradigm ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_service_method",
+  "name" : " ng no service method  ",
+  "description" : " You should prefer the factory() method instead of service() [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181)",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_on_watch",
+  "name" : " ng on watch ",
+  "description" : " Watch and On methods on the scope object should be assigned to a variable, in order to be deleted in a $destroy event handler [Y035](https://github.com/johnpapa/angularjs-styleguide#style-y035) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_rest_service",
+  "name" : " ng rest service ",
+  "description" : " Check the service used to send request to your REST API. This rule can have one parameter, with one of the following values: $http, $resource or Restangular ('rest-service': [0, '$http']).",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_service_name",
+  "name" : " ng service name ",
+  "description" : " All your services should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your services by \"$\" (reserved keyword for AngularJS services) (\"ng_service_name\":  [2, \"ng\"]) [Y125](https://github.com/johnpapa/angularjs-styleguide#style-y125) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_timeout_service",
+  "name" : " ng timeout service ",
+  "description" : " Instead of the default setTimeout function, you should use the AngularJS wrapper service $timeout [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_array",
+  "name" : " ng typecheck array ",
+  "description" : " You should use the angular.isArray method instead of the default JavaScript implementation (typeof [] === \"[object Array]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_boolean",
+  "name" : " ng typecheck boolean ",
+  "description" : " You should use the angular.isBoolean method instead of the default JavaScript implementation (typeof true === \"[object Boolean]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_date",
+  "name" : " ng typecheck date ",
+  "description" : " You should use the angular.isDate method instead of the default JavaScript implementation (typeof new Date() === \"[object Date]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_function",
+  "name" : " ng typecheck function ",
+  "description" : " You should use the angular.isFunction method instead of the default JavaScript implementation (typeof function(){} ===\"[object Function]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_number",
+  "name" : " ng typecheck number ",
+  "description" : " You should use the angular.isNumber method instead of the default JavaScript implementation (typeof 3 === \"[object Number]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_object",
+  "name" : " ng typecheck object ",
+  "description" : " You should use the angular.isObject method instead of the default JavaScript implementation (typeof {} === \"[object Object]\").  ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_regexp",
+  "name" : " ng typecheck regexp ",
+  "description" : " You should use the angular.isRegexp method instead of the default JavaScript implementation (toString.call(/^A/) === \"[object RegExp]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_typecheck_string",
+  "name" : " ng typecheck string ",
+  "description" : " You should use the angular.isString method instead of the default JavaScript implementation (typeof \"\" === \"[object String]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_watchers_execution",
+  "name" : " ng watchers execution ",
+  "description" : " For the execution of the watchers, the $digest method will start from the scope in which we call the method. This will cause an performance improvement comparing to the $apply method, who start from the $rootScope",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_window_service",
+  "name" : " ng window service ",
+  "description" : " Instead of the default window object, you should prefer the AngularJS wrapper service $window. [Y180](https://github.com/johnpapa/angularjs-styleguide#style-y180) ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_di_unused",
+  "name" : "di-unused",
+  "description" : "\n\n<h1><a id=\"user-content-di-unused---disallow-unused-di-parameters\" class=\"anchor\" href=\"#di-unused---disallow-unused-di-parameters\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>di-unused - disallow unused DI parameters</h1>\n\n<p>Unused dependencies should not be injected.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems;</p>\n\n<pre><code>/*eslint angular/di-unused: 2*/\n\n// invalid\nangular.module('myModule').factory('myService', function ($http, $q, $log) {\n    $http.get('/api/someData').then(function (response) {\n        $log.log(response.data);\n    });\n}); // error: Unused injected value $q\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems;</p>\n\n<pre><code>/*eslint angular/di-unused: 2*/\n\n// valid\nangular.module('myModule').factory('myService', function ($log, anotherService) {\n    $log.log(anotherService.getSomeData());\n});\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.8.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/di-unused.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/di-unused.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_controller",
+  "name" : "no-controller",
+  "description" : "\n\n<h1><a id=\"user-content-no-controller---disallow-use-of-controllers-according-to-the-component-first-pattern\" class=\"anchor\" href=\"#no-controller---disallow-use-of-controllers-according-to-the-component-first-pattern\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>no-controller - disallow use of controllers (according to the component first pattern)</h1>\n\n<p>According to the Component-First pattern, we should avoid the use of AngularJS controller.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems;</p>\n\n<pre><code>/*eslint angular/no-controller: 2*/\n\n// invalid\nangular.module('myModule').controller('HelloWorldController', function ($scope) {\n    $scope.text = 'Hello World';\n}); // error: Based on the Component-First Pattern, you should avoid the use of controllers\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems;</p>\n\n<pre><code>/*eslint angular/no-controller: 2*/\n\n// valid\nangular.module('myModule').directive('helloWorld', function () {\n    return {\n        template: '&lt;div&gt;{{ text }}',\n        controller: function ($scope) {\n            $scope.text = 'Hello World';\n        }\n    };\n});\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.9.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/no-controller.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/no-controller.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_inline_template",
+  "name" : "no-inline-template",
+  "description" : "\n\n<h1><a id=\"user-content-no-inline-template---disallow-the-use-of-inline-templates\" class=\"anchor\" href=\"#no-inline-template---disallow-the-use-of-inline-templates\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>no-inline-template - disallow the use of inline templates</h1>\n\n<p>Instead of using inline HTML templates, it is better to load the HTML from an external file.\nSimple HTML templates are accepted by default.\n('no-inline-template': [0, {allowSimple: true}])</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems with default config;</p>\n\n<pre><code>/*eslint angular/no-inline-template: 2*/\n\n// invalid\nangular.module('myModule').directive('helloWorld', function () {\n    return {\n        template: '&lt;div&gt;Hello World! &lt;button&gt;Say hello!&lt;/button&gt;&lt;/div&gt;'\n    };\n}); // error: Inline template is too complex. Use an external template instead\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems with default config;</p>\n\n<pre><code>/*eslint angular/no-inline-template: 2*/\n\n// valid\nangular.module('myModule').directive('helloWorld', function () {\n    return {\n        templateUrl: 'template/helloWorld.html'\n    };\n});\n\n// valid\nangular.module('myModule').directive('helloWorld', function () {\n    return {\n        template: '&lt;div&gt;Hello World&lt;/div&gt;' // simple templates are allowed by default\n    };\n});\n\n// valid\nangular.module('myModule').config(function ($routeProvider) {\n    $routeProvider.when('/hello', {\n        template: '&lt;hello-world&gt;&lt;/hello-world&gt;' // directives for routing\n    });\n});\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>{\"allowSimple\":true}</code>:</p>\n\n<pre><code>/*eslint angular/no-inline-template: [2,{\"allowSimple\":true}]*/\n\n// invalid\nangular.module('myModule').config(function ($routeProvider) {\n    $routeProvider.when('/dashboard', {\n        template: '&lt;div&gt;&lt;h1&gt;Dashboard&lt;/h1&gt;&lt;dashboard&gt;&lt;/dashboard&gt;&lt;/div&gt;'\n    });\n}); // error: Inline template is too complex. Use an external template instead\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>{\"allowSimple\":true}</code>:</p>\n\n<pre><code>/*eslint angular/no-inline-template: [2,{\"allowSimple\":true}]*/\n\n// valid\nangular.module('myModule').config(function ($routeProvider) {\n    $routeProvider.when('/dashboard', {\n        template: '&lt;dashboard&gt;&lt;/dashboard&gt;' // directives for routing\n    });\n});\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>{\"allowSimple\":false}</code>:</p>\n\n<pre><code>/*eslint angular/no-inline-template: [2,{\"allowSimple\":false}]*/\n\n// invalid\nangular.module('myModule').config(function ($routeProvider) {\n    $routeProvider.when('/dashboard', {\n        template: '&lt;dashboard&gt;&lt;/dashboard&gt;'\n    });\n}); // error: Inline templates are not allowed. Use an external template instead\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>{\"allowSimple\":false}</code>:</p>\n\n<pre><code>/*eslint angular/no-inline-template: [2,{\"allowSimple\":false}]*/\n\n// valid\nangular.module('myModule').config(function ($routeProvider) {\n    $routeProvider.when('/dashboard', {\n        templateUrl: 'templates/dashboard.html'\n    });\n});\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.12.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/no-inline-template.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/no-inline-template.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_run_logic",
+  "name" : "no-run-logic",
+  "description" : "\n\n<h1><a id=\"user-content-no-run-logic---keep-run-functions-clean-and-simple\" class=\"anchor\" href=\"#no-run-logic---keep-run-functions-clean-and-simple\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>no-run-logic - keep run functions clean and simple</h1>\n\n<p>Initialization logic should be moved into a factory or service. This improves testability.</p>\n\n<p><strong>Styleguide Reference</strong></p>\n\n<ul>\n<li><a href=\"https://github.com/johnpapa/angular-styleguide#style-y171\">y171 by johnpapa - Run Blocks</a></li>\n</ul>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems with default config;</p>\n\n<pre><code>/*eslint angular/no-run-logic: 2*/\n\n// invalid\nangular.module('app').run(function($window) {\n    $window.addEventListener('deviceready', deviceready);\n\n    function deviceready() {}\n}); // error: The run function may only contain call expressions\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems with default config;</p>\n\n<pre><code>/*eslint angular/no-run-logic: 2*/\n\n// valid\nangular.module('app').run(function(KITTENS, kittenService, startup) {\n    kittenService.prefetchData(KITTENS);\n    startup('foo', true, 1);\n});\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>{\"allowParams\":false}</code>:</p>\n\n<pre><code>/*eslint angular/no-run-logic: [2,{\"allowParams\":false}]*/\n\n// invalid\nangular.module('app').run(function(startup) {\n    startup('foo', true, 1);\n}); // error: Run function call expressions may not take any arguments\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>{\"allowParams\":false}</code>:</p>\n\n<pre><code>/*eslint angular/no-run-logic: [2,{\"allowParams\":false}]*/\n\n// valid\nangular.module('app').run(function(kittenService, startup) {\n    kittenService.prefetchData();\n    startup();\n});\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.15.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/no-run-logic.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/no-run-logic.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_directive_replace",
+  "name" : "no-directive-replace",
+  "description" : "\n\n<h1><a id=\"user-content-no-directive-replace---disallow-the-deprecated-directive-replace-property\" class=\"anchor\" href=\"#no-directive-replace---disallow-the-deprecated-directive-replace-property\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>no-directive-replace - disallow the deprecated directive replace property</h1>\n\n<p>This rule disallows the replace attribute in a directive definition object.\nThe replace property of a directive definition object is deprecated since angular 1.3 (<a href=\"https://docs.angularjs.org/api/ng/service/$compile\">latest angular docs</a>.</p>\n\n<p>The option <code>ignoreReplaceFalse</code> let you ignore directive definitions with replace set to false.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems with default config;</p>\n\n<pre><code>/*eslint angular/no-directive-replace: 2*/\n\n// invalid\nangular.module('myModule').directive('helloWorld', function() {\n    return {\n        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;',\n        replace: true\n    };\n}); // error: Directive definition property replace is deprecated.\n\n// invalid\nangular.module('myModule').directive('helloWorld', function() {\n    var directiveDefinition = {};\n    directiveDefinition.templateUrl = 'helloWorld.html';\n    directiveDefinition.replace = true;\n    return directiveDefinition;\n}); // error: Directive definition property replace is deprecated.\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems with default config;</p>\n\n<pre><code>/*eslint angular/no-directive-replace: 2*/\n\n// valid\nangular.module('myModule').directive('helloWorld', function() {\n    return {\n        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;'\n    };\n});\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>{\"ignoreReplaceFalse\":true}</code>:</p>\n\n<pre><code>/*eslint angular/no-directive-replace: [2,{\"ignoreReplaceFalse\":true}]*/\n\n// valid\nangular.module('myModule').directive('helloWorld', function() {\n    return {\n        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;',\n        replace: false\n    };\n});\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>{\"ignoreReplaceFalse\":false}</code>:</p>\n\n<pre><code>/*eslint angular/no-directive-replace: [2,{\"ignoreReplaceFalse\":false}]*/\n\n// invalid\nangular.module('myModule').directive('helloWorld', function() {\n    return {\n        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;',\n        replace: true\n    };\n}); // error: Directive definition property replace is deprecated.\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.15.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/no-directive-replace.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/no-directive-replace.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_http_callback",
+  "name" : "no-http-callback",
+  "description" : "\n\n<h1><a id=\"user-content-no-http-callback---disallow-the-http-methods-success-and-error\" class=\"anchor\" href=\"#no-http-callback---disallow-the-http-methods-success-and-error\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>no-http-callback - disallow the <code>$http</code> methods <code>success()</code> and <code>error()</code></h1>\n\n<p>Disallow the $http success and error function.\nInstead the standard promise API should be used.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems;</p>\n\n<pre><code>/*eslint angular/no-http-callback: 2*/\n\n// invalid\n$http.get('api/data').success(function onSuccess() {\n    // ...\n}); // error: $http success is deprecated. Use then instead\n\n// invalid\n$http.get('api/data').error(function onReject() {\n    // ...\n}); // error: $http error is deprecated. Use then or catch instead\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems;</p>\n\n<pre><code>/*eslint angular/no-http-callback: 2*/\n\n// valid\n$http.get('api/data').then(function onSuccess() {\n    // ...\n}, function onReject() {\n   // ...\n});\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.12.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/no-http-callback.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/no-http-callback.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_di_order",
+  "name" : "di-order",
+  "description" : "\n\n<h1><a id=\"user-content-di-order---require-di-parameters-to-be-sorted-alphabetically\" class=\"anchor\" href=\"#di-order---require-di-parameters-to-be-sorted-alphabetically\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>di-order - require DI parameters to be sorted alphabetically</h1>\n\n<p>Injected dependencies should be sorted alphabetically.\nIf the second parameter is set to false, values which start and end with an underscore those underscores are stripped.\nThis means for example that <code>_$httpBackend_</code> goes before <code>_$http_</code>.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems with default config;</p>\n\n<pre><code>/*eslint angular/di-order: 2*/\n\n// invalid\nangular.module('myModule').factory('myService', function($q, $http) {\n    // ...\n}); // error: Injected values should be sorted alphabetically\n\n// invalid\nangular.module('myModule').controller('SomeController', function(myService, $http) {\n    // ...\n}); // error: Injected values should be sorted alphabetically\n\n// invalid\nangular.module('myModule').filter('myFilter', function(someService, myService) {\n    // ...\n}); // error: Injected values should be sorted alphabetically\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems with default config;</p>\n\n<pre><code>/*eslint angular/di-order: 2*/\n\n// valid\nangular.module('myModule').factory('myService', function($http, $location, $q, myService, someService) {\n    // ...\n});\n\n// valid\nbeforeEach(inject(function (_$compile_, $httpBackend, _$log_, _$rootScope_) {\n    // ...\n}));\n\n// valid\nangular.module('myModule').factory('myService', function(CONFIG, URLs, authService, zero) {\n    // ...\n});\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>true</code>:</p>\n\n<pre><code>/*eslint angular/di-order: [2,true]*/\n\n// invalid\nbeforeEach(inject(function ($httpBackend, _$compile_, _$log_, _$rootScope_) {\n    // ...\n})); // error: Injected values should be sorted alphabetically\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>true</code>:</p>\n\n<pre><code>/*eslint angular/di-order: [2,true]*/\n\n// valid\nbeforeEach(inject(function (_$compile_, $httpBackend, _$log_, _$rootScope_) {\n    // ...\n}));\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>false</code>:</p>\n\n<pre><code>/*eslint angular/di-order: [2,false]*/\n\n// invalid\nbeforeEach(inject(function (_$compile_, $httpBackend, _$log_, _$rootScope_) {\n    // ...\n})); // error: Injected values should be sorted alphabetically\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>false</code>:</p>\n\n<pre><code>/*eslint angular/di-order: [2,false]*/\n\n// valid\nbeforeEach(inject(function ($httpBackend, _$compile_, _$log_, _$rootScope_) {\n    // ...\n}));\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.6.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/di-order.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/di-order.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_dumb_inject",
+  "name" : "dumb-inject",
+  "description" : "\n\n<h1><a id=\"user-content-dumb-inject---unittest-inject-functions-should-only-consist-of-assignments-from-injected-values-to-describe-block-variables\" class=\"anchor\" href=\"#dumb-inject---unittest-inject-functions-should-only-consist-of-assignments-from-injected-values-to-describe-block-variables\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>dumb-inject - unittest <code>inject</code> functions should only consist of assignments from injected values to describe block variables</h1>\n\n<p><code>inject</code> functions in unittests should only contain a sorted mapping of injected values to values in the <code>describe</code> block with matching names.\nThis way the dependency injection setup is separated from the other setup logic, improving readability of the test.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems;</p>\n\n<pre><code>/*eslint angular/dumb-inject: 2*/\n\n// invalid\ndescribe(function() {\n    var $httpBackend;\n    var $rootScope;\n\n    beforeEach(inject(function(_$httpBackend_, _$rootScope_) {\n        $httpBackend = _$httpBackend_;\n        $rootScope = _$rootScope_;\n\n        $httpBackend.whenGET('/data').respond([]);\n    }));\n}); // error: inject functions may only consist of assignments in the form myService = _myService_\n\n// invalid\ndescribe(function() {\n    var $httpBackend;\n    var $rootScope;\n\n    beforeEach(inject(function(_$httpBackend_, _$rootScope_) {\n        $rootScope = _$rootScope_;\n        $httpBackend = _$httpBackend_;\n    }));\n}); // error: '$httpBackend' must be sorted before '$rootScope'\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems;</p>\n\n<pre><code>/*eslint angular/dumb-inject: 2*/\n\n// valid\ndescribe(function() {\n    var $httpBackend;\n    var $rootScope;\n\n    beforeEach(inject(function(_$httpBackend_, _$rootScope_) {\n        $httpBackend = _$httpBackend_;\n        $rootScope = _$rootScope_;\n    }));\n\n    beforeEach(function() {\n        $httpBackend.whenGET('/data').respond([]);\n    });\n});\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.15.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/dumb-inject.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/dumb-inject.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_module_dependency_order",
+  "name" : "module-dependency-order",
+  "description" : "\n\n<h1><a id=\"user-content-module-dependency-order---require-a-consistent-order-of-module-dependencies\" class=\"anchor\" href=\"#module-dependency-order---require-a-consistent-order-of-module-dependencies\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>module-dependency-order - require a consistent order of module dependencies</h1>\n\n<p>Module dependencies should be sorted in a logical manner.\nThis rule provides two ways to sort modules, grouped or ungrouped.\nIn grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules.\nThe modules should be sorted alphabetically within its group.\nA prefix can be specified to determine which prefix the custom modules have.\nWithout grouped set to <code>false</code> all dependencies combined should be sorted alphabetically.\n('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems with default config;</p>\n\n<pre><code>/*eslint angular/module-dependency-order: 2*/\n\n// invalid\nangular.module('myModule', ['ngRoute', 'ngAnimate']); // error: ngAnimate should be sorted before ngRoute\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems with default config;</p>\n\n<pre><code>/*eslint angular/module-dependency-order: 2*/\n\n// valid\nangular.module('myModule', ['ngAnimate', 'ngRoute', 'app', 'appFilters', 'ui.router']);\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>{\"grouped\":true}</code>:</p>\n\n<pre><code>/*eslint angular/module-dependency-order: [2,{\"grouped\":true}]*/\n\n// invalid\nangular.module('myModule', ['app', 'ngAnimate']); // error: ngAnimate is a standard module and should be sorted before app\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>{\"grouped\":true}</code>:</p>\n\n<pre><code>/*eslint angular/module-dependency-order: [2,{\"grouped\":true}]*/\n\n// valid\nangular.module('myModule', ['ngAnimate', 'ngRoute', 'app', 'appFilters', 'ui.router']);\n</code></pre>\n\n<p>The following patterns are considered problems when configured <code>{\"grouped\":true,\"prefix\":\"app\"}</code>:</p>\n\n<pre><code>/*eslint angular/module-dependency-order: [2,{\"grouped\":true,\"prefix\":\"app\"}]*/\n\n// invalid\nangular.module('myModule', ['ngRoute', 'app', 'ui.router']); // error: ui.router is a third party module and should be sorted before app\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems when configured <code>{\"grouped\":true,\"prefix\":\"app\"}</code>:</p>\n\n<pre><code>/*eslint angular/module-dependency-order: [2,{\"grouped\":true,\"prefix\":\"app\"}]*/\n\n// valid\nangular.module('myModule', ['ngAnimate', 'ngRoute', 'ui.router', 'app', 'appFilters']);\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.12.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/module-dependency-order.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/module-dependency-order.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_one_dependency_per_line",
+  "name" : "one-dependency-per-line",
+  "description" : "\n\n<h1><a id=\"user-content-one-dependency-per-line---require-all-di-parameters-to-be-located-in-their-own-line\" class=\"anchor\" href=\"#one-dependency-per-line---require-all-di-parameters-to-be-located-in-their-own-line\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>one-dependency-per-line - require all DI parameters to be located in their own line</h1>\n\n<p>Injected dependencies should be written one per line.</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems;</p>\n\n<pre><code>/*eslint angular/one-dependency-per-line: 2*/\n\n// invalid\napp.controller('MyController', MyController);\n\nfunction MyController($http, $q) {} // error: Do not use multiple dependencies in one line\n\n// invalid\napp.controller('MyController', function($http, $q) {}); // error: Do not use multiple dependencies in one line\n\n// invalid\napp.controller('MyController', ['$http','$q',\n    function($http,\n             $q) {\n    }]); // error: Do not use multiple dependencies in one line\n\n// invalid\napp.controller('MyController', [\n    '$http',\n    '$q',\n    function($http, $q) {}]); // error: Do not use multiple dependencies in one line\n\n// invalid\napp.controller('MyController', ['$http', '$q', MyController]);\n\nfunction MyController($http,\n                      $q) {} // error: Do not use multiple dependencies in one line\n\n// invalid\napp.controller('MyController', [\n    '$http',\n    '$q',\n    MyController]);\n\nfunction MyController($http, $q) {} // error: Do not use multiple dependencies in one line\n\n// invalid\napp.controller('MyController', ['$http', '$q', function($http, $q) {}]);\n// error: Do not use multiple dependencies in one line, Do not use multiple dependencies in one line\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems;</p>\n\n<pre><code>/*eslint angular/one-dependency-per-line: 2*/\n\n// valid\napp.controller('MyController', MyController);\n\nfunction MyController($http,\n                      $q) {\n}\n\n// valid\napp.controller('MyController', function($http,\n                                        $q) {\n    });\n\n// valid\napp.controller('MyController', [\n    '$http',\n    '$q',\n    function($http,\n             $q) {\n    }]);\n\n// valid\napp.controller('MyController', [\n    '$http',\n    '$q',\n    MyController]);\n\nfunction MyController($http,\n                      $q) {\n}\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.14.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/one-dependency-per-line.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/one-dependency-per-line.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "ng_no_angular_mock",
+  "name" : "no-angular-mock",
+  "description" : "\n\n<h1><a id=\"user-content-no-angular-mock---require-to-use-angularmock-methods-directly\" class=\"anchor\" href=\"#no-angular-mock---require-to-use-angularmock-methods-directly\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>no-angular-mock - require to use <code>angular.mock</code> methods directly</h1>\n\n<p>All methods defined in the angular.mock object are also available in the object window.\nSo you can remove angular.mock from your code</p>\n\n<h2><a id=\"user-content-examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Examples</h2>\n\n<p>The following patterns are considered problems;</p>\n\n<pre><code>/*eslint angular/no-angular-mock: 2*/\n\n// invalid\nangular.mock.dump($scope); // error: You should use the \"dump\" method available in the window object.\n\n// invalid\nangular.mock.inject(function (someService) {\n    // ...\n}); // error: You should use the \"inject\" method available in the window object.\n\n// invalid\nangular.mock.module('myModule'); // error: You should use the \"module\" method available in the window object.\n</code></pre>\n\n<p>The following patterns are <strong>not</strong> considered problems;</p>\n\n<pre><code>/*eslint angular/no-angular-mock: 2*/\n\n// valid\ndump($scope);\n\n// valid\ninject(function (someService) {\n    // ...\n});\n\n// valid\nmodule('myModule');\n</code></pre>\n\n<h2><a id=\"user-content-version\" class=\"anchor\" href=\"#version\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Version</h2>\n\n<p>This rule was introduced in eslint-plugin-angular 0.2.0</p>\n\n<h2><a id=\"user-content-links\" class=\"anchor\" href=\"#links\" aria-hidden=\"true\"><svg aria-hidden=\"true\" class=\"octicon octicon-link\" height=\"16\" role=\"img\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"16\"><path d=\"M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z\"></path></svg></a>Links</h2>\n\n<ul>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/rules/no-angular-mock.js\">Rule source</a></li>\n<li><a href=\"/Gillespie59/eslint-plugin-angular/blob/master/examples/no-angular-mock.js\">Example source</a></li>\n</ul>\n",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+} ]

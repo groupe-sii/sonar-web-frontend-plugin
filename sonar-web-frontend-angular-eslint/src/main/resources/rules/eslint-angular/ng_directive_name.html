@@ -1,1 +1,67 @@
- All your directives should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your directives by "ng" (reserved keyword for AngularJS directives) ("ng_directive_name":  [2, "ng"]) [Y073](https://github.com/johnpapa/angularjs-styleguide#style-y073), [Y126](https://github.com/johnpapa/angularjs-styleguide#style-y126) 
+
+
+<h1><a id="user-content-directive-name---require-and-specify-a-prefix-for-all-directive-names" class="anchor" href="#directive-name---require-and-specify-a-prefix-for-all-directive-names" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>directive-name - require and specify a prefix for all directive names</h1>
+
+<p>All your directives should have a name starting with the parameter you can define in your config object.
+The second parameter can be a Regexp wrapped in quotes.
+You can not prefix your directives by "ng" (reserved keyword for AngularJS directives) ("directive-name":  [2, "ng"])</p>
+
+<p><strong>Styleguide Reference</strong></p>
+
+<ul>
+<li><a href="https://github.com/johnpapa/angular-styleguide#style-y073">y073 by johnpapa - Provide a Unique Directive Prefix</a></li>
+<li><a href="https://github.com/johnpapa/angular-styleguide#style-y126">y126 by johnpapa - Directive Component Names</a></li>
+</ul>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>"prefix"</code>:</p>
+
+<pre><code>/*eslint angular/directive-name: [2,"prefix"]*/
+
+// valid
+angular.module('myModule').directive('prefixTabs', function () {
+    // ...
+});
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>"/^ui/"</code>:</p>
+
+<pre><code>/*eslint angular/directive-name: [2,"/^ui/"]*/
+
+// invalid
+angular.module('myModule').directive('navigation', function () {
+    // ...
+}); // error: The navigation directive should follow this pattern: /^ui/
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>"/^ui/"</code>:</p>
+
+<pre><code>/*eslint angular/directive-name: [2,"/^ui/"]*/
+
+// valid
+angular.module('myModule').directive('uiNavigation', function () {
+    // ...
+});
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>"ui"</code>:</p>
+
+<pre><code>/*eslint angular/directive-name: [2,"ui"]*/
+
+// invalid
+angular.module('myModule').directive('tabs', function () {
+    // ...
+}); // error: The tabs directive should be prefixed by ui
+</code></pre>
+
+<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
+
+<p>This rule was introduced in eslint-plugin-angular 0.1.0</p>
+
+<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
+
+<ul>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/rules/directive-name.js">Rule source</a></li>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/examples/directive-name.js">Example source</a></li>
+</ul>
