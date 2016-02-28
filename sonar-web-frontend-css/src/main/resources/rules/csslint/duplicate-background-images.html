@@ -1,32 +1,33 @@
 <h1>Details</h1>
-      <p>One of the main rules of performance is to use as few bytes as possible to get the job done. Along those lines, URLs are best used just once inside of CSS. If you have more than one class that needs to use the same background image, then it's better to have one class that uses the URL and simply apply that class to the various elements where it is needed. Consider the following:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.heart-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-sc">no-repeat</span>;
+        <p>One of the main rules of performance is to use as few bytes as possible to get the job done. Along those lines, URLs are best used just once inside of CSS. If you have more than one class that needs to use the same background image, then it's better to have one class that uses the URL and simply apply that class to the various elements where it is needed. Consider the following:</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.heart-icon</span> {
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
 }
 
 <span class="pl-e">.task-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-sc">no-repeat</span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
 }</pre></div>
 
 <p>The background image is repeated in both classes. That's extra bytes you don't need and also increases the chances that you'll forget to change one should the filename change. An alternative is to define one class that has the URL and be sure to apply that class to the HTML elements where the other classes are used. For example:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.icons</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-sc">no-repeat</span>;
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.icons</span> {
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">no-repeat</span>;
 }
 
 <span class="pl-e">.heart-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
 }
 
 <span class="pl-e">.task-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
 }</pre></div>
 
 <p>Here, the <code>icons</code> class contains the background image while the other classes just change the background position.</p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>duplicate-background-images</code></p>
 
@@ -34,27 +35,28 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* multiple instances of the same URL */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* multiple instances of the same URL */</span>
 <span class="pl-e">.heart-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-sc">no-repeat</span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
 }
 
 <span class="pl-e">.task-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-sc">no-repeat</span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
 }</pre></div>
 
 <p>The following patterns are considered okay and do not cause warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* fallback color before newer format */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* single instance of URL */</span>
 <span class="pl-e">.icons</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-sc">no-repeat</span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">no-repeat</span>;
 }
 
 <span class="pl-e">.heart-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
 }
 
 <span class="pl-e">.task-icon</span> {
-    <span class="pl-mp"><span class="pl-s3">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
 }</pre></div>
 
+      

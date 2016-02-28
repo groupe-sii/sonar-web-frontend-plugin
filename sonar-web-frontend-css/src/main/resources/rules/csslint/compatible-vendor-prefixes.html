@@ -1,9 +1,10 @@
 <h1>Details</h1>
-      <p>Experimental CSS properties are typically implemented using vendor prefixes until the final behavior has been established and agreed upon. Most CSS3 properties have vendor-prefixed equivalents for multiple vendors, including Firefox (<code>-moz</code>), Safari/Chrome (<code>-webkit</code>), Opera (<code>-o</code>), and Internet Explorer (<code>-ms</code>).  It's easy to forget to include the vendor prefixed version of a property when there are so many to keep track of.</p>
+
+        <p>Experimental CSS properties are typically implemented using vendor prefixes until the final behavior has been established and agreed upon. Most CSS3 properties have vendor-prefixed equivalents for multiple vendors, including Firefox (<code>-moz</code>), Safari/Chrome (<code>-webkit</code>), Opera (<code>-o</code>), and Internet Explorer (<code>-ms</code>).  It's easy to forget to include the vendor prefixed version of a property when there are so many to keep track of.</p>
 
 <p>The following properties have multiple vendor-prefixed versions:</p>
 
-<ul class="task-list">
+<ul>
 <li><code>animation</code></li>
 <li><code>animation-delay</code></li>
 <li><code>animation-direction</code></li>
@@ -66,7 +67,7 @@
 <p>If you want the same CSS effects across all browsers, then it's important to remember the vendor-prefixed properties for all supporting browsers.</p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>compatible-vendor-prefixes</code></p>
 
@@ -74,12 +75,14 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* Missing -moz, -ms, and -o */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* Missing -moz, -ms, and -o */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp">-webkit-<span class="pl-s3">transform</span></span>: translate(<span class="pl-c1">50<span class="pl-k">px</span></span>, <span class="pl-c1">100<span class="pl-k">px</span></span>);
+    <span class="pl-c1">-webkit-<span class="pl-c1">transform</span></span>: translate(<span class="pl-c1">50<span class="pl-k">px</span></span>, <span class="pl-c1">100<span class="pl-k">px</span></span>);
 }
 
 <span class="pl-c">/* Missing -webkit */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp">-moz-<span class="pl-s3">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-c1">-moz-<span class="pl-c1">border-radius</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
 }</pre></div>
+
+      

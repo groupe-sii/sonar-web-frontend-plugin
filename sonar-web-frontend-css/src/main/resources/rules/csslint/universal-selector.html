@@ -1,16 +1,17 @@
 <h1>Details</h1>
-      <p>The universal selector (<code>*</code>) matches all elements. Though convenient for selecting a group of elements at a time, the universal selector causes performance issues when used as the key part (far-right) of a selector. For example, this type of rule should be avoided:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> <span class="pl-ent">*</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-c1">#fff</span>;
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#000</span>;
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">255, 255, 255, 0.5</span>);
+        <p>The universal selector (<code>*</code>) matches all elements. Though convenient for selecting a group of elements at a time, the universal selector causes performance issues when used as the key part (far-right) of a selector. For example, this type of rule should be avoided:</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> <span class="pl-ent">*</span> {
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">#fff</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#000</span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 0.5</span>);
 }</pre></div>
 
 <p>Browsers evaluate selectors from right-to-left, so this rule begins by first matching every element in the document. After that, each of those elements must be inspected to see if it matches the next criteria, which is having an ancestor with the class of <code>mybox</code>. The more complex the selector containing <code>*</code>, the slower the evaluation becomes. For this reason, it's recommended to avoid using the universal selector as the key part of a selector.  </p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>universal-selector</code></p>
 
@@ -18,19 +19,19 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-ent">*</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+<div class="highlight highlight-source-css"><pre><span class="pl-ent">*</span> {
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
 }
 
 <span class="pl-e">.selected</span> <span class="pl-ent">*</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
 }</pre></div>
 
 <p>The following patterns are considered okay and do not cause warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* universal selector is not key */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* universal selector is not key */</span>
 <span class="pl-e">.selected</span> <span class="pl-ent">*</span> <span class="pl-ent">a</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
 }</pre></div>
 
-    </div>
+      

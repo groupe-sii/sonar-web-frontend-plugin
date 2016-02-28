@@ -1,8 +1,9 @@
 <h1>Details</h1>
-      <p>Object-Oriented CSS (OOCSS) works by defining reusable objects that can be put into place anywhere on a site and appear exactly the same. The heading elements (<code>h1</code>-<code>h6</code>) are considered to be built-in objects that should look the same regardless of where they appear. As such, each heading should have exactly one rule defining its appearance. Multiple rules defining the same heading appearance can lead to objects that are hard to use because the context defines the appearance rather than being completely atomic.</p>
+
+        <p>Object-Oriented CSS (OOCSS) works by defining reusable objects that can be put into place anywhere on a site and appear exactly the same. The heading elements (<code>h1</code>-<code>h6</code>) are considered to be built-in objects that should look the same regardless of where they appear. As such, each heading should have exactly one rule defining its appearance. Multiple rules defining the same heading appearance can lead to objects that are hard to use because the context defines the appearance rather than being completely atomic.</p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>unique-headings</code></p>
 
@@ -10,29 +11,31 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* Two rules for h3 */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* Two rules for h3 */</span>
 <span class="pl-ent">h3</span> {
-    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">normal</span>;
+    <span class="pl-c1"><span class="pl-c1">font-weight</span></span>: <span class="pl-c1">normal</span>;
 }
 
 <span class="pl-e">.box</span> <span class="pl-ent">h3</span> {
-    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">bold</span>;
+    <span class="pl-c1"><span class="pl-c1">font-weight</span></span>: <span class="pl-c1">bold</span>;
 }</pre></div>
 
 <p>The following patterns are considered okay and do not cause warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* :hover doesn't count */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* :hover doesn't count */</span>
 <span class="pl-ent">h3</span> {
-    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">normal</span>;
+    <span class="pl-c1"><span class="pl-c1">font-weight</span></span>: <span class="pl-c1">normal</span>;
 }
 
 <span class="pl-ent">h3</span><span class="pl-e">:hover</span> {
-    <span class="pl-mp"><span class="pl-s3">font-weight</span></span>: <span class="pl-sc">bold</span>;
+    <span class="pl-c1"><span class="pl-c1">font-weight</span></span>: <span class="pl-c1">bold</span>;
 }</pre></div>
 
 <h2>
-<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Further Reading</h2>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://www.slideshare.net/stubbornella/object-oriented-css">Object-Oriented CSS</a></li>
 </ul>
+
+      

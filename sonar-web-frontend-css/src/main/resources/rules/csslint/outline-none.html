@@ -1,35 +1,36 @@
 <h1>Details</h1>
-      <p>The CSS <code>outline</code> property is used to define a border around elements. Unlike the <code>border</code> property, the <code>outline</code> property does not alter the size or layout of the element. Because of this, browsers frequently use <code>outline</code> as the specification for an active state. In Internet Explorer and Firefox, the <code>outline</code> of a selected element is a single pixel dotted line when focus has moved to that element. </p>
+
+        <p>The CSS <code>outline</code> property is used to define a border around elements. Unlike the <code>border</code> property, the <code>outline</code> property does not alter the size or layout of the element. Because of this, browsers frequently use <code>outline</code> as the specification for an active state. In Internet Explorer and Firefox, the <code>outline</code> of a selected element is a single pixel dotted line when focus has moved to that element. </p>
 
 <p>The focus outline is important for accessibility because it gives a visual indication as to where the focus is on the page. For keyboard-only users, tracking the focus on a web page is impossible without the visual indication given by the focus outline. Unfortunately, some consider the focus outline to be "ugly" or unappealing, and remove it using code such as :</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-ent">a</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-scp">none</span>;</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-ent">a</span> {
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">none</span>;
 }</pre></div>
 
 <p>Or:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-ent">a</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-ent">a</span> {
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">0</span>;
 }</pre></div>
 
 <p>Both of these will remove the outline from an element, so it won't appear even when focus has moved to that element. This is very bad for accessibility.</p>
 
 <p>Of course, there are times when you may want to provide a custom focus decoration for users instead of the default dotted border. In those instances, it's appropriate to remove the <code>outline</code> and add another treatment. The best way to do this is to use <code>:focus</code> and provide the alternate treatment along with resetting <code>outline</code>, such as:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-ms"><span class="pl-ent">a</span><span class="pl-eoa"><span class="pl-pde">:</span>focus</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> red;</span>
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-scp">none</span>;</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-ent">a</span><span class="pl-e">:focus</span> {
+    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">red</span>;
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">none</span>;
 }</pre></div>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>outline-none</code></p>
 
 <p>This rule is aimed at ensuring keyboard-only users have a visual indicator of focus. As such, the rule warns when it finds:</p>
 
-<ol class="task-list">
+<ol>
 <li>
 <code>outline: none</code> or <code>outline: 0</code> in any rule whose selectors doesn't contain <code>:focus</code>
 </li>
@@ -39,34 +40,35 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre>
-<span class="pl-c"><span class="pl-pdc">/*</span> no :focus <span class="pl-pdc">*/</span></span>
-<span class="pl-ms"><span class="pl-ent">a</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-scp">none</span>;</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* no :focus */</span>
+<span class="pl-ent">a</span> {
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">none</span>;
 }
 
-<span class="pl-c"><span class="pl-pdc">/*</span> no :focus <span class="pl-pdc">*/</span></span>
-<span class="pl-ms"><span class="pl-ent">a</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+<span class="pl-c">/* no :focus */</span>
+<span class="pl-ent">a</span> {
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">0</span>;
 }
 
-<span class="pl-c"><span class="pl-pdc">/*</span> :focus but missing a replacement treatment <span class="pl-pdc">*/</span></span>
-<span class="pl-ms"><span class="pl-ent">a</span><span class="pl-eoa"><span class="pl-pde">:</span>focus</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+<span class="pl-c">/* :focus but missing a replacement treatment */</span>
+<span class="pl-ent">a</span><span class="pl-e">:focus</span> {
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">0</span>;
 }</pre></div>
 
 <p>The following pattern is considered okay and does not cause a warning:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c"><span class="pl-pdc">/*</span> :focus with outline: 0 and provides replacement treatment <span class="pl-pdc">*/</span></span>
-<span class="pl-ms"><span class="pl-ent">a</span><span class="pl-eoa"><span class="pl-pde">:</span>focus</span> </span>{
-    <span class="pl-mp"><span class="pl-stp">border</span></span><span class="pl-mp1">: <span class="pl-cn">1<span class="pl-kou">px</span></span> <span class="pl-scp">solid</span> red;</span>
-    <span class="pl-mp"><span class="pl-stp">outline</span></span><span class="pl-mp1">: <span class="pl-cn">0</span>;</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* :focus with outline: 0 and provides replacement treatment */</span>
+<span class="pl-ent">a</span><span class="pl-e">:focus</span> {
+    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">red</span>;
+    <span class="pl-c1"><span class="pl-c1">outline</span></span>: <span class="pl-c1">0</span>;
 }</pre></div>
 
 <h2>
-<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Further Reading</h2>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://css-tricks.com/829-removing-the-dotted-outline/">Removing the dotted outline</a></li>
 <li><a href="http://outlinenone.com/">http://outlinenone.com/</a></li>
 </ul>
+
+      
