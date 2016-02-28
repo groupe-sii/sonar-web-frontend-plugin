@@ -15,6 +15,21 @@ public class RuleDefinition extends BasicRule {
 	
 	private Debt debt;
 	
+	public RuleDefinition() {
+		super();
+	}
+	
+	public RuleDefinition(String key, String name, String description) {
+		this(key, name, description, null);
+	}
+
+	public RuleDefinition(String key, String name, String description, String severity) {
+		super(key);
+		this.name = name;
+		this.description = description;
+		this.severity = severity;
+	}
+
 	public String getName() {
 		return name;
 	}

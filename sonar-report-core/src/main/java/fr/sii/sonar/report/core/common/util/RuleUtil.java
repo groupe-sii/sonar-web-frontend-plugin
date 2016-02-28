@@ -11,7 +11,8 @@ public class RuleUtil {
 		try {
 			Field field = rule.getClass().getDeclaredField("htmlDescription");
 			field.setAccessible(true);
-			return field.get(rule).toString();
+			Object desc = field.get(rule);
+			return desc==null ? "" : desc.toString();
 		} catch (SecurityException e) {
 			throw new RuleDefinitionException("Failed to get HTML description for rule "+rule.key(), e);
 		} catch (NoSuchFieldException e) {
@@ -27,7 +28,8 @@ public class RuleUtil {
 		try {
 			Field field = rule.getClass().getDeclaredField("name");
 			field.setAccessible(true);
-			return field.get(rule).toString();
+			Object name = field.get(rule);
+			return name==null ? "" : name.toString();
 		} catch (SecurityException e) {
 			throw new RuleDefinitionException("Failed to get name for rule "+rule.key(), e);
 		} catch (NoSuchFieldException e) {

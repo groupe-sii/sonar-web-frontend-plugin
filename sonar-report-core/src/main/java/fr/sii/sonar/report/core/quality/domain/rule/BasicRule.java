@@ -14,6 +14,15 @@ public class BasicRule {
 	 * The rule key
 	 */
 	private String key;
+	
+	public BasicRule() {
+		super();
+	}
+	
+	public BasicRule(String key) {
+		super();
+		this.key = key;
+	}
 
 	public String getKey() {
 		return key;
