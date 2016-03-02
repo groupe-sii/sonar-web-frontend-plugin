@@ -88,7 +88,7 @@
       "type" : "constant",
       "offset" : "10min"
     },
-    "sqaleSubCharacteristic" : "SECURITY_FEATURES"
+    "sqaleSubCharacteristic" : "API_ABUSE"
   }
 }, {
   "key" : "E011",
