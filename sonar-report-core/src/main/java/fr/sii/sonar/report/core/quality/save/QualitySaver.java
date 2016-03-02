@@ -6,6 +6,7 @@ import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.issue.Issuable;
 import org.sonar.api.issue.Issuable.IssueBuilder;
 import org.sonar.api.measures.CoreMetrics;
+import org.sonar.api.measures.Measure;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
@@ -76,10 +77,12 @@ public class QualitySaver implements Saver<QualityReport> {
 	 *            sonar file
 	 */
 	protected void saveFileAnalysis(SensorContext context, AnalyzedFile file, InputFile sonarFile) {
+		Measure<Integer> measure = context.getMeasure(context.getResource(sonarFile), CoreMetrics.NCLOC);
 		// if already a metric, then another plugin has already stored the information => don't do it again
-		if(!pluginContext.getSettings().getBoolean(((QualityConstants) pluginContext.getConstants()).getSkipFileMetricsKey()) && context.getMeasure(context.getResource(sonarFile), CoreMetrics.LINES) == null) {
+		if(!pluginContext.getSettings().getBoolean(((QualityConstants) pluginContext.getConstants()).getSkipFileMetricsKey()) && measure == null) {
 			context.saveMeasure(sonarFile, CoreMetrics.FILES, 1.0);
-			context.saveMeasure(sonarFile, CoreMetrics.LINES, Double.valueOf(file.getNbLines()));
+			// TODO: add CoreMetrics.NCLOC_DATA and CoreMetrics.COMMENT_LINES_DATA (use FileLinesContextFactory)
+//			context.saveMeasure(sonarFile, CoreMetrics.LINES, Double.valueOf(file.getNbLines()));
 			context.saveMeasure(sonarFile, CoreMetrics.NCLOC, Double.valueOf(file.getNbCloc()));
 			context.saveMeasure(sonarFile, CoreMetrics.COMMENT_LINES, Double.valueOf(file.getNbComments()));
 		} else {
