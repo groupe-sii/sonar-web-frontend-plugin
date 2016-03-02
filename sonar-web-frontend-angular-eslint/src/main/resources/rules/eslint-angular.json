@@ -690,7 +690,7 @@
   "key" : "ng_di_order",
   "name" : "require DI parameters to be sorted alphabetically",
   "description" : "require DI parameters to be sorted alphabetically",
-  "severity" : "MIMNOR",
+  "severity" : "MINOR",
   "status" : null,
   "tags" : [ "angular", "eslint", "convention", "injection" ],
   "debt" : {
