@@ -82,6 +82,8 @@ To build from source, you need to ensure that:
 - [Maven](https://maven.apache.org/download.cgi) is installed
 
 Clone this git repository.
+Switch to the branch for your Sonar version (do not use directly the master branch as it may not work).
+
 Go into the cloned folder (sonar-web-frontend-plugin by default) and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
 
 ```
@@ -145,7 +147,7 @@ Same as above, the widget separates the count of duplicated code by language.
 
 ### Reports path
 
-You can change the path to eveery generated report directly in your sonar.properties file by adding the following properties:
+You can change the path to every generated report directly in your sonar.properties file by adding the following properties:
 
 ```
 # issues reports with default paths
@@ -158,12 +160,15 @@ sonar.sii.quality.angular.eslint.report.path=/report/eslint-angular.json
 
 # unit test results with default paths
 sonar.sii.test.unit.js.report.path=/report/jasmine.unit.xml
+sonar.sii.test.it.js.report.path=/report/jasmine.it.xml
 
 # integration test results with default paths
 sonar.sii.test.it.js.report.path=/report/jasmine.it.unit.xml
 
 # code coverage with default paths
-sonar.sii.coverage.js.report.path=/report/js.lcov
+sonar.sii.coverage.ut.js.report.path=/report/js-ut.lcov
+sonar.sii.coverage.it.js.report.path=/report/js-it.lcov
+sonar.sii.coverage.overall.js.report.path=/report/js-overall.lcov
 
 # code duplication with default paths
 sonar.sii.duplication.js.report.path=/report/js-duplication.xml
@@ -176,6 +181,10 @@ sonar.sii.duplication.scss.report.path=/report/scss-duplication.xml
 ### Other options
 
 TODO
+
+# Supported Sonar versions
+
+As Sonar team make big changes on plugin APIs between two versions, it takes really long time to update the plugin for each version. So we decided to only support the LTS version (currently 4.5.x). We also try to make the last release version (currently 5.3) but some APIs have totally disappeared while other are no more working. When Sonar 5.4 will be released, we will try to make adjustements to make our plugin working on it. No effort is made for Sonar versions between 4.5.x and 5.3. The plugin may work or not depending on what you are using and the version of Sonar.
 
 # Roadmap
 
