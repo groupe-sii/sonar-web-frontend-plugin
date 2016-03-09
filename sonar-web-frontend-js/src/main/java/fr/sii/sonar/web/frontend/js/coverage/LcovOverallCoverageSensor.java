@@ -14,7 +14,7 @@ import fr.sii.sonar.report.core.coverage.factory.OverallCoverageSaverFactory;
  */
 public class LcovOverallCoverageSensor extends ReportSensor<CoverageReport> {
 
-	public LcovOverallCoverageSensor(LcovUnitCoverageConstants constants, PluginDependencies pluginDependencies) {
+	public LcovOverallCoverageSensor(LcovOverallCoverageConstants constants, PluginDependencies pluginDependencies) {
 		super(constants, pluginDependencies, new LcovProviderFactory(), new OverallCoverageSaverFactory());
 	}
 

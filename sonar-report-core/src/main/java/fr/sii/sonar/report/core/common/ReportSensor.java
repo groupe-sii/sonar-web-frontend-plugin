@@ -4,11 +4,7 @@ import java.io.File;
 
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
-import org.sonar.api.batch.fs.FileSystem;
-import org.sonar.api.component.ResourcePerspectives;
-import org.sonar.api.config.Settings;
 import org.sonar.api.resources.Project;
-import org.sonar.api.rules.RuleFinder;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 
@@ -64,7 +60,7 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 			boolean exists = reportFile.exists();
 			if(exists) {
 				LOG.info("Loading and storing "+reportFile.getAbsolutePath()+" in Sonar");
-			} else {
+			} else if(!pluginContext.getSettings().getBoolean(ReportSensorConstants.SKIP_LOG_MISSING_REPORT_KEY)) {
 				LOG.warn("The report file "+reportFile.getAbsolutePath()+" doesn't exist");
 			}
 			return exists;
