@@ -60,7 +60,7 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 			boolean exists = reportFile.exists();
 			if(exists) {
 				LOG.info("Loading and storing "+reportFile.getAbsolutePath()+" in Sonar");
-			} else {
+			} else if(!pluginContext.getSettings().getBoolean(ReportSensorConstants.SKIP_LOG_MISSING_REPORT_KEY)) {
 				LOG.warn("The report file "+reportFile.getAbsolutePath()+" doesn't exist");
 			}
 			return exists;

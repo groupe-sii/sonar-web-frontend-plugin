@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 import org.sonar.api.SonarPlugin;
+import org.sonar.api.config.PropertyDefinition;
+import org.sonar.api.resources.Qualifiers;
 
+import fr.sii.sonar.report.core.common.ReportSensorConstants;
 import fr.sii.sonar.web.frontend.css.CssLanguageConstants;
 import fr.sii.sonar.web.frontend.css.CssPlugin;
 import fr.sii.sonar.web.frontend.html.HtmlLanguageConstants;
@@ -48,6 +51,17 @@ public final class WebPlugin extends SonarPlugin {
 		// add widgets
 		extensions.add(MultiLanguageIssuesWidget.class);
 		extensions.add(MultiLanguageDuplicationsWidget.class);
+		
+		// additional properties
+		extensions.add(
+				PropertyDefinition.builder(ReportSensorConstants.SKIP_LOG_MISSING_REPORT_KEY)
+		            .defaultValue(ReportSensorConstants.SKIP_LOG_MISSING_REPORT_DEFVAL)
+		            .category(ReportSensorConstants.CATEGORY)
+		            .subCategory(ReportSensorConstants.SUB_CATEGORY)
+		            .name("Skip log missing report")
+		            .description("Enable/disable warning log when report file is missing")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build());
 		
 		// remove duplicates (PluginDependencies)
 		Set temp = new HashSet(extensions);
