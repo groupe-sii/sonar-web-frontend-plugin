@@ -48,10 +48,9 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 	/**
 	 * Use of IoC to get Settings
 	 */
-	public ReportSensor(ReportConstants constants, Settings settings, RuleFinder ruleFinder, FileSystem filesystem, ResourcePerspectives resourcePerspective,
-			ProviderFactory<R> providerFactory, SaverFactory<R> saverFactory) {
+	public ReportSensor(ReportConstants constants, PluginDependencies pluginDependencies, ProviderFactory<R> providerFactory, SaverFactory<R> saverFactory) {
 		super();
-		this.pluginContext = new PluginContext(settings, resourcePerspective, ruleFinder, filesystem, constants);
+		this.pluginContext = new PluginContext(constants, pluginDependencies);
 		this.providerFactory = providerFactory;
 		this.saverFactory = saverFactory;
 	}
