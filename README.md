@@ -82,9 +82,13 @@ To build from source, you need to ensure that:
 - [Maven](https://maven.apache.org/download.cgi) is installed
 
 Clone this git repository.
-Switch to the branch for your Sonar version (do not use directly the master branch as it may not work).
+Go into the cloned folder (sonar-web-frontend-plugin by default).
+Switch to the branch for your Sonar version (do not use directly the master branch as it may not work). For example, for Sonar 4.5.x:
+```
+git checkout sonar-4.5.x
+```
 
-Go into the cloned folder (sonar-web-frontend-plugin by default) and generate the plugin using [Maven](https://maven.apache.org/download.cgi):
+Generate the plugin using [Maven](https://maven.apache.org/download.cgi):
 
 ```
 mvn clean install
