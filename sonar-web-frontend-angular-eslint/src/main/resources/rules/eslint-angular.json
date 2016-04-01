@@ -15,7 +15,7 @@
             "type":"constant",
             "offset":"5min"
          },
-         "sqaleSubCharacteristic":"MAINTENAIBILITY_COMPLIANCE"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
