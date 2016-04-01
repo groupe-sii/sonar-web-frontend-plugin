@@ -13,9 +13,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
+         "sqaleSubCharacteristic":"MAINTENAIBILITY_COMPLIANCE"
       }
    },
    {
@@ -35,7 +35,7 @@
             "type":"constant",
             "offset":"30min"
          },
-         "sqaleSubCharacteristic":"ARCHITECTURE_RELIABILITY"
+         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
       }
    },
    {
@@ -47,14 +47,15 @@
       "tags":[
          "angular",
          "eslint",
+         "pitfall",
          "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
-         "sqaleSubCharacteristic":"ARCHITECTURE_RELIABILITY"
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
       }
    },
    {
@@ -66,14 +67,15 @@
       "tags":[
          "angular",
          "eslint",
+         "pitfall",
          "convention"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
       }
    },
    {
@@ -90,9 +92,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"10min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -109,7 +111,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
@@ -123,7 +125,6 @@
       "tags":[
          "angular",
          "eslint",
-         "pitfall",
          "bad-practice",
          "cross-browser"
       ],
@@ -132,7 +133,7 @@
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -144,16 +145,15 @@
       "tags":[
          "angular",
          "eslint",
-         "pitfall",
-         "bad-practice",
+         "convention",
          "injection"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"20min"
          },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
    },
    {
@@ -172,7 +172,7 @@
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -184,6 +184,7 @@
       "tags":[
          "angular",
          "eslint",
+         "convention",
          "bad-practice"
       ],
       "debt":{
@@ -191,7 +192,7 @@
             "type":"constant",
             "offset":"5min"
          },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
    },
    {
@@ -203,6 +204,7 @@
       "tags":[
          "angular",
          "eslint",
+         "convention",
          "bad-practice"
       ],
       "debt":{
@@ -222,15 +224,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -242,8 +243,8 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "useless"
+         "convention",
+         "dead-code"
       ],
       "debt":{
          "sqaleRemediation":{
@@ -288,7 +289,7 @@
             "type":"constant",
             "offset":"20min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -301,15 +302,14 @@
          "angular",
          "eslint",
          "bad-practice",
-         "pitfall",
-         "cross-browser"
+         "pitfall"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"10min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -340,15 +340,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -360,15 +359,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -380,15 +378,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"10min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -406,7 +403,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"20min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -420,15 +417,15 @@
       "tags":[
          "angular",
          "eslint",
-         "convention",
-         "pitfall"
+         "bad-practice",
+         "convention"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"READABILITY"
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
    },
    {
@@ -445,9 +442,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -459,15 +456,15 @@
       "tags":[
          "angular",
          "eslint",
-         "convention",
-         "pitfall"
+         "bad-practice",
+         "convention"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"READABILITY"
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
    },
    {
@@ -479,6 +476,7 @@
       "tags":[
          "angular",
          "eslint",
+         "bad-practice",
          "obsolete"
       ],
       "debt":{
@@ -495,8 +493,19 @@
       "description":" The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
       "severity":"CRITICAL",
       "status":null,
-      "tags":null,
-      "debt":null
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
    },
    {
       "key":"ng_no_jquery_angularelement",
@@ -507,13 +516,15 @@
       "tags":[
          "angular",
          "eslint",
+         "pitfall",
          "bad-practice",
+         "performance",
          "confusing"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
@@ -532,7 +543,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
@@ -547,7 +558,7 @@
          "angular",
          "eslint",
          "bad-practice",
-         "suspicious",
+         "pitfall",
          "injection"
       ],
       "debt":{
@@ -574,7 +585,7 @@
             "type":"constant",
             "offset":"10min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -587,7 +598,6 @@
          "angular",
          "eslint",
          "bad-practice",
-         "pitfall",
          "memory-leak"
       ],
       "debt":{
@@ -595,7 +605,7 @@
             "type":"constant",
             "offset":"10min"
          },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+         "sqaleSubCharacteristic":"EFFICIENCY_COMPLIANCE"
       }
    },
    {
@@ -607,12 +617,13 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice"
+         "bad-practice",
+         "convention"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"20min"
          },
          "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
@@ -631,9 +642,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -645,15 +656,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -665,15 +675,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -685,15 +694,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -705,15 +713,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -725,15 +732,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -745,15 +751,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -765,15 +770,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -785,15 +789,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -805,15 +808,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -825,6 +827,7 @@
       "tags":[
          "angular",
          "eslint",
+         "convention",
          "performance"
       ],
       "debt":{
@@ -844,15 +847,14 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "cross-browser"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
       }
    },
    {
@@ -864,13 +866,13 @@
       "tags":[
          "angular",
          "eslint",
-         "unused",
-         "injection"
+         "injection",
+         "dead-code"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -879,10 +881,21 @@
       "key":"ng_no_controller",
       "name":"disallow use of controllers (according to the component first pattern)",
       "description":"disallow use of controllers (according to the component first pattern)",
-      "severity":null,
+      "severity":"MAJOR",
       "status":null,
-      "tags":null,
-      "debt":null
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "pitfall"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+      }
    },
    {
       "key":"ng_no_inline_template",
@@ -898,9 +911,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -938,9 +951,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
-         "sqaleSubCharacteristic":"ARCHITECTURE_RELIABILITY"
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
       }
    },
    {
@@ -952,13 +965,12 @@
       "tags":[
          "angular",
          "eslint",
-         "bad-practice",
-         "obsolete"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
          "sqaleSubCharacteristic":"ARCHITECTURE_RELIABILITY"
       }
@@ -978,7 +990,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -1001,7 +1013,7 @@
             "type":"constant",
             "offset":"5min"
          },
-         "sqaleSubCharacteristic":"READABILITY"
+         "sqaleSubCharacteristic":"TESTABILITY_COMPLIANCE"
       }
    },
    {
@@ -1018,7 +1030,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -1038,7 +1050,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -1052,12 +1064,13 @@
       "tags":[
          "angular",
          "eslint",
+         "pitfall",
          "convention"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
