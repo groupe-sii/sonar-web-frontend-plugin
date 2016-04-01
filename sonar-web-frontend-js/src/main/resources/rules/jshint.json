@@ -4,7 +4,7 @@
   "description" : "Bad option: '{a}'.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "jshint" ],
+  "tags" : [ "jshint-options" ],
   "debt" : null
 }, {
   "key" : "E002",
@@ -12,7 +12,7 @@
   "description" : "Bad option value.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "jshint" ],
+  "tags" : [ "jshint-options" ],
   "debt" : null
 }, {
   "key" : "E003",
@@ -88,7 +88,7 @@
       "type" : "constant",
       "offset" : "10min"
     },
-    "sqaleSubCharacteristic" : "API_ABUSE"
+    "sqaleSubCharacteristic" : "SECURITY_FEATURES"
   }
 }, {
   "key" : "E011",
@@ -1286,8 +1286,14 @@
   "description" : "Weird construction. Is 'new' necessary?",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "jshint", "bad-practice", "confusing"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
   "key" : "W058",
   "name" : "Missing '()' invoking a constructor",
@@ -1350,7 +1356,7 @@
   "description" : "Wrap an immediate function invocation in parentheses",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
+  "tags" : [ "jshint", "convention", "confusing", "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1428,7 +1434,7 @@
   "description" : "Do not wrap function literals in parens unless they are to be immediately invoked",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
+  "tags" : [ "jshint", "convention", "confusing", "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1532,7 +1538,7 @@
       "type" : "constant",
       "offset" : "10min"
     },
-    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
   }
 }, {
   "key" : "W076",
@@ -1652,7 +1658,7 @@
   "description" : "Unexpected assignment expression",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "bad-practice", "pitfall" ],
+  "tags" : [ "jshint", "bug", "bad-practice" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1694,8 +1700,14 @@
   "description" : "All 'debugger' statements should be removed",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "jshint", "convention", "pitfall"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "W088",
   "name" : "Bad for-in variable '{a}'",
@@ -1716,7 +1728,7 @@
   "description" : "The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "pitfall", "bad-practice" ],
+  "tags" : [ "jshint", "convention", "pitfall", "bad-practice" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1772,24 +1784,42 @@
   "description" : "Unexpected comma.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "jshint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "W095",
   "name" : "Expected a string",
   "description" : "Expected a string and instead saw {a}.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "jshint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "W096",
   "name" : "key may produce unexpected results",
   "description" : "The '{a}' key may produce unexpected results.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "jshint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "W097",
   "name" : "Use the function form of 'use strict'",
@@ -1800,7 +1830,7 @@
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "5min"
+      "offset" : "20min"
     },
     "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
   }
@@ -2018,7 +2048,7 @@
   "description" : "Expected '{a}' and instead saw '{b}'.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
+  "tags" : [ "jshint"],
   "debt" : null
 }, {
   "key" : "W117",
@@ -2196,48 +2226,78 @@
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : null,
+  "tags" : ["jshint-options"],
   "debt" : null
 }, {
   "key" : "W132",
   "name" : "`var` declarations are forbidden. Use `let` or `const` instead.",
   "description" : null,
-  "severity" : null,
+  "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "convention", "cross-browser", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
 }, {
   "key" : "W136",
   "name" : "'{a}' must be in function scope.",
   "description" : null,
-  "severity" : null,
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "pitfall", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "W133",
   "name" : "Invalid for-{a} loop left-hand-side: {b}.",
   "description" : null,
-  "severity" : null,
+  "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "bug"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
   "key" : "E056",
   "name" : "'{a}' was used before it was declared, which is illegal for '{b}' variables.",
   "description" : null,
-  "severity" : null,
+  "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "pitfall"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "E054",
   "name" : "Class properties must be methods. Expected '(' but instead saw '{a}'.",
   "description" : null,
-  "severity" : null,
+  "severity" : "BLOCKING",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "bug", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
   "key" : "W127",
   "name" : "Unexpected use of a comma operator.",
@@ -2250,10 +2310,16 @@
   "key" : "W137",
   "name" : "Empty destructuring.",
   "description" : null,
-  "severity" : null,
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "pitfall", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "W138",
   "name" : "Parameters order",
@@ -2272,57 +2338,87 @@
   "key" : "W131",
   "name" : "Invalid parameter after rest parameter.",
   "description" : null,
-  "severity" : null,
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "bug", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "W126",
   "name" : "Unnecessary grouping operator.",
-  "description" : null,
-  "severity" : null,
+  "description" : "You should not use parenthesis when not needed",
+  "severity" : "MINOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "convention"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "W135",
   "name" : "{a} may not be supported by non-browser environments.",
   "description" : null,
-  "severity" : null,
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "bug", "server"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
   "key" : "E053",
   "name" : "Export declaration must be in global scope.",
   "description" : null,
-  "severity" : null,
+  "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "pitfall", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "MODULARITY"
+  }
 }, {
   "key" : "W134",
   "name" : "The '{a}' option is only available when linting ECMAScript {b} code.",
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : null,
+  "tags" : ["jshint-options"],
   "debt" : null
 }, {
   "key" : "W129",
   "name" : "'{a}' is defined in a future version of JavaScript. Use a ",
   "description" : null,
-  "severity" : null,
+  "severity" : "MINOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "es-next"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
 }, {
   "key" : "E055",
   "name" : "The '{a}' option cannot be set after any executable code.",
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : null,
+  "tags" : ["jshint-options"],
   "debt" : null
 }, {
   "key" : "W128",
@@ -2330,14 +2426,20 @@
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : null,
+  "tags" : ["jshint-options"],
   "debt" : null
 }, {
   "key" : "W130",
   "name" : "Invalid element after rest element.",
   "description" : null,
-  "severity" : null,
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : ["jshint", "bug", "es6"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 } ]
