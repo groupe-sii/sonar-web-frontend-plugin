@@ -4,11 +4,11 @@
   "description" : "Attribute name must be lowercase.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : [ "htmlhint", "convention" ],
+  "tags" : [ "htmlhint" , "convention"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "1min"
+      "offset" : "5min"
     },
     "sqaleSubCharacteristic" : "READABILITY"
   }
@@ -18,13 +18,13 @@
   "description" : "Attribute name can not been duplication.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "pitfall", "suspicious" ],
+  "tags" : [ "htmlhint", "pitfall", "suspicious"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
       "offset" : "5min"
     },
-    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
   }
 }, {
   "key" : "attr-unsafe-chars",
@@ -32,7 +32,7 @@
   "description" : "Attribute value cant not use unsafe chars.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "pitfall", "bug" ],
+  "tags" : [ "htmlhint" , "bug"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -46,7 +46,7 @@
   "description" : "Attribute value must closed by double quotes.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "convention" ],
+  "tags" : [ "htmlhint" , "convention"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -60,7 +60,21 @@
   "description" : "Attribute must set value.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : [ "htmlhint", "convention" ],
+  "tags" : [ "htmlhint" , "convention"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "csslint",
+  "name" : "csslint",
+  "description" : "Scan css with csslint.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "htmlhint" , "convention"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -69,26 +83,18 @@
     "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
   }
 }, {
-  "key" : "csslint",
-  "name" : "csslint",
-  "description" : "Scan css with csslint.",
-  "severity" : "INFO",
-  "status" : null,
-  "tags" : null,
-  "debt" : null
-}, {
   "key" : "doctype-first",
   "name" : "Doctype first",
   "description" : "Doctype must be first.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "pitfall", "bad-practice" ],
+  "tags" : [ "htmlhint" , "convention", "bug", "bad-practice"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
       "offset" : "5min"
     },
-    "sqaleSubCharacteristic" : "RESOURCE_RELIABILITY"
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
   }
 }, {
   "key" : "doctype-html5",
@@ -96,7 +102,7 @@
   "description" : "Doctype must be html5.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "convention", "obsolete", "html5" ],
+  "tags" : [ "htmlhint" , "convention", "obsolete", "html5"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -110,13 +116,13 @@
   "description" : "The script tag can not be used in head.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice", "performance", "user-experience" ],
+  "tags" : [ "htmlhint" , "bad-practice", "pitfall", "user-experience"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "10min"
+      "offset" : "5min"
     },
-    "sqaleSubCharacteristic" : "EFFICIENCY_COMPLIANCE"
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
   }
 }, {
   "key" : "href-abs-or-rel",
@@ -124,7 +130,7 @@
   "description" : "Href must be absolute or relative.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice" ],
+  "tags" : [ "htmlhint", "bad-practice"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -138,11 +144,11 @@
   "description" : "Id and class can not use ad keyword, it will blocked by adblock software.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "pitfall" ],
+  "tags" : [ "htmlhint" , "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "20min"
+      "offset" : "10min"
     },
     "sqaleSubCharacteristic" : "RESOURCE_RELIABILITY"
   }
@@ -152,7 +158,7 @@
   "description" : "Id and class value must meet some rules.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "convention" ],
+  "tags" : [ "htmlhint" , "convention"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -166,7 +172,7 @@
   "description" : "Id must be unique.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "pitfall", "bad-practice" ],
+  "tags" : [ "htmlhint" , "bad-practice", "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -180,7 +186,7 @@
   "description" : "Alt of img tag must be set value.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "user-experience", "accessibility" ],
+  "tags" : [ "htmlhint" , "convention", "user-experience", "accessibility"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -194,19 +200,25 @@
   "description" : "Scan script with jshint.",
   "severity" : "INFO",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "htmlhint" , "convention"],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "space-tab-mixed-disabled",
   "name" : "Spaces or tabs",
   "description" : "Spaces and tabs can not mixed in front of line.",
   "severity" : "INFO",
   "status" : null,
-  "tags" : [ "htmlhint", "convention" ],
+  "tags" : [ "htmlhint" , "convention"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "10min"
+      "offset" : "5min"
     },
     "sqaleSubCharacteristic" : "READABILITY"
   }
@@ -216,13 +228,13 @@
   "description" : "Special characters must be escaped.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice", "pitfall" ],
+  "tags" : [ "htmlhint" , "bad-practice", "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
       "offset" : "10min"
     },
-    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
   }
 }, {
   "key" : "src-not-empty",
@@ -230,7 +242,7 @@
   "description" : "Src of img(script,link) must set value.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice" ],
+  "tags" : [ "htmlhint" , "convention", "pitfall", "bad-practice"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -244,13 +256,13 @@
   "description" : "Style tag can not be use.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice", "obsolete" ],
+  "tags" : [ "htmlhint" , "convention", "bad-practice"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "10min"
+      "offset" : "5min"
     },
-    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
   }
 }, {
   "key" : "tag-pair",
@@ -258,7 +270,7 @@
   "description" : "Tag must be paired.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice", "suspicious", "pitfall" ],
+  "tags" : [ "htmlhint" , "convention", "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -286,7 +298,7 @@
   "description" : "Tagname must be lowercase",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : [ "htmlhint", "convention" ],
+  "tags" : [ "htmlhint" , "convention"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -300,11 +312,11 @@
   "description" : "title must be present in head",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice", "user-experience" ],
+  "tags" : [ "htmlhint" , "convention", "accessibility", "user-experience"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
-      "offset" : "10min"
+      "offset" : "5min"
     },
     "sqaleSubCharacteristic" : "USABILITY_EASE_OF_USE"
   }
@@ -314,7 +326,7 @@
   "description" : "Alt of img must be present and alt of area[href] and input[type=image] must be set value",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "htmlhint", "user-experience", "accessibility" ],
+  "tags" : [ "htmlhint" , "convention", "user-experience", "accessibility"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -328,7 +340,7 @@
   "description" : "Inline style cannot be used",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice" ],
+  "tags" : [ "htmlhint" , "convention", "bad-practice"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -342,7 +354,7 @@
   "description" : "Inline script cannot be used",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : [ "htmlhint", "bad-practice", "pitfall" ],
+  "tags" : [ "htmlhint" , "convention", "bad-practice", "pitfall"],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
