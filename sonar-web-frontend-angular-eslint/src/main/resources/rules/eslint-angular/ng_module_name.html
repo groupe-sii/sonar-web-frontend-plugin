@@ -1,1 +1,59 @@
- When you create a new module, its name should start with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your modules by "ng" (reserved keyword for AngularJS modules) ("ng_module_name":  [2, "ng"])  [Y127](https://github.com/johnpapa/angularjs-styleguide#style-y127)
+<h1 class="details">Details</h1>
+
+
+<h1><a id="user-content-module-name---require-and-specify-a-prefix-for-all-module-names" class="anchor" href="#module-name---require-and-specify-a-prefix-for-all-module-names" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>module-name - require and specify a prefix for all module names</h1>
+
+<p>When you create a new module, its name should start with the parameter you can define in your config object.
+The second parameter can be a Regexp wrapped in quotes.
+You can not prefix your modules by "ng" (reserved keyword for AngularJS modules) ("module-name":  [2, "ng"])</p>
+
+<p><strong>Styleguide Reference</strong></p>
+
+<ul>
+<li><a href="https://github.com/johnpapa/angular-styleguide#style-y127">y127 by johnpapa - Naming - Modules</a></li>
+</ul>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>"prefix"</code>:</p>
+
+<pre><code>/*eslint angular/module-name: [2,"prefix"]*/
+
+// valid
+angular.module('prefixModule', []);
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>"/^xyz/"</code>:</p>
+
+<pre><code>/*eslint angular/module-name: [2,"/^xyz/"]*/
+
+// invalid
+angular.module('otherModule', []); // error: The otherModule module should follow this pattern: /^xyz/
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>"/^xyz/"</code>:</p>
+
+<pre><code>/*eslint angular/module-name: [2,"/^xyz/"]*/
+
+// valid
+angular.module('xyzModule', []);
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>"xyz"</code>:</p>
+
+<pre><code>/*eslint angular/module-name: [2,"xyz"]*/
+
+// invalid
+angular.module('myModule', []); // error: The myModule module should be prefixed by xyz
+</code></pre>
+
+<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
+
+<p>This rule was introduced in eslint-plugin-angular 0.1.0</p>
+
+<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
+
+<ul>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/rules/module-name.js">Rule source</a></li>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/examples/module-name.js">Example source</a></li>
+</ul>

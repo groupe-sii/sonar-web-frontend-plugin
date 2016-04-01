@@ -1,0 +1,137 @@
+<h1 class="details">Details</h1>
+
+
+<h1><a id="user-content-file-name---require-and-specify-a-consistent-component-name-pattern" class="anchor" href="#file-name---require-and-specify-a-consistent-component-name-pattern" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>file-name - require and specify a consistent component name pattern</h1>
+
+<p>All your file names should match the angular component name.
+The second parameter can be a config object [2, {nameStyle: 'dash', typeSeparator: 'dot', ignoreTypeSuffix: true, ignorePrefix: 'ui'}] to match 'avenger-profile.directive.js' or 'avanger-api.service.js'.
+Possible values for 'typeSeparator' and 'nameStyle' are 'dot', 'dash' and 'underscore'.
+The options 'ignoreTypeSuffix' ignores camel cased suffixes like 'someController' or 'myService' and 'ignorePrefix' ignores namespace prefixes like 'ui'.</p>
+
+<p><strong>Styleguide Reference</strong></p>
+
+<ul>
+<li><a href="https://github.com/johnpapa/angular-styleguide#style-y120">y120 by johnpapa - Naming - Naming Guidelines</a></li>
+<li><a href="https://github.com/johnpapa/angular-styleguide#style-y121">y121 by johnpapa - Naming - Feature File Names</a></li>
+</ul>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
+
+<p>The following patterns are considered problems with default config;</p>
+
+<pre><code>/*eslint angular/file-name: 2*/
+
+// invalid with filename: src/app/filters.js
+app.filter('usefulFilter', function() {}); // error: Filename must be "usefulFilter.js"
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems with default config;</p>
+
+<pre><code>/*eslint angular/file-name: 2*/
+
+// valid with filename: myModule.js
+angular.module('myModule', []);
+
+// valid with filename: app/SomeController.js
+app.controller('SomeController', function() {});
+
+// valid with filename: app/utils/myUtils.js
+app.factory('myUtils', function() {});
+
+// valid with filename: src/app/awesomeModule/beautifulDirective.js
+app.directive('beautifulDirective', function() {});
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>{"typeSeparator":"dot"}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot"}]*/
+
+// invalid with filename: src/app/Some.controller.js
+app.controller('SomeController', function() {}); // error: Filename must be "SomeController.controller.js"
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot"}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot"}]*/
+
+// valid with filename: src/app/usefulFilter.filter.js
+app.filter('usefulFilter', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dash"}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dash"}]*/
+
+// valid with filename: app/utils/myUtils-service.js
+app.factory('myUtils', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"underscore"}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"underscore"}]*/
+
+// valid with filename: src/app/awesomeModule/beautifulDirective_directive.js
+app.directive('beautifulDirective', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot","ignoreTypeSuffix":true}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot","ignoreTypeSuffix":true}]*/
+
+// valid with filename: src/app/useful.filter.js
+app.filter('usefulFilter', function() {});
+
+// valid with filename: src/app/Some.controller.js
+app.controller('SomeController', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dash","ignoreTypeSuffix":true}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dash","ignoreTypeSuffix":true}]*/
+
+// valid with filename: app/utils/myUtils-service.js
+app.factory('myUtils', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"underscore","ignoreTypeSuffix":true}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"underscore","ignoreTypeSuffix":true}]*/
+
+// valid with filename: src/app/awesomeModule/beautiful_directive.js
+app.directive('beautifulDirective', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"underscore","nameStyle":"underscore"}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"underscore","nameStyle":"underscore"}]*/
+
+// valid with filename: src/app/tab_navigation_directive.js
+app.directive('tabNavigation', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot","nameStyle":"dash","ignoreTypeSuffix":true}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot","nameStyle":"dash","ignoreTypeSuffix":true}]*/
+
+// valid with filename: src/app/user-profile.directive.js
+app.directive('userProfileDirective', function() {});
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot","ignorePrefix":"ui"}</code>:</p>
+
+<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot","ignorePrefix":"ui"}]*/
+
+// valid with filename: src/app/userUtils.service.js
+angular.factory('uiUserUtils', uiUserUtils)
+</code></pre>
+
+<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
+
+<p>This rule was introduced in eslint-plugin-angular 0.7.0</p>
+
+<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
+
+<ul>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/rules/file-name.js">Rule source</a></li>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/examples/file-name.js">Example source</a></li>
+</ul>

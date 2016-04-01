@@ -1,0 +1,101 @@
+<h1 class="details">Details</h1>
+
+
+<h1><a id="user-content-di-order---require-di-parameters-to-be-sorted-alphabetically" class="anchor" href="#di-order---require-di-parameters-to-be-sorted-alphabetically" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>di-order - require DI parameters to be sorted alphabetically</h1>
+
+<p>Injected dependencies should be sorted alphabetically.
+If the second parameter is set to false, values which start and end with an underscore those underscores are stripped.
+This means for example that <code>_$httpBackend_</code> goes before <code>_$http_</code>.</p>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
+
+<p>The following patterns are considered problems with default config;</p>
+
+<pre><code>/*eslint angular/di-order: 2*/
+
+// invalid
+angular.module('myModule').factory('myService', function($q, $http) {
+    // ...
+}); // error: Injected values should be sorted alphabetically
+
+// invalid
+angular.module('myModule').controller('SomeController', function(myService, $http) {
+    // ...
+}); // error: Injected values should be sorted alphabetically
+
+// invalid
+angular.module('myModule').filter('myFilter', function(someService, myService) {
+    // ...
+}); // error: Injected values should be sorted alphabetically
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems with default config;</p>
+
+<pre><code>/*eslint angular/di-order: 2*/
+
+// valid
+angular.module('myModule').factory('myService', function($http, $location, $q, myService, someService) {
+    // ...
+});
+
+// valid
+beforeEach(inject(function (_$compile_, $httpBackend, _$log_, _$rootScope_) {
+    // ...
+}));
+
+// valid
+angular.module('myModule').factory('myService', function(CONFIG, URLs, authService, zero) {
+    // ...
+});
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>true</code>:</p>
+
+<pre><code>/*eslint angular/di-order: [2,true]*/
+
+// invalid
+beforeEach(inject(function ($httpBackend, _$compile_, _$log_, _$rootScope_) {
+    // ...
+})); // error: Injected values should be sorted alphabetically
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>true</code>:</p>
+
+<pre><code>/*eslint angular/di-order: [2,true]*/
+
+// valid
+beforeEach(inject(function (_$compile_, $httpBackend, _$log_, _$rootScope_) {
+    // ...
+}));
+</code></pre>
+
+<p>The following patterns are considered problems when configured <code>false</code>:</p>
+
+<pre><code>/*eslint angular/di-order: [2,false]*/
+
+// invalid
+beforeEach(inject(function (_$compile_, $httpBackend, _$log_, _$rootScope_) {
+    // ...
+})); // error: Injected values should be sorted alphabetically
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems when configured <code>false</code>:</p>
+
+<pre><code>/*eslint angular/di-order: [2,false]*/
+
+// valid
+beforeEach(inject(function ($httpBackend, _$compile_, _$log_, _$rootScope_) {
+    // ...
+}));
+</code></pre>
+
+<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
+
+<p>This rule was introduced in eslint-plugin-angular 0.6.0</p>
+
+<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
+
+<ul>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/rules/di-order.js">Rule source</a></li>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/examples/di-order.js">Example source</a></li>
+</ul>

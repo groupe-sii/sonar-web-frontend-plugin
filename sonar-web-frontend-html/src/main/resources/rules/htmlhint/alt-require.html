@@ -1,0 +1,17 @@
+<h1>Details</h1>
+<p>Alt of img must be present and alt of area[href] and input[type=image] must be set value.</p>
+<p>good:</p>
+<pre><code>&lt;img src="test.png" alt="test"&gt;
+&lt;input type="image" alt="test"&gt;
+&lt;area shape="circle" coords="180,139,14" href ="test.html" alt="test" /&gt;
+</code></pre>
+<p>bad:</p>
+<pre><code>&lt;img src="test.png"&gt;
+&lt;input type="image"&gt;
+&lt;area shape="circle" coords="180,139,14" href ="test.html" /&gt;
+</code></pre>
+<p>config value:</p>
+<ol>
+<li>true: enable rule</li>
+<li>false: disable rule</li>
+</ol>

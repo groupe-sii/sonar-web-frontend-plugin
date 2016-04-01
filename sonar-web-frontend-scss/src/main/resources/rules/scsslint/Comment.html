@@ -1,4 +1,20 @@
 <h1>Details</h1>
-<p>Prefer <code>//</code> comments over <code>/* ... */</code>.</p><p><strong>Bad</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">/* This is a comment that gets rendered */</span></pre></div><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">// This comment never gets rendered</span></pre></div><p><code>//</code> comments should be preferred as they don't get rendered in the final
+<p>Prefer <code>//</code> comments over <code>/* ... */</code>.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">/* This is a comment that gets rendered */</span></pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">// This comment never gets rendered</span></pre></div><p><code>//</code> comments should be preferred as they don't get rendered in the final
 generated CSS, whereas <code>/* ... */</code> comments do.</p><p>Furthermore, comments should be concise, and using <code>/* ... */</code>
-encourages multi-line comments which tend to not be concise.</p>
+encourages multi-line comments which tend to not be concise.</p><p>If you want to allow multi-line comments containing certain text, such as
+copyright notices, set the <code>allowed</code> option to a regular expression. This will
+allow multi-line comments that match the regular expression.</p><table><thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>allowed</code></td>
+<td>Regular expression for matching allowed comments, such as '^[/* ] Copyright'</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Style of comment to enforce (<code>silent</code> or <code>loud</code>) (default <strong>silent</strong>)</td>
+</tr>
+</tbody></table>

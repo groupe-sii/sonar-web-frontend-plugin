@@ -1,31 +1,32 @@
 <h1>Details</h1>
-      <p>In the beginning, there were three ways to specify colors: in hexadecimal format, using either three or six characters, named colors such as <code>red</code>, and <code>rgb()</code>. CSS3 has since added several new color formats including <code>rgba()</code>, <code>hsl()</code>, and <code>hsla()</code>. While these new color formats bring a remarkable amount of flexibility to how developers define colors and the relationships between them, it can also leave older browsers looking worse than expected.</p>
+
+        <p>In the beginning, there were three ways to specify colors: in hexadecimal format, using either three or six characters, named colors such as <code>red</code>, and <code>rgb()</code>. CSS3 has since added several new color formats including <code>rgba()</code>, <code>hsl()</code>, and <code>hsla()</code>. While these new color formats bring a remarkable amount of flexibility to how developers define colors and the relationships between them, it can also leave older browsers looking worse than expected.</p>
 
 <p>The problem is that CSS parsers in browsers will skip a property whose name or value is not understood. Older browsers such as Internet Explorer 8 and earlier, do not understand <code>rgba()</code>, <code>hsl()</code>, or <code>hsla()</code>, and as a result will drop any declarations containing them. Consider the following:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.box</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-c1">#000</span>;
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">100, 100, 200, 0.5</span>);
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.box</span> {
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">#000</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">100, 100, 200, 0.5</span>);
 }</pre></div>
 
 <p>Supporting browsers will treat this CSS code as described. Non-supporting browsers will completely drop the <code>color</code> property because the value isn't understood. That means the actual <code>color</code> used will be inherited from the surrounding context and might actually end up black (the same as the background). To prevent this, you should always include a fallback color in either hexadecimal, named, or <code>rgb()</code> format, such as:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.box</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-c1">#000</span>;
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">blue</span>;
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">100, 100, 200, 0.5</span>);
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.box</span> {
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">#000</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">blue</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">100, 100, 200, 0.5</span>);
 }</pre></div>
 
 <p>The fallback color should always go before the new color to ensure older browsers see and use it correctly, and that newer browsers continue on to use the newer color format.</p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>fallback-colors</code></p>
 
 <p>This rule is aimed at ensuring a proper color is displayed for all browsers. As such, the rule warns when it finds:</p>
 
-<ol class="task-list">
+<ol>
 <li>A <code>color</code> property with a <code>rgba()</code>, <code>hsl()</code>, or <code>hsla()</code> color without a preceding <code>color</code> property that has an older color format.</li>
 <li>A <code>background</code> property with a <code>rgba()</code>, <code>hsl()</code>, or <code>hsla()</code> color without a preceding <code>background</code> property that has an older color format.</li>
 <li>A <code>background-color</code> property with a <code>rgba()</code>, <code>hsl()</code>, or <code>hsla()</code> color without a preceding <code>background-color</code> property that has an older color format.</li>
@@ -33,32 +34,33 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre>
-<span class="pl-c">/* missing fallback color */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* missing fallback color */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">100, 200, 100, 0.5</span>);
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">100, 200, 100, 0.5</span>);
 }
 
 <span class="pl-c">/* missing fallback color */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">background-color</span></span>: <span class="pl-s3">hsla</span>(<span class="pl-c1">100</span>, <span class="pl-c1">50<span class="pl-k">%</span></span>, <span class="pl-c1">100<span class="pl-k">%</span></span>, <span class="pl-c1">0.5</span>);
+    <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">hsla</span>(<span class="pl-c1">100</span>, <span class="pl-c1">50<span class="pl-k">%</span></span>, <span class="pl-c1">100<span class="pl-k">%</span></span>, <span class="pl-c1">0.5</span>);
 }
 
 <span class="pl-c">/* missing fallback color */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-s3">hsla</span>(<span class="pl-c1">100</span>, <span class="pl-c1">50<span class="pl-k">%</span></span>, <span class="pl-c1">100<span class="pl-k">%</span></span>, <span class="pl-c1">0.5</span>) <span class="pl-s3">url</span>(<span class="pl-v">foo.png</span>);
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">hsla</span>(<span class="pl-c1">100</span>, <span class="pl-c1">50<span class="pl-k">%</span></span>, <span class="pl-c1">100<span class="pl-k">%</span></span>, <span class="pl-c1">0.5</span>) <span class="pl-c1">url</span>(<span class="pl-v">foo.png</span>);
 }
 
 <span class="pl-c">/* fallback color should be before */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">background-color</span></span>: <span class="pl-s3">hsl</span>(<span class="pl-c1">100</span>, <span class="pl-c1">50<span class="pl-k">%</span></span>, <span class="pl-c1">100<span class="pl-k">%</span></span>);
-    <span class="pl-mp"><span class="pl-s3">background-color</span></span>: <span class="pl-sc">green</span>;
+    <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">hsl</span>(<span class="pl-c1">100</span>, <span class="pl-c1">50<span class="pl-k">%</span></span>, <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">green</span>;
 }</pre></div>
 
 <p>The following patterns are considered okay and do not cause warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-c">/* fallback color before newer format */</span>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* fallback color before newer format */</span>
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">red</span>;
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">255, 0, 0, 0.5</span>);
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 0, 0, 0.5</span>);
 }</pre></div>
+
+      

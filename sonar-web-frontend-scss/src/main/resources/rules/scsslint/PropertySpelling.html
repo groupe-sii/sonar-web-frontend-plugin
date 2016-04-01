@@ -1,27 +1,31 @@
 <h1>Details</h1>
-<p>Reports when you use an unknown CSS property (ignoring vendor-prefixed
-properties).</p><div class="highlight highlight-scss"><pre>diplay: none;<span class="pl-c"> // "display" is spelled incorrectly</span></pre></div><p>Since the list of available CSS properties is constantly changing, it's
+<p>Reports when you use an unknown or disabled CSS property (ignoring vendor-prefixed
+properties).</p><div class="highlight highlight-source-scss"><pre>diplay: none;<span class="pl-c"> // "display" is spelled incorrectly</span></pre></div><p>Since the list of available CSS properties is constantly changing, it's
 possible that you might get some false positives here, especially if you're
 using experimental CSS features. If that's the case, you can add additional
 properties to the whitelist by adding the following to your <code>.scss-lint.yml</code>
-configuration:</p><div class="highlight highlight-yaml"><pre><span class="pl-s1"><span class="pl-ent">linters:</span></span>
-  <span class="pl-s1"><span class="pl-ent">PropertySpelling:</span></span>
-    <span class="pl-s1"><span class="pl-ent">extra_properties:</span></span>
-      <span class="pl-s1">- <span class="pl-s1">some-experimental-property</span></span>
-      <span class="pl-s1">- <span class="pl-s1">another-experimental-property</span></span></pre></div><p>If you're sure the property in question is valid,
-<a href="https://github.com/causes/scss-lint/issues/new">submit a request</a>
+configuration:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span>
+  <span class="pl-s"><span class="pl-ent">PropertySpelling:</span></span>
+    <span class="pl-s"><span class="pl-ent">extra_properties:</span></span>
+      <span class="pl-s">- <span class="pl-s">some-experimental-property</span></span>
+      <span class="pl-s">- <span class="pl-s">another-experimental-property</span></span>
+    <span class="pl-s"><span class="pl-ent">disabled_properties:</span></span>
+      <span class="pl-s">- <span class="pl-s">some-existing-property</span></span>
+      <span class="pl-s">- <span class="pl-s">another-existing-property</span></span></pre></div><p>If you're sure the property in question is valid,
+<a href="https://github.com/brigade/scss-lint/issues/new">submit a request</a>
 to add it to the
-<a href="/causes/scss-lint/blob/master/lib/scss_lint/linter/data/properties.txt">default whitelist</a>.</p><table>
-<thead>
+<a href="/brigade/scss-lint/blob/master/data/properties.txt">default whitelist</a>.</p><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
 <td><code>extra_properties</code></td>
 <td>List of extra properties to allow</td>
 </tr>
-</tbody>
-</table>
+<tr>
+<td><code>disabled_properties</code></td>
+<td>List of existing properties to deny</td>
+</tr>
+</tbody></table>

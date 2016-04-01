@@ -1,0 +1,20 @@
+<h1>Details</h1>
+<p>Prefer color literals (keywords or hexadecimal codes) to be used only in
+variable declarations. They should be referred to via variables everywhere else.</p><p><strong>Bad: literal color</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">green</span>;
+}</pre></div><p><strong>Good: refer to color by variable name</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$body-color</span>: <span class="pl-c1">#0f0</span>;
+
+...
+
+<span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$body-color</span>;
+}</pre></div><p>Defining colors directly in properties is usually a smell. When you color your
+body text in a number of places, if you ever want to change the color of the
+text you'll have to update the explicitly defined color in a number of places,
+and finding all those places can be difficult if you use the same color for
+other elements (i.e. a simple find/replace may not always work).</p><p>A better approach is to use global variables like <code>$color-text-body</code> and refer
+to this variable everywhere you want to use it. This makes it easy to update
+the color, as you only need change it in one place. It is also more
+intention-revealing, as seeing the name <code>$color-text-body</code> is more descriptive
+than <code>#333</code> or <code>black</code>. Using color keywords can obfuscate this, as they look
+like variables.</p>

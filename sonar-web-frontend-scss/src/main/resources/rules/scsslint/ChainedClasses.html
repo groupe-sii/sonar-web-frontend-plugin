@@ -1,0 +1,23 @@
+<h1>Details</h1>
+<p><strong>Disabled by default</strong></p><p>Reports when you define a rule set using a selector with chained classes
+(a.k.a. adjoining classes).</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.foo</span> {
+  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">5</span><span class="pl-k">px</span>;
+}
+
+<span class="pl-e">.bar</span> {
+  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">5</span><span class="pl-k">px</span>;
+}
+
+<span class="pl-e">.foo.bar</span> {
+  <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+}</pre></div><p><strong>Good: write chained classes as new class</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.foo</span> {
+  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">5</span><span class="pl-k">px</span>;
+}
+
+<span class="pl-e">.bar</span> {
+  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">5</span><span class="pl-k">px</span>;
+}
+
+<span class="pl-e">.new-class</span> {
+  <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+}</pre></div>

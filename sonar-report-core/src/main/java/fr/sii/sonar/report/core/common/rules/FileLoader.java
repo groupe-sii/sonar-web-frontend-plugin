@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
 
@@ -58,7 +59,7 @@ public class FileLoader implements RulesDefinitionLoader {
 					newRule.setSeverity(rule.getSeverity().toUpperCase());
 				}
 				if (rule.getStatus() != null) {
-					newRule.setStatus(rule.getStatus());
+					newRule.setStatus(RuleStatus.valueOf(rule.getStatus()));
 				}
 				// manage tags
 				if (rule.getTags() != null) {

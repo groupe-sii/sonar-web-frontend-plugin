@@ -1,0 +1,9 @@
+<h1>Details</h1>
+<p>Avoid using <code>!important</code> in properties. It is usually indicative of a
+misunderstanding of CSS
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a>
+and can lead to brittle code.</p><p><em>Bad</em></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span> <span class="pl-k">!important</span>;
+}</pre></div><p><em>Good</em></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
+}</pre></div>

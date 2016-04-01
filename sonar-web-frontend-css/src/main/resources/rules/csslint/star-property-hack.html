@@ -1,11 +1,12 @@
 <h1>Details</h1>
-      <p>The star hack is a famous (or perhaps infamous) technique for applying CSS properties only to Internet Explorer prior to version 8. By placing an asterisk immediately before the property name, older versions of Internet Explorer treated as if the asterisk isn't there while other browsers simply ignore it. For example:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
-    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
-    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
-    *<span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">200<span class="pl-k">px</span></span>;
+        <p>The star hack is a famous (or perhaps infamous) technique for applying CSS properties only to Internet Explorer prior to version 8. By placing an asterisk immediately before the property name, older versions of Internet Explorer treated as if the asterisk isn't there while other browsers simply ignore it. For example:</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;
+    <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">5<span class="pl-k">px</span></span>;
+    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+    *<span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">200<span class="pl-k">px</span></span>;
 }</pre></div>
 
 <p>In this example, the <code>*width</code> property is treated as if it were <code>width</code> by Internet Explorer 7 and earlier, so it uses the value of <code>200px</code>; other browsers skip that property and use the value of <code>100px</code>.</p>
@@ -13,7 +14,7 @@
 <p>Star hack relies on an old CSS parser bug in Internet Explorer, and as such, some prefer not to use it.</p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>star-property-hack</code></p>
 
@@ -21,16 +22,17 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre>
-<span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-sc">black</span>;
-    *<span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;
+    *<span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
 }</pre></div>
 
 <h2>
-<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Further Reading</h2>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://en.wikipedia.org/wiki/CSS_filter#Star_hack">Star Hack</a></li>
 <li><a href="http://24ways.org/2005/avoiding-css-hacks-for-internet-explorer">Avoiding CSS Hacks for Internet Explorer</a></li>
 </ul>
+
+      
