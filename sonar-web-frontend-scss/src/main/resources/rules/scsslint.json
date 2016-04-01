@@ -4,7 +4,6 @@
       "name":"Bang format",
       "description":"Position of space with !important",
       "severity":"INFO",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -22,7 +21,6 @@
       "name":"border: none vs border: 0",
       "description":"When using \"border: none\", the size of the border is still applied. If you want to remove completely the border, use \"border: 0\"",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -41,7 +39,6 @@
       "name":"Don't use color keywords",
       "description":"Don't use color keywords (white, red, black...).",
       "severity":"INFO",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -60,7 +57,6 @@
       "name":"Use single line comment instead of multi-line comment",
       "description":"Single line comment is removed from generated CSS while multi-line comment is still present in generated CSS",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -69,7 +65,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"NETWORK_USE"
       }
@@ -79,18 +75,16 @@
       "name":"Remove @debug statement",
       "description":"Remove @debug statement",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
-         "suspicious",
-         "unused"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"READABILITY"
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
    },
    {
@@ -98,10 +92,29 @@
       "name":"Declaration order of properties, nested rules, @extend, @include, pseudo-elements and chained selectors",
       "description":"The properties should be before nested rules. \"@extend\" and \"@include\" should be before any other property. \"@include\" with \"@content\" should be after other properties but before nested rules. Pseudo-element and chained selector should appear after property and before nested rules",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
-         "convention"
+         "convention",
+         "pitfall",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"DuplicateProperty",
+      "name":"Remove duplicate properties",
+      "description":"Remove duplicate properties",
+      "severity":"CRITICAL",
+      "tags":[
+         "scsslint",
+         "bad-practice",
+         "pitfall"
       ],
       "debt":{
          "sqaleRemediation":{
@@ -112,30 +125,10 @@
       }
    },
    {
-      "key":"DuplicateProperty",
-      "name":"Remove duplicate properties",
-      "description":"Remove duplicate properties",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
-      }
-   },
-   {
       "key":"ElsePlacement",
       "name":"\"@else\" should be on same line as previous curly brace",
       "description":"\"@else\" should be on same line as previous curly brace",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -153,7 +146,6 @@
       "name":"Use empty lines between blocks",
       "description":"Use empty lines between blocks",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -171,7 +163,6 @@
       "name":"Remove empty rules",
       "description":"Remove empty rules",
       "severity":"CRITICAL",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -190,7 +181,6 @@
       "name":"The file should end with a new line",
       "description":"The file should end with a new line",
       "severity":"INFO",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -200,7 +190,7 @@
             "type":"constant",
             "offset":"1min"
          },
-         "sqaleSubCharacteristic":"CHANGEABILITY_COMPLIANCE"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -208,7 +198,6 @@
       "name":"Use the short version of hexadecimal color",
       "description":"Use the short version of hexadecimal color",
       "severity":"INFO",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -226,7 +215,6 @@
       "name":"Use lower case for hexadecimal colors",
       "description":"Use lower case for hexadecimal colors",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -234,7 +222,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -244,10 +232,9 @@
       "name":"Invalid hexadecimal color value",
       "description":"Invalid hexadecimal color value",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
-         "suspicious"
+         "bug"
       ],
       "debt":{
          "sqaleRemediation":{
@@ -262,15 +249,15 @@
       "name":"Avoid use of ID selector",
       "description":"Avoid use of ID selector",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
+         "convention",
          "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
          "sqaleSubCharacteristic":"LOGIC_CHANGEABILITY"
       }
@@ -280,25 +267,6 @@
       "name":"\"@import\" should contain neither leading underscore nor extension",
       "description":"\"@import\" should contain neither leading underscore nor extension",
       "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"Indentation",
-      "name":"Use correct indentation",
-      "description":"Use correct indentation",
-      "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -306,7 +274,24 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"Indentation",
+      "name":"Use correct indentation",
+      "description":"Use correct indentation",
+      "severity":"MINOR",
+      "tags":[
+         "scsslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -316,7 +301,6 @@
       "name":"Remove unnecessary leading 0",
       "description":"Remove unnecessary leading 0",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -334,7 +318,6 @@
       "name":"Merge selectors that are identical",
       "description":"Merge selectors that are identical",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "bad-practice"
@@ -342,7 +325,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"10min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
@@ -352,7 +335,6 @@
       "name":"Names should use \"-\"",
       "description":"Names of variables, functions, mixins should use \"-\" instead of \"_\" or camel case",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -370,7 +352,6 @@
       "name":"Avoid too much nesting selectors",
       "description":"If there are 5 nesting selectors, this will generate 5 selectors separated by spaces in the generated CSS. This will lead to performance issues",
       "severity":"CRITICAL",
-      "status":null,
       "tags":[
          "scsslint",
          "bad-practice",
@@ -430,7 +411,8 @@
       "status":null,
       "tags":[
          "scsslint",
-         "pitfall"
+         "pitfall",
+         "suspicious"
       ],
       "debt":{
          "sqaleRemediation":{
@@ -453,7 +435,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"10min"
          },
          "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
       }
@@ -463,10 +445,9 @@
       "name":"Avoid too much depth for selectors",
       "description":"Avoid too much depth for selectors",
       "severity":"CRITICAL",
-      "status":null,
       "tags":[
          "scsslint",
-         "bad-practice",
+         "convention",
          "performance"
       ],
       "debt":{
@@ -482,7 +463,6 @@
       "name":"Selector name convention is not conform with selected profile",
       "description":"Selector name convention is not conform with selected profile (hyphenated_lowercase, BEM, snake_case, camel_case, regex pattern)",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -491,7 +471,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -501,7 +481,6 @@
       "name":"Use shorthand value when possible",
       "description":"Use shorthand value when possible",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -519,7 +498,6 @@
       "name":"Use one line per property",
       "description":"Use one line per property",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -537,7 +515,6 @@
       "name":"Use one line per selector",
       "description":"Use one line per selector",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -555,7 +532,6 @@
       "name":"Use a space after comma",
       "description":"Use a space after comma",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -573,7 +549,6 @@
       "name":"Use a space after property colon \":\"",
       "description":"Use a space after property colon \":\"",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -591,7 +566,6 @@
       "name":"Do not use space before property colon \":\"",
       "description":"Do not use space before property colon \":\"",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -609,7 +583,6 @@
       "name":"Use one space before curly braces",
       "description":"Use one space before curly braces",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -627,7 +600,6 @@
       "name":"Do not use spaces between parenthesis",
       "description":"Do not use spaces between parenthesis",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -645,7 +617,6 @@
       "name":"Use the right quotes",
       "description":"Use the right quotes",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -663,15 +634,15 @@
       "name":"Statement should end with one \";\"",
       "description":"Property value, @import, @extend, @include statements should end with one semicolon",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
-         "convention"
+         "convention",
+         "pitfall"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"READABILITY"
       }
@@ -681,7 +652,6 @@
       "name":"Remove unnecessary trailing 0",
       "description":"Remove unnecessary trailing 0",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -700,7 +670,6 @@
       "name":"Remove unnecessary fraction",
       "description":"Remove unnecessary fraction. For example \"top: 1.0em;\" should be \"top: 1em;\"",
       "severity":"MINOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -719,7 +688,6 @@
       "name":"Remove unnecessary parent reference",
       "description":"Remove unnecessary parent reference (&)",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention",
@@ -738,7 +706,6 @@
       "name":"Wrong URL format",
       "description":"An URL should be relative (not absolute and without protocol)",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -748,7 +715,7 @@
             "type":"constant",
             "offset":"20min"
          },
-         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
+         "sqaleSubCharacteristic":"CHANGEABILITY_COMPLIANCE"
       }
    },
    {
@@ -756,7 +723,6 @@
       "name":"Use either single quotes or double quotes for URL",
       "description":"Use either single quotes or double quotes for URL",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -766,7 +732,7 @@
             "type":"constant",
             "offset":"5min"
          },
-         "sqaleSubCharacteristic":"LANGUAGE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -774,18 +740,17 @@
       "name":"Vendor specific prefixes",
       "description":"Don't use vendor specific when it is not needed on properties, property values, selectors or directives",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
-         "cross-browser",
+         "convention",
          "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"20min"
+            "offset":"5min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"READABILITY"
       }
    },
    {
@@ -793,7 +758,6 @@
       "name":"Zero value should not have unit",
       "description":"Zero value should not have unit",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
          "convention"
@@ -811,16 +775,16 @@
       "name":"Use predefined mixins instead of properties when using Compass",
       "description":"Use predefined mixins instead of properties when using Compass (\"@include inline-block\" instead of \"display: inline-block\", \"@include border-radius(5px)\" instead of \"border-radius: 5px\", ...)",
       "severity":"MAJOR",
-      "status":null,
       "tags":[
          "scsslint",
+         "convention",
          "compass",
          "cross-browser"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"5min"
          },
          "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
       }
@@ -834,7 +798,7 @@
       "tags":[
          "scsslint",
          "bem",
-         "bad-practice"
+         "convention"
       ],
       "debt":{
          "sqaleRemediation":{
@@ -852,14 +816,16 @@
       "status":null,
       "tags":[
          "scsslint",
-         "bad-practice"
+         "bad-practice",
+         "cross-browser",
+         "ie6"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
             "offset":"30min"
          },
-         "sqaleSubCharacteristic":"LOGIC_CHANGEABILITY"
+         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
       }
    },
    {
@@ -875,7 +841,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
          "sqaleSubCharacteristic":"DATA_CHANGEABILITY"
       }
@@ -884,11 +850,10 @@
       "key":"DisableLinterReason",
       "name":"Comment to explain why linter is disabled",
       "description":"scss-lint:disable control comments should be preceded by a comment explaining why these linters are being disabled for this file",
-      "severity":"MAJOR",
+      "severity":"MINOR",
       "status":null,
       "tags":[
-         "scsslint",
-         "bad-practice"
+         "scsslint-options"
       ],
       "debt":{
          "sqaleRemediation":{
@@ -902,17 +867,19 @@
       "key":"ExtendDirective",
       "name":"Reports when you have an @extend directive",
       "description":"Reports when you have an @extend directive",
-      "severity":"MINOR",
+      "severity":"MAJOR",
       "status":null,
       "tags":[
-         "scsslint"
+         "scsslint",
+         "bad-practice",
+         "pitfall"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1d"
+            "offset":"20min"
          },
-         "sqaleSubCharacteristic":"COMPILER_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
       }
    },
    {
@@ -929,9 +896,9 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"1d"
+            "offset":"30min"
          },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+         "sqaleSubCharacteristic":"LOGIC_CHANGEABILITY"
       }
    },
    {
@@ -978,7 +945,7 @@
       "severity":"MINOR",
       "status":null,
       "tags":[
-         "scsslint",
+         "scsslint-options",
          "configuration"
       ],
       "debt":{
@@ -1003,7 +970,7 @@
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
          "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
       }
@@ -1097,7 +1064,7 @@
             "type":"constant",
             "offset":"30min"
          },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+         "sqaleSubCharacteristic":"CPU_EFFICIENCY"
       }
    },
    {
@@ -1108,12 +1075,12 @@
       "status":null,
       "tags":[
          "scsslint",
-         "maintenability"
+         "bad-practice"
       ],
       "debt":{
          "sqaleRemediation":{
             "type":"constant",
-            "offset":"30min"
+            "offset":"10min"
          },
          "sqaleSubCharacteristic":"DATA_CHANGEABILITY"
       }
@@ -1126,7 +1093,6 @@
       "status":null,
       "tags":[
          "scsslint",
-         "cross-browser",
          "bad-practice"
       ],
       "debt":{
@@ -1134,7 +1100,7 @@
             "type":"constant",
             "offset":"20min"
          },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
       }
    }
 ]

@@ -367,7 +367,7 @@
 	"name": "Rules Count",
 	"description": "Track how many rules there are.",
 	"severity": "MAJOR",
-	"tags" : [ "csslint" , "performance", "bad-practice"],
+	"tags" : [ "csslint" , "performance", "bad-practice", "brain-overload"],
 	"debt" : {
 		"sqaleRemediation" : {
 			"type" : "constant",
