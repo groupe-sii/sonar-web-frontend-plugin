@@ -1059,7 +1059,7 @@
       "key":"ng_no_angular_mock",
       "name":"require to use angular.mock methods directly",
       "description":"require to use angular.mock methods directly",
-      "severity":null,
+      "severity":"MINOR",
       "status":null,
       "tags":[
          "angular",
