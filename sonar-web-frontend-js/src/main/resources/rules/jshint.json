@@ -2288,7 +2288,7 @@
   "key" : "E054",
   "name" : "Class properties must be methods. Expected '(' but instead saw '{a}'.",
   "description" : null,
-  "severity" : "BLOCKING",
+  "severity" : "BLOCKER",
   "status" : null,
   "tags" : ["jshint", "bug", "es6"],
   "debt" : {
