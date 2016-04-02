@@ -1,1078 +1,771 @@
-[
-   {
-      "key":"ng_angularelement",
-      "name":"use angular.element instead of $ or jQuery",
-      "description":"use angular.element instead of $ or jQuery",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_controller_as",
-      "name":"disallow assignments to $scope in controllers (y031)",
-      "description":"disallow assignments to $scope in controllers",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "performance"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"ng_controller_as_route",
-      "name":"require the use of controllerAs in routes or states (y031)",
-      "description":"require the use of controllerAs in routes or states",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "pitfall",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
-      }
-   },
-   {
-      "key":"ng_controller_as_vm",
-      "name":"require and specify a capture variable for this in controllers (y032)",
-      "description":"require and specify a capture variable for this in controllers",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "pitfall",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
-      }
-   },
-   {
-      "key":"ng_controller_name",
-      "name":"require and specify a prefix for all controller names (y123, y124)",
-      "description":"require and specify a prefix for all controller names",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_deferred",
-      "name":"use $q(function(resolve, reject){}) instead of $q.deferred",
-      "description":"use $q(function(resolve, reject){}) instead of $q.deferred",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "obsolete"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_definedundefined",
-      "name":"use angular.isDefined and angular.isUndefined instead of other undefined checks",
-      "description":"use angular.isDefined and angular.isUndefined instead of other undefined checks",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "cross-browser"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_di",
-      "name":"require a consistent DI syntax",
-      "description":"require a consistent DI syntax",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "injection"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_directive_name",
-      "name":"require and specify a prefix for all directive names (y073, y126)",
-      "description":"require and specify a prefix for all directive names",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_directive_restrict",
-      "name":"disallow any other directive restrict than 'A' or 'E' (y074)",
-      "description":"disallow any other directive restrict than 'A' or 'E'",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_component_limit",
-      "name":"limit the number of angular components per file (y001)",
-      "description":"limit the number of angular components per file",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_document_service",
-      "name":"use $document instead of document (y180)",
-      "description":"use $document instead of document",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_empty_controller",
-      "name":"disallow empty controllers",
-      "description":"disallow empty controllers",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "dead-code"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_file_name",
-      "name":"require and specify a consistent component name pattern (y120, y121)",
-      "description":"require and specify a consistent component name pattern",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_filter_name",
-      "name":"require and specify a prefix for all filter names",
-      "description":"require and specify a prefix for all filter names",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_foreach",
-      "name":"use angular.forEach instead of native Array.prototype.forEach",
-      "description":"use angular.forEach instead of native Array.prototype.forEach",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_function_type",
-      "name":"require and specify a consistent function style for components ('named' or 'anonymous') (y024)",
-      "description":"require and specify a consistent function style for components",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_interval_service",
-      "name":"use $interval instead of setInterval (y181)",
-      "description":"use $interval instead of setInterval",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_json_functions",
-      "name":"use angular.fromJson and 'angular.toJson' instead of JSON.parse and JSON.stringify",
-      "description":"enforce use of angular.fromJson and 'angular.toJson'",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_log",
-      "name":"use the $log service instead of the console methods",
-      "description":"use the $log service instead of the console methods",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_dependency_order",
-      "name":" ng dependency order ",
-      "description":" Module dependencies should be sorted in a logical manner. This rule provides two ways to sort modules, grouped or ungrouped. In grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules. The modules should be sorted alphabetically within its group. A prefix can be specified to determine which prefix the custom modules have. Without grouped set to false all dependencies combined should be sorted alphabetically. ('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "injection"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_module_getter",
-      "name":"disallow to reference modules with variables and require to use the getter syntax instead angular.module('myModule') (y022)",
-      "description":"enforce to reference modules with the getter syntax",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_module_name",
-      "name":"require and specify a prefix for all module names (y127)",
-      "description":"require and specify a prefix for all module names",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_module_setter",
-      "name":"disallow to assign modules to variables (linked to module-getter (y021)",
-      "description":"disallow to assign modules to variables",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_no_cookiestore",
-      "name":"use $cookies instead of $cookieStore",
-      "description":"use $cookies instead of $cookieStore",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "obsolete"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_no_digest",
-      "name":" ng no digest ",
-      "description":" The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_no_jquery_angularelement",
-      "name":"disallow to wrap angular.element objects with jQuery or $",
-      "description":"disallow to wrap angular.element objects with jQuery or $",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "pitfall",
-         "bad-practice",
-         "performance",
-         "confusing"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_no_private_call",
-      "name":"disallow use of internal angular properties prefixed with $$",
-      "description":"disallow use of internal angular properties prefixed with $$",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_no_services",
-      "name":"disallow DI of specified services for other angular components ($http for controllers, filters and directives)",
-      "description":"disallow DI of specified services",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "pitfall",
-         "injection"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"ng_no_service_method",
-      "name":"use factory() instead of service() (y040)",
-      "description":"use factory() instead of service()",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_on_watch",
-      "name":"require $on and $watch deregistration callbacks to be saved in a variable",
-      "description":"require $on and $watch deregistration callbacks to be saved in a variable",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "memory-leak"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"EFFICIENCY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_rest_service",
-      "name":"disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
-      "description":"disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ng_service_name",
-      "name":"require and specify a prefix for all service names (y125)",
-      "description":"require and specify a prefix for all service names",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_timeout_service",
-      "name":"use $timeout instead of setTimeout (y181)",
-      "description":"use $timeout instead of setTimeout",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_array",
-      "name":"use angular.isArray instead of typeof comparisons",
-      "description":"use angular.isArray instead of typeof comparisons",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_boolean",
-      "name":" ng typecheck boolean ",
-      "description":" You should use the angular.isBoolean method instead of the default JavaScript implementation (typeof true === \"[object Boolean]\"). ",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_date",
-      "name":"use angular.isDate instead of typeof comparisons",
-      "description":"use angular.isDate instead of typeof comparisons",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_function",
-      "name":"use angular.isFunction instead of typeof comparisons",
-      "description":"use angular.isFunction instead of typeof comparisons",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_number",
-      "name":"use angular.isNumber instead of typeof comparisons",
-      "description":"use angular.isNumber instead of typeof comparisons",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_object",
-      "name":"use angular.isObject instead of typeof comparisons",
-      "description":"use angular.isObject instead of typeof comparisons",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_regexp",
-      "name":" ng typecheck regexp ",
-      "description":" You should use the angular.isRegexp method instead of the default JavaScript implementation (toString.call(/^A/) === \"[object RegExp]\"). ",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_typecheck_string",
-      "name":"use angular.isString instead of typeof comparisons",
-      "description":"use angular.isString instead of typeof comparisons",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_watchers_execution",
-      "name":"require and specify consistent use $scope.digest() or $scope.apply()",
-      "description":"require and specify consistent use $scope.digest() or $scope.apply()",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "performance"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"CPU_EFFICIENCY"
-      }
-   },
-   {
-      "key":"ng_window_service",
-      "name":"use $window instead of window (y180)",
-      "description":"use $window instead of window",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_di_unused",
-      "name":"disallow unused DI parameters",
-      "description":"disallow unused DI parameters",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "injection",
-         "dead-code"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_no_controller",
-      "name":"disallow use of controllers (according to the component first pattern)",
-      "description":"disallow use of controllers (according to the component first pattern)",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
-      }
-   },
-   {
-      "key":"ng_no_inline_template",
-      "name":"disallow the use of inline templates",
-      "description":"disallow the use of inline templates",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_no_run_logic",
-      "name":"keep run functions clean and simple (y171)",
-      "description":"keep run functions clean and simple",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "tests"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"UNIT_TESTABILITY"
-      }
-   },
-   {
-      "key":"ng_no_directive_replace",
-      "name":"disallow the deprecated directive replace property",
-      "description":"disallow the deprecated directive replace property",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice",
-         "obsolete"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
-      }
-   },
-   {
-      "key":"ng_no_http_callback",
-      "name":"disallow the $http methods success() and error()",
-      "description":"disallow the $http methods success() and error()",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"ARCHITECTURE_RELIABILITY"
-      }
-   },
-   {
-      "key":"ng_di_order",
-      "name":"require DI parameters to be sorted alphabetically",
-      "description":"require DI parameters to be sorted alphabetically",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "injection"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_dumb_inject",
-      "name":"unittest inject functions should only consist of assignments from injected values to describe block variables",
-      "description":"unittest inject functions should only consist of assignments from injected values to describe block variables",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "injection",
-         "tests"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"TESTABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"ng_module_dependency_order",
-      "name":"require a consistent order of module dependencies",
-      "description":"require a consistent order of module dependencies",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_one_dependency_per_line",
-      "name":"require all DI parameters to be located in their own line",
-      "description":"require all DI parameters to be located in their own line",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "convention",
-         "injection"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ng_no_angular_mock",
-      "name":"require to use angular.mock methods directly",
-      "description":"require to use angular.mock methods directly",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "angular",
-         "eslint",
-         "pitfall",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   }
-]
+[ {
+  "key" : "ng_angularelement",
+  "name" : "use angular.element instead of $ or jQuery",
+  "description" : "use angular.element instead of $ or jQuery",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_controller_as",
+  "name" : "disallow assignments to $scope in controllers (y031)",
+  "description" : "disallow assignments to $scope in controllers",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
+  }
+}, {
+  "key" : "ng_controller_as_route",
+  "name" : "require the use of controllerAs in routes or states (y031)",
+  "description" : "require the use of controllerAs in routes or states",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "ng_controller_as_vm",
+  "name" : "require and specify a capture variable for this in controllers (y032)",
+  "description" : "require and specify a capture variable for this in controllers",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "pitfall", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "ng_controller_name",
+  "name" : "require and specify a prefix for all controller names (y123, y124)",
+  "description" : "require and specify a prefix for all controller names",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_deferred",
+  "name" : "use $q(function(resolve, reject){}) instead of $q.deferred",
+  "description" : "use $q(function(resolve, reject){}) instead of $q.deferred",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "obsolete" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_definedundefined",
+  "name" : "use angular.isDefined and angular.isUndefined instead of other undefined checks",
+  "description" : "use angular.isDefined and angular.isUndefined instead of other undefined checks",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_di",
+  "name" : "require a consistent DI syntax",
+  "description" : "require a consistent DI syntax",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "injection" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_directive_name",
+  "name" : "require and specify a prefix for all directive names (y073, y126)",
+  "description" : "require and specify a prefix for all directive names",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_directive_restrict",
+  "name" : "disallow any other directive restrict than 'A' or 'E' (y074)",
+  "description" : "disallow any other directive restrict than 'A' or 'E'",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_component_limit",
+  "name" : "limit the number of angular components per file (y001)",
+  "description" : "limit the number of angular components per file",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_document_service",
+  "name" : "use $document instead of document (y180)",
+  "description" : "use $document instead of document",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_empty_controller",
+  "name" : "disallow empty controllers",
+  "description" : "disallow empty controllers",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_file_name",
+  "name" : "require and specify a consistent component name pattern (y120, y121)",
+  "description" : "require and specify a consistent component name pattern",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_filter_name",
+  "name" : "require and specify a prefix for all filter names",
+  "description" : "require and specify a prefix for all filter names",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_foreach",
+  "name" : "use angular.forEach instead of native Array.prototype.forEach",
+  "description" : "use angular.forEach instead of native Array.prototype.forEach",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_function_type",
+  "name" : "require and specify a consistent function style for components ('named' or 'anonymous') (y024)",
+  "description" : "require and specify a consistent function style for components",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_interval_service",
+  "name" : "use $interval instead of setInterval (y181)",
+  "description" : "use $interval instead of setInterval",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_json_functions",
+  "name" : "use angular.fromJson and 'angular.toJson' instead of JSON.parse and JSON.stringify",
+  "description" : "enforce use of angular.fromJson and 'angular.toJson'",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_log",
+  "name" : "use the $log service instead of the console methods",
+  "description" : "use the $log service instead of the console methods",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_dependency_order",
+  "name" : " ng dependency order ",
+  "description" : " Module dependencies should be sorted in a logical manner. This rule provides two ways to sort modules, grouped or ungrouped. In grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules. The modules should be sorted alphabetically within its group. A prefix can be specified to determine which prefix the custom modules have. Without grouped set to false all dependencies combined should be sorted alphabetically. ('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "injection" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_module_getter",
+  "name" : "disallow to reference modules with variables and require to use the getter syntax instead angular.module('myModule') (y022)",
+  "description" : "enforce to reference modules with the getter syntax",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_module_name",
+  "name" : "require and specify a prefix for all module names (y127)",
+  "description" : "require and specify a prefix for all module names",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_module_setter",
+  "name" : "disallow to assign modules to variables (linked to module-getter (y021)",
+  "description" : "disallow to assign modules to variables",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_no_cookiestore",
+  "name" : "use $cookies instead of $cookieStore",
+  "description" : "use $cookies instead of $cookieStore",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "obsolete" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_no_digest",
+  "name" : " ng no digest ",
+  "description" : " The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_no_jquery_angularelement",
+  "name" : "disallow to wrap angular.element objects with jQuery or $",
+  "description" : "disallow to wrap angular.element objects with jQuery or $",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "pitfall", "bad-practice", "performance", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_no_private_call",
+  "name" : "disallow use of internal angular properties prefixed with $$",
+  "description" : "disallow use of internal angular properties prefixed with $$",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_no_services",
+  "name" : "disallow DI of specified services for other angular components ($http for controllers, filters and directives)",
+  "description" : "disallow DI of specified services",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "pitfall", "injection" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
+  }
+}, {
+  "key" : "ng_no_service_method",
+  "name" : "use factory() instead of service() (y040)",
+  "description" : "use factory() instead of service()",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_on_watch",
+  "name" : "require $on and $watch deregistration callbacks to be saved in a variable",
+  "description" : "require $on and $watch deregistration callbacks to be saved in a variable",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "memory-leak" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "EFFICIENCY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_rest_service",
+  "name" : "disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
+  "description" : "disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ng_service_name",
+  "name" : "require and specify a prefix for all service names (y125)",
+  "description" : "require and specify a prefix for all service names",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_timeout_service",
+  "name" : "use $timeout instead of setTimeout (y181)",
+  "description" : "use $timeout instead of setTimeout",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_array",
+  "name" : "use angular.isArray instead of typeof comparisons",
+  "description" : "use angular.isArray instead of typeof comparisons",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_boolean",
+  "name" : " ng typecheck boolean ",
+  "description" : " You should use the angular.isBoolean method instead of the default JavaScript implementation (typeof true === \"[object Boolean]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_date",
+  "name" : "use angular.isDate instead of typeof comparisons",
+  "description" : "use angular.isDate instead of typeof comparisons",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_function",
+  "name" : "use angular.isFunction instead of typeof comparisons",
+  "description" : "use angular.isFunction instead of typeof comparisons",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_number",
+  "name" : "use angular.isNumber instead of typeof comparisons",
+  "description" : "use angular.isNumber instead of typeof comparisons",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_object",
+  "name" : "use angular.isObject instead of typeof comparisons",
+  "description" : "use angular.isObject instead of typeof comparisons",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_regexp",
+  "name" : " ng typecheck regexp ",
+  "description" : " You should use the angular.isRegexp method instead of the default JavaScript implementation (toString.call(/^A/) === \"[object RegExp]\"). ",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_typecheck_string",
+  "name" : "use angular.isString instead of typeof comparisons",
+  "description" : "use angular.isString instead of typeof comparisons",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_watchers_execution",
+  "name" : "require and specify consistent use $scope.digest() or $scope.apply()",
+  "description" : "require and specify consistent use $scope.digest() or $scope.apply()",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
+}, {
+  "key" : "ng_window_service",
+  "name" : "use $window instead of window (y180)",
+  "description" : "use $window instead of window",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_di_unused",
+  "name" : "disallow unused DI parameters",
+  "description" : "disallow unused DI parameters",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "injection", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_no_controller",
+  "name" : "disallow use of controllers (according to the component first pattern)",
+  "description" : "disallow use of controllers (according to the component first pattern)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "ng_no_inline_template",
+  "name" : "disallow the use of inline templates",
+  "description" : "disallow the use of inline templates",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_no_run_logic",
+  "name" : "keep run functions clean and simple (y171)",
+  "description" : "keep run functions clean and simple",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "tests" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "UNIT_TESTABILITY"
+  }
+}, {
+  "key" : "ng_no_directive_replace",
+  "name" : "disallow the deprecated directive replace property",
+  "description" : "disallow the deprecated directive replace property",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice", "obsolete" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "ng_no_http_callback",
+  "name" : "disallow the $http methods success() and error()",
+  "description" : "disallow the $http methods success() and error()",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "ng_di_order",
+  "name" : "require DI parameters to be sorted alphabetically",
+  "description" : "require DI parameters to be sorted alphabetically",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "injection" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_dumb_inject",
+  "name" : "unittest inject functions should only consist of assignments from injected values to describe block variables",
+  "description" : "unittest inject functions should only consist of assignments from injected values to describe block variables",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "injection", "tests" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "TESTABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "ng_module_dependency_order",
+  "name" : "require a consistent order of module dependencies",
+  "description" : "require a consistent order of module dependencies",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_one_dependency_per_line",
+  "name" : "require all DI parameters to be located in their own line",
+  "description" : "require all DI parameters to be located in their own line",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "convention", "injection" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ng_no_angular_mock",
+  "name" : "require to use angular.mock methods directly",
+  "description" : "require to use angular.mock methods directly",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "angular", "eslint", "pitfall", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+} ]

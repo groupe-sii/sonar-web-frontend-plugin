@@ -1,11 +1,9 @@
 <h1>Details</h1>
 <p>The same attribute can't be specified twice.</p>
 <p>good:</p>
-<pre><code>&lt;img src="a.png" /&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"a.png"</span> /&gt;</span><br></code></pre>
 <p>bad:</p>
-<pre><code>&lt;img src="a.png" src="b.png" /&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"a.png"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"b.png"</span> /&gt;</span><br></code></pre>
 <p>config value:</p>
 <ol>
 <li>true: enable rule</li>

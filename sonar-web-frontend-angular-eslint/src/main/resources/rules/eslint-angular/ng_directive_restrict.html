@@ -1,7 +1,7 @@
 <h1 class="details">Details</h1>
 
 
-<h1><a id="user-content-directive-restrict---disallow-any-other-directive-restrict-than-a-or-e" class="anchor" href="#directive-restrict---disallow-any-other-directive-restrict-than-a-or-e" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>directive-restrict - disallow any other directive restrict than 'A' or 'E'</h1>
+<h1><a id="user-content-directive-restrict---disallow-any-other-directive-restrict-than-a-or-e" class="anchor" href="#directive-restrict---disallow-any-other-directive-restrict-than-a-or-e" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>directive-restrict - disallow any other directive restrict than 'A' or 'E'</h1>
 
 <p>Not all directive restrictions may be desirable.
 Also it might be desirable to define default restrictions, or explicitly not.
@@ -14,72 +14,29 @@ The default configuration limits the restrictions <code>AE</code> and disallows 
 <li><a href="https://github.com/johnpapa/angular-styleguide#style-y074">y074 by johnpapa - Restrict to Elements and Attributes</a></li>
 </ul>
 
-<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
 
 <p>The following patterns are <strong>not</strong> considered problems with default config;</p>
 
-<pre><code>/*eslint angular/directive-restrict: 2*/
-
-// valid
-angular.module('myModule').directive('helloWorld', function () {
-    return {
-        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;',
-        restrict: 'A' // also allowed: A, E, AE, EA
-    };
-});
-
-// valid
-angular.module('myModule').directive('helloWorld', function () {
-    return {
-        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;'
-        // no explicit restrict is allowed by default
-    };
-});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/directive-restrict: 2*/</span><br><br><span class="hljs-comment">// valid</span><br>angular.module(<span class="hljs-string">'myModule'</span>).directive(<span class="hljs-string">'helloWorld'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-keyword">return</span> {<br>        template: <span class="hljs-string">'&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;'</span>,<br>        restrict: <span class="hljs-string">'A'</span> <span class="hljs-comment">// also allowed: A, E, AE, EA</span><br>    };<br>});<br><br><span class="hljs-comment">// valid</span><br>angular.module(<span class="hljs-string">'myModule'</span>).directive(<span class="hljs-string">'helloWorld'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-keyword">return</span> {<br>        template: <span class="hljs-string">'&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;'</span><br>        <span class="hljs-comment">// no explicit restrict is allowed by default</span><br>    };<br>});<br></code></pre>
 
 <p>The following patterns are considered problems when configured <code>{"explicit":"always"}</code>:</p>
 
-<pre><code>/*eslint angular/directive-restrict: [2,{"explicit":"always"}]*/
-
-// invalid
-angular.module('myModule').directive('helloWorld', function () {
-    return {
-        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;'
-    };
-}); // error: Missing directive restriction
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/directive-restrict: [2,{"explicit":"always"}]*/</span><br><br><span class="hljs-comment">// invalid</span><br>angular.module(<span class="hljs-string">'myModule'</span>).directive(<span class="hljs-string">'helloWorld'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-keyword">return</span> {<br>        template: <span class="hljs-string">'&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;'</span><br>    };<br>}); <span class="hljs-comment">// error: Missing directive restriction</span><br></code></pre>
 
 <p>The following patterns are considered problems when configured <code>{"explicit":"never"}</code>:</p>
 
-<pre><code>/*eslint angular/directive-restrict: [2,{"explicit":"never"}]*/
-
-// invalid
-angular.module('myModule').directive('helloWorld', function () {
-    return {
-        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;',
-        restrict: 'AE'
-    };
-}); // error: No need to explicitly specify a default directive restriction
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/directive-restrict: [2,{"explicit":"never"}]*/</span><br><br><span class="hljs-comment">// invalid</span><br>angular.module(<span class="hljs-string">'myModule'</span>).directive(<span class="hljs-string">'helloWorld'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-keyword">return</span> {<br>        template: <span class="hljs-string">'&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;'</span>,<br>        restrict: <span class="hljs-string">'AE'</span><br>    };<br>}); <span class="hljs-comment">// error: No need to explicitly specify a default directive restriction</span><br></code></pre>
 
 <p>The following patterns are considered problems when configured <code>{"restrict":"A"}</code>:</p>
 
-<pre><code>/*eslint angular/directive-restrict: [2,{"restrict":"A"}]*/
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/directive-restrict: [2,{"restrict":"A"}]*/</span><br><br><span class="hljs-comment">// invalid</span><br>angular.module(<span class="hljs-string">'myModule'</span>).directive(<span class="hljs-string">'helloWorld'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>    <span class="hljs-keyword">return</span> {<br>        template: <span class="hljs-string">'&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;'</span>,<br>        restrict: <span class="hljs-string">'E'</span><br>    };<br>}); <span class="hljs-comment">// error: Disallowed directive restriction. It must be one of A in that order</span><br></code></pre>
 
-// invalid
-angular.module('myModule').directive('helloWorld', function () {
-    return {
-        template: '&lt;h2&gt;Hello World!&lt;/h2&gt;',
-        restrict: 'E'
-    };
-}); // error: Disallowed directive restriction. It must be one of A in that order
-</code></pre>
-
-<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
+<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
 
 <p>This rule was introduced in eslint-plugin-angular 0.12.0</p>
 
-<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
+<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
 
 <ul>
 <li><a href="/Gillespie59/eslint-plugin-angular/blob/master/rules/directive-restrict.js">Rule source</a></li>
