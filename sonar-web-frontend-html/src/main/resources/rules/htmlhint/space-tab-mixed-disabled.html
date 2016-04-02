@@ -1,13 +1,9 @@
 <h1>Details</h1>
 <p>Spaces and tabs can not mixed in front of line.</p>
 <p>good:</p>
-<pre><code>   →   →&lt;img src="tab.png" /&gt;
-········&lt;img src="space.png" /&gt;
-</code></pre>
+<pre><code class="html hljs">   →   →<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"tab.png"</span> /&gt;</span><br>········<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"space.png"</span> /&gt;</span><br></code></pre>
 <p>bad:</p>
-<pre><code>   →····&lt;img src="tab_before_space.png" /&gt;
-····   →&lt;img src="space_before_tab.png" /&gt;
-</code></pre>
+<pre><code class="html hljs">   →····<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"tab_before_space.png"</span> /&gt;</span><br>····   →<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"space_before_tab.png"</span> /&gt;</span><br></code></pre>
 <p>Note: in the examples above, spaces and tabs are represented by <code>·</code> and <code>→</code>, respectively, to make the difference visible.</p>
 <p>config value:</p>
 <ol>

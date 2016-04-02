@@ -1,15 +1,9 @@
 <h1>Details</h1>
 <p>Alt of img must be present and alt of area[href] and input[type=image] must be set value.</p>
 <p>good:</p>
-<pre><code>&lt;img src="test.png" alt="test"&gt;
-&lt;input type="image" alt="test"&gt;
-&lt;area shape="circle" coords="180,139,14" href ="test.html" alt="test" /&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"test"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"test"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">area</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> <span class="hljs-attr">coords</span>=<span class="hljs-string">"180,139,14"</span> <span class="hljs-attr">href</span> =<span class="hljs-string">"test.html"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"test"</span> /&gt;</span><br></code></pre>
 <p>bad:</p>
-<pre><code>&lt;img src="test.png"&gt;
-&lt;input type="image"&gt;
-&lt;area shape="circle" coords="180,139,14" href ="test.html" /&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.png"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">area</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"circle"</span> <span class="hljs-attr">coords</span>=<span class="hljs-string">"180,139,14"</span> <span class="hljs-attr">href</span> =<span class="hljs-string">"test.html"</span> /&gt;</span><br></code></pre>
 <p>config value:</p>
 <ol>
 <li>true: enable rule</li>

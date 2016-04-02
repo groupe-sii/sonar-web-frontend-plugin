@@ -1,482 +1,519 @@
-[{
-	"key": "import",
-	"name": "Disallow @import",
-	"description": "Don't use @import, use <link> instead.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "bad-practice", "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "10min"
-		},
-		"sqaleSubCharacteristic" : "NETWORK_USE"
-	}
+[ {
+  "key" : "import",
+  "name" : "Disallow @import",
+  "description" : "Don't use @import, use <link> instead.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "NETWORK_USE"
+  }
 }, {
-	"key": "important",
-	"name": "Disallow !important",
-	"description": "Be careful when using !important declaration",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "bad-practice", "pitfalll"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "30min"
-		},
-		"sqaleSubCharacteristic" : "LOGIC_CHANGEABILITY"
-	}
+  "key" : "important",
+  "name" : "Disallow !important",
+  "description" : "Be careful when using !important declaration",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "pitfalll" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_CHANGEABILITY"
+  }
 }, {
-	"key": "box-model",
-	"name": "Beware of broken box size",
-	"description": "Don't use width or height when using padding or border.",
-	"severity": "INFO",
-	"tags" : [ "csslint" , "pitfall", "cross-browser"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "10min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "box-model",
+  "name" : "Beware of broken box size",
+  "description" : "Don't use width or height when using padding or border.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "csslint", "pitfall", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "empty-rules",
-	"name": "Disallow empty rules",
-	"description": "Rules without any properties specified should be removed.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "unused"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1min"
-		},
-		"sqaleSubCharacteristic" : "READABILITY"
-	}
+  "key" : "empty-rules",
+  "name" : "Disallow empty rules",
+  "description" : "Rules without any properties specified should be removed.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
-	"key": "adjoining-classes",
-	"name": "Disallow adjoining classes",
-	"description": "Don't use adjoining classes.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "cross-browser", "ie6"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "30min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "adjoining-classes",
+  "name" : "Disallow adjoining classes",
+  "description" : "Don't use adjoining classes.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "cross-browser", "ie6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "qualified-headings",
-	"name": "Disallow qualified headings",
-	"description": "Headings should not be qualified (namespaced).",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "oocss", "user-experience"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "USABILITY_EASE_OF_USE"
-	}
+  "key" : "qualified-headings",
+  "name" : "Disallow qualified headings",
+  "description" : "Headings should not be qualified (namespaced).",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "oocss", "user-experience" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "USABILITY_EASE_OF_USE"
+  }
 }, {
-	"key": "unique-headings",
-	"name": "Headings should only be defined once",
-	"description": "Headings should be defined only once.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "oocss", "user-experience"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	}
+  "key" : "unique-headings",
+  "name" : "Headings should only be defined once",
+  "description" : "Headings should be defined only once.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "oocss", "user-experience" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
-	"key": "errors",
-	"name": "Parsing Errors",
-	"description": "This rule looks for recoverable syntax errors.",
-	"severity": "CRITICAL",
-	"tags" : [ "csslint" , "bug"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1h"
-		},
-		"sqaleSubCharacteristic" : "RESOURCE_RELIABILITY"
-	}
+  "key" : "errors",
+  "name" : "Parsing Errors",
+  "description" : "This rule looks for recoverable syntax errors.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "csslint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "RESOURCE_RELIABILITY"
+  }
 }, {
-	"key": "overqualified-elements",
-	"name": "Disallow overqualified elements",
-	"description": "Don't use classes or IDs with elements (a.foo or a#foo).",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "20min"
-		},
-		"sqaleSubCharacteristic" : "CPU_EFFICIENCY"
-	}
+  "key" : "overqualified-elements",
+  "name" : "Disallow overqualified elements",
+  "description" : "Don't use classes or IDs with elements (a.foo or a#foo).",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
 }, {
-	"key": "vendor-prefix",
-	"name": "Require standard property with vendor prefix",
-	"description": "When using a vendor-prefixed property, make sure to include the standard one.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "pitfall"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "PORTABILITY_COMPLIANCE"
-	}
+  "key" : "vendor-prefix",
+  "name" : "Require standard property with vendor prefix",
+  "description" : "When using a vendor-prefixed property, make sure to include the standard one.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "PORTABILITY_COMPLIANCE"
+  }
 }, {
-	"key": "fallback-colors",
-	"name": "Require fallback colors",
-	"description": "For older browsers that don't support RGBA, HSL, or HSLA, provide a fallback color.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "cross-browser", "pitfall", "ie", "ie8"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "fallback-colors",
+  "name" : "Require fallback colors",
+  "description" : "For older browsers that don't support RGBA, HSL, or HSLA, provide a fallback color.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "cross-browser", "pitfall", "ie", "ie8" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "regex-selectors",
-	"name": "Disallow selectors that look like regexs",
-	"description": "Selectors that look like regular expressions are slow and should be avoided.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "10min"
-		},
-		"sqaleSubCharacteristic" : "CPU_EFFICIENCY"
-	}
+  "key" : "regex-selectors",
+  "name" : "Disallow selectors that look like regexs",
+  "description" : "Selectors that look like regular expressions are slow and should be avoided.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
 }, {
-	"key": "unqualified-attributes",
-	"name": "Disallow unqualified attribute selectors",
-	"description": "Unqualified attribute selectors are known to be slow.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "CPU_EFFICIENCY"
-	}
+  "key" : "unqualified-attributes",
+  "name" : "Disallow unqualified attribute selectors",
+  "description" : "Unqualified attribute selectors are known to be slow.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
 }, {
-	"key": "universal-selector",
-	"name": "Disallow universal selector",
-	"description": "The universal selector (*) is known to be slow.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "CPU_EFFICIENCY"
-	}
+  "key" : "universal-selector",
+  "name" : "Disallow universal selector",
+  "description" : "The universal selector (*) is known to be slow.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
 }, {
-	"key": "box-sizing",
-	"name": "Disallow use of box-sizing",
-	"description": "The box-sizing properties isn't supported in IE6 and IE7.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "cross-browser", "ie7"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "box-sizing",
+  "name" : "Disallow use of box-sizing",
+  "description" : "The box-sizing properties isn't supported in IE6 and IE7.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "cross-browser", "ie7" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "display-property-grouping",
-	"name": "Require properties appropriate for display",
-	"description": "Certain properties shouldn't be used with certain display property values.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "pitfall"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	}
+  "key" : "display-property-grouping",
+  "name" : "Require properties appropriate for display",
+  "description" : "Certain properties shouldn't be used with certain display property values.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
-	"key": "ids",
-	"name": "Disallow IDs in selectors",
-	"description": "Selectors should not contain IDs.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "convention", "reusability"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "30min"
-		},
-		"sqaleSubCharacteristic" : "MODULARITY"
-	}
+  "key" : "ids",
+  "name" : "Disallow IDs in selectors",
+  "description" : "Selectors should not contain IDs.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "convention", "reusability" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "MODULARITY"
+  }
 }, {
-	"key": "gradients",
-	"name": "Require all gradient definitions",
-	"description": "When using a vendor-prefixed gradient, make sure to use them all.",
-	"severity": "MINOR",
-	"tags" : [ "csslint", "cross-browser"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "20min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "gradients",
+  "name" : "Require all gradient definitions",
+  "description" : "When using a vendor-prefixed gradient, make sure to use them all.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "zero-units",
-	"name": "Disallow units for 0 values",
-	"description": "You don't need to specify units when a value is 0.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "convention"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "READABILITY"
-	}
+  "key" : "zero-units",
+  "name" : "Disallow units for 0 values",
+  "description" : "You don't need to specify units when a value is 0.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
-	"key": "duplicate-properties",
-	"name": "Disallow duplicate properties",
-	"description": "Duplicate properties must appear one after the other.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "confusing", "pitfall"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	}
+  "key" : "duplicate-properties",
+  "name" : "Disallow duplicate properties",
+  "description" : "Duplicate properties must appear one after the other.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "confusing", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
-	"key": "compatible-vendor-prefixes",
-	"name": "Require compatible vendor prefixes",
-	"description": "Include all compatible vendor prefixes to reach a wider range of users.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "cross-browser"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "10min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "compatible-vendor-prefixes",
+  "name" : "Require compatible vendor prefixes",
+  "description" : "Include all compatible vendor prefixes to reach a wider range of users.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "outline-none",
-	"name": "Disallow outline: none",
-	"description": "Use of outline: none or outline: 0 should be limited to :focus rules.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "convention", "bad-practice", "user-experience", "accessibility" ],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "10min"
-		},
-		"sqaleSubCharacteristic" : "USABILITY_ACCESSIBILITY"
-	}
+  "key" : "outline-none",
+  "name" : "Disallow outline: none",
+  "description" : "Use of outline: none or outline: 0 should be limited to :focus rules.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "convention", "bad-practice", "user-experience", "accessibility" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "USABILITY_ACCESSIBILITY"
+  }
 }, {
-	"key": "floats",
-	"name": "Disallow too many floats",
-	"description": "This rule tests if the float property is used too many times",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "bad-practice", "performance", "brain-overload"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1d"
-		},
-		"sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
-	}
+  "key" : "floats",
+  "name" : "Disallow too many floats",
+  "description" : "This rule tests if the float property is used too many times",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "performance", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1d"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
-	"key": "known-properties",
-	"name": "Require use of known properties",
-	"description": "Properties should be known (listed in CSS3 specification) or be a vendor-prefixed property.",
-	"severity": "CRITICAL",
-	"tags" : [ "csslint" , "suspicious", "bug"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	}
+  "key" : "known-properties",
+  "name" : "Require use of known properties",
+  "description" : "Properties should be known (listed in CSS3 specification) or be a vendor-prefixed property.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "csslint", "suspicious", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
-	"key": "font-sizes",
-	"name": "Disallow too many font sizes",
-	"description": "Checks the number of font-size declarations.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "bad-practice", "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "30min"
-		},
-		"sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
-	}
+  "key" : "font-sizes",
+  "name" : "Disallow too many font sizes",
+  "description" : "Checks the number of font-size declarations.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
 }, {
-	"key": "font-faces",
-	"name": "Don't use too many web fonts",
-	"description": "Too many different web fonts in the same stylesheet.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "bad-practice", "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "30min"
-		},
-		"sqaleSubCharacteristic" : "NETWORK_USE"
-	}
+  "key" : "font-faces",
+  "name" : "Don't use too many web fonts",
+  "description" : "Too many different web fonts in the same stylesheet.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "NETWORK_USE"
+  }
 }, {
-	"key": "duplicate-background-images",
-	"name": "Disallow duplicate background images",
-	"description": "Every background-image should be unique. Use a common class for e.g. sprites.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "confusing", "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1h"
-		},
-		"sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
-	}
+  "key" : "duplicate-background-images",
+  "name" : "Disallow duplicate background images",
+  "description" : "Every background-image should be unique. Use a common class for e.g. sprites.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "confusing", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
 }, {
-	"key": "order-alphabetical",
-	"name": "Alphabetical order",
-	"description": "Assure properties are in alphabetical order",
-	"severity": "INFO",
-	"tags" : [ "csslint" , "convention"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "READABILITY"
-	}
+  "key" : "order-alphabetical",
+  "name" : "Alphabetical order",
+  "description" : "Assure properties are in alphabetical order",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "csslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
-	"key": "rules-count",
-	"name": "Rules Count",
-	"description": "Track how many rules there are.",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "performance", "bad-practice", "brain-overload"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1h"
-		},
-		"sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	}
+  "key" : "rules-count",
+  "name" : "Rules Count",
+  "description" : "Track how many rules there are.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "performance", "bad-practice", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1h"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
-	"key": "selector-max-approaching",
-	"name": "Warn when approaching the 4095 selector limit for IE",
-	"description": "Will warn when selector count is >= 3800 selectors.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "pitfall", "cross-browser", "ie", "limit"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1d"
-		},
-		"sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
-	}
+  "key" : "selector-max-approaching",
+  "name" : "Warn when approaching the 4095 selector limit for IE",
+  "description" : "Will warn when selector count is >= 3800 selectors.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "pitfall", "cross-browser", "ie", "limit" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1d"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
-	"key": "selector-max",
-	"name": "Error when past the 4095 selector limit for IE",
-	"description": "Will error when selector count is > 4095.",
-	"severity": "CRITICAL",
-	"tags" : [ "csslint" , "bug", "cross-browser", "ie", "limit"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "1d"
-		},
-		"sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
-	}
+  "key" : "selector-max",
+  "name" : "Error when past the 4095 selector limit for IE",
+  "description" : "Will error when selector count is > 4095.",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "csslint", "bug", "cross-browser", "ie", "limit" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1d"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
-	"key": "selector-newline",
-	"name": "Disallow new-line characters in selectors",
-	"description": "New-line characters in selectors are usually a forgotten comma and not a descendant combinator.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "confusing", "pitfall"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "5min"
-		},
-		"sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	}
+  "key" : "selector-newline",
+  "name" : "Disallow new-line characters in selectors",
+  "description" : "New-line characters in selectors are usually a forgotten comma and not a descendant combinator.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "confusing", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
-	"key": "shorthand",
-	"name": "Require shorthand properties",
-	"description": "Use shorthand properties where possible.",
-	"severity": "MINOR",
-	"tags" : [ "csslint" , "performance"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "2min"
-		},
-		"sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
-	}
+  "key" : "shorthand",
+  "name" : "Require shorthand properties",
+  "description" : "Use shorthand properties where possible.",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "csslint", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
 }, {
-	"key": "star-property-hack",
-	"name": "Disallow properties with a star prefix",
-	"description": "Checks for the star property hack (targets IE6/7)",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "bad-practice", "cross-browser", "ie", "ie7"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "20min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "star-property-hack",
+  "name" : "Disallow properties with a star prefix",
+  "description" : "Checks for the star property hack (targets IE6/7)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "cross-browser", "ie", "ie7" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "text-indent",
-	"name": "Disallow negative text-indent",
-	"description": "Checks for text indent less than -99px",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "bad-practice", "accessibility"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "10min"
-		},
-		"sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	}
+  "key" : "text-indent",
+  "name" : "Disallow negative text-indent",
+  "description" : "Checks for text indent less than -99px",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "accessibility" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
-	"key": "underscore-property-hack",
-	"name": "Disallow properties with an underscore prefix",
-	"description": "Checks for the underscore property hack (targets IE6)",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" ,  "bad-practice", "cross-browser", "ie", "ie6"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "20min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
+  "key" : "underscore-property-hack",
+  "name" : "Disallow properties with an underscore prefix",
+  "description" : "Checks for the underscore property hack (targets IE6)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "bad-practice", "cross-browser", "ie", "ie6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
-	"key": "bulletproof-font-face",
-	"name": "Use the bulletproof @font-face syntax",
-	"description": "Use the bulletproof @font-face syntax to avoid 404's in old IE (http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax).",
-	"severity": "MAJOR",
-	"tags" : [ "csslint" , "pitfall", "cross-browser", "ie", "ie8"],
-	"debt" : {
-		"sqaleRemediation" : {
-			"type" : "constant",
-			"offset" : "20min"
-		},
-		"sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	}
-}]
+  "key" : "bulletproof-font-face",
+  "name" : "Use the bulletproof @font-face syntax",
+  "description" : "Use the bulletproof @font-face syntax to avoid 404's in old IE (http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax).",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "csslint", "pitfall", "cross-browser", "ie", "ie8" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+} ]

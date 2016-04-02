@@ -2,29 +2,9 @@
 <p>Src of img(script,link) must set value.</p>
 <p>Emtpy of src will visit current page twice.</p>
 <p>good:</p>
-<pre><code>&lt;img src="test.png" /&gt;
-&lt;script src="test.js"&gt;&lt;/script&gt;
-&lt;link href="test.css" type="text/css" /&gt;
-&lt;embed src="test.swf"&gt;
-&lt;bgsound src="test.mid" /&gt;
-&lt;iframe src="test.html"&gt;
-&lt;object data="test.swf"&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.png"</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"test.css"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">embed</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.swf"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bgsound</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.mid"</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.html"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">object</span> <span class="hljs-attr">data</span>=<span class="hljs-string">"test.swf"</span>&gt;</span><br></code></pre>
 <p>bad:</p>
-<pre><code>&lt;img src /&gt;
-&lt;script src=""&gt;&lt;/script&gt;
-&lt;script src&gt;&lt;/script&gt;
-&lt;link href="" type="text/css" /&gt;
-&lt;link href type="text/css" /&gt;
-&lt;embed src=""&gt;
-&lt;embed src&gt;
-&lt;bgsound src="" /&gt;
-&lt;bgsound src /&gt;
-&lt;iframe src=""&gt;
-&lt;iframe src&gt;
-&lt;object data=""&gt;
-&lt;object data&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">embed</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">embed</span> <span class="hljs-attr">src</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bgsound</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bgsound</span> <span class="hljs-attr">src</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">object</span> <span class="hljs-attr">data</span>=<span class="hljs-string">""</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">object</span> <span class="hljs-attr">data</span>&gt;</span><br></code></pre>
 <p>config value:</p>
 <ol>
 <li>true: enable rule</li>

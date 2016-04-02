@@ -19,111 +19,51 @@ The options 'ignoreTypeSuffix' ignores camel cased suffixes like 'someController
 
 <p>The following patterns are considered problems with default config;</p>
 
-<pre><code>/*eslint angular/file-name: 2*/
-
-// invalid with filename: src/app/filters.js
-app.filter('usefulFilter', function() {}); // error: Filename must be "usefulFilter.js"
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: 2*/</span><br><br><span class="hljs-comment">// invalid with filename: src/app/filters.js</span><br>app.filter(<span class="hljs-string">'usefulFilter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}); <span class="hljs-comment">// error: Filename must be "usefulFilter.js"</span><br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems with default config;</p>
 
-<pre><code>/*eslint angular/file-name: 2*/
-
-// valid with filename: myModule.js
-angular.module('myModule', []);
-
-// valid with filename: app/SomeController.js
-app.controller('SomeController', function() {});
-
-// valid with filename: app/utils/myUtils.js
-app.factory('myUtils', function() {});
-
-// valid with filename: src/app/awesomeModule/beautifulDirective.js
-app.directive('beautifulDirective', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: 2*/</span><br><br><span class="hljs-comment">// valid with filename: myModule.js</span><br>angular.module(<span class="hljs-string">'myModule'</span>, []);<br><br><span class="hljs-comment">// valid with filename: app/SomeController.js</span><br>app.controller(<span class="hljs-string">'SomeController'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br><br><span class="hljs-comment">// valid with filename: app/utils/myUtils.js</span><br>app.factory(<span class="hljs-string">'myUtils'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br><br><span class="hljs-comment">// valid with filename: src/app/awesomeModule/beautifulDirective.js</span><br>app.directive(<span class="hljs-string">'beautifulDirective'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are considered problems when configured <code>{"typeSeparator":"dot"}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot"}]*/
-
-// invalid with filename: src/app/Some.controller.js
-app.controller('SomeController', function() {}); // error: Filename must be "SomeController.controller.js"
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dot"}]*/</span><br><br><span class="hljs-comment">// invalid with filename: src/app/Some.controller.js</span><br>app.controller(<span class="hljs-string">'SomeController'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}); <span class="hljs-comment">// error: Filename must be "SomeController.controller.js"</span><br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot"}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot"}]*/
-
-// valid with filename: src/app/usefulFilter.filter.js
-app.filter('usefulFilter', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dot"}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/usefulFilter.filter.js</span><br>app.filter(<span class="hljs-string">'usefulFilter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dash"}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dash"}]*/
-
-// valid with filename: app/utils/myUtils-service.js
-app.factory('myUtils', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dash"}]*/</span><br><br><span class="hljs-comment">// valid with filename: app/utils/myUtils-service.js</span><br>app.factory(<span class="hljs-string">'myUtils'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"underscore"}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"underscore"}]*/
-
-// valid with filename: src/app/awesomeModule/beautifulDirective_directive.js
-app.directive('beautifulDirective', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"underscore"}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/awesomeModule/beautifulDirective_directive.js</span><br>app.directive(<span class="hljs-string">'beautifulDirective'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot","ignoreTypeSuffix":true}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot","ignoreTypeSuffix":true}]*/
-
-// valid with filename: src/app/useful.filter.js
-app.filter('usefulFilter', function() {});
-
-// valid with filename: src/app/Some.controller.js
-app.controller('SomeController', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dot","ignoreTypeSuffix":true}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/useful.filter.js</span><br>app.filter(<span class="hljs-string">'usefulFilter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br><br><span class="hljs-comment">// valid with filename: src/app/Some.controller.js</span><br>app.controller(<span class="hljs-string">'SomeController'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dash","ignoreTypeSuffix":true}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dash","ignoreTypeSuffix":true}]*/
-
-// valid with filename: app/utils/myUtils-service.js
-app.factory('myUtils', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dash","ignoreTypeSuffix":true}]*/</span><br><br><span class="hljs-comment">// valid with filename: app/utils/myUtils-service.js</span><br>app.factory(<span class="hljs-string">'myUtils'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"underscore","ignoreTypeSuffix":true}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"underscore","ignoreTypeSuffix":true}]*/
-
-// valid with filename: src/app/awesomeModule/beautiful_directive.js
-app.directive('beautifulDirective', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"underscore","ignoreTypeSuffix":true}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/awesomeModule/beautiful_directive.js</span><br>app.directive(<span class="hljs-string">'beautifulDirective'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"underscore","nameStyle":"underscore"}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"underscore","nameStyle":"underscore"}]*/
-
-// valid with filename: src/app/tab_navigation_directive.js
-app.directive('tabNavigation', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"underscore","nameStyle":"underscore"}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/tab_navigation_directive.js</span><br>app.directive(<span class="hljs-string">'tabNavigation'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot","nameStyle":"dash","ignoreTypeSuffix":true}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot","nameStyle":"dash","ignoreTypeSuffix":true}]*/
-
-// valid with filename: src/app/user-profile.directive.js
-app.directive('userProfileDirective', function() {});
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dot","nameStyle":"dash","ignoreTypeSuffix":true}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/user-profile.directive.js</span><br>app.directive(<span class="hljs-string">'userProfileDirective'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{});<br></code></pre>
 
 <p>The following patterns are <strong>not</strong> considered problems when configured <code>{"typeSeparator":"dot","ignorePrefix":"ui"}</code>:</p>
 
-<pre><code>/*eslint angular/file-name: [2,{"typeSeparator":"dot","ignorePrefix":"ui"}]*/
-
-// valid with filename: src/app/userUtils.service.js
-angular.factory('uiUserUtils', uiUserUtils)
-</code></pre>
+<pre><code class="javascript hljs"><span class="hljs-comment">/*eslint angular/file-name: [2,{"typeSeparator":"dot","ignorePrefix":"ui"}]*/</span><br><br><span class="hljs-comment">// valid with filename: src/app/userUtils.service.js</span><br>angular.factory(<span class="hljs-string">'uiUserUtils'</span>, uiUserUtils)<br></code></pre>
 
 <h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
 

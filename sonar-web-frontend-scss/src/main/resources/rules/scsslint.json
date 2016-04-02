@@ -1,1106 +1,869 @@
-[
-   {
-      "key":"BangFormat",
-      "name":"Bang format",
-      "description":"Position of space with !important",
-      "severity":"INFO",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"BorderZero",
-      "name":"border: none vs border: 0",
-      "description":"When using \"border: none\", the size of the border is still applied. If you want to remove completely the border, use \"border: 0\"",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
-      }
-   },
-   {
-      "key":"ColorKeyword",
-      "name":"Don't use color keywords",
-      "description":"Don't use color keywords (white, red, black...).",
-      "severity":"INFO",
-      "tags":[
-         "scsslint",
-         "convention",
-         "cross-browser"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"2min"
-         },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
-      }
-   },
-   {
-      "key":"Comment",
-      "name":"Use single line comment instead of multi-line comment",
-      "description":"Single line comment is removed from generated CSS while multi-line comment is still present in generated CSS",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "performance"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"NETWORK_USE"
-      }
-   },
-   {
-      "key":"DebugStatement",
-      "name":"Remove @debug statement",
-      "description":"Remove @debug statement",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"DeclarationOrder",
-      "name":"Declaration order of properties, nested rules, @extend, @include, pseudo-elements and chained selectors",
-      "description":"The properties should be before nested rules. \"@extend\" and \"@include\" should be before any other property. \"@include\" with \"@content\" should be after other properties but before nested rules. Pseudo-element and chained selector should appear after property and before nested rules",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "pitfall",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"DuplicateProperty",
-      "name":"Remove duplicate properties",
-      "description":"Remove duplicate properties",
-      "severity":"CRITICAL",
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ElsePlacement",
-      "name":"\"@else\" should be on same line as previous curly brace",
-      "description":"\"@else\" should be on same line as previous curly brace",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"EmptyLineBetweenBlocks",
-      "name":"Use empty lines between blocks",
-      "description":"Use empty lines between blocks",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"EmptyRule",
-      "name":"Remove empty rules",
-      "description":"Remove empty rules",
-      "severity":"CRITICAL",
-      "tags":[
-         "scsslint",
-         "convention",
-         "dead-code"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"FinalNewline",
-      "name":"The file should end with a new line",
-      "description":"The file should end with a new line",
-      "severity":"INFO",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"HexLength",
-      "name":"Use the short version of hexadecimal color",
-      "description":"Use the short version of hexadecimal color",
-      "severity":"INFO",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"HexNotation",
-      "name":"Use lower case for hexadecimal colors",
-      "description":"Use lower case for hexadecimal colors",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"HexValidation",
-      "name":"Invalid hexadecimal color value",
-      "description":"Invalid hexadecimal color value",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "bug"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
-      }
-   },
-   {
-      "key":"IdSelector",
-      "name":"Avoid use of ID selector",
-      "description":"Avoid use of ID selector",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"ImportPath",
-      "name":"\"@import\" should contain neither leading underscore nor extension",
-      "description":"\"@import\" should contain neither leading underscore nor extension",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"Indentation",
-      "name":"Use correct indentation",
-      "description":"Use correct indentation",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"LeadingZero",
-      "name":"Remove unnecessary leading 0",
-      "description":"Remove unnecessary leading 0",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"MergeableSelector",
-      "name":"Merge selectors that are identical",
-      "description":"Merge selectors that are identical",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"NameFormat",
-      "name":"Names should use \"-\"",
-      "description":"Names of variables, functions, mixins should use \"-\" instead of \"_\" or camel case",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"NestingDepth",
-      "name":"Avoid too much nesting selectors",
-      "description":"If there are 5 nesting selectors, this will generate 5 selectors separated by spaces in the generated CSS. This will lead to performance issues",
-      "severity":"CRITICAL",
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "performance"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"CPU_EFFICIENCY"
-      }
-   },
-   {
-      "key":"PlaceholderInExtend",
-      "name":"Should only extend rules with placeholder",
-      "description":"Should only extend rules with placeholder",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
-      }
-   },
-   {
-      "key":"PropertySortOrder",
-      "name":"Properties declaration order is not conformed with selected profile",
-      "description":"Properties declaration order is not conformed with selected profile",
-      "severity":"INFO",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "convention",
-         "performance"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"PropertySpelling",
-      "name":"Property is misspelled",
-      "description":"Property is misspelled",
-      "severity":"INFO",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "pitfall",
-         "suspicious"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
-      }
-   },
-   {
-      "key":"QualifyingElement",
-      "name":"Avoid use of element and other selector",
-      "description":"Avoid use of element and other selector",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"SelectorDepth",
-      "name":"Avoid too much depth for selectors",
-      "description":"Avoid too much depth for selectors",
-      "severity":"CRITICAL",
-      "tags":[
-         "scsslint",
-         "convention",
-         "performance"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"CPU_EFFICIENCY"
-      }
-   },
-   {
-      "key":"SelectorFormat",
-      "name":"Selector name convention is not conform with selected profile",
-      "description":"Selector name convention is not conform with selected profile (hyphenated_lowercase, BEM, snake_case, camel_case, regex pattern)",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "bem"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"Shorthand",
-      "name":"Use shorthand value when possible",
-      "description":"Use shorthand value when possible",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"2min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SingleLinePerProperty",
-      "name":"Use one line per property",
-      "description":"Use one line per property",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SingleLinePerSelector",
-      "name":"Use one line per selector",
-      "description":"Use one line per selector",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceAfterComma",
-      "name":"Use a space after comma",
-      "description":"Use a space after comma",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceAfterPropertyColon",
-      "name":"Use a space after property colon \":\"",
-      "description":"Use a space after property colon \":\"",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceAfterPropertyName",
-      "name":"Do not use space before property colon \":\"",
-      "description":"Do not use space before property colon \":\"",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceBeforeBrace",
-      "name":"Use one space before curly braces",
-      "description":"Use one space before curly braces",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceBetweenParens",
-      "name":"Do not use spaces between parenthesis",
-      "description":"Do not use spaces between parenthesis",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"StringQuotes",
-      "name":"Use the right quotes",
-      "description":"Use the right quotes",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"TrailingSemicolon",
-      "name":"Statement should end with one \";\"",
-      "description":"Property value, @import, @extend, @include statements should end with one semicolon",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"TrailingZero",
-      "name":"Remove unnecessary trailing 0",
-      "description":"Remove unnecessary trailing 0",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "useless"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"UnnecessaryMantissa",
-      "name":"Remove unnecessary fraction",
-      "description":"Remove unnecessary fraction. For example \"top: 1.0em;\" should be \"top: 1em;\"",
-      "severity":"MINOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "useless"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"UnnecessaryParentReference",
-      "name":"Remove unnecessary parent reference",
-      "description":"Remove unnecessary parent reference (&)",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "useless"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"UrlFormat",
-      "name":"Wrong URL format",
-      "description":"An URL should be relative (not absolute and without protocol)",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"CHANGEABILITY_COMPLIANCE"
-      }
-   },
-   {
-      "key":"UrlQuotes",
-      "name":"Use either single quotes or double quotes for URL",
-      "description":"Use either single quotes or double quotes for URL",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"VendorPrefixes",
-      "name":"Vendor specific prefixes",
-      "description":"Don't use vendor specific when it is not needed on properties, property values, selectors or directives",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"ZeroUnit",
-      "name":"Zero value should not have unit",
-      "description":"Zero value should not have unit",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"PropertyWithMixin",
-      "name":"Use predefined mixins instead of properties when using Compass",
-      "description":"Use predefined mixins instead of properties when using Compass (\"@include inline-block\" instead of \"display: inline-block\", \"@include border-radius(5px)\" instead of \"border-radius: 5px\", ...)",
-      "severity":"MAJOR",
-      "tags":[
-         "scsslint",
-         "convention",
-         "compass",
-         "cross-browser"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
-      }
-   },
-   {
-      "key":"BemDepth",
-      "name":"Maximum number of elements allowed in a BEAM selector",
-      "description":"Reports when a BEM selector contains more elements than a configurable maximum number",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bem",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"ChainedClasses",
-      "name":"Chained classes (adjoining classes)",
-      "description":"Reports when you define a rule set using a selector with chained classes (a.k.a. adjoining classes)",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "cross-browser",
-         "ie6"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"SOFTWARE_RELATED_PORTABILITY"
-      }
-   },
-   {
-      "key":"ColorVariable",
-      "name":"Use variables for colors instead of color literals",
-      "description":"Prefer color literals (keywords or hexadecimal codes) to be used only in variable declarations. They should be referred to via variables everywhere else.",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"DATA_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"DisableLinterReason",
-      "name":"Comment to explain why linter is disabled",
-      "description":"scss-lint:disable control comments should be preceded by a comment explaining why these linters are being disabled for this file",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint-options"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"ExtendDirective",
-      "name":"Reports when you have an @extend directive",
-      "description":"Reports when you have an @extend directive",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
-      }
-   },
-   {
-      "key":"ImportantRule",
-      "name":"Avoid using !important in properties",
-      "description":"Avoid using !important in properties. It is usually indicative of a misunderstanding of CSS specificity and can lead to brittle code",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"PrivateNamingConvention",
-      "name":"Prefix private functions, mixins and variables",
-      "description":"Enforces that functions, mixins, and variables that follow the private naming convention (default to underscore-prefixed, e.g. $_foo) are defined and used within the same file",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"5min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"PropertyCount",
-      "name":"Limit the number of properties in a rule set",
-      "description":"Limit the number of properties in a rule set",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "brain-overload"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   },
-   {
-      "key":"PropertyUnits",
-      "name":"Configure which units are allowed for property values",
-      "description":"By default a value may have any kind of unit. You can adjust which units are allowed globally by setting the global option",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint-options",
-         "configuration"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
-      }
-   },
-   {
-      "key":"PseudoElement",
-      "name":"Use :: for pseudo elements",
-      "description":"Pseudo-elements, like ::before, and ::first-letter, should be declared with two colons",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"INSTRUCTION_RELIABILITY"
-      }
-   },
-   {
-      "key":"SpaceAfterVariableColon",
-      "name":"Variables should be formatted with a single space separating the colon from the variable's value",
-      "description":"Variables should be formatted with a single space separating the colon from the variable's value",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceAfterVariableName",
-      "name":"Variables should be formatted with no space between the name and the colon",
-      "description":"Variables should be formatted with no space between the name and the colon",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"SpaceAroundOperator",
-      "name":"Operators should be formatted with a single space on both sides of an infix operator",
-      "description":"Operators should be formatted with a single space on both sides of an infix operator",
-      "severity":"MINOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"TrailingWhitespace",
-      "name":"Reports lines containing trailing whitespace.",
-      "description":"Reports lines containing trailing whitespace.",
-      "severity":"INFO",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "convention"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"1min"
-         },
-         "sqaleSubCharacteristic":"READABILITY"
-      }
-   },
-   {
-      "key":"TransitionAll",
-      "name":"Don't use the all keyword to specify transition properties",
-      "description":"Don't use the all keyword to specify transition properties",
-      "severity":"CRITICAL",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice",
-         "performance",
-         "pitfall"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"30min"
-         },
-         "sqaleSubCharacteristic":"CPU_EFFICIENCY"
-      }
-   },
-   {
-      "key":"VariableForProperty",
-      "name":"Properties, like color and font, are easier to read and maintain when defined using variables rather than literals",
-      "description":"Properties, like color and font, are easier to read and maintain when defined using variables rather than literals",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"10min"
-         },
-         "sqaleSubCharacteristic":"DATA_CHANGEABILITY"
-      }
-   },
-   {
-      "key":"VendorPrefix",
-      "name":"Vendor specific prefixes",
-      "description":"Don't use vendor specific when it is not needed on properties, property values, selectors or directives",
-      "severity":"MAJOR",
-      "status":null,
-      "tags":[
-         "scsslint",
-         "bad-practice"
-      ],
-      "debt":{
-         "sqaleRemediation":{
-            "type":"constant",
-            "offset":"20min"
-         },
-         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
-      }
-   }
-]
+[ {
+  "key" : "BangFormat",
+  "name" : "Bang format",
+  "description" : "Position of space with !important",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "BorderZero",
+  "name" : "border: none vs border: 0",
+  "description" : "When using \"border: none\", the size of the border is still applied. If you want to remove completely the border, use \"border: 0\"",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "ColorKeyword",
+  "name" : "Don't use color keywords",
+  "description" : "Don't use color keywords (white, red, black...).",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "Comment",
+  "name" : "Use single line comment instead of multi-line comment",
+  "description" : "Single line comment is removed from generated CSS while multi-line comment is still present in generated CSS",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "NETWORK_USE"
+  }
+}, {
+  "key" : "DebugStatement",
+  "name" : "Remove @debug statement",
+  "description" : "Remove @debug statement",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "DeclarationOrder",
+  "name" : "Declaration order of properties, nested rules, @extend, @include, pseudo-elements and chained selectors",
+  "description" : "The properties should be before nested rules. \"@extend\" and \"@include\" should be before any other property. \"@include\" with \"@content\" should be after other properties but before nested rules. Pseudo-element and chained selector should appear after property and before nested rules",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "DuplicateProperty",
+  "name" : "Remove duplicate properties",
+  "description" : "Remove duplicate properties",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ElsePlacement",
+  "name" : "\"@else\" should be on same line as previous curly brace",
+  "description" : "\"@else\" should be on same line as previous curly brace",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "EmptyLineBetweenBlocks",
+  "name" : "Use empty lines between blocks",
+  "description" : "Use empty lines between blocks",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "EmptyRule",
+  "name" : "Remove empty rules",
+  "description" : "Remove empty rules",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "FinalNewline",
+  "name" : "The file should end with a new line",
+  "description" : "The file should end with a new line",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "HexLength",
+  "name" : "Use the short version of hexadecimal color",
+  "description" : "Use the short version of hexadecimal color",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "HexNotation",
+  "name" : "Use lower case for hexadecimal colors",
+  "description" : "Use lower case for hexadecimal colors",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "HexValidation",
+  "name" : "Invalid hexadecimal color value",
+  "description" : "Invalid hexadecimal color value",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "IdSelector",
+  "name" : "Avoid use of ID selector",
+  "description" : "Avoid use of ID selector",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_CHANGEABILITY"
+  }
+}, {
+  "key" : "ImportPath",
+  "name" : "\"@import\" should contain neither leading underscore nor extension",
+  "description" : "\"@import\" should contain neither leading underscore nor extension",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "Indentation",
+  "name" : "Use correct indentation",
+  "description" : "Use correct indentation",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "LeadingZero",
+  "name" : "Remove unnecessary leading 0",
+  "description" : "Remove unnecessary leading 0",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "MergeableSelector",
+  "name" : "Merge selectors that are identical",
+  "description" : "Merge selectors that are identical",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "NameFormat",
+  "name" : "Names should use \"-\"",
+  "description" : "Names of variables, functions, mixins should use \"-\" instead of \"_\" or camel case",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "NestingDepth",
+  "name" : "Avoid too much nesting selectors",
+  "description" : "If there are 5 nesting selectors, this will generate 5 selectors separated by spaces in the generated CSS. This will lead to performance issues",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
+}, {
+  "key" : "PlaceholderInExtend",
+  "name" : "Should only extend rules with placeholder",
+  "description" : "Should only extend rules with placeholder",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "PropertySortOrder",
+  "name" : "Properties declaration order is not conformed with selected profile",
+  "description" : "Properties declaration order is not conformed with selected profile",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "PropertySpelling",
+  "name" : "Property is misspelled",
+  "description" : "Property is misspelled",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "pitfall", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "QualifyingElement",
+  "name" : "Avoid use of element and other selector",
+  "description" : "Avoid use of element and other selector",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
+  }
+}, {
+  "key" : "SelectorDepth",
+  "name" : "Avoid too much depth for selectors",
+  "description" : "Avoid too much depth for selectors",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "performance" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
+}, {
+  "key" : "SelectorFormat",
+  "name" : "Selector name convention is not conform with selected profile",
+  "description" : "Selector name convention is not conform with selected profile (hyphenated_lowercase, BEM, snake_case, camel_case, regex pattern)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "bem" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "Shorthand",
+  "name" : "Use shorthand value when possible",
+  "description" : "Use shorthand value when possible",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SingleLinePerProperty",
+  "name" : "Use one line per property",
+  "description" : "Use one line per property",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SingleLinePerSelector",
+  "name" : "Use one line per selector",
+  "description" : "Use one line per selector",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceAfterComma",
+  "name" : "Use a space after comma",
+  "description" : "Use a space after comma",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceAfterPropertyColon",
+  "name" : "Use a space after property colon \":\"",
+  "description" : "Use a space after property colon \":\"",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceAfterPropertyName",
+  "name" : "Do not use space before property colon \":\"",
+  "description" : "Do not use space before property colon \":\"",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceBeforeBrace",
+  "name" : "Use one space before curly braces",
+  "description" : "Use one space before curly braces",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceBetweenParens",
+  "name" : "Do not use spaces between parenthesis",
+  "description" : "Do not use spaces between parenthesis",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "StringQuotes",
+  "name" : "Use the right quotes",
+  "description" : "Use the right quotes",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "TrailingSemicolon",
+  "name" : "Statement should end with one \";\"",
+  "description" : "Property value, @import, @extend, @include statements should end with one semicolon",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "TrailingZero",
+  "name" : "Remove unnecessary trailing 0",
+  "description" : "Remove unnecessary trailing 0",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "UnnecessaryMantissa",
+  "name" : "Remove unnecessary fraction",
+  "description" : "Remove unnecessary fraction. For example \"top: 1.0em;\" should be \"top: 1em;\"",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "UnnecessaryParentReference",
+  "name" : "Remove unnecessary parent reference",
+  "description" : "Remove unnecessary parent reference (&)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "UrlFormat",
+  "name" : "Wrong URL format",
+  "description" : "An URL should be relative (not absolute and without protocol)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "CHANGEABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "UrlQuotes",
+  "name" : "Use either single quotes or double quotes for URL",
+  "description" : "Use either single quotes or double quotes for URL",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "VendorPrefixes",
+  "name" : "Vendor specific prefixes",
+  "description" : "Don't use vendor specific when it is not needed on properties, property values, selectors or directives",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "ZeroUnit",
+  "name" : "Zero value should not have unit",
+  "description" : "Zero value should not have unit",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "PropertyWithMixin",
+  "name" : "Use predefined mixins instead of properties when using Compass",
+  "description" : "Use predefined mixins instead of properties when using Compass (\"@include inline-block\" instead of \"display: inline-block\", \"@include border-radius(5px)\" instead of \"border-radius: 5px\", ...)",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention", "compass", "cross-browser" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "BemDepth",
+  "name" : "Maximum number of elements allowed in a BEAM selector",
+  "description" : "Reports when a BEM selector contains more elements than a configurable maximum number",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bem", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_CHANGEABILITY"
+  }
+}, {
+  "key" : "ChainedClasses",
+  "name" : "Chained classes (adjoining classes)",
+  "description" : "Reports when you define a rule set using a selector with chained classes (a.k.a. adjoining classes)",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "cross-browser", "ie6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "ColorVariable",
+  "name" : "Use variables for colors instead of color literals",
+  "description" : "Prefer color literals (keywords or hexadecimal codes) to be used only in variable declarations. They should be referred to via variables everywhere else.",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "DATA_CHANGEABILITY"
+  }
+}, {
+  "key" : "DisableLinterReason",
+  "name" : "Comment to explain why linter is disabled",
+  "description" : "scss-lint:disable control comments should be preceded by a comment explaining why these linters are being disabled for this file",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint-options" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "ExtendDirective",
+  "name" : "Reports when you have an @extend directive",
+  "description" : "Reports when you have an @extend directive",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "ImportantRule",
+  "name" : "Avoid using !important in properties",
+  "description" : "Avoid using !important in properties. It is usually indicative of a misunderstanding of CSS specificity and can lead to brittle code",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_CHANGEABILITY"
+  }
+}, {
+  "key" : "PrivateNamingConvention",
+  "name" : "Prefix private functions, mixins and variables",
+  "description" : "Enforces that functions, mixins, and variables that follow the private naming convention (default to underscore-prefixed, e.g. $_foo) are defined and used within the same file",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "PropertyCount",
+  "name" : "Limit the number of properties in a rule set",
+  "description" : "Limit the number of properties in a rule set",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "PropertyUnits",
+  "name" : "Configure which units are allowed for property values",
+  "description" : "By default a value may have any kind of unit. You can adjust which units are allowed globally by setting the global option",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint-options", "configuration" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "PseudoElement",
+  "name" : "Use :: for pseudo elements",
+  "description" : "Pseudo-elements, like ::before, and ::first-letter, should be declared with two colons",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "SpaceAfterVariableColon",
+  "name" : "Variables should be formatted with a single space separating the colon from the variable's value",
+  "description" : "Variables should be formatted with a single space separating the colon from the variable's value",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceAfterVariableName",
+  "name" : "Variables should be formatted with no space between the name and the colon",
+  "description" : "Variables should be formatted with no space between the name and the colon",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "SpaceAroundOperator",
+  "name" : "Operators should be formatted with a single space on both sides of an infix operator",
+  "description" : "Operators should be formatted with a single space on both sides of an infix operator",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "TrailingWhitespace",
+  "name" : "Reports lines containing trailing whitespace.",
+  "description" : "Reports lines containing trailing whitespace.",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "scsslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "TransitionAll",
+  "name" : "Don't use the all keyword to specify transition properties",
+  "description" : "Don't use the all keyword to specify transition properties",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice", "performance", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
+}, {
+  "key" : "VariableForProperty",
+  "name" : "Properties, like color and font, are easier to read and maintain when defined using variables rather than literals",
+  "description" : "Properties, like color and font, are easier to read and maintain when defined using variables rather than literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "DATA_CHANGEABILITY"
+  }
+}, {
+  "key" : "VendorPrefix",
+  "name" : "Vendor specific prefixes",
+  "description" : "Don't use vendor specific when it is not needed on properties, property values, selectors or directives",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "scsslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+} ]
