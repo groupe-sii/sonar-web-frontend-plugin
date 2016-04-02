@@ -1,0 +1,19 @@
+<h1>Details</h1>
+<p>Pseudo-elements, like <code>::before</code>, and <code>::first-letter</code>, should be declared with
+two colons. Pseudo-classes, like <code>:hover</code> and <code>:first-child</code>, should be
+declared with one colon.</p><p>If you're sure the pseudo-element in question is valid,
+<a href="https://github.com/brigade/scss-lint/issues/new">submit a request</a>
+to add it to the
+<a href="/brigade/scss-lint/blob/master/data/pseudo-elements.txt">default whitelist</a>.</p><p><strong>Bad: wrong colons</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span><span class="pl-e">:before</span> {
+  <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">'</span>&gt;<span class="pl-pds">'</span></span>
+}
+
+<span class="pl-ent">p</span><span class="pl-e">::hover</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
+}</pre></div><p><strong>Good: correct colons</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span><span class="pl-e">::before</span> {
+  <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">'</span>&gt;<span class="pl-pds">'</span></span>
+}
+
+<span class="pl-ent">p</span><span class="pl-e">:hover</span> {
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
+}</pre></div>

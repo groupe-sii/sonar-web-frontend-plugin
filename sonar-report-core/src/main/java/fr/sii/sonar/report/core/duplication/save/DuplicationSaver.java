@@ -54,15 +54,15 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	 *            the Sonar file used to store information in Sonar
 	 */
 	private void saveGeneralMetrics(SensorContext context, DuplicationFileInformation file, InputFile sonarFile) {
-		Measure<Double> dupFiles = new Measure<Double>(CoreMetrics.DUPLICATED_FILES, 1.0);
-		dupFiles.setFromCore(true);
-		Measure<Integer> dupLines = new Measure(CoreMetrics.DUPLICATED_LINES, Integer.valueOf(file.getLines()).doubleValue());
-		dupLines.setFromCore(true);
-		Measure<Integer> dupBlocks = new Measure<Integer>(CoreMetrics.DUPLICATED_BLOCKS, Integer.valueOf(file.getBlocks().size()).doubleValue());
-		dupBlocks.setFromCore(true);
-		context.saveMeasure(sonarFile, dupFiles);
-		context.saveMeasure(sonarFile, dupLines);
-		context.saveMeasure(sonarFile, dupBlocks);
+//		Measure<Double> dupFiles = new Measure<Double>(CoreMetrics.DUPLICATED_FILES, 1.0);
+//		dupFiles.setFromCore(true);
+//		Measure<Integer> dupLines = new Measure(CoreMetrics.DUPLICATED_LINES, Integer.valueOf(file.getLines()).doubleValue());
+//		dupLines.setFromCore(true);
+//		Measure<Integer> dupBlocks = new Measure<Integer>(CoreMetrics.DUPLICATED_BLOCKS, Integer.valueOf(file.getBlocks().size()).doubleValue());
+//		dupBlocks.setFromCore(true);
+//		context.saveMeasure(sonarFile, dupFiles);
+//		context.saveMeasure(sonarFile, dupLines);
+//		context.saveMeasure(sonarFile, dupBlocks);
 	}
 
 	/**
@@ -86,16 +86,16 @@ public class DuplicationSaver implements Saver<DuplicationReport> {
 	 *            the Sonar file used to store information in Sonar
 	 */
 	private void saveDetails(SensorContext context, DuplicationReport report, DuplicationFileInformation file, InputFile sonarFile) {
-		try {
-			String xml = DuplicationDetailsHelper.toXml(project, pluginContext.getFilesystem(), report, file);
-			if (xml != null) {
-				Measure data = new Measure(CoreMetrics.DUPLICATIONS_DATA, xml).setPersistenceMode(PersistenceMode.DATABASE);
-				data.setFromCore(true);
-				context.saveMeasure(sonarFile, data);
-			}
-		} catch (DuplicationException e) {
-			LOG.error(e.getMessage(), e);
-		}
+//		try {
+//			String xml = DuplicationDetailsHelper.toXml(project, pluginContext.getFilesystem(), report, file);
+//			if (xml != null) {
+//				Measure data = new Measure(CoreMetrics.DUPLICATIONS_DATA, xml).setPersistenceMode(PersistenceMode.DATABASE);
+//				data.setFromCore(true);
+//				context.saveMeasure(sonarFile, data);
+//			}
+//		} catch (DuplicationException e) {
+//			LOG.error(e.getMessage(), e);
+//		}
 	}
 
 	/**

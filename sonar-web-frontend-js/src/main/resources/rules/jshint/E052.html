@@ -1,0 +1,35 @@
+
+    <h3 id="when-do-i-get-this-error-">When do I get this error?</h3>
+<p>The "Unclosed mega literal" error is thrown when JSLint encounters an <strong>unclosed
+template string literal</strong>. JSHint raises the "Unclosed template literal" error
+in the same situation. Note that because <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings">template string literals</a> are an
+ES2015 (ES6) feature this error should only appear when linting ES2015 code with
+the appropriate option set in the linter.</p>
+<p>In the following example we attempt to assign an unclosed template string
+literal to <code>a</code>:</p>
+<pre><code class="lang-javascript">/*jslint es6: true */
+let x = `unclosed;
+</code></pre>
+<h3 id="why-do-i-get-this-error-">Why do I get this error?</h3>
+<p>This error is raised to highlight a <strong>fatal JavaScript syntax error</strong>. Your code
+will not run unless you fix this issue. The ECMAScript grammar states that any
+template literal must be closed by the backtick character (<a href="https://people.mozilla.org/~jorendorff/es6-draft.html#sec-template-literal-lexical-components">ES2015 §11.8.68</a>):</p>
+<blockquote>
+<p><em>Template</em> ::<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>NoSubstitutionTemplate</em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>TemplateHead</em><br><br>
+<em>NoSubstitutionTemplate</em> ::<br>
+&nbsp;&nbsp;&nbsp;&nbsp;` <em>TemplateCharacters</em><sub>opt</sub> `</p>
+</blockquote>
+<p>The grammar for <em>NoSubstitutionTemplate</em> is straightforward and shows the
+necessary backticks. The second production is far more complicated and beyond
+the scope of this article but does also require an opening and closing backtick.</p>
+<p>To fix the error, simply close any unclosed template strings:</p>
+<pre><code class="lang-javascript">/*jslint es6: true */
+let x = `unclosed`;
+</code></pre>
+<p>In JSHint 1.0.0 and above you have the ability to ignore any warning with a
+<a href="http://jshint.com/docs/#options">special option syntax</a>. Since this message relates to a fatal
+syntax error you cannot disable it.</p>
+
+  

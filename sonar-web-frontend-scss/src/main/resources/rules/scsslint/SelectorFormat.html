@@ -1,5 +1,5 @@
 <h1>Details</h1>
-<p>It is good practice to choose a convention for naming selectors.</p><p><strong>Good</strong></p><div class="highlight highlight-scss"><pre><span class="pl-c">// convention: 'hyphenated_lowercase'</span>
+<p>It is good practice to choose a convention for naming selectors.</p><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">// convention: 'hyphenated_lowercase'</span>
 <span class="pl-e">.foo-bar-77</span>, foo-bar, <span class="pl-e">#foo-bar</span> {}
 
 <span class="pl-c">// convention: 'snake_case'</span>
@@ -10,17 +10,19 @@
 }</pre></div><p>You can specify different conventions for different types of selectors using the <code>[type]_convention</code> options.</p><p>Since you might need to overwrite selectors for third party stylesheets, you
 can specify <code>ignored_names</code> as an array of individual selectors to ignore.
 Another option is to specify <code>ignored_types</code> to globally ignore a certain
-type of selector.</p><table>
-<thead>
+type of selector.</p><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
 <td><code>convention</code></td>
-<td>Name of convention to use (<code>hyphenated_lowercase</code> (default) or <code>snake_case</code>, <code>camel_case</code>, or <code>BEM</code>, or <code>hyphenated_BEM</code>), or a regex the name must match</td>
+<td>Name of convention to use (<code>hyphenated_lowercase</code> (default) or <code>snake_case</code>, <code>camel_case</code>, or <code>strict_BEM</code>, or <code>hyphenated_BEM</code>), or a regex the name must match. <strong>Note:</strong> If your project uses BEM, pay attention to the dialect of BEM you use. It may be <a href="https://en.bem.info/method/definitions/"><code>strict_BEM</code></a> or <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/"><code>hyphenated_BEM</code></a>.</td>
+</tr>
+<tr>
+<td><code>convention_explanation</code></td>
+<td>Custom catch-all explanation if you do not want to use the built-in explanations</td>
 </tr>
 <tr>
 <td><code>ignored_names</code></td>
@@ -31,20 +33,15 @@ type of selector.</p><table>
 <td>Array containing list of types of selectors to ignore (valid values are <code>attribute</code>, <code>class</code>, <code>element</code>, <code>id</code>, <code>placeholder</code>)</td>
 </tr>
 <tr>
-<td><code>attribute_convention</code></td>
-<td>Convention for attribute selectors only. See the <code>convention</code> option for possible values.</td>
+<td><code>{type}_convention</code></td>
+<td>Convention for <code>{type}</code> selectors only, where <code>{type}</code> is one of <code>attribute</code>, <code>class</code>, <code>id</code>, or <code>placeholder</code>. See the <code>convention</code> option for possible values.</td>
 </tr>
 <tr>
-<td><code>class_convention</code></td>
-<td>Convention for class selectors only. See the <code>convention</code> option for possible values.</td>
+<td><code>{type}_convention_explanation</code></td>
+<td>Custom explanation for <code>{type}</code> selector convention, where <code>{type}</code> is one of <code>attribute</code>, <code>class</code>, <code>id</code>, or <code>placeholder</code>.</td>
 </tr>
-<tr>
-<td><code>id_convention</code></td>
-<td>Convention for id selectors only. See the <code>convention</code> option for possible values.</td>
-</tr>
-<tr>
-<td><code>placeholder_convention</code></td>
-<td>Convention for placeholder selectors only. See the <code>convention</code> option for possible values.</td>
-</tr>
-</tbody>
-</table>
+</tbody></table><h3><a id="user-content-limitations" class="anchor" href="#limitations" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Limitations</h3><p><code>SelectorFormat</code> will not resolve the parent selector reference (<code>&amp;</code>),
+and will ignore selectors containing any parent references.
+This is because these references cannot be resolved without compiling
+the Sass into actual CSS. If you would like to see such functionality,
+we'd love to merge a pull request!</p>

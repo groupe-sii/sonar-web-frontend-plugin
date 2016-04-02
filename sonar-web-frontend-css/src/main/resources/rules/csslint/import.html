@@ -1,24 +1,25 @@
 <h1>Details</h1>
-      <p>The <code>@import</code> command is used to include CSS files within other CSS files, for example:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-k">@import</span> <span class="pl-s3">url</span>(<span class="pl-v">more.css</span>);
-<span class="pl-k">@import</span> <span class="pl-s3">url</span>(<span class="pl-v">andmore.css</span>);
+        <p>The <code>@import</code> command is used to include CSS files within other CSS files, for example:</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">more.css</span>);
+<span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">andmore.css</span>);
 
 <span class="pl-ent">a</span> {
-    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-sc">black</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">black</span>;
 }</pre></div>
 
 <p>This code includes two more style sheets at the beginning of a style sheet. When the browser parses this code, it stops at each <code>@import</code> and starts to download the specified file. The browser doesn't continue downloading other style sheets until this one has finished, eliminating any possible parallel downloads of CSS.</p>
 
 <p>There are two alternatives to using <code>@import</code>:</p>
 
-<ol class="task-list">
+<ol>
 <li>Use a build system to concatenate CSS files together before deploying. </li>
 <li>Use multiple <code>&lt;link&gt;</code> tags to include the style sheets you want. These will still be downloaded in parallel.</li>
 </ol>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>import</code></p>
 
@@ -26,11 +27,13 @@
 
 <p>The following pattern is considered a warning:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-k">@import</span> <span class="pl-s3">url</span>(<span class="pl-v">foo.css</span>);</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">foo.css</span>);</pre></div>
 
 <h2>
-<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Reading</h2>
+<a id="user-content-further-reading" class="anchor" href="#further-reading" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Further Reading</h2>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">Don't use @import</a></li>
 </ul>
+
+      

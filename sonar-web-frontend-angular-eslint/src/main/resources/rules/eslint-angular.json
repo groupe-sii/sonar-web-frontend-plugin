@@ -1,287 +1,1078 @@
 [
-    {
-        "key": "ng_angularelement",
-        "name": " ng angularelement  ",
-        "description": " The angular.element method should be used instead of the $ or jQuery object (if you are using jQuery of course). If the jQuery library is imported, angular.element will be a wrapper around the jQuery object. ",
-        "severity": "MAJOR",
-        "tags": ["angular", "eslint", "bad-practice"]
-    },
-    {
-        "key": "ng_controller_as",
-        "name": " ng controller as ",
-        "description": " You should not set properties on $scope in controllers. Use controllerAs syntax and add data to 'this'. Implements 'this' check part of [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y031). The second parameter can be a Regexp for identifying controller functions (when using something like Browserify) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_controller_as_route",
-        "name": " ng controller as route ",
-        "description": " You should use Angular's controllerAs syntax when defining routes or states. Implements route part [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y031) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_controller_as_vm",
-        "name": " ng controller as vm ",
-        "description": " You should use a capture variable for 'this' when using the controllerAs syntax. [Y031](https://github.com/johnpapa/angularjs-styleguide#style-y032). The second parameter specifies the capture variable you want to use in your application. The third parameter can be a Regexp for identifying controller functions (when using something like Browserify) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_controller_name",
-        "name": " ng controller name  ",
-        "description": " All your controllers should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. (\"ng_controller_name\":  [2, \"ng\"])  [Y123](https://github.com/johnpapa/angularjs-styleguide#style-y123), [Y124](https://github.com/johnpapa/angularjs-styleguide#style-y124)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_deferred",
-        "name": " ng deferred ",
-        "description": " When you want to create a new promise, you should not use the $q.deferred anymore. Prefer the new syntax : $q(function(resolve, reject){})",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_definedundefined",
-        "name": " ng definedundefined ",
-        "description": " You should use the angular.isUndefined or angular.isDefined methods instead of using the keyword undefined. We also check the use of !angular.isUndefined and !angular.isDefined (should prefer the reverse function)",
-        "severity": "CRITICAL",
-        "tags": ["angular", "pitfall"],
-		"debt": {
-			"sqaleRemediation": {
-				"type": "constant",
-				"offset": "1min"
-			},
-			"sqaleSubCharacteristic": "MAINTAINABILITY_COMPLIANCE"
-		}
-    },
-    {
-        "key": "ng_di",
-        "name": " ng di ",
-        "description": " All your DI should use the same syntax : the Array or function syntaxes (\"ng_di\":  [2, \"function or array\"])",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_directive_name",
-        "name": " ng directive name ",
-        "description": " All your directives should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your directives by \"ng\" (reserved keyword for AngularJS directives) (\"ng_directive_name\":  [2, \"ng\"]) [Y073](https://github.com/johnpapa/angularjs-styleguide#style-y073), [Y126](https://github.com/johnpapa/angularjs-styleguide#style-y126) ",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_directive_restrict",
-        "name": " ng directive restrict ",
-        "description": " Not all directive restrictions may be desirable. Also it might be desirable to define default restrictions, or explicitly not. The default configuration limits the restrictions AE Y074 and disallows explicitly specifying a default. (\"directive-restrict\": [0, {\"restrict\": \"AE\", \"explicit\": \"never\"}])",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_component_limit",
-        "name": " ng component limit ",
-        "description": " The number of AngularJS components in one file should be limited. The default limit is one, which follows [Y001](https://github.com/johnpapa/angular-styleguide#style-y001)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_document_service",
-        "name": " ng document service ",
-        "description": " Instead of the default document object, you should prefer the AngularJS wrapper service $document. [Y180](https://github.com/johnpapa/angularjs-styleguide#style-y180) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_empty_controller",
-        "name": " ng empty controller ",
-        "description": " If you have one empty controller, maybe you have linked it in your Router configuration or in one of your views. You can remove this declaration because this controller is useless ",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_file_name",
-        "name": " ng file name ",
-        "description": " All your file names should match the angular component name. The second parameter can be a config object [2, {nameStyle: 'dash', typeSeparator: 'dot', ignoreTypeSuffix: true, ignorePrefix: 'ui'}] to match 'avenger-profile.directive.js' or 'avanger-api.service.js'. Possible values for 'typeSeparator' and 'nameStyle' are 'dot', 'dash' and 'underscore'. The options 'ignoreTypeSuffix' ignores camel cased suffixes like 'someController' or 'myService' and 'ignorePrefix' ignores namespace prefixes like 'ui'. [Y120](https://github.com/johnpapa/angular-styleguide#style-y120) [Y121](https://github.com/johnpapa/angular-styleguide#style-y121)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_filter_name",
-        "name": " ng filter name ",
-        "description": " All your filters should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. (\"ng_filter_name\":  [2, \"ng\"]) ",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_foreach",
-        "name": " ng foreach ",
-        "description": " You should use the angular.forEach method instead of the default JavaScript implementation [].forEach.",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_function_type",
-        "name": " ng function type ",
-        "description": " Anonymous or named functions inside AngularJS components. The first parameter sets which type of function is required and can be 'named' or 'anonymous'. The second parameter is an optional list of angular object names. [Y024](https://github.com/johnpapa/angular-styleguide/blob/master/README.md#style-y024)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_interval_service",
-        "name": " ng interval service ",
-        "description": " Instead of the default setInterval function, you should use the AngularJS wrapper service $interval  [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_json_functions",
-        "name": " ng json functions ",
-        "description": " You should use angular.fromJson or angular.toJson instead of JSON.parse and JSON.stringify ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_log",
-        "name": " ng log ",
-        "description": " You should use $log service instead of console for the methods 'log', 'debug', 'error', 'info', 'warn'",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_dependency_order",
-        "name": " ng dependency order ",
-        "description": " Module dependencies should be sorted in a logical manner. This rule provides two ways to sort modules, grouped or ungrouped. In grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules. The modules should be sorted alphabetically within its group. A prefix can be specified to determine which prefix the custom modules have. Without grouped set to false all dependencies combined should be sorted alphabetically. ('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_module_getter",
-        "name": " ng module getter ",
-        "description": " When using a module, avoid using a variable and instead use chaining with the getter syntax [Y022](https://github.com/johnpapa/angular-styleguide#style-y022)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_module_name",
-        "name": " ng module name  ",
-        "description": " When you create a new module, its name should start with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your modules by \"ng\" (reserved keyword for AngularJS modules) (\"ng_module_name\":  [2, \"ng\"])  [Y127](https://github.com/johnpapa/angularjs-styleguide#style-y127)",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_module_setter",
-        "name": " ng module setter ",
-        "description": " Declare modules without a variable using the setter syntax.[Y021](https://github.com/johnpapa/angular-styleguide#style-y021)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "no_angular_mock",
-        "name": " ng no angular mock ",
-        "description": " All methods defined in the angular.mock object are also available in the object window. So you can remove angular.mock from your code",
-        "severity": "MINOR"
-    },
-    {
-        "key": "no_controller",
-        "name": " ng no controller ",
-        "description": " According to the Component-First pattern, we should avoid the use of AngularJS controller.",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_no_cookiestore",
-        "name": " ng no cookiestore ",
-        "description": " In Angular 1.4, the $cookieStore service is now deprected. Please use the $cookies service instead",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_digest",
-        "name": " ng no digest ",
-        "description": " The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_jquery_angularelement",
-        "name": " ng no jquery angularelement ",
-        "description": " You should not wrap angular.element object into jQuery(), because angular.element already return jQLite element",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_private_call",
-        "name": " ng no private call ",
-        "description": " All scope's properties/methods starting with $$ are used interally by AngularJS. You should not use them directly. ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_services",
-        "name": " ng no services  ",
-        "description": " Some services should be used only in a specific AngularJS service (Ajax-based service for example), in order to follow the separation of concerns paradigm ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_no_service_method",
-        "name": " ng no service method  ",
-        "description": " You should prefer the factory() method instead of service() [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181)",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_on_watch",
-        "name": " ng on watch ",
-        "description": " Watch and On methods on the scope object should be assigned to a variable, in order to be deleted in a $destroy event handler [Y035](https://github.com/johnpapa/angularjs-styleguide#style-y035) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_rest_service",
-        "name": " ng rest service ",
-        "description": " Check the service used to send request to your REST API. This rule can have one parameter, with one of the following values: $http, $resource or Restangular ('rest-service': [0, '$http']).",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_service_name",
-        "name": " ng service name ",
-        "description": " All your services should have a name starting with the parameter you can define in your config object. The second parameter can be a Regexp. You can not prefix your services by \"$\" (reserved keyword for AngularJS services) (\"ng_service_name\":  [2, \"ng\"]) [Y125](https://github.com/johnpapa/angularjs-styleguide#style-y125) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_timeout_service",
-        "name": " ng timeout service ",
-        "description": " Instead of the default setTimeout function, you should use the AngularJS wrapper service $timeout [Y181](https://github.com/johnpapa/angularjs-styleguide#style-y181) ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_array",
-        "name": " ng typecheck array ",
-        "description": " You should use the angular.isArray method instead of the default JavaScript implementation (typeof [] === \"[object Array]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_boolean",
-        "name": " ng typecheck boolean ",
-        "description": " You should use the angular.isBoolean method instead of the default JavaScript implementation (typeof true === \"[object Boolean]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_date",
-        "name": " ng typecheck date ",
-        "description": " You should use the angular.isDate method instead of the default JavaScript implementation (typeof new Date() === \"[object Date]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_function",
-        "name": " ng typecheck function ",
-        "description": " You should use the angular.isFunction method instead of the default JavaScript implementation (typeof function(){} ===\"[object Function]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_number",
-        "name": " ng typecheck number ",
-        "description": " You should use the angular.isNumber method instead of the default JavaScript implementation (typeof 3 === \"[object Number]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_object",
-        "name": " ng typecheck object ",
-        "description": " You should use the angular.isObject method instead of the default JavaScript implementation (typeof {} === \"[object Object]\").  ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_regexp",
-        "name": " ng typecheck regexp ",
-        "description": " You should use the angular.isRegexp method instead of the default JavaScript implementation (toString.call(/^A/) === \"[object RegExp]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_typecheck_string",
-        "name": " ng typecheck string ",
-        "description": " You should use the angular.isString method instead of the default JavaScript implementation (typeof \"\" === \"[object String]\"). ",
-        "severity": "CRITICAL"
-    },
-    {
-        "key": "ng_watchers_execution",
-        "name": " ng watchers execution ",
-        "description": " For the execution of the watchers, the $digest method will start from the scope in which we call the method. This will cause an performance improvement comparing to the $apply method, who start from the $rootScope",
-        "severity": "MINOR"
-    },
-    {
-        "key": "ng_window_service",
-        "name": " ng window service ",
-        "description": " Instead of the default window object, you should prefer the AngularJS wrapper service $window. [Y180](https://github.com/johnpapa/angularjs-styleguide#style-y180) ",
-        "severity": "CRITICAL"
-    }
+   {
+      "key":"ng_angularelement",
+      "name":"use angular.element instead of $ or jQuery",
+      "description":"use angular.element instead of $ or jQuery",
+      "severity":"MAJOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_controller_as",
+      "name":"disallow assignments to $scope in controllers (y031)",
+      "description":"disallow assignments to $scope in controllers",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "performance"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"30min"
+         },
+         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
+      }
+   },
+   {
+      "key":"ng_controller_as_route",
+      "name":"require the use of controllerAs in routes or states (y031)",
+      "description":"require the use of controllerAs in routes or states",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "pitfall",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+      }
+   },
+   {
+      "key":"ng_controller_as_vm",
+      "name":"require and specify a capture variable for this in controllers (y032)",
+      "description":"require and specify a capture variable for this in controllers",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "pitfall",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+      }
+   },
+   {
+      "key":"ng_controller_name",
+      "name":"require and specify a prefix for all controller names (y123, y124)",
+      "description":"require and specify a prefix for all controller names",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_deferred",
+      "name":"use $q(function(resolve, reject){}) instead of $q.deferred",
+      "description":"use $q(function(resolve, reject){}) instead of $q.deferred",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "obsolete"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_definedundefined",
+      "name":"use angular.isDefined and angular.isUndefined instead of other undefined checks",
+      "description":"use angular.isDefined and angular.isUndefined instead of other undefined checks",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "cross-browser"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_di",
+      "name":"require a consistent DI syntax",
+      "description":"require a consistent DI syntax",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "injection"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"20min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_directive_name",
+      "name":"require and specify a prefix for all directive names (y073, y126)",
+      "description":"require and specify a prefix for all directive names",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_directive_restrict",
+      "name":"disallow any other directive restrict than 'A' or 'E' (y074)",
+      "description":"disallow any other directive restrict than 'A' or 'E'",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_component_limit",
+      "name":"limit the number of angular components per file (y001)",
+      "description":"limit the number of angular components per file",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"30min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_document_service",
+      "name":"use $document instead of document (y180)",
+      "description":"use $document instead of document",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_empty_controller",
+      "name":"disallow empty controllers",
+      "description":"disallow empty controllers",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "dead-code"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_file_name",
+      "name":"require and specify a consistent component name pattern (y120, y121)",
+      "description":"require and specify a consistent component name pattern",
+      "severity":"MAJOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"20min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_filter_name",
+      "name":"require and specify a prefix for all filter names",
+      "description":"require and specify a prefix for all filter names",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"20min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_foreach",
+      "name":"use angular.forEach instead of native Array.prototype.forEach",
+      "description":"use angular.forEach instead of native Array.prototype.forEach",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "pitfall"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_function_type",
+      "name":"require and specify a consistent function style for components ('named' or 'anonymous') (y024)",
+      "description":"require and specify a consistent function style for components",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_interval_service",
+      "name":"use $interval instead of setInterval (y181)",
+      "description":"use $interval instead of setInterval",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_json_functions",
+      "name":"use angular.fromJson and 'angular.toJson' instead of JSON.parse and JSON.stringify",
+      "description":"enforce use of angular.fromJson and 'angular.toJson'",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_log",
+      "name":"use the $log service instead of the console methods",
+      "description":"use the $log service instead of the console methods",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_dependency_order",
+      "name":" ng dependency order ",
+      "description":" Module dependencies should be sorted in a logical manner. This rule provides two ways to sort modules, grouped or ungrouped. In grouped mode the modules should be grouped in the order: standard modules - third party modules - custom modules. The modules should be sorted alphabetically within its group. A prefix can be specified to determine which prefix the custom modules have. Without grouped set to false all dependencies combined should be sorted alphabetically. ('module-dependency-order', [2, {grouped: true, prefix: \"app\"}])",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "injection"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"20min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_module_getter",
+      "name":"disallow to reference modules with variables and require to use the getter syntax instead angular.module('myModule') (y022)",
+      "description":"enforce to reference modules with the getter syntax",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_module_name",
+      "name":"require and specify a prefix for all module names (y127)",
+      "description":"require and specify a prefix for all module names",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_module_setter",
+      "name":"disallow to assign modules to variables (linked to module-getter (y021)",
+      "description":"disallow to assign modules to variables",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_no_cookiestore",
+      "name":"use $cookies instead of $cookieStore",
+      "description":"use $cookies instead of $cookieStore",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "obsolete"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_no_digest",
+      "name":" ng no digest ",
+      "description":" The scope's $digest() method shouldn't be used. You should prefer the $apply method. ",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_no_jquery_angularelement",
+      "name":"disallow to wrap angular.element objects with jQuery or $",
+      "description":"disallow to wrap angular.element objects with jQuery or $",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "pitfall",
+         "bad-practice",
+         "performance",
+         "confusing"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_no_private_call",
+      "name":"disallow use of internal angular properties prefixed with $$",
+      "description":"disallow use of internal angular properties prefixed with $$",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_no_services",
+      "name":"disallow DI of specified services for other angular components ($http for controllers, filters and directives)",
+      "description":"disallow DI of specified services",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "pitfall",
+         "injection"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"30min"
+         },
+         "sqaleSubCharacteristic":"ARCHITECTURE_CHANGEABILITY"
+      }
+   },
+   {
+      "key":"ng_no_service_method",
+      "name":"use factory() instead of service() (y040)",
+      "description":"use factory() instead of service()",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_on_watch",
+      "name":"require $on and $watch deregistration callbacks to be saved in a variable",
+      "description":"require $on and $watch deregistration callbacks to be saved in a variable",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "memory-leak"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"EFFICIENCY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_rest_service",
+      "name":"disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
+      "description":"disallow different rest service and specify one of '$http', '$resource', 'Restangular'",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"20min"
+         },
+         "sqaleSubCharacteristic":"UNDERSTANDABILITY"
+      }
+   },
+   {
+      "key":"ng_service_name",
+      "name":"require and specify a prefix for all service names (y125)",
+      "description":"require and specify a prefix for all service names",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_timeout_service",
+      "name":"use $timeout instead of setTimeout (y181)",
+      "description":"use $timeout instead of setTimeout",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_array",
+      "name":"use angular.isArray instead of typeof comparisons",
+      "description":"use angular.isArray instead of typeof comparisons",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_boolean",
+      "name":" ng typecheck boolean ",
+      "description":" You should use the angular.isBoolean method instead of the default JavaScript implementation (typeof true === \"[object Boolean]\"). ",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_date",
+      "name":"use angular.isDate instead of typeof comparisons",
+      "description":"use angular.isDate instead of typeof comparisons",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_function",
+      "name":"use angular.isFunction instead of typeof comparisons",
+      "description":"use angular.isFunction instead of typeof comparisons",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_number",
+      "name":"use angular.isNumber instead of typeof comparisons",
+      "description":"use angular.isNumber instead of typeof comparisons",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_object",
+      "name":"use angular.isObject instead of typeof comparisons",
+      "description":"use angular.isObject instead of typeof comparisons",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_regexp",
+      "name":" ng typecheck regexp ",
+      "description":" You should use the angular.isRegexp method instead of the default JavaScript implementation (toString.call(/^A/) === \"[object RegExp]\"). ",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_typecheck_string",
+      "name":"use angular.isString instead of typeof comparisons",
+      "description":"use angular.isString instead of typeof comparisons",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_watchers_execution",
+      "name":"require and specify consistent use $scope.digest() or $scope.apply()",
+      "description":"require and specify consistent use $scope.digest() or $scope.apply()",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "performance"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"CPU_EFFICIENCY"
+      }
+   },
+   {
+      "key":"ng_window_service",
+      "name":"use $window instead of window (y180)",
+      "description":"use $window instead of window",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"1min"
+         },
+         "sqaleSubCharacteristic":"MAINTAINABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_di_unused",
+      "name":"disallow unused DI parameters",
+      "description":"disallow unused DI parameters",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "injection",
+         "dead-code"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_no_controller",
+      "name":"disallow use of controllers (according to the component first pattern)",
+      "description":"disallow use of controllers (according to the component first pattern)",
+      "severity":"MAJOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "pitfall"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+      }
+   },
+   {
+      "key":"ng_no_inline_template",
+      "name":"disallow the use of inline templates",
+      "description":"disallow the use of inline templates",
+      "severity":"MAJOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_no_run_logic",
+      "name":"keep run functions clean and simple (y171)",
+      "description":"keep run functions clean and simple",
+      "severity":"MAJOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "tests"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"30min"
+         },
+         "sqaleSubCharacteristic":"UNIT_TESTABILITY"
+      }
+   },
+   {
+      "key":"ng_no_directive_replace",
+      "name":"disallow the deprecated directive replace property",
+      "description":"disallow the deprecated directive replace property",
+      "severity":"MAJOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice",
+         "obsolete"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"LOGIC_RELIABILITY"
+      }
+   },
+   {
+      "key":"ng_no_http_callback",
+      "name":"disallow the $http methods success() and error()",
+      "description":"disallow the $http methods success() and error()",
+      "severity":"CRITICAL",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "bad-practice"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"10min"
+         },
+         "sqaleSubCharacteristic":"ARCHITECTURE_RELIABILITY"
+      }
+   },
+   {
+      "key":"ng_di_order",
+      "name":"require DI parameters to be sorted alphabetically",
+      "description":"require DI parameters to be sorted alphabetically",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "injection"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_dumb_inject",
+      "name":"unittest inject functions should only consist of assignments from injected values to describe block variables",
+      "description":"unittest inject functions should only consist of assignments from injected values to describe block variables",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "injection",
+         "tests"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"TESTABILITY_COMPLIANCE"
+      }
+   },
+   {
+      "key":"ng_module_dependency_order",
+      "name":"require a consistent order of module dependencies",
+      "description":"require a consistent order of module dependencies",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_one_dependency_per_line",
+      "name":"require all DI parameters to be located in their own line",
+      "description":"require all DI parameters to be located in their own line",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "convention",
+         "injection"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   },
+   {
+      "key":"ng_no_angular_mock",
+      "name":"require to use angular.mock methods directly",
+      "description":"require to use angular.mock methods directly",
+      "severity":"MINOR",
+      "status":null,
+      "tags":[
+         "angular",
+         "eslint",
+         "pitfall",
+         "convention"
+      ],
+      "debt":{
+         "sqaleRemediation":{
+            "type":"constant",
+            "offset":"5min"
+         },
+         "sqaleSubCharacteristic":"READABILITY"
+      }
+   }
 ]

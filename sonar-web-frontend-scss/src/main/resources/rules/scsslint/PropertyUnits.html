@@ -1,0 +1,29 @@
+<h1>Details</h1>
+<p>Configure which units are allowed for property values.</p><p>By default a value may have any kind of unit. You can adjust which units are
+allowed globally by setting the <code>global</code> option. Alternately, you can specify a
+list of units for a single property by adding it to the <code>properties</code> option,
+e.g.</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">PropertyUnits:</span></span>
+  <span class="pl-s"><span class="pl-ent">global:</span> <span class="pl-s">['em', 'rem', '%'] </span></span><span class="pl-c"># Allow relative units globally</span>
+  <span class="pl-s"><span class="pl-ent">properties:</span></span>
+    <span class="pl-s"><span class="pl-ent">border:</span> <span class="pl-s">['px'] </span></span><span class="pl-c"># Only pixels</span>
+    <span class="pl-s"><span class="pl-ent">line-height:</span> <span class="pl-s">[] </span></span><span class="pl-c"># No units allowed</span>
+    <span class="pl-s"><span class="pl-ent">margin:</span> <span class="pl-s">['em', 'rem']</span></span></pre></div><p>With the above configuration, the following issues would be reported:</p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1</span><span class="pl-k">rem</span> <span class="pl-c1">solid</span> <span class="pl-c1">blue</span>;<span class="pl-c"> // rem not in `border` list</span>
+  <span class="pl-c1"><span class="pl-c1">line-height</span></span>: <span class="pl-c1">55</span><span class="pl-k">px</span>;<span class="pl-c"> // px not in `line-height` list</span>
+  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;<span class="pl-c"> // px not in `global` list</span>
+  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">10</span><span class="pl-k">%</span>;<span class="pl-c"> // % not in `margin` list</span>
+}</pre></div><table><thead>
+<tr>
+<th>Configuration Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>global</code></td>
+<td>List of allowed units (by default any unit is allowed)</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td>Hash of property names and their list of allowed units. (empty by default)</td>
+</tr>
+</tbody></table>

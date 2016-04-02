@@ -1,35 +1,38 @@
 <h1>Details</h1>
-      <p>The value of <code>0</code> works without specifying units in all situations where numbers with units or percentages are allowed. There is no difference between <code>0px</code>, <code>0em</code>, <code>0%</code>, or any other zero-value. The units aren't important because the value is still zero. CSS allows you to omit the units for zero values and still remain valid CSS.</p>
 
-<p>It's recommended to remove units for all zero values because these units aren't being used by the browser and therefore can be safely removed to save bytes.</p>
+        <p>The value of <code>0</code> works without specifying units in all situations where numbers with length units or percentages are allowed. There is no difference between <code>0px</code>, <code>0em</code>, <code>0%</code>, or any other zero-value. The units aren't important because the value is still zero. CSS allows you to omit the length units for zero values and still remain valid CSS.</p>
+
+<p>It's recommended to remove units for all zero length values because these units aren't being used by the browser and therefore can be safely removed to save bytes.</p>
 
 <h2>
-<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rule Details</h2>
+<a id="user-content-rule-details" class="anchor" href="#rule-details" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Rule Details</h2>
 
 <p>Rule ID: <code>zero-units</code></p>
 
-<p>This rule is aimed at flagging zero values that still have units. As such, it warns when <code>0</code> is found followed by a unit or a percentage sign.</p>
+<p>This rule is aimed at flagging zero length values that still have units. As such, it warns when <code>0</code> is found followed by a unit or a percentage sign.</p>
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0<span class="pl-k">px</span></span>;
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0<span class="pl-k">px</span></span>;
 }
 
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">0<span class="pl-k">%</span></span>;
+    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">0<span class="pl-k">%</span></span>;
 }
 
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span> <span class="pl-c1">0<span class="pl-k">px</span></span>;
+    <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span> <span class="pl-c1">0<span class="pl-k">px</span></span>;
 }</pre></div>
 
 <p>The following patterns are okay and do not cause warnings:</p>
 
-<div class="highlight highlight-css"><pre><span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>;
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {
+    <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
 }
 
 <span class="pl-e">.mybox</span> {
-    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">10<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
 }</pre></div>
+
+      

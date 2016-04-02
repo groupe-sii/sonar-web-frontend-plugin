@@ -1,0 +1,69 @@
+<h1 class="details">Details</h1>
+
+
+<h1><a id="user-content-dumb-inject---unittest-inject-functions-should-only-consist-of-assignments-from-injected-values-to-describe-block-variables" class="anchor" href="#dumb-inject---unittest-inject-functions-should-only-consist-of-assignments-from-injected-values-to-describe-block-variables" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>dumb-inject - unittest <code>inject</code> functions should only consist of assignments from injected values to describe block variables</h1>
+
+<p><code>inject</code> functions in unittests should only contain a sorted mapping of injected values to values in the <code>describe</code> block with matching names.
+This way the dependency injection setup is separated from the other setup logic, improving readability of the test.</p>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h2>
+
+<p>The following patterns are considered problems;</p>
+
+<pre><code>/*eslint angular/dumb-inject: 2*/
+
+// invalid
+describe(function() {
+    var $httpBackend;
+    var $rootScope;
+
+    beforeEach(inject(function(_$httpBackend_, _$rootScope_) {
+        $httpBackend = _$httpBackend_;
+        $rootScope = _$rootScope_;
+
+        $httpBackend.whenGET('/data').respond([]);
+    }));
+}); // error: inject functions may only consist of assignments in the form myService = _myService_
+
+// invalid
+describe(function() {
+    var $httpBackend;
+    var $rootScope;
+
+    beforeEach(inject(function(_$httpBackend_, _$rootScope_) {
+        $rootScope = _$rootScope_;
+        $httpBackend = _$httpBackend_;
+    }));
+}); // error: '$httpBackend' must be sorted before '$rootScope'
+</code></pre>
+
+<p>The following patterns are <strong>not</strong> considered problems;</p>
+
+<pre><code>/*eslint angular/dumb-inject: 2*/
+
+// valid
+describe(function() {
+    var $httpBackend;
+    var $rootScope;
+
+    beforeEach(inject(function(_$httpBackend_, _$rootScope_) {
+        $httpBackend = _$httpBackend_;
+        $rootScope = _$rootScope_;
+    }));
+
+    beforeEach(function() {
+        $httpBackend.whenGET('/data').respond([]);
+    });
+});
+</code></pre>
+
+<h2><a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Version</h2>
+
+<p>This rule was introduced in eslint-plugin-angular 0.15.0</p>
+
+<h2><a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Links</h2>
+
+<ul>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/rules/dumb-inject.js">Rule source</a></li>
+<li><a href="/Gillespie59/eslint-plugin-angular/blob/master/examples/dumb-inject.js">Example source</a></li>
+</ul>

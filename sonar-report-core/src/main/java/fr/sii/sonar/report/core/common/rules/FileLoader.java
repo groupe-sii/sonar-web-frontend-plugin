@@ -3,6 +3,7 @@ package fr.sii.sonar.report.core.common.rules;
 import java.io.InputStream;
 import java.util.List;
 
+import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.api.server.rule.RulesDefinition.NewRule;
 import org.sonar.api.utils.log.Logger;
@@ -58,7 +59,7 @@ public class FileLoader implements RulesDefinitionLoader {
 					newRule.setSeverity(rule.getSeverity().toUpperCase());
 				}
 				if (rule.getStatus() != null) {
-					newRule.setStatus(rule.getStatus());
+					newRule.setStatus(RuleStatus.valueOf(rule.getStatus()));
 				}
 				// manage tags
 				if (rule.getTags() != null) {

@@ -1,7 +1,12 @@
 <h1>Details</h1>
-<p>Split selectors onto separate lines after each comma.</p><p><strong>Bad: comma-separated selectors not on their own lines</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>, <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
+<p>Split selectors onto separate lines after each comma, and have each individual
+selector occupy a single line.</p><p><strong>Bad: comma-separated selectors not on their own lines</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>, <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
   ...
-}</pre></div><p><strong>Good: each selector sequence is on its own line</strong></p><div class="highlight highlight-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>,
+}</pre></div><p><strong>Bad: descendent selector spread over multiple lines</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span>
+  <span class="pl-ent">p</span>,
+  <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
+  ...
+}</pre></div><p><strong>Good: each selector sequence is on its own individual line</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>,
 <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
   ...
 }</pre></div><p>Note that selectors containing interpolation are ignored, since the Sass parser

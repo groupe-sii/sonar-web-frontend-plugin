@@ -1,14 +1,14 @@
 <h1>Details</h1>
-<p>Separate rule, function, and mixin declarations with empty lines.</p><p><strong>Bad: no lines separating blocks</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>;
+<p>Separate rule, function, and mixin declarations with empty lines.</p><p><strong>Bad: no lines separating blocks</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
   <span class="pl-ent">em</span> {
     ...
   }
 }
 <span class="pl-ent">a</span> {
   ...
-}</pre></div><p><strong>Good: lines separating blocks</strong></p><div class="highlight highlight-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span>;
+}</pre></div><p><strong>Good: lines separating blocks</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
+  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
 
   <span class="pl-ent">em</span> {
     ...
@@ -17,20 +17,17 @@
 
 <span class="pl-ent">a</span> {
   ...
-}</pre></div><p>By default, this will ignore single line blocks, so you can write:</p><div class="highlight highlight-scss"><pre><span class="pl-e">.icon-chevron-up</span>    { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>030<span class="pl-pds">"</span></span>; } }
-<span class="pl-e">.icon-chevron-down</span>  { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>031<span class="pl-pds">"</span></span>; } }
-<span class="pl-e">.icon-chevron-left</span>  { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>032<span class="pl-pds">"</span></span>; } }
-<span class="pl-e">.icon-chevron-right</span> { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-mp"><span class="pl-s3">content</span></span>: <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\e</span>033<span class="pl-pds">"</span></span>; } }</pre></div><table>
-<thead>
+}</pre></div><p>By default, this will ignore single line blocks, so you can write:</p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.icon-chevron-up</span>    { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\e</span>030<span class="pl-pds">"</span></span>; } }
+<span class="pl-e">.icon-chevron-down</span>  { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\e</span>031<span class="pl-pds">"</span></span>; } }
+<span class="pl-e">.icon-chevron-left</span>  { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\e</span>032<span class="pl-pds">"</span></span>; } }
+<span class="pl-e">.icon-chevron-right</span> { <span class="pl-ent">&amp;</span><span class="pl-e">:before</span> { <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\e</span>033<span class="pl-pds">"</span></span>; } }</pre></div><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
 <td><code>ignore_single_line_blocks</code></td>
 <td>Don't enforce for single-line blocks (default <strong>true</strong>)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>

@@ -1,0 +1,15 @@
+<h1>Details</h1>
+<p><code>&lt;title&gt;</code> must be present in <code>&lt;head&gt;</code> tag.</p>
+<p>good:</p>
+<pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;
+</code></pre>
+<p>bad:</p>
+<pre><code>&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;
+&lt;html&gt;&lt;title&gt;&lt;/title&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;
+</code></pre>
+<p>config value:</p>
+<ol>
+<li>true: enable rule</li>
+<li>false: disable rule</li>
+</ol>
