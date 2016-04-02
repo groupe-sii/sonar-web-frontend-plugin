@@ -1,11 +1,9 @@
 <h1>Details</h1>
 <p>The script tag can not be used in head.</p>
 <p>good:</p>
-<pre><code>&lt;body&gt;&lt;script type="text/javascript" src="test.js"&gt;&lt;/script&gt;&lt;/body&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre>
 <p>bad:</p>
-<pre><code>&lt;head&gt;&lt;script type="text/javascript" src="test.js"&gt;&lt;/script&gt;&lt;/head&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"test.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br></code></pre>
 <p>config value:</p>
 <ol>
 <li>true: enable rule</li>

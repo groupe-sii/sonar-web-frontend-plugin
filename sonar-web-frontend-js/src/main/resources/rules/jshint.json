@@ -1286,7 +1286,7 @@
   "description" : "Weird construction. Is 'new' necessary?",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "bad-practice", "confusing"],
+  "tags" : [ "jshint", "bad-practice", "confusing" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1356,7 +1356,7 @@
   "description" : "Wrap an immediate function invocation in parentheses",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "convention", "confusing", "pitfall"],
+  "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1434,7 +1434,7 @@
   "description" : "Do not wrap function literals in parens unless they are to be immediately invoked",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "convention", "confusing", "pitfall"],
+  "tags" : [ "jshint", "convention", "confusing", "pitfall" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -1700,7 +1700,7 @@
   "description" : "All 'debugger' statements should be removed",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint", "convention", "pitfall"],
+  "tags" : [ "jshint", "convention", "pitfall" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2048,7 +2048,7 @@
   "description" : "Expected '{a}' and instead saw '{b}'.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : [ "jshint"],
+  "tags" : [ "jshint" ],
   "debt" : null
 }, {
   "key" : "W117",
@@ -2226,7 +2226,7 @@
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : ["jshint-options"],
+  "tags" : [ "jshint-options" ],
   "debt" : null
 }, {
   "key" : "W132",
@@ -2234,7 +2234,7 @@
   "description" : null,
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["jshint", "convention", "cross-browser", "es6"],
+  "tags" : [ "jshint", "convention", "cross-browser", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2248,7 +2248,7 @@
   "description" : null,
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["jshint", "pitfall", "es6"],
+  "tags" : [ "jshint", "pitfall", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2262,7 +2262,7 @@
   "description" : null,
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["jshint", "bug"],
+  "tags" : [ "jshint", "bug" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2276,7 +2276,7 @@
   "description" : null,
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["jshint", "pitfall"],
+  "tags" : [ "jshint", "pitfall" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2290,7 +2290,7 @@
   "description" : null,
   "severity" : "BLOCKER",
   "status" : null,
-  "tags" : ["jshint", "bug", "es6"],
+  "tags" : [ "jshint", "bug", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2312,7 +2312,7 @@
   "description" : null,
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["jshint", "pitfall", "es6"],
+  "tags" : [ "jshint", "pitfall", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2340,7 +2340,7 @@
   "description" : null,
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["jshint", "bug", "es6"],
+  "tags" : [ "jshint", "bug", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2354,7 +2354,7 @@
   "description" : "You should not use parenthesis when not needed",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["jshint", "convention"],
+  "tags" : [ "jshint", "convention" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2368,7 +2368,7 @@
   "description" : null,
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["jshint", "bug", "server"],
+  "tags" : [ "jshint", "bug", "server" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2382,7 +2382,7 @@
   "description" : null,
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["jshint", "pitfall", "es6"],
+  "tags" : [ "jshint", "pitfall", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2396,7 +2396,7 @@
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : ["jshint-options"],
+  "tags" : [ "jshint-options" ],
   "debt" : null
 }, {
   "key" : "W129",
@@ -2404,7 +2404,7 @@
   "description" : null,
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["jshint", "es-next"],
+  "tags" : [ "jshint", "es-next" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",
@@ -2418,7 +2418,7 @@
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : ["jshint-options"],
+  "tags" : [ "jshint-options" ],
   "debt" : null
 }, {
   "key" : "W128",
@@ -2426,7 +2426,7 @@
   "description" : null,
   "severity" : null,
   "status" : null,
-  "tags" : ["jshint-options"],
+  "tags" : [ "jshint-options" ],
   "debt" : null
 }, {
   "key" : "W130",
@@ -2434,7 +2434,7 @@
   "description" : null,
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["jshint", "bug", "es6"],
+  "tags" : [ "jshint", "bug", "es6" ],
   "debt" : {
     "sqaleRemediation" : {
       "type" : "constant",

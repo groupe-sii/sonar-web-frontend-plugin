@@ -1,13 +1,9 @@
 <h1>Details</h1>
 <p><code>&lt;title&gt;</code> must be present in <code>&lt;head&gt;</code> tag.</p>
 <p>good:</p>
-<pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre>
 <p>bad:</p>
-<pre><code>&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;
-&lt;html&gt;&lt;title&gt;&lt;/title&gt;&lt;head&gt;&lt;/head&gt;&lt;/html&gt;
-</code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre>
 <p>config value:</p>
 <ol>
 <li>true: enable rule</li>
