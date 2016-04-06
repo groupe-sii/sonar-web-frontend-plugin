@@ -55,7 +55,13 @@ public class TestReport implements Report {
 		return files;
 	}
 
-	public void addFile(TestFile file) {
+	public TestReport addFile(TestFile file) {
 		files.add(file);
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "{type=" + type + ", files=" + files + "}";
 	}
 }

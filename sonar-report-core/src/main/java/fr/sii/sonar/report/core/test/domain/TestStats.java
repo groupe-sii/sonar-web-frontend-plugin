@@ -18,32 +18,32 @@ public class TestStats {
 	/**
 	 * The number of skipped tests
 	 */
-	private int skipped;
+	protected int skipped;
 
 	/**
 	 * The total number of tests
 	 */
-	private int total;
+	protected int total;
 
 	/**
 	 * The number of tests in error (uncaught error)
 	 */
-	private int errors;
+	protected int errors;
 
 	/**
 	 * The number of failed tests (assertion failure)
 	 */
-	private int failures;
+	protected int failures;
 
 	/**
 	 * The number of passed tests
 	 */
-	private int passed;
+	protected int passed;
 
 	/**
 	 * The duration for all tests execution (in milliseconds)
 	 */
-	private long duration;
+	protected long duration;
 
 	public TestStats(int total, int failures, int errors, long duration) {
 		this(total, failures, errors, 0, duration);
@@ -85,5 +85,10 @@ public class TestStats {
 
 	public long getDuration() {
 		return duration;
+	}
+
+	@Override
+	public String toString() {
+		return "{total=" + total + ", errors=" + errors + ", failures=" + failures + ", skipped=" + skipped + ", passed=" + passed + ", duration=" + duration + "}";
 	}
 }

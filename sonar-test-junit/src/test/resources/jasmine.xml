@@ -1,16 +1,50 @@
+<?xml version="1.0"?>
 <testsuites>
-	<testsuite name="PhantomJS 1.9.8 (Linux)" package=""
-		timestamp="2014-12-02T13:03:50" id="0" hostname="IC-Front-End" tests="1"
-		errors="0" failures="0" time="0.178">
+	<testsuite name="PhantomJS 1.9.8 (Linux)" package="" timestamp="2014-12-02T13:03:50" id="0" hostname="IC-Front-End" tests="9" errors="1" failures="2" time="0.575">
 		<properties>
-			<property name="browser.fullName"
-				value="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34" />
+			<property name="browser.fullName" value="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34" />
 		</properties>
-		<testcase name="should instantiate rg" time="0.178"
-			classname="test/spec/services/taskService.js" />
-		<system-out>
-<![CDATA[ ]]>
-		</system-out>
-		<system-err />
+		<testsuite file="test/spec/services/taskService.js" tests="5" errors="0" failures="1" time="0.288">
+			<testcase name="should instantiate rg" time="0.178" />
+	    	<testcase name="should contain a AwardsService" time="0.007" />
+	    	<testcase name="should contain 12 awards" time="0.002" />
+	    	<testcase name="should contain a NotificationService" time="0.001" />
+	    	<testcase name="should contain 4 notifications" time="0.001" >
+	    		<failure message="expected value was 4 but got 3" />
+				<system-err><![CDATA[AssertionError: expected value was 4 but got 3]]></system-err>
+	    	</testcase>
+		</testsuite>
+		<testsuite file="test/spec/services/userService.js" tests="4" errors="1" failures="1" time="0.287">
+			<testcase name="create basic user" time="0.178" />
+	    	<testcase name="create admin" time="0.007" />
+	    	<testcase name="update user" time="0.002">
+ 		    	<failure message="user should be updated" />
+				<system-err><![CDATA[AssertionError: user name not updated]]></system-err>
+	    	</testcase>
+	    	<testcase name="delete user" time="0.001">
+	    		<error message="Error: uncaught error"></error>
+	    		<system-err><![CDATA[Error: uncaught error. stacktrace: ...]]></system-err>
+	    	</testcase>
+		</testsuite>
+	</testsuite>
+	<testsuite name="Chrome (Linux)" package="" timestamp="2014-12-02T13:04:50" id="0" hostname="IC-Front-End" tests="9" errors="0" failures="0" skipped="1" time="0.298">
+		<properties>
+			<property name="browser.fullName" value="AppleWebKit/534.34 (KHTML, like Gecko) Safari/534.34" />
+		</properties>
+		<testsuite file="test/spec/services/taskService.js" tests="5" errors="0" failures="0" time="0.288">
+			<testcase name="should instantiate rg 2" time="0.178" />
+	    	<testcase name="should contain a AwardsService 2" time="0.007" />
+	    	<testcase name="should contain 12 awards 2" time="0.002" />
+	    	<testcase name="should contain a NotificationService 2" time="0.001" />
+	    	<testcase name="should contain 4 notifications 2" time="0.001" />
+		</testsuite>
+		<testsuite file="test/spec/services/userService.js" tests="4" errors="0" failures="0" skipped="1" time="0.01">
+			<testcase name="create basic user 2">
+				<skipped message="skip message"></skipped>
+			</testcase>
+	    	<testcase name="create admin 2" time="0.007" />
+	    	<testcase name="update user 2" time="0.002" />
+	    	<testcase name="delete user 2" time="0.001" />
+		</testsuite>
 	</testsuite>
 </testsuites>

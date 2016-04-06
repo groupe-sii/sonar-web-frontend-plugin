@@ -20,17 +20,17 @@ public class TestFile {
 	/**
 	 * The path to the file
 	 */
-	private String path;
+	protected String path;
 
 	/**
 	 * The global statistics for all the included test cases
 	 */
-	private TestStats stats;
+	protected TestStats stats;
 	
 	/**
 	 * The list of test cases
 	 */
-	private List<TestCase> testCases;
+	protected List<TestCase> testCases;
 
 	public TestFile(String path, TestStats stats, TestCase... testCases) {
 		this(path, stats, new ArrayList<TestCase>(Arrays.asList(testCases)));
@@ -55,7 +55,17 @@ public class TestFile {
 		return testCases;
 	}
 
-	public void addTestCase(TestCase testCase) {
+	public TestFile addTestCase(TestCase testCase) {
 		testCases.add(testCase);
+		return this;
+	}
+
+	public void setStats(TestStats stats) {
+		this.stats = stats;
+	}
+
+	@Override
+	public String toString() {
+		return "{path=" + path + ", stats=" + stats + ", testCases=" + testCases + "}";
 	}
 }
