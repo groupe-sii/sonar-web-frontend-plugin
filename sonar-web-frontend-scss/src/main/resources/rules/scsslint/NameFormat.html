@@ -1,14 +1,6 @@
 <h1>Details</h1>
 <p>Functions, mixins, variables, and placeholders should be declared with all
-lowercase letters and hyphens instead of underscores.</p><p><strong>Bad: uppercase characters</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$myVar</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
-
-<span class="pl-k">@mixin</span> <span class="pl-en">myMixin</span>() {
-  ...
-}</pre></div><p><strong>Good: all lowercase with hyphens</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$my-var</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
-
-<span class="pl-k">@mixin</span> <span class="pl-en">my-mixin</span>() {
-  ...
-}</pre></div><p>The Sass parser automatically treats underscores and hyphens the same, so even
+lowercase letters and hyphens instead of underscores.</p><p><strong>Bad: uppercase characters</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$myVar</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;<br/><br/><span class="pl-k">@mixin</span> <span class="pl-en">myMixin</span>() {<br/>  ...<br/>}</pre></div><p><strong>Good: all lowercase with hyphens</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$my-var</span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;<br/><br/><span class="pl-k">@mixin</span> <span class="pl-en">my-mixin</span>() {<br/>  ...<br/>}</pre></div><p>The Sass parser automatically treats underscores and hyphens the same, so even
 if you're using a library that declares a function with an underscore, you can
 refer to it using the hyphenated form instead.</p><p>Depending on whether you use underscores to denote private functions within your
 code, you can set the <code>allow_leading_underscore</code> option (enabled by default)

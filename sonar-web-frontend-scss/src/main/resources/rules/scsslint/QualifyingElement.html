@@ -1,33 +1,5 @@
 <h1>Details</h1>
-<p>Avoid qualifying elements in selectors (also known as "tag-qualifying").</p><p><strong>Bad: qualifying elements</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">div</span><span class="pl-e">#thing</span> {
-  ...
-}
-
-<span class="pl-ent">ul</span><span class="pl-e">.list</span> {
-  ...
-}
-
-<span class="pl-ent">ul</span> <span class="pl-ent">li</span><span class="pl-e">.item</span> {
-  ...
-}
-
-<span class="pl-ent">a</span>[href="place"] {
-  ...
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">#thing</span> {
-  ...
-}
-
-<span class="pl-e">.list</span> {
-  ...
-}
-
-<span class="pl-ent">ul</span> <span class="pl-e">.item</span> {
-  ...
-}
-
-[href="place"] {
-  ...
-}</pre></div><p>Since IDs are unique, they will not apply to multiple elements, so there is no
+<p>Avoid qualifying elements in selectors (also known as "tag-qualifying").</p><p><strong>Bad: qualifying elements</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">div</span><span class="pl-e">#thing</span> {<br/>  ...<br/>}<br/><br/><span class="pl-ent">ul</span><span class="pl-e">.list</span> {<br/>  ...<br/>}<br/><br/><span class="pl-ent">ul</span> <span class="pl-ent">li</span><span class="pl-e">.item</span> {<br/>  ...<br/>}<br/><br/><span class="pl-ent">a</span>[href="place"] {<br/>  ...<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">#thing</span> {<br/>  ...<br/>}<br/><br/><span class="pl-e">.list</span> {<br/>  ...<br/>}<br/><br/><span class="pl-ent">ul</span> <span class="pl-e">.item</span> {<br/>  ...<br/>}<br/><br/>[href="place"] {<br/>  ...<br/>}</pre></div><p>Since IDs are unique, they will not apply to multiple elements, so there is no
 good reason to qualify an ID selector with an element.</p><p>In most cases, qualifying a class or attribute selector with an element adds
 unnecessary or undesirable specificity. Often the element qualifier is
 already superfluous; and if it is not, you will probably be better off

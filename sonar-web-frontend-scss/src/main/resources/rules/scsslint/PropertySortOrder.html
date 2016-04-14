@@ -7,41 +7,14 @@ you to specify an explicit array of properties representing the preferred
 order, or the name of a
 <a href="/brigade/scss-lint/blob/master/data/property-sort-orders">preset order</a>.
 If a property is not in your explicit list, it will be placed at the bottom of
-the list, disregarding its order relative to other unspecified properties.</p><p>For example, to define a custom sort order, you can write:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span>
-  <span class="pl-s"><span class="pl-ent">PropertySortOrder:</span></span>
-    <span class="pl-s"><span class="pl-ent">order:</span></span>
-      <span class="pl-s">- <span class="pl-s">display</span></span>
-      <span class="pl-s">- <span class="pl-s">margin</span></span>
-      <span class="pl-s">- <span class="pl-s">etc...</span></span></pre></div><p>Or you can use a preset order by writing:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span>
-  <span class="pl-s"><span class="pl-ent">PropertySortOrder:</span></span>
-    <span class="pl-s"><span class="pl-ent">order:</span> <span class="pl-s">concentric</span></span></pre></div><p>You can enforce that "groups" of properties be visually separated by setting
+the list, disregarding its order relative to other unspecified properties.</p><p>For example, to define a custom sort order, you can write:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span><br/>  <span class="pl-s"><span class="pl-ent">PropertySortOrder:</span></span><br/>    <span class="pl-s"><span class="pl-ent">order:</span></span><br/>      <span class="pl-s">- <span class="pl-s">display</span></span><br/>      <span class="pl-s">- <span class="pl-s">margin</span></span><br/>      <span class="pl-s">- <span class="pl-s">etc...</span></span></pre></div><p>Or you can use a preset order by writing:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span><br/>  <span class="pl-s"><span class="pl-ent">PropertySortOrder:</span></span><br/>    <span class="pl-s"><span class="pl-ent">order:</span> <span class="pl-s">concentric</span></span></pre></div><p>You can enforce that "groups" of properties be visually separated by setting
 the <code>separate_groups</code> option to <code>true</code>. When specifying a custom order, you
 can indicate that you want two groups of properties to be visually separate
-by inserting an empty item, e.g.</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span>
-  <span class="pl-s"><span class="pl-ent">PropertySortOrder:</span></span>
-    <span class="pl-s"><span class="pl-ent">order:</span></span>
-      <span class="pl-s">- <span class="pl-s">display</span></span>
-      <span class="pl-s">- <span class="pl-s">position</span></span>
-      <span class="pl-s">-            </span><span class="pl-c"># This empty element signals a visual separation</span>
-      <span class="pl-s">- <span class="pl-s">margin</span></span>
-      <span class="pl-s">- <span class="pl-s">padding</span></span>
-    <span class="pl-s"><span class="pl-ent">separate_groups:</span> <span class="pl-s">true</span></span></pre></div><p>This would result in the following separation being enforced:</p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
-  <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">absolute</span>;
-
-  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
-  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;
-}</pre></div><p>Note that <code>separate_groups</code> is only enforced if a custom order is specified via
+by inserting an empty item, e.g.</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span><br/>  <span class="pl-s"><span class="pl-ent">PropertySortOrder:</span></span><br/>    <span class="pl-s"><span class="pl-ent">order:</span></span><br/>      <span class="pl-s">- <span class="pl-s">display</span></span><br/>      <span class="pl-s">- <span class="pl-s">position</span></span><br/>      <span class="pl-s">-            </span><span class="pl-c"># This empty element signals a visual separation</span><br/>      <span class="pl-s">- <span class="pl-s">margin</span></span><br/>      <span class="pl-s">- <span class="pl-s">padding</span></span><br/>    <span class="pl-s"><span class="pl-ent">separate_groups:</span> <span class="pl-s">true</span></span></pre></div><p>This would result in the following separation being enforced:</p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;<br/>  <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">absolute</span>;<br/><br/>  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;<br/>  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;<br/>}</pre></div><p>Note that <code>separate_groups</code> is only enforced if a custom order is specified via
 the <code>order</code> option. Also note that if <code>ignore_unspecified</code> is <code>true</code> then
 properties which are "ignored" are considered as visual separators.</p><p>If you need to write vendor-prefixed properties, the linter will allow you to
 order the vendor-prefixed properties before the standard CSS property they
-apply to. For example:</p><div class="highlight highlight-source-scss"><pre>border: 0;
--moz-border-radius: 3px;
--o-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius: 3px;
-color: <span class="pl-e">#ccc</span>;
-margin: 5px;</pre></div><p>In this case, this is usually avoided by using mixins from a framework like
+apply to. For example:</p><div class="highlight highlight-source-scss"><pre>border: 0;<br/>-moz-border-radius: 3px;<br/>-o-border-radius: 3px;<br/>-webkit-border-radius: 3px;<br/>border-radius: 3px;<br/>color: <span class="pl-e">#ccc</span>;<br/>margin: 5px;</pre></div><p>In this case, this is usually avoided by using mixins from a framework like
 <a href="http://compass-style.org/">Compass</a> or <a href="http://bourbon.io/">Bourbon</a> so
 vendor-specific properties rarely need to be explicitly written by hand.</p><p>If you are specifying an explicit order for properties, note that
 vendor-prefixed properties will still be ordered based on the example above

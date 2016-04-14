@@ -2,8 +2,7 @@
 
         <p>An empty rule is one that doesn't contain any properties, such as:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.foo</span> {
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.foo</span> {<br/>}</pre></div>
 
 <p>A lot of times, empty rules appear as a result of refactoring without further cleanup. Eliminating empty rules results in smaller file sizes and less style information for the browser to deal with.</p>
 
@@ -14,14 +13,6 @@
 
 <p>This rule warns when an empty rule is found in the CSS. The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> { }
-
-<span class="pl-e">.mybox</span> {
-
-}
-
-<span class="pl-e">.mybox</span> {
-    <span class="pl-c">/* a comment */</span>
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> { }<br/><br/><span class="pl-e">.mybox</span> {<br/><br/>}<br/><br/><span class="pl-e">.mybox</span> {<br/>    <span class="pl-c">/* a comment */</span><br/>}</pre></div>
 
       

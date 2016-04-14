@@ -2,15 +2,7 @@
 <p><strong>Disabled by default</strong></p><p>Limit the number of properties in a rule set.</p><p>Specifying a large number of properties in a rule set is usually an opportunity
 to break down the rule set into smaller more reusable components. It is also
 a sign that you might not be leveraging the true power of the "cascade", as you
-are explicitly defining a large number of properties many times.</p><p><strong>Bad: large number of properties</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.class</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
-  <span class="pl-c1"><span class="pl-c1">font</span></span>: <span class="pl-c1">15</span><span class="pl-k">px</span> <span class="pl-c1">arial</span>, <span class="pl-c1">sans-serif</span>;
-  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
-  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;
-}</pre></div><p><strong>Good: small number of properties</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.class</span> {
-  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;
-  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;
-}</pre></div><p>You can specify that the count of properties include properties in nested rule
+are explicitly defining a large number of properties many times.</p><p><strong>Bad: large number of properties</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.class</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;<br/>  <span class="pl-c1"><span class="pl-c1">font</span></span>: <span class="pl-c1">15</span><span class="pl-k">px</span> <span class="pl-c1">arial</span>, <span class="pl-c1">sans-serif</span>;<br/>  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;<br/>  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;<br/>}</pre></div><p><strong>Good: small number of properties</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.class</span> {<br/>  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">0</span>;<br/>  <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">0</span>;<br/>}</pre></div><p>You can specify that the count of properties include properties in nested rule
 sets via the <code>include_nested</code> option. This is useful if you care about the
 overall complexity of a generated rule set, rather than just each individual
 set.</p><table><thead>

@@ -1,21 +1,5 @@
 <h1>Details</h1>
-<p>Don't write selectors with a depth of applicability greater than 3.</p><p><strong>Bad: selectors with depths of 4</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.one</span> <span class="pl-e">.two</span> <span class="pl-e">.three</span> &gt; <span class="pl-e">.four</span> {
-  ...
-}
-
-<span class="pl-e">.one</span> <span class="pl-e">.two</span> {
-  <span class="pl-e">.three</span> &gt; <span class="pl-e">.four</span> {
-    ...
-  }
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.one</span> <span class="pl-e">.two</span> <span class="pl-e">.three</span> {
-  ...
-}
-
-<span class="pl-e">.one</span> <span class="pl-e">.two</span> {
-  <span class="pl-e">.three</span> {
-    ...
-  }
-}</pre></div><p>Selectors with a large <a href="http://smacss.com/book/applicability">depth of applicability</a>
+<p>Don't write selectors with a depth of applicability greater than 3.</p><p><strong>Bad: selectors with depths of 4</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.one</span> <span class="pl-e">.two</span> <span class="pl-e">.three</span> &gt; <span class="pl-e">.four</span> {<br/>  ...<br/>}<br/><br/><span class="pl-e">.one</span> <span class="pl-e">.two</span> {<br/>  <span class="pl-e">.three</span> &gt; <span class="pl-e">.four</span> {<br/>    ...<br/>  }<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.one</span> <span class="pl-e">.two</span> <span class="pl-e">.three</span> {<br/>  ...<br/>}<br/><br/><span class="pl-e">.one</span> <span class="pl-e">.two</span> {<br/>  <span class="pl-e">.three</span> {<br/>    ...<br/>  }<br/>}</pre></div><p>Selectors with a large <a href="http://smacss.com/book/applicability">depth of applicability</a>
 lead to CSS tightly-coupled to your HTML structure, making it brittle to change.</p><p>Deep selectors also come with a performance penalty, which can affect rendering
 times, especially on mobile devices. While the default limit is 3, ideally it
 is better to use less than 3 whenever possible.</p><table><thead>

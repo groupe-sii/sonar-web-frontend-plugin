@@ -1,40 +1,10 @@
 <h1>Details</h1>
-<p>Reports when you define the same selector twice in a single sheet.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {
-  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
-}
-
-<span class="pl-e">.baz</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
-}
-
-<span class="pl-c">// Second copy of h1 rule</span>
-<span class="pl-ent">h1</span> {
-  <span class="pl-c1"><span class="pl-c1">text-transform</span></span>: <span class="pl-c1">uppercase</span>;
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {
-  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;
-  <span class="pl-c1"><span class="pl-c1">text-transform</span></span>: <span class="pl-c1">uppercase</span>;
-}
-
-<span class="pl-e">.baz</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
-}</pre></div><p>Combining duplicate selectors can result in an easier to read sheet, but
+<p>Reports when you define the same selector twice in a single sheet.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {<br/>  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;<br/>}<br/><br/><span class="pl-e">.baz</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;<br/>}<br/><br/><span class="pl-c">// Second copy of h1 rule</span><br/><span class="pl-ent">h1</span> {<br/>  <span class="pl-c1"><span class="pl-c1">text-transform</span></span>: <span class="pl-c1">uppercase</span>;<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {<br/>  <span class="pl-c1"><span class="pl-c1">margin</span></span>: <span class="pl-c1">10</span><span class="pl-k">px</span>;<br/>  <span class="pl-c1"><span class="pl-c1">text-transform</span></span>: <span class="pl-c1">uppercase</span>;<br/>}<br/><br/><span class="pl-e">.baz</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;<br/>}</pre></div><p>Combining duplicate selectors can result in an easier to read sheet, but
 occasionally the rules may be purposely duplicated to set precedence
 after a rule with the same CSS specificity. However, coding your
 stylesheets in this way makes them more difficult to comprehend, and can
 usually be avoided.</p><p>You can specify that rule sets which can be nested within another rule
-set must be nested via the <code>force_nesting</code> option, e.g.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>;
-}
-
-<span class="pl-ent">h1</span><span class="pl-e">.new</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#000</span>;
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>;
-
-  <span class="pl-ent">&amp;</span><span class="pl-e">.new</span> {
-    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#000</span>;
-  }
-}</pre></div><table><thead>
+set must be nested via the <code>force_nesting</code> option, e.g.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>;<br/>}<br/><br/><span class="pl-ent">h1</span><span class="pl-e">.new</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#000</span>;<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">h1</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>;<br/><br/>  <span class="pl-ent">&amp;</span><span class="pl-e">.new</span> {<br/>    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#000</span>;<br/>  }<br/>}</pre></div><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>
