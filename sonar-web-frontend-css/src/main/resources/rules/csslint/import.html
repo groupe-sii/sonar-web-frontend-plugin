@@ -2,12 +2,7 @@
 
         <p>The <code>@import</code> command is used to include CSS files within other CSS files, for example:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">more.css</span>);
-<span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">andmore.css</span>);
-
-<span class="pl-ent">a</span> {
-    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">black</span>;
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">more.css</span>);<br/><span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">andmore.css</span>);<br/><br/><span class="pl-ent">a</span> {<br/>    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">black</span>;<br/>}</pre></div>
 
 <p>This code includes two more style sheets at the beginning of a style sheet. When the browser parses this code, it stops at each <code>@import</code> and starts to download the specified file. The browser doesn't continue downloading other style sheets until this one has finished, eliminating any possible parallel downloads of CSS.</p>
 

@@ -1,23 +1,7 @@
 <h1>Details</h1>
 <p>Rule sets should be ordered as follows: <code>@extend</code> declarations, <code>@include</code>
 declarations without inner <code>@content</code>, properties, <code>@include</code> declarations
-<em>with</em> inner <code>@content</code>, then nested rule sets.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.fatal-error</span> {
-  <span class="pl-ent">p</span> {
-    ...
-  }
-
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
-  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;
-  <span class="pl-k">@include</span> <span class="pl-c1">message-box</span>();
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.fatal-error</span> {
-  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;
-  <span class="pl-k">@include</span> <span class="pl-c1">message-box</span>();
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
-
-  <span class="pl-ent">p</span> {
-    ...
-  }
-}</pre></div><p>The <code>@extend</code> statement functionally acts like an inheritance mechanism,
+<em>with</em> inner <code>@content</code>, then nested rule sets.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.fatal-error</span> {<br/>  <span class="pl-ent">p</span> {<br/>    ...<br/>  }<br/><br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;<br/>  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;<br/>  <span class="pl-k">@include</span> <span class="pl-c1">message-box</span>();<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.fatal-error</span> {<br/>  <span class="pl-k">@extend</span> <span class="pl-e">%error</span>;<br/>  <span class="pl-k">@include</span> <span class="pl-c1">message-box</span>();<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;<br/><br/>  <span class="pl-ent">p</span> {<br/>    ...<br/>  }<br/>}</pre></div><p>The <code>@extend</code> statement functionally acts like an inheritance mechanism,
 which means the properties defined by the placeholder being extended are
 rendered before the rest of the properties in the rule set.</p><p>Thus, declaring the <code>@extend</code> at the top of the rule set reminds the
 developer of this behavior.</p><p>Placing <code>@include</code> declarations without inner <code>@content</code> before properties

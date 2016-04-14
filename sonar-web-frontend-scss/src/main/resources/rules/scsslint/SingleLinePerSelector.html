@@ -1,14 +1,5 @@
 <h1>Details</h1>
 <p>Split selectors onto separate lines after each comma, and have each individual
-selector occupy a single line.</p><p><strong>Bad: comma-separated selectors not on their own lines</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>, <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
-  ...
-}</pre></div><p><strong>Bad: descendent selector spread over multiple lines</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span>
-  <span class="pl-ent">p</span>,
-  <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
-  ...
-}</pre></div><p><strong>Good: each selector sequence is on its own individual line</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>,
-<span class="pl-ent">p</span><span class="pl-e">.explanation</span> {
-  ...
-}</pre></div><p>Note that selectors containing interpolation are ignored, since the Sass parser
+selector occupy a single line.</p><p><strong>Bad: comma-separated selectors not on their own lines</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>, <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {<br/>  ...<br/>}</pre></div><p><strong>Bad: descendent selector spread over multiple lines</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span><br/>  <span class="pl-ent">p</span>,<br/>  <span class="pl-ent">p</span><span class="pl-e">.explanation</span> {<br/>  ...<br/>}</pre></div><p><strong>Good: each selector sequence is on its own individual line</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.error</span> <span class="pl-ent">p</span>,<br/><span class="pl-ent">p</span><span class="pl-e">.explanation</span> {<br/>  ...<br/>}</pre></div><p>Note that selectors containing interpolation are ignored, since the Sass parser
 cannot construct the selector parse tree at parse time, only at run time (which
 is too late for <code>scss-lint</code> to do anything with).</p>

@@ -1,27 +1,10 @@
 <h1>Details</h1>
 <p><strong>Disabled by default</strong></p><p>Properties, like <code>color</code> and <code>font</code>, are easier to read and maintain when
-defined using variables rather than literals.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
-}
-
-<span class="pl-e">.warning</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#ff0</span>;
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$body-text</span>;
-}
-
-<span class="pl-e">.warning</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$body-warning</span>;
-}</pre></div><p>By using variables, you can describe the semantics of the property value rather
+defined using variables rather than literals.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;<br/>}<br/><br/><span class="pl-e">.warning</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#ff0</span>;<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$body-text</span>;<br/>}<br/><br/><span class="pl-e">.warning</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$body-warning</span>;<br/>}</pre></div><p>By using variables, you can describe the semantics of the property value rather
 than just using the literal value (improving readability) and also make it
 easier to perform side-wide changes as you only need to change the value in one
 place, rather than several.</p><p>By default, this linter does not enforce the use of variables for any property.
-To enable it, set the <code>properties</code> option in your configuration, e.g.</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span>
-  <span class="pl-s"><span class="pl-ent">VariableForProperty:</span></span>
-    <span class="pl-s"><span class="pl-ent">enabled:</span> <span class="pl-s">true</span></span>
-    <span class="pl-s"><span class="pl-ent">properties:</span></span>
-      <span class="pl-s">- <span class="pl-s">color</span></span>
-      <span class="pl-s">- <span class="pl-s">font</span></span></pre></div><p>Note that values like <code>currentColor</code>, <code>inherit</code>, and <code>transparent</code> will not be
+To enable it, set the <code>properties</code> option in your configuration, e.g.</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span><br/>  <span class="pl-s"><span class="pl-ent">VariableForProperty:</span></span><br/>    <span class="pl-s"><span class="pl-ent">enabled:</span> <span class="pl-s">true</span></span><br/>    <span class="pl-s"><span class="pl-ent">properties:</span></span><br/>      <span class="pl-s">- <span class="pl-s">color</span></span><br/>      <span class="pl-s">- <span class="pl-s">font</span></span></pre></div><p>Note that values like <code>currentColor</code>, <code>inherit</code>, and <code>transparent</code> will not be
 reported, as they are special kinds of values that convey additional meaning.</p><table><thead>
 <tr>
 <th>Configuration Option</th>

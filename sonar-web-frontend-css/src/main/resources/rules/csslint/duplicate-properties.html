@@ -2,17 +2,11 @@
 
         <p>Early on in web development, including the same CSS property twice was certainly an error, especially if there were two different values. For example:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {
-    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;
-    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">120<span class="pl-k">px</span></span>;
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {<br/>    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">px</span></span>;<br/>    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">120<span class="pl-k">px</span></span>;<br/>}</pre></div>
 
 <p>Anyone looking at this code would think that this is clearly an error. Recently, however, including duplicate properties is used as a way to deal with varying levels of browser support for CSS properties. For example, some browsers support RGBA color while others do not, so it's quite common to see patterns such as:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">#fff</span>;
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 0.5</span>);
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.mybox</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">#fff</span>;<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 0.5</span>);<br/>}</pre></div>
 
 <p>This is quite clearly intentional. The developer wants to use RGBA when available but wants to fall back to a regular color when not available. </p>
 
@@ -30,25 +24,10 @@
 
 <p>The following patterns are considered warnings:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-c">/* properties with the same value */</span>
-<span class="pl-e">.mybox</span> {
-    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;
-    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;
-}
-
-<span class="pl-c">/* properties separated by another property */</span>
-<span class="pl-e">.mybox</span> {
-    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;
-    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">green</span>;
-    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">red</span>;
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* properties with the same value */</span><br/><span class="pl-e">.mybox</span> {<br/>    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;<br/>    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;<br/>}<br/><br/><span class="pl-c">/* properties separated by another property */</span><br/><span class="pl-e">.mybox</span> {<br/>    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;<br/>    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">green</span>;<br/>    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">red</span>;<br/>}</pre></div>
 
 <p>The following patterns are considered okay and do not cause a warning:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-c">/* one after another with different values */</span>
-<span class="pl-e">.mybox</span> {
-    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;
-    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">red</span>;
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-c">/* one after another with different values */</span><br/><span class="pl-e">.mybox</span> {<br/>    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">black</span>;<br/>    <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-c1">red</span>;<br/>}</pre></div>
 
       

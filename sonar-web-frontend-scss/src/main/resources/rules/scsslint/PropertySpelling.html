@@ -4,14 +4,7 @@ properties).</p><div class="highlight highlight-source-scss"><pre>diplay: none;<
 possible that you might get some false positives here, especially if you're
 using experimental CSS features. If that's the case, you can add additional
 properties to the whitelist by adding the following to your <code>.scss-lint.yml</code>
-configuration:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span>
-  <span class="pl-s"><span class="pl-ent">PropertySpelling:</span></span>
-    <span class="pl-s"><span class="pl-ent">extra_properties:</span></span>
-      <span class="pl-s">- <span class="pl-s">some-experimental-property</span></span>
-      <span class="pl-s">- <span class="pl-s">another-experimental-property</span></span>
-    <span class="pl-s"><span class="pl-ent">disabled_properties:</span></span>
-      <span class="pl-s">- <span class="pl-s">some-existing-property</span></span>
-      <span class="pl-s">- <span class="pl-s">another-existing-property</span></span></pre></div><p>If you're sure the property in question is valid,
+configuration:</p><div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">linters:</span></span><br/>  <span class="pl-s"><span class="pl-ent">PropertySpelling:</span></span><br/>    <span class="pl-s"><span class="pl-ent">extra_properties:</span></span><br/>      <span class="pl-s">- <span class="pl-s">some-experimental-property</span></span><br/>      <span class="pl-s">- <span class="pl-s">another-experimental-property</span></span><br/>    <span class="pl-s"><span class="pl-ent">disabled_properties:</span></span><br/>      <span class="pl-s">- <span class="pl-s">some-existing-property</span></span><br/>      <span class="pl-s">- <span class="pl-s">another-existing-property</span></span></pre></div><p>If you're sure the property in question is valid,
 <a href="https://github.com/brigade/scss-lint/issues/new">submit a request</a>
 to add it to the
 <a href="/brigade/scss-lint/blob/master/data/properties.txt">default whitelist</a>.</p><table><thead>

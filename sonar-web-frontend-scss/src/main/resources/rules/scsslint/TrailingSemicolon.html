@@ -1,11 +1,5 @@
 <h1>Details</h1>
 <p>Property values; <code>@extend</code>, <code>@include</code>, and <code>@import</code> directives; and variable
-declarations should always end with a semicolon.</p><p><strong>Bad: no semicolon</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>
-}</pre></div><p><strong>Bad: space between value and semicolon</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span> ;
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>;
-}</pre></div><p>CSS allows you to omit the semicolon if the statement is the last statement in
+declarations should always end with a semicolon.</p><p><strong>Bad: no semicolon</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span><br/>}</pre></div><p><strong>Bad: space between value and semicolon</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span> ;<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#fff</span>;<br/>}</pre></div><p>CSS allows you to omit the semicolon if the statement is the last statement in
 the rule set. However, this introduces inconsistency and requires anyone adding
 a property after that property to remember to append a semicolon.</p>

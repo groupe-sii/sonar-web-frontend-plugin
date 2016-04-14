@@ -2,41 +2,7 @@
 <p>Avoid vendor prefixes. That is, don't write them yourself.</p><p>Instead, you can use Autoprefixer or mixins -- such as Compass or Bourbon -- to add vendor prefixes to your code. (If using your own mixins, make sure to exempt their source from this linter.)</p><p>At-rules, selectors, properties, and values are all checked. (See the examples below.)</p><p>The default <code>identifier_list</code>, <code>base</code>, should include everything that Autoprefixer addresses. You could also use a list covering Bourbon's CSS3 mixins: <code>bourbon</code>. If neither of those suit you, you can write your own identifier list.</p><p>Additionally, you can manually include or exclude identifiers from the identifier list -- if, for example, you want to use pretty much all of the <code>base</code> list but also want to allow yourself to use vendor prefixed <code>transform</code> properties, for one reason or another.</p><p>All identifiers used by the <code>identifier_list</code>, <code>additional_identifiers</code>, or
 <code>excluded_identifiers</code> are stripped of vendor prefixes. See <a href="/brigade/scss-lint/blob/master/data/prefixed-identifiers">the predefined
 lists</a>
-for examples.</p><p><strong>Bad: vendor prefixes</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@-webkit-keyframes</span> <span class="pl-en">anim</span> {
-  0% { <span class="pl-c1"><span class="pl-c1">opacity</span></span>: <span class="pl-c1">0</span>; }
-}
-
-::-moz-placeholder {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
-}
-
-<span class="pl-e">.foo</span> {
-  <span class="pl-c1">-webkit-<span class="pl-c1">transition</span></span>: <span class="pl-c1">none</span>;
-}
-
-<span class="pl-e">.bar</span> {
-  <span class="pl-c1"><span class="pl-c1">position</span></span>: -moz<span class="pl-c1">-</span>sticky;
-}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">// With Autoprefixer ...</span>
-<span class="pl-k">@keyframes</span> <span class="pl-en">anim</span> {
-  0% { <span class="pl-c1"><span class="pl-c1">opacity</span></span>: <span class="pl-c1">0</span>; }
-}
-
-::placeholder {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
-}
-
-<span class="pl-e">.foo</span> {
-  <span class="pl-c1"><span class="pl-c1">transition</span></span>: <span class="pl-c1">none</span>;
-}
-
-<span class="pl-e">.bar</span> {
-  <span class="pl-c1"><span class="pl-c1">position</span></span>: sticky;
-}
-
-<span class="pl-c">// With Bourbon mixin</span>
-<span class="pl-k">@include</span> <span class="pl-c1">placeholder</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
-}</pre></div><table><thead>
+for examples.</p><p><strong>Bad: vendor prefixes</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@-webkit-keyframes</span> <span class="pl-en">anim</span> {<br/>  0% { <span class="pl-c1"><span class="pl-c1">opacity</span></span>: <span class="pl-c1">0</span>; }<br/>}<br/><br/>::-moz-placeholder {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;<br/>}<br/><br/><span class="pl-e">.foo</span> {<br/>  <span class="pl-c1">-webkit-<span class="pl-c1">transition</span></span>: <span class="pl-c1">none</span>;<br/>}<br/><br/><span class="pl-e">.bar</span> {<br/>  <span class="pl-c1"><span class="pl-c1">position</span></span>: -moz<span class="pl-c1">-</span>sticky;<br/>}</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">// With Autoprefixer ...</span><br/><span class="pl-k">@keyframes</span> <span class="pl-en">anim</span> {<br/>  0% { <span class="pl-c1"><span class="pl-c1">opacity</span></span>: <span class="pl-c1">0</span>; }<br/>}<br/><br/>::placeholder {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;<br/>}<br/><br/><span class="pl-e">.foo</span> {<br/>  <span class="pl-c1"><span class="pl-c1">transition</span></span>: <span class="pl-c1">none</span>;<br/>}<br/><br/><span class="pl-e">.bar</span> {<br/>  <span class="pl-c1"><span class="pl-c1">position</span></span>: sticky;<br/>}<br/><br/><span class="pl-c">// With Bourbon mixin</span><br/><span class="pl-k">@include</span> <span class="pl-c1">placeholder</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;<br/>}</pre></div><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>

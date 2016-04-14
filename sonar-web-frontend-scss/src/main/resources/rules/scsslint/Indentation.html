@@ -1,17 +1,7 @@
 <h1>Details</h1>
-<p>Use two spaces per indentation level.</p><p><strong>Bad: four spaces</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
-}</pre></div><p><strong>Good: two spaces</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;
-}</pre></div><p>You can configure this linter to prefer tabs if you like.</p><p>For projects that follow BEM, you may prefer to allow arbitrary indentation for
+<p>Use two spaces per indentation level.</p><p><strong>Bad: four spaces</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;<br/>}</pre></div><p><strong>Good: two spaces</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#f00</span>;<br/>}</pre></div><p>You can configure this linter to prefer tabs if you like.</p><p>For projects that follow BEM, you may prefer to allow arbitrary indentation for
 rule sets that aren't nested in order to give the visual hints of hierarchy
-without actually nesting selectors (which has a performance cost). For example:</p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.component</span> {}
-  <span class="pl-e">.component__image</span> {}
-  <span class="pl-e">.component__text</span> {}
-    <span class="pl-e">.component-subblock</span> {}
-    <span class="pl-e">.component-subblock__text</span> {}
-  <span class="pl-e">.component-category</span> {}
-    <span class="pl-e">.component-other</span> {}</pre></div><p>You can set <code>allow_non_nested_indentation</code> to <code>true</code> if this convention is
+without actually nesting selectors (which has a performance cost). For example:</p><div class="highlight highlight-source-scss"><pre><span class="pl-e">.component</span> {}<br/>  <span class="pl-e">.component__image</span> {}<br/>  <span class="pl-e">.component__text</span> {}<br/>    <span class="pl-e">.component-subblock</span> {}<br/>    <span class="pl-e">.component-subblock__text</span> {}<br/>  <span class="pl-e">.component-category</span> {}<br/>    <span class="pl-e">.component-other</span> {}</pre></div><p>You can set <code>allow_non_nested_indentation</code> to <code>true</code> if this convention is
 preferred.</p><table><thead>
 <tr>
 <th>Configuration Option</th>

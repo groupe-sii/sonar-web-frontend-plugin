@@ -2,27 +2,11 @@
 
         <p>One of the main rules of performance is to use as few bytes as possible to get the job done. Along those lines, URLs are best used just once inside of CSS. If you have more than one class that needs to use the same background image, then it's better to have one class that uses the URL and simply apply that class to the various elements where it is needed. Consider the following:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.heart-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
-}
-
-<span class="pl-e">.task-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.heart-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;<br/>}<br/><br/><span class="pl-e">.task-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;<br/>}</pre></div>
 
 <p>The background image is repeated in both classes. That's extra bytes you don't need and also increases the chances that you'll forget to change one should the filename change. An alternative is to define one class that has the URL and be sure to apply that class to the HTML elements where the other classes are used. For example:</p>
 
-<div class="highlight highlight-source-css"><pre><span class="pl-e">.icons</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">no-repeat</span>;
-}
-
-<span class="pl-e">.heart-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
-}
-
-<span class="pl-e">.task-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
-}</pre></div>
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.icons</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">no-repeat</span>;<br/>}<br/><br/><span class="pl-e">.heart-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;<br/>}<br/><br/><span class="pl-e">.task-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;<br/>}</pre></div>
 
 <p>Here, the <code>icons</code> class contains the background image while the other classes just change the background position.</p>
 
@@ -36,27 +20,11 @@
 <p>The following patterns are considered warnings:</p>
 
 <div class="highlight highlight-source-css"><pre><span class="pl-c">/* multiple instances of the same URL */</span>
-<span class="pl-e">.heart-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
-}
-
-<span class="pl-e">.task-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;
-}</pre></div>
+<span class="pl-e">.heart-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;<br/>}<br/><br/><span class="pl-e">.task-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span> <span class="pl-c1">no-repeat</span>;<br/>}</pre></div>
 
 <p>The following patterns are considered okay and do not cause warnings:</p>
 
 <div class="highlight highlight-source-css"><pre><span class="pl-c">/* single instance of URL */</span>
-<span class="pl-e">.icons</span> {
-    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">no-repeat</span>;
-}
-
-<span class="pl-e">.heart-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
-}
-
-<span class="pl-e">.task-icon</span> {
-    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;
-}</pre></div>
+<span class="pl-e">.icons</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background</span></span>: <span class="pl-c1">url</span>(<span class="pl-v">sprite.png</span>) <span class="pl-c1">no-repeat</span>;<br/>}<br/><br/><span class="pl-e">.heart-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-16<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;<br/>}<br/><br/><span class="pl-e">.task-icon</span> {<br/>    <span class="pl-c1"><span class="pl-c1">background-position</span></span>: <span class="pl-c1">-32<span class="pl-k">px</span></span> <span class="pl-c1">0</span>;<br/>}</pre></div>
 
       

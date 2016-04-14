@@ -1,10 +1,6 @@
 <h1>Details</h1>
 <p>The basenames of <code>@import</code>ed SCSS partials should not begin with an underscore
-and should not include the filename extension.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">foo/_bar.scss</span>";
-<span class="pl-k">@import</span> "<span class="pl-v">_bar.scss</span>";
-<span class="pl-k">@import</span> "<span class="pl-v">_bar</span>";
-<span class="pl-k">@import</span> "<span class="pl-v">bar.scss</span>";</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">foo/bar</span>";
-<span class="pl-k">@import</span> "<span class="pl-v">bar</span>";</pre></div><p>You can configure this linter to instead ensure that you <em>do</em> include the
+and should not include the filename extension.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">foo/_bar.scss</span>";<br/><span class="pl-k">@import</span> "<span class="pl-v">_bar.scss</span>";<br/><span class="pl-k">@import</span> "<span class="pl-v">_bar</span>";<br/><span class="pl-k">@import</span> "<span class="pl-v">bar.scss</span>";</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">foo/bar</span>";<br/><span class="pl-k">@import</span> "<span class="pl-v">bar</span>";</pre></div><p>You can configure this linter to instead ensure that you <em>do</em> include the
 leading underscore or the filename extension by setting either option to
 <code>true</code>. Being explicit might have its place, as long as you are consistent.</p><p><code>@import</code> declarations that Sass compiles directly into CSS <code>@import</code> rules
 will be ignored.</p><table><thead>

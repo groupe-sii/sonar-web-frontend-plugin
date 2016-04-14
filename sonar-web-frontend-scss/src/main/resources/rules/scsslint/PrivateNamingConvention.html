@@ -1,21 +1,7 @@
 <h1>Details</h1>
 <p><strong>Disabled by default</strong></p><p>Enforces that functions, mixins, and variables that follow the private naming
 convention (default to underscore-prefixed, e.g. <code>$_foo</code>) are defined and used
-within the same file.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;
-
-<span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#00f</span>;
-}</pre></div><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;
-}</pre></div><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;
-}
-
-<span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;
-
-<span class="pl-ent">p</span> {
-  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;
-}</pre></div><table><thead>
+within the same file.</p><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;<br/><br/><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#00f</span>;<br/>}</pre></div><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;<br/>}</pre></div><p><strong>Bad</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;<br/>}<br/><br/><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;</pre></div><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-smi">$_foo</span>: <span class="pl-c1">#f00</span>;<br/><br/><span class="pl-ent">p</span> {<br/>  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$_foo</span>;<br/>}</pre></div><table><thead>
 <tr>
 <th>Configuration Option</th>
 <th>Description</th>

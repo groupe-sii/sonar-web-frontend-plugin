@@ -1,13 +1,5 @@
 <h1>Details</h1>
-<p>It is good practice to choose a convention for naming selectors.</p><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">// convention: 'hyphenated_lowercase'</span>
-<span class="pl-e">.foo-bar-77</span>, foo-bar, <span class="pl-e">#foo-bar</span> {}
-
-<span class="pl-c">// convention: 'snake_case'</span>
-<span class="pl-e">.foo_bar77</span>, foo_bar, <span class="pl-e">#foo_bar</span> {}
-
-<span class="pl-c">// convention: 'camel_case'</span>
-<span class="pl-e">.fooBar77</span>, fooBar, <span class="pl-e">#fooBar</span> {}
-}</pre></div><p>You can specify different conventions for different types of selectors using the <code>[type]_convention</code> options.</p><p>Since you might need to overwrite selectors for third party stylesheets, you
+<p>It is good practice to choose a convention for naming selectors.</p><p><strong>Good</strong></p><div class="highlight highlight-source-scss"><pre><span class="pl-c">// convention: 'hyphenated_lowercase'</span><br/><span class="pl-e">.foo-bar-77</span>, foo-bar, <span class="pl-e">#foo-bar</span> {}<br/><br/><span class="pl-c">// convention: 'snake_case'</span><br/><span class="pl-e">.foo_bar77</span>, foo_bar, <span class="pl-e">#foo_bar</span> {}<br/><br/><span class="pl-c">// convention: 'camel_case'</span><br/><span class="pl-e">.fooBar77</span>, fooBar, <span class="pl-e">#fooBar</span> {}<br/>}</pre></div><p>You can specify different conventions for different types of selectors using the <code>[type]_convention</code> options.</p><p>Since you might need to overwrite selectors for third party stylesheets, you
 can specify <code>ignored_names</code> as an array of individual selectors to ignore.
 Another option is to specify <code>ignored_types</code> to globally ignore a certain
 type of selector.</p><table><thead>
