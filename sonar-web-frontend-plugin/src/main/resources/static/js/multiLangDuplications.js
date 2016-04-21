@@ -46,7 +46,7 @@ MultiLanguageDuplications = (function() {
 	}
 	
 	var setTotalCount = function(/*String*/lang, /*Object*/dups) {
-		var percent = (Math.round(dups["duplicated_lines"]/dups["lines"]*1000)/10)+"%";
+		var percent = dups["lines"]>0 ? (Math.round(dups["duplicated_lines"]/dups["lines"]*1000)/10)+"%" : 0;
 		jQuery("a[href='#"+lang+"-duplications'] .total-count").html(percent);
 		jQuery("#"+lang+"-duplications .duplications-percent").html(percent);
 		jQuery("#"+lang+"-duplications .duplications-blocks").html(dups["duplicated_blocks"]);
