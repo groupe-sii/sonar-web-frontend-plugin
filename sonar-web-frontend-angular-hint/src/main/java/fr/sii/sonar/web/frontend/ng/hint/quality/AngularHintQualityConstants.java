@@ -10,7 +10,7 @@ public class AngularHintQualityConstants extends AngularHintConstants implements
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.angular.file.missing.fail";
 	public static final String SKIP_FILE_METRICS_KEY = "sonar.sii.quality.angular.file.metrics.skip";
 	public static final String SKIP_FILE_METRICS_DEFVALUE = "false";
-	public static final String REPORT_PATH_DEFVALUE = "/report/angular-hint.json";
+	public static final String REPORT_PATH_DEFVALUE = "/reports/sonar/angular-hint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/angular-hint.json";
 	public static final String REPOSITORY_NAME = "Angular Hint";
