@@ -76,7 +76,7 @@ sonar.sourceEncoding=UTF-8
 
 #### Download the JAR
 
-You can download the v2.0 release for Sonar 4.5.x directly [on Sonatype](https://oss.sonatype.org/content/groups/public/fr/sii/sonar/sonar-sii-plugin-parent/2.0/sonar-sii-plugin-parent-2.0.jar).
+You can download the v2.0.0 release for Sonar 4.5.x directly [on Sonatype](https://oss.sonatype.org/content/groups/public/fr/sii/sonar/sonar-sii-plugin-parent/2.0/sonar-sii-plugin-parent-2.0.0-RC1.jar).
 
 
 #### Generate from sources
