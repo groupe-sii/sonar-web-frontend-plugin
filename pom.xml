@@ -32,7 +32,7 @@
 		<gpg.plugin.version>1.6</gpg.plugin.version>
 		
 		<github.url>https://github.com/groupe-sii/sonar-web-frontend-plugin</github.url>
-		<scm.url>git@github.com:groupe-sii/sonar-web-frontend-plugin.git</scm.url>
+		<scm.url>ssh://git@github.com/groupe-sii/sonar-web-frontend-plugin.git</scm.url>
 		<project.url>https://github.com/groupe-sii/sonar-web-frontend-plugin</project.url>
 	</properties>
 
@@ -223,7 +223,6 @@
 		<url>${github.url}</url>
 		<connection>scm:git:${scm.url}</connection>
 		<developerConnection>scm:git:${scm.url}</developerConnection>
-		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
