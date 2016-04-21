@@ -11,7 +11,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
  * This list is followed by two lines containing the number of functions found
  * and hit:
  * 
- * FNF:<number of functions found>
+ * {@literal FNF:<number of functions found>}
  * 
  * @author Aurélien Baudet
  *

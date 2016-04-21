@@ -32,6 +32,8 @@ import fr.sii.sonar.report.core.common.save.Saver;
  * 
  * @author Aurélien Baudet
  *
+ * @param <R>
+ *            The type of handled report
  */
 public abstract class ReportSensor<R extends Report> implements Sensor {
 
@@ -43,6 +45,15 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 
 	/**
 	 * Use of IoC to get Settings
+	 * 
+	 * @param constants
+	 *            the constants for the current plugin
+	 * @param pluginDependencies
+	 *            the Sonar dependencies
+	 * @param providerFactory
+	 *            the factory for creating a new provider
+	 * @param saverFactory
+	 *            the factory for creating a new saver
 	 */
 	public ReportSensor(ReportConstants constants, PluginDependencies pluginDependencies, ProviderFactory<R> providerFactory, SaverFactory<R> saverFactory) {
 		super();
@@ -58,14 +69,14 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 		try {
 			File reportFile = getReportFile(project);
 			boolean exists = reportFile.exists();
-			if(exists) {
-				LOG.info("Loading and storing "+reportFile.getAbsolutePath()+" in Sonar");
-			} else if(!pluginContext.getSettings().getBoolean(ReportSensorConstants.SKIP_LOG_MISSING_REPORT_KEY)) {
-				LOG.warn("The report file "+reportFile.getAbsolutePath()+" doesn't exist");
+			if (exists) {
+				LOG.info("Loading and storing " + reportFile.getAbsolutePath() + " in Sonar");
+			} else if (!pluginContext.getSettings().getBoolean(ReportSensorConstants.SKIP_LOG_MISSING_REPORT_KEY)) {
+				LOG.warn("The report file " + reportFile.getAbsolutePath() + " doesn't exist");
 			}
 			return exists;
 		} catch (Exception e) {
-			LOG.error("Failed to find report file "+e.getMessage());
+			LOG.error("Failed to find report file " + e.getMessage());
 			return false;
 		}
 	}

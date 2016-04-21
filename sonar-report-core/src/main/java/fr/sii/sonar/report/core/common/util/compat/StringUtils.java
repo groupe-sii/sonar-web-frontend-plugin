@@ -30,8 +30,6 @@ public class StringUtils {
      * <p>No delimiter is added before or after the list.
      * A <code>null</code> separator is the same as an empty String ("").</p>
      *
-     * <p>See the examples here: {@link #join(Object[],String)}. </p>
-     *
      * @param collection  the <code>Collection</code> of values to join together, may be null
      * @param separator  the separator character to use, null treated as ""
      * @return the joined String, <code>null</code> if null iterator input
@@ -49,8 +47,6 @@ public class StringUtils {
      *
      * <p>No delimiter is added before or after the list.
      * A <code>null</code> separator is the same as an empty String ("").</p>
-     *
-     * <p>See the examples here: {@link #join(Object[],String)}. </p>
      *
      * @param iterator  the <code>Iterator</code> of values to join together, may be null
      * @param separator  the separator character to use, null treated as ""

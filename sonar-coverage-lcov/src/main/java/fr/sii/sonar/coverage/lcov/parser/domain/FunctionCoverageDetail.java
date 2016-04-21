@@ -6,8 +6,8 @@ import fr.sii.sonar.coverage.lcov.parser.statement.LcovFunctionNameStatement;
 /**
  * LCOV format provides information about covered functions. The function detailed information are provided by two different lines in the LCOV report :
  * 
- * FN:<line number of function start>,<function name>
- * FNDA:<execution count>,<function name>
+ * {@literal FN:<line number of function start>,<function name>}
+ * {@literal FNDA:<execution count>,<function name>}
  * 
  * This class groups the two pieces of information.
  * 

@@ -16,12 +16,12 @@ import fr.sii.sonar.coverage.lcov.parser.statement.LcovNumberInstrumentedLineSta
  * of hit statements and the details for each statement. A statement can be a
  * line, a function or a branch. These information are provided by the following lines :
  * 
- * FNF:<number of functions found>
- * FNH:<number of function hit>
- * BRF:<number of branches found>
- * BRH:<number of branches hit>
- * LH:<number of lines with a non-zero execution count>
- * LF:<number of instrumented lines>
+ * {@literal FNF:<number of functions found>}
+ * {@literal FNH:<number of function hit>}
+ * {@literal BRF:<number of branches found>}
+ * {@literal BRH:<number of branches hit>}
+ * {@literal LH:<number of lines with a non-zero execution count>}
+ * {@literal LF:<number of instrumented lines>}
  * 
  * @author Aurélien Baudet
  *

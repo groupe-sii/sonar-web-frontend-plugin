@@ -16,21 +16,29 @@ package fr.sii.sonar.report.core.common.rules;
 public interface RulesDefinitionConstants {
 	/**
 	 * The key of the repository
+	 * 
+	 * @return the key of the repository
 	 */
 	public String getRepositoryKey();
 
 	/**
 	 * The name of the repository
+	 * 
+	 * @return the name of the repository
 	 */
 	public String getRepositoryName();
 
 	/**
 	 * The path to the JSON file that contains the rules
+	 * 
+	 * @return the path to the JSON file that contains the rules
 	 */
 	public String getRulesJsonPath();
 
 	/**
 	 * The language managed by the repository
+	 * 
+	 * @return the language managed by the repository
 	 */
 	public String getLanguageKey();
 }

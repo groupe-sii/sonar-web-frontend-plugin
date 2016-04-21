@@ -11,7 +11,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
  * At the end of a section, there is a summary about how many lines were found
  * and how many were actually instrumented:
  * 
- * LH:<number of lines with a non-zero execution count>
+ * {@literal LH:<number of lines with a non-zero execution count>}
  * 
  * @author Aurélien Baudet
  *

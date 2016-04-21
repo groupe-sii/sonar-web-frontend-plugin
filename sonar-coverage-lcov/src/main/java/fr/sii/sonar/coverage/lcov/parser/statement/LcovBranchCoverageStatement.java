@@ -12,7 +12,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 /**
  * Branch coverage information is stored which one line per branch:
  * 
- * BRDA:<line number>,<block number>,<branch number>,<taken>
+ * {@literal BRDA:<line number>,<block number>,<branch number>,<taken>}
  * 
  * Block number and branch number are gcc internal IDs for the branch. Taken is
  * either ’-’ if the basic block containing the branch was never executed or a

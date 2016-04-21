@@ -10,7 +10,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 /**
  * Branch coverage summaries are stored in two lines:
  * 
- * BRH:<number of branches hit>
+ * {@literal BRH:<number of branches hit>}
  * 
  * @author Aurélien Baudet
  *

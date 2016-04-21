@@ -46,7 +46,7 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 
 	/**
 	 * Initialize the provider with the xml stream to parse and the class of the
-	 * report. In this case, <T> must extends Report
+	 * report. In this case, {@literal <T>} must extends Report
 	 * 
 	 * @param stream
 	 *            the xml stream to parse
@@ -62,15 +62,17 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 
 	/**
 	 * Initialize the provider with the xml file to parse and the class of the
-	 * report. In this case, <T> must extends Report
+	 * report. In this case, {@literal <T>} must extends Report
 	 * 
-	 * @param stream
+	 * @param reportFile
 	 *            the xml file to parse
 	 * @param xmlClass
 	 *            the class that will be instantiated and filled with the stream
 	 *            content
 	 * @throws IllegalArgumentException
 	 *             if xmlClass parameter doesn't implement {@link Report}
+	 * @throws FileNotFoundException
+	 *             when the report file doesn't exist
 	 */
 	public XmlFileReportProvider(File reportFile, Class<T> xmlClass) throws FileNotFoundException {
 		this(reportFile, checkClass(xmlClass), null);
@@ -110,19 +112,22 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 	 * @param adapter
 	 *            an adapter that transforms the raw structure into the final
 	 *            report structure
+	 * @throws FileNotFoundException
+	 *             when the report file doesn't exist
 	 */
 	public XmlFileReportProvider(File reportFile, Class<T> xmlClass, ReportAdapter<R, T> adapter) throws FileNotFoundException {
 		this(new FileInputStream(reportFile), xmlClass, adapter);
 	}
 
 	/**
-	 * Utility method used to check if the provided class is allowed or not.
-	 * The class is allowed if it implements {@link Report}.
+	 * Utility method used to check if the provided class is allowed or not. The
+	 * class is allowed if it implements {@link Report}.
 	 * 
 	 * @param xmlClass
 	 *            the class to check
 	 * @return xmlClass
-	 * @throws IllegalArgumentException if the class is not allowed.
+	 * @throws IllegalArgumentException
+	 *             if the class is not allowed.
 	 */
 	private static <T> Class<T> checkClass(Class<T> xmlClass) {
 		if (!Report.class.isAssignableFrom(xmlClass)) {
@@ -133,7 +138,7 @@ public class XmlFileReportProvider<R extends Report, T> implements Provider<R> {
 
 	@SuppressWarnings("unchecked")
 	public R get() throws ProviderException {
-		try(Reader reader = new InputStreamReader(stream)) {
+		try (Reader reader = new InputStreamReader(stream)) {
 			Unmarshaller unmarshaller = JAXBContext.newInstance(xmlClass).createUnmarshaller();
 			Object rawStructure = unmarshaller.unmarshal(reader);
 			if (adapter != null) {

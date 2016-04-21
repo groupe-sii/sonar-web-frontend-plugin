@@ -4,6 +4,8 @@ public interface LanguageConstants {
 	
 	/**
 	 * The language key
+	 * 
+	 * @return the language key
 	 */
 	public String getLanguageKey();
 

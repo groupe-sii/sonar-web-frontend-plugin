@@ -13,7 +13,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LineCoverageDetail;
  * Then there is a list of execution counts for each instrumented line (i.e. a
  * line which resulted in executable code):
  * 
- * DA:<line number>,<execution count>[,<checksum>]
+ * {@literal DA:<line number>,<execution count>[,<checksum>]}
  * 
  * Note that there may be an optional checksum present for each instrumented
  * line. The current geninfo implementation uses an MD5 hash as checksumming
