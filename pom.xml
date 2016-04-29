@@ -255,7 +255,7 @@
 		<url>${github.url}</url>
 		<connection>scm:git:${scm.url}</connection>
 		<developerConnection>scm:git:${scm.url}</developerConnection>
-		<tag>v2.0.0-RC1</tag>
+		<tag>v${project.version}</tag>
 	</scm>
 
 	<issueManagement>

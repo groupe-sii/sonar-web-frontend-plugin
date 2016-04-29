@@ -167,8 +167,8 @@ sonar.sii.quality.scss.report.path=/reports/sonar/scsslint.json
 sonar.sii.quality.angular.eslint.report.path=/reports/sonar/eslint-angular.json
 
 # unit test results with default paths
-sonar.sii.test.unit.js.report.path=/reports/sonar/jasmine.unit.xml
-sonar.sii.test.it.js.report.path=/reports/sonar/jasmine.it.xml
+sonar.sii.test.unit.js.report.path=/reports/sonar/js-ut.xml
+sonar.sii.test.it.js.report.path=/reports/sonar/js-it.xml
 
 # code coverage with default paths
 sonar.sii.coverage.ut.js.report.path=/reports/sonar/js-ut.lcov
