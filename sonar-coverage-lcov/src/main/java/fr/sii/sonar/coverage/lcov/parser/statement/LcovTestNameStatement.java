@@ -8,7 +8,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
  * sections. If available, a tracefile begins with the testname which is stored
  * in the following format:
  * 
- * TN:<test name>
+ * {@literal TN:<test name>}
  * 
  * @author Aurélien Baudet
  *

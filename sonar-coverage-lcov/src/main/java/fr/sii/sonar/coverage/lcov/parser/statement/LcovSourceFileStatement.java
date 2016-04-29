@@ -4,7 +4,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.FileCoverage;
 import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 
 /**
- * SF:<absolute path to the source file>
+ * {@literal SF:<absolute path to the source file>}
  * 
  * @author Aurélien Baudet
  *

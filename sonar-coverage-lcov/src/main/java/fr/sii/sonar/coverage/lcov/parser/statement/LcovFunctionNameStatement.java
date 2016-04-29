@@ -13,7 +13,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
  * Following is a list of line numbers for each function name found in the
  * source file:
  * 
- * FN:<line number of function start>,<function name>
+ * {@literal FN:<line number of function start>,<function name>}
  * 
  * @author Aurélien Baudet
  *

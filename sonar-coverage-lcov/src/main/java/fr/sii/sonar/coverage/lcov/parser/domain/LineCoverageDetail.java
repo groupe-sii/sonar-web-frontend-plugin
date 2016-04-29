@@ -6,7 +6,7 @@ import fr.sii.sonar.coverage.lcov.parser.statement.LcovLineExecutionCountStateme
  * Provides detail information about the number of line execution. This is
  * provided by the LCOV format with the line :
  * 
- * DA:<line number>,<execution count>[,<checksum>]
+ * {@literal DA:<line number>,<execution count>[,<checksum>]}
  * 
  * @author Aurélien Baudet
  * 

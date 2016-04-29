@@ -12,7 +12,7 @@ import fr.sii.sonar.coverage.lcov.parser.domain.LcovReport;
 /**
  * Next, there is a list of execution counts for each instrumented function:
  * 
- * FNDA:<execution count>,<function name>
+ * {@literal FNDA:<execution count>,<function name>}
  * 
  * @author Aurélien Baudet
  *

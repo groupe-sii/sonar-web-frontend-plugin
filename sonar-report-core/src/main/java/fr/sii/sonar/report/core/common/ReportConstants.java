@@ -20,12 +20,16 @@ public interface ReportConstants extends BatchExtension, ServerExtension {
 	/**
 	 * The key for the configuration entry in sonar properties to indicate the
 	 * path to the report
+	 * 
+	 * @return the key for the report path property
 	 */
 	public String getReportPathKey();
 
 	/**
 	 * The key for the configuration entry in sonar properties to indicate what
 	 * to do if a sonar source file doesn't exist
+	 * 
+	 * @return the key for missing file property
 	 */
 	public String getMissingFileFailKey();
 }

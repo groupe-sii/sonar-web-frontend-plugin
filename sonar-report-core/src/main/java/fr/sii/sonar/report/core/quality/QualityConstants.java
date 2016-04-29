@@ -13,11 +13,15 @@ public interface QualityConstants extends ReportConstants {
 
 	/**
 	 * The key of the repository
+	 * 
+	 * @return the key of the repository
 	 */
 	public String getRepositoryKey();
-	
+
 	/**
 	 * The key for configuration for skipping save of file metrics
+	 * 
+	 * @return the key for configuration for skipping save of file metrics
 	 */
 	public String getSkipFileMetricsKey();
 

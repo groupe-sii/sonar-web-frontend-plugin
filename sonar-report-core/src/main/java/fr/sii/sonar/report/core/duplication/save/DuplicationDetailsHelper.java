@@ -19,7 +19,7 @@ import fr.sii.sonar.report.core.duplication.domain.DuplicationReport;
  */
 public class DuplicationDetailsHelper {
 	/**
-	 * In Sonar version < 4.5, duplication details is store in xml. This method
+	 * In Sonar version {@literal <} 4.5, duplication details is store in xml. This method
 	 * transforms duplication information into an xml string.
 	 * 
 	 * @param project
@@ -32,7 +32,8 @@ public class DuplicationDetailsHelper {
 	 *            the information about duplication for the file
 	 * @return the xml string to save in Sonar
 	 * @throws DuplicationException
-	 *             when the duplication details couldn't be generated for the file
+	 *             when the duplication details couldn't be generated for the
+	 *             file
 	 */
 	public static String toXml(Project project, FileSystem fileSystem, DuplicationReport report, DuplicationFileInformation file) throws DuplicationException {
 		try {
@@ -44,9 +45,8 @@ public class DuplicationDetailsHelper {
 				boolean containsFile = false;
 				group.append("<g>");
 				for (DuplicatedBlock part : duplication.getDuplicatedBlocks()) {
-					group.append("<b s=\"").append(part.getStartLine())
-							.append("\" l=\"").append(part.getNumLines())
-							.append("\" r=\"").append(StringEscapeUtils.escapeXml(ResourceUtil.getKey(project, part.getSourceFile(), fileSystem))).append("\"/>");
+					group.append("<b s=\"").append(part.getStartLine()).append("\" l=\"").append(part.getNumLines()).append("\" r=\"")
+							.append(StringEscapeUtils.escapeXml(ResourceUtil.getKey(project, part.getSourceFile(), fileSystem))).append("\"/>");
 					if (!containsFile) {
 						containsFile = file.getPath().equals(part.getSourceFile());
 					}
@@ -59,8 +59,8 @@ public class DuplicationDetailsHelper {
 			}
 			xml.append("</duplications>");
 			return hasDuplications ? xml.toString() : null;
-		} catch(KeyException e) {
-			throw new DuplicationException("failed to generate duplication details for "+file.getPath());
+		} catch (KeyException e) {
+			throw new DuplicationException("failed to generate duplication details for " + file.getPath());
 		}
 	}
 

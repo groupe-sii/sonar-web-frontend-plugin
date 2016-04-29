@@ -10,7 +10,7 @@ public class JsHintQualityConstants extends JsLanguageConstants implements Quali
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.quality.js.file.missing.fail";
 	public static final String SKIP_FILE_METRICS_KEY = "sonar.sii.quality.js.file.metrics.skip";
 	public static final String SKIP_FILE_METRICS_DEFVALUE = "false";
-	public static final String REPORT_PATH_DEFVALUE = "/report/jshint.json";
+	public static final String REPORT_PATH_DEFVALUE = "/reports/sonar/jshint.json";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String RULES_PATH = "/rules/jshint.json";
 	public static final String REPOSITORY_NAME = "JSHint";

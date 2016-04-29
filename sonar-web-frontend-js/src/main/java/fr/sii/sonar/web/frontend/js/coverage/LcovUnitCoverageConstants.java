@@ -7,7 +7,7 @@ import fr.sii.sonar.web.frontend.js.JsLanguageConstants;
 public class LcovUnitCoverageConstants extends JsLanguageConstants implements ReportConstants, CoverageConstants {
 	public static final String REPORT_PATH_KEY = "sonar.sii.coverage.ut.js.report.path";
 	public static final String FAIL_MISSING_FILE_KEY = "sonar.sii.coverage.ut.js.file.missing.fail";
-	public static final String REPORT_PATH_DEFVALUE = "/report/js-ut.lcov";
+	public static final String REPORT_PATH_DEFVALUE = "/reports/sonar/js-ut.lcov";
 	public static final String FAIL_MISSING_FILE_DEFVALUE = "true";
 	public static final String SUB_CATEGORY = "Coverage";
 	

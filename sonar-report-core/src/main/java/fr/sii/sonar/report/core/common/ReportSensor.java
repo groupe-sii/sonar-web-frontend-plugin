@@ -32,6 +32,8 @@ import fr.sii.sonar.report.core.common.save.Saver;
  * 
  * @author Aurélien Baudet
  *
+ * @param <R>
+ *            The type of handled report
  */
 public abstract class ReportSensor<R extends Report> implements Sensor {
 
@@ -43,6 +45,15 @@ public abstract class ReportSensor<R extends Report> implements Sensor {
 
 	/**
 	 * Use of IoC to get Settings
+	 * 
+	 * @param constants
+	 *            the constants for the current plugin
+	 * @param pluginDependencies
+	 *            the Sonar dependencies
+	 * @param providerFactory
+	 *            the factory for creating a new provider
+	 * @param saverFactory
+	 *            the factory for creating a new saver
 	 */
 	public ReportSensor(ReportConstants constants, PluginDependencies pluginDependencies, ProviderFactory<R> providerFactory, SaverFactory<R> saverFactory) {
 		super();

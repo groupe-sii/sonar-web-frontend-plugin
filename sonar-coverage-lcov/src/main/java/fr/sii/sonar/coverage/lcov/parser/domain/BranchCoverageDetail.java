@@ -6,7 +6,7 @@ import fr.sii.sonar.coverage.lcov.parser.statement.LcovBranchCoverageStatement;
  * LCOV unit branch information. It exactly corresponds to a BRDA line in the
  * LCOV file :
  * 
- * BRDA:<line number>,<block number>,<branch number>,<taken>
+ * {@literal BRDA:<line number>,<block number>,<branch number>,<taken>}
  * 
  * @author Aurélien Baudet
  * @see LcovBranchCoverageStatement
