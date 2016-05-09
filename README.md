@@ -27,7 +27,7 @@ The reports are either directly produced by the tools or by our [gulp tasks](htt
 
 ## Build your Web project
 
-When developping Web applications, you can use gulp to build, run tests, minimify and package your project. Some tasks will already generate reports like Istanbul that generates a LCOV file.
+When developping Web applications, you can use gulp to build, run tests, minify and package your project. Some tasks will already generate reports like Istanbul that generates a LCOV file.
 You can also add additional tasks to run linters and produce reports. Theses tasks are already available [here](https://github.com/groupe-sii/front-end-continuous-integration).
 
 ## Configure your project for Sonar
@@ -76,7 +76,7 @@ sonar.sourceEncoding=UTF-8
 
 #### Download the JAR
 
-You can download the v2.0.0 release for Sonar 4.5.x directly [on Sonatype](https://oss.sonatype.org/content/groups/public/fr/sii/sonar/sonar-sii-plugin-parent/2.0/sonar-sii-plugin-parent-2.0.0-RC1.jar).
+You can download the v2.0.0 release for Sonar 4.5.x directly [on Sonatype](https://oss.sonatype.org/content/groups/public/fr/sii/sonar/sonar-sii-plugin-parent/2.0.0/sonar-sii-plugin-parent-2.0.0.jar).
 
 
 #### Generate from sources
