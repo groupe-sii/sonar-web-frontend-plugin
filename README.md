@@ -34,7 +34,7 @@ You can also add additional tasks to run linters and produce reports. Theses tas
 
 In order to let Sonar analyze your project, you have to provide some configuration. You can define a file named sonar-project.properties at the root of your project with the following information:
 
-```
+```ini
 # Required metadata
 sonar.projectKey=<unique key for your project>
 sonar.projectName=<human readable name for your project>
@@ -53,7 +53,7 @@ sonar.sourceEncoding=UTF-8
 
 Example:
 
-```
+```ini
 # Required metadata
 sonar.projectKey=my-project
 sonar.projectName=My Project Name
@@ -158,7 +158,7 @@ Same as above, the widget separates the count of duplicated code by language.
 
 You can change the path to every generated report directly in your sonar.properties file by adding the following properties:
 
-```
+```ini
 # issues reports with default paths
 sonar.sii.quality.js.report.path=/reports/sonar/jshint.json
 sonar.sii.quality.css.report.path=/reports/sonar/csslint.json
@@ -189,7 +189,7 @@ sonar.sii.duplication.scss.report.path=/reports/sonar/scss-duplication.xml
 
 You can specify which files are analyzed for each language. You can change the values of the following properties in your sonar-project.properties:
 
-```
+```ini
 # file suffixes with default values
 sonar.sii.js.suffixes=.js
 sonar.sii.html.suffixes=.html
@@ -202,7 +202,7 @@ sonar.sii.scss.suffixes=.scss
 
 For indicating that reports are not found, the plugin logs a warning. This warning is useful when setting up your project to know if something is misconfigured. You can disable these logs using the following property in your sonar-project.properties:
 
-```
+```ini
 sonar.sii.logs.report.missing.skip=true
 ```
 
@@ -210,7 +210,7 @@ sonar.sii.logs.report.missing.skip=true
 
 By default, in order to keep coherence, the analysis done by the plugin will fail if the generated report has an entry on a file that doesn't exist. Even if it is not recommended, you can disable the failure by using the one of the following properties in your sonar-project.properties:
 
-```
+```ini
 # set to false to disable missing source file while analyzing code quality
 sonar.sii.quality.js.file.missing.fail=false
 sonar.sii.quality.scss.file.missing.fail=false
@@ -240,7 +240,7 @@ By default, the plugin also store information about the file (number of lines, n
 
 Sonar doesn't allow two plugins to store the same information. So if you are using another plugin that also store this information, the second plugin analysis will fail. By default our plugin doesn't override information stored by another plugin. But we can't force plugin execution order. So it may happen that our plugin is run before the other one. That's why we provide the way to explicitly tell our plugin to not store file information. To do this, use the following properties in your sonar-project.properties:
 
-```
+```ini
 sonar.sii.quality.js.file.metrics.skip=true
 sonar.sii.quality.html.file.metrics.skip=true
 sonar.sii.quality.css.file.metrics.skip=true
@@ -251,7 +251,7 @@ sonar.sii.quality.eslint.angular.file.metrics.skip=true
 Sonar also provide CPD analysis. Like described above, code duplication analysis can fail if two plugins are doing it.
 You can either disable our analysis or disable Sonar CPD analysis:
 
-```
+```ini
 # disable duplication analysis done by our plugin
 sonar.sii.duplication.js.skip=true
 sonar.sii.duplication.html.skip=true
