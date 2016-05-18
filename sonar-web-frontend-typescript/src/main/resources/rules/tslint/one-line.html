@@ -1,0 +1,36 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: one-line</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Requires the specified tokens to be on the same line as the expression preceding them.</p>
+
+
+
+
+
+<h3>Config</h3>
+
+<p>Five arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"check-catch"</code> checks that <code class="highlighter-rouge">catch</code> is on the same line as the closing brace for <code class="highlighter-rouge">try</code>.</li>
+  <li><code class="highlighter-rouge">"check-finally"</code> checks that <code class="highlighter-rouge">finally</code> is on the same line as the closing brace for <code class="highlighter-rouge">catch</code>.</li>
+  <li><code class="highlighter-rouge">"check-else"</code> checks that <code class="highlighter-rouge">else</code> is on the same line as the closing brace for <code class="highlighter-rouge">if</code>.</li>
+  <li><code class="highlighter-rouge">"check-open-brace"</code> checks that an open brace falls on the same line as its preceding expression.</li>
+  <li><code class="highlighter-rouge">"check-whitespace"</code> checks preceding whitespace for the specified tokens.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"one-line": [true, "check-catch", "check-finally", "check-else"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "check-catch",<br/>      "check-finally",<br/>      "check-else",<br/>      "check-open-brace",<br/>      "check-whitespace"<br/>    ]<br/>  }<br/>}<br/></pre>
+   

@@ -1,0 +1,38 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: no-duplicate-variable</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Disallows duplicate variable declarations in the same block scope.</p>
+
+
+   
+<p>This rule is only useful when using the <code class="highlighter-rouge">var</code> keyword -
+the compiler will detect redeclarations of <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">const</code> variables.</p>
+
+
+
+   <h5>Rationale</h5>
+   
+<p>A variable can be reassigned if necessary -
+there’s no good reason to have a duplicate variable declaration.</p>
+
+
+
+
+<h3>Config</h3>
+<p>Not configurable.</p>
+
+
+<h5>Examples</h5>
+
+<pre>"no-duplicate-variable": true<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{}<br/></pre>
+   

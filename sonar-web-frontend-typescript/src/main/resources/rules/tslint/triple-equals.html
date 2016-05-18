@@ -1,0 +1,37 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: triple-equals</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Requires <code class="highlighter-rouge">===</code> and <code class="highlighter-rouge">!==</code> in place of <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code>.</p>
+
+
+
+
+
+<h3>Config</h3>
+
+<p>Two arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"allow-null-check"</code> allows <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code> when comparing to <code class="highlighter-rouge">null</code>.</li>
+  <li><code class="highlighter-rouge">"allow-undefined-check"</code> allows <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code> when comparing to <code class="highlighter-rouge">undefined</code>.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"triple-equals": true<br/></pre>
+
+<pre>"triple-equals": [true, "allow-null-check"]<br/></pre>
+
+<pre>"triple-equals": [true, "allow-undefined-check"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "allow-null-check",<br/>      "allow-undefined-check"<br/>    ]<br/>  }<br/>}<br/></pre>
+   

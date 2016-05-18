@@ -1,0 +1,40 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: variable-name</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Checks variable names for various errors.</p>
+
+
+
+
+
+<h3>Config</h3>
+
+<p>Five arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"check-format"</code>: allows only camelCased or UPPER_CASED variable names
+    <ul>
+      <li><code class="highlighter-rouge">"allow-leading-underscore"</code> allows underscores at the beginning (only has an effect if “check-format” specified)</li>
+      <li><code class="highlighter-rouge">"allow-trailing-underscore"</code> allows underscores at the end. (only has an effect if “check-format” specified)</li>
+      <li><code class="highlighter-rouge">"allow-pascal-case</code> allows PascalCase in addtion to camelCase.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">"ban-keywords"</code>: disallows the use of certain TypeScript keywords (<code class="highlighter-rouge">any</code>, <code class="highlighter-rouge">Number</code>, <code class="highlighter-rouge">number</code>, <code class="highlighter-rouge">String</code>,
+<code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">Boolean</code>, <code class="highlighter-rouge">boolean</code>, <code class="highlighter-rouge">undefined</code>) as variable or parameter names.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "check-format",<br/>      "allow-leading-underscore",<br/>      "allow-trailing-underscore",<br/>      "allow-pascal-case",<br/>      "ban-keywords"<br/>    ]<br/>  }<br/>}<br/></pre>
+   

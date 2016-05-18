@@ -1,0 +1,37 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: no-construct</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Disallows access to the constructors of <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Number</code>, and <code class="highlighter-rouge">Boolean</code>.</p>
+
+
+   <p>Disallows constructor use such as <code class="highlighter-rouge">new Number(foo)</code> but does not disallow <code class="highlighter-rouge">Number(foo)</code>.</p>
+
+
+
+   <h5>Rationale</h5>
+   
+<p>There is little reason to use <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Number</code>, or <code class="highlighter-rouge">Boolean</code> as constructors.
+In almost all cases, the regular function-call version is more appropriate.
+<a href="http://stackoverflow.com/q/4719320/3124288">More details</a> are available on StackOverflow.</p>
+
+
+
+
+<h3>Config</h3>
+<p>Not configurable.</p>
+
+
+<h5>Examples</h5>
+
+<pre>"no-construct": true<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{}<br/></pre>
+   

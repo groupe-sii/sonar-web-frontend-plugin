@@ -47,6 +47,7 @@
 		<module>sonar-web-frontend-angular-eslint</module>
 		<module>sonar-duplication-cpd</module>
 		<module>sonar-duplication-simian</module>
+		<module>sonar-web-frontend-typescript</module>
 		<module>sonar-web-frontend-plugin</module>
 	</modules>
 

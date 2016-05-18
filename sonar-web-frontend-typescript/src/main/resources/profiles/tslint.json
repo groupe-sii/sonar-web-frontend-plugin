@@ -1,0 +1,12 @@
+{
+	"name": "tslint",
+	"language": "ts",
+	"repositories": [{
+		"key": "tslint",
+		"rules": "/rules/tslint.json"
+	}],
+	"rules": [{
+		"repositoryKey": "tslint",
+		"key": "unknown-rule"
+	}]
+}
