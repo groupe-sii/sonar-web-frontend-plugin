@@ -1,0 +1,133 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-or-enforce-spaces-inside-of-brackets-array-bracket-spacing">Disallow or enforce spaces inside of brackets (array-bracket-spacing)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>A number of style guides require or disallow spaces between array brackets and other tokens. This rule
+applies to both array literals and destructuring assignments (ECMAScript 6).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces consistent spacing inside array brackets.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a string option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"never"</code> (default) disallows spaces inside array brackets</li>
+  <li><code class="highlighter-rouge">"always"</code> requires one or more spaces or newlines inside array brackets</li>
+</ul>
+
+<p>This rule has an object option for exceptions to the <code class="highlighter-rouge">"never"</code> option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"singleValue": true</code> requires one or more spaces or newlines inside brackets of array literals that contain a single element</li>
+  <li><code class="highlighter-rouge">"objectsInArrays": true</code> requires one or more spaces or newlines between brackets of array literals and braces of their object literal elements <code class="highlighter-rouge">[ {</code> or <code class="highlighter-rouge">} ]</code></li>
+  <li><code class="highlighter-rouge">"arraysInArrays": true</code> requires one or more spaces or newlines between brackets of array literals and brackets of their array literal elements <code class="highlighter-rouge">[ [</code> or <code class="highlighter-rouge">] ]</code></li>
+</ul>
+
+<p>This rule has an object option for exceptions to the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"singleValue": false</code> disallows spaces inside brackets of array literals that contain a single element</li>
+  <li><code class="highlighter-rouge">"objectsInArrays": false</code> disallows spaces between brackets of array literals and braces of their object literal elements <code class="highlighter-rouge">[{</code> or <code class="highlighter-rouge">}]</code></li>
+  <li><code class="highlighter-rouge">"arraysInArrays": false</code> disallows spaces between brackets of array literals and brackets of their array literal elements <code class="highlighter-rouge">[[</code> or <code class="highlighter-rouge">]]</code></li>
+</ul>
+
+<p>This rule has built-in exceptions:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"never"</code> (and also the exceptions to the <code class="highlighter-rouge">"always"</code> option) allows newlines inside array brackets, because this is a common pattern</li>
+  <li><code class="highlighter-rouge">"always"</code> does not require spaces or newlines in empty array literals <code class="highlighter-rouge">[]</code></li>
+</ul>
+
+<h3 id="never">never<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "never"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">],</span> <span class="s1">'bar'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[[</span> <span class="s1">'foo'</span> <span class="p">],</span> <span class="s1">'bar'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><br/><span class="p">];</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span><span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="p">,,</span><span class="nx">x</span><span class="p">,</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "never"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'foo'</span><span class="p">],</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>  <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><span class="p">,</span><br/>  <span class="s1">'baz'</span><br/><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><br/><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>  <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[,,</span><span class="nx">x</span><span class="p">,]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h3 id="always">always<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">],</span> <span class="s1">'bar'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><br/><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>  <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[,,</span><span class="nx">x</span><span class="p">,]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="s1">'foo'</span> <span class="p">],</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><br/><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>  <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>  <span class="s1">'foo'</span><span class="p">,</span><br/>  <span class="s1">'bar'</span><span class="p">,</span><br/>  <span class="s1">'baz'</span><br/><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span><span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/><span class="kd">var</span> <span class="p">[</span> <span class="p">,,</span><span class="nx">x</span><span class="p">,</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h3 id="singlevalue">singleValue<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#singlevalue" aria-label="Anchor link for: singlevalue" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"always", { "singleValue": false }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always", { "singleValue": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'foo'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">]</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span> <span class="p">}</span> <span class="p">];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"always", { "singleValue": false }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always", { "singleValue": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]];</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[{</span> <span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span> <span class="p">}];</span><br/></code></pre>
+</div>
+
+<h3 id="objectsinarrays">objectsInArrays<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#objectsinarrays" aria-label="Anchor link for: objectsinarrays" data-anchorjs-icon=""></a></h3>
+
+<p>Examples of <strong>incorrect</strong>  this rule with the <code class="highlighter-rouge">"always", { "objectsInArrays": false }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always", { "objectsInArrays": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span> <span class="p">}</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><br/>  <span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span><br/><span class="p">}</span> <span class="p">]</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"always", { "objectsInArrays": false }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always", { "objectsInArrays": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[{</span> <span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span> <span class="p">}];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[{</span><br/>  <span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span><br/><span class="p">}];</span><br/></code></pre>
+</div>
+
+<h3 id="arraysinarrays">arraysInArrays<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#arraysinarrays" aria-label="Anchor link for: arraysinarrays" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"always", { "arraysInArrays": false }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always", { "arraysInArrays": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span> <span class="p">];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"always", { "arraysInArrays": false }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint array-bracket-spacing: ["error", "always", { "arraysInArrays": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]];</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can turn this rule off if you are not concerned with the consistency of spacing between array brackets.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="space-in-parens">space-in-parens</a></li>
+  <li><a href="object-curly-spacing">object-curly-spacing</a></li>
+  <li><a href="computed-property-spacing">computed-property-spacing</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.24.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/array-bracket-spacing.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/array-bracket-spacing.md">Documentation source</a></li>
+</ul>
+
+  

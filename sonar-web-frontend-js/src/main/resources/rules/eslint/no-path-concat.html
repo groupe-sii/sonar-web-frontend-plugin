@@ -1,0 +1,54 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-string-concatenation-when-using-dirname-and-filename-no-path-concat">Disallow string concatenation when using <code class="highlighter-rouge">__dirname</code> and <code class="highlighter-rouge">__filename</code> (no-path-concat)</h1>
+
+<p>In Node.js, the <code class="highlighter-rouge">__dirname</code> and <code class="highlighter-rouge">__filename</code> global variables contain the directory path and the file path of the currently executing script file, respectively. Sometimes, developers try to use these variables to create paths to other files, such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">"/foo.js"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>However, there are a few problems with this. First, you can’t be sure what type of system the script is running on. Node.js can be run on any computer, including Windows, which uses a different path separator. It’s very easy, therefore, to create an invalid path using string concatenation and assuming Unix-style separators. There’s also the possibility of having double separators, or otherwise ending up with an invalid path.</p>
+
+<p>In order to avoid any confusion as to how to create the correct path, Node.js provides the <code class="highlighter-rouge">path</code> module. This module uses system-specific information to always return the correct value. So you can rewrite the previous example as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"foo.js"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>This example doesn’t need to include separators as <code class="highlighter-rouge">path.join()</code> will do it in the most appropriate manner. Alternately, you can use <code class="highlighter-rouge">path.resolve()</code> to retrieve the fully-qualified path:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"foo.js"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>Both <code class="highlighter-rouge">path.join()</code> and <code class="highlighter-rouge">path.resolve()</code> are suitable replacements for string concatenation wherever file or directory paths are being created.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to prevent string concatenation of directory paths in Node.js</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-path-concat: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">"/foo.js"</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">__filename</span> <span class="o">+</span> <span class="s2">"/foo.js"</span><span class="p">;</span><br/><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-path-concat: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">dirname</span> <span class="o">+</span> <span class="s2">"/foo.js"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you want to allow string concatenation of path names.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.4.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-path-concat.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-path-concat.md">Documentation source</a></li>
+</ul>
+
+  

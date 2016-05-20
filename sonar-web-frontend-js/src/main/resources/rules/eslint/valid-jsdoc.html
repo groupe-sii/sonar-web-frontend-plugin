@@ -1,0 +1,121 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="validates-jsdoc-comments-are-syntactically-correct-valid-jsdoc">Validates JSDoc comments are syntactically correct (valid-jsdoc)</h1>
+
+<p><a href="http://usejsdoc.org">JSDoc</a> is a JavaScript API documentation generator. It uses specially-formatted comments inside of code to generate API documentation automatically. For example, this is what a JSDoc comment looks like for a function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {int} num1 The first number.<br/> * @param {int} num2 The second number.<br/> * @returns {int} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The JSDoc comments have a syntax all their own, and it is easy to mistakenly mistype a comment because comments aren’t often checked for correctness in editors. Further, it’s very easy for the function definition to get out of sync with the comments, making the comments a source of confusion and error.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to prevent invalid and incomplete JSDoc comments. It will warn when any of the following is true:</p>
+
+<ul>
+  <li>There is a JSDoc syntax error</li>
+  <li>A <code class="highlighter-rouge">@param</code> or <code class="highlighter-rouge">@returns</code> is used without a type specified</li>
+  <li>A <code class="highlighter-rouge">@param</code> or <code class="highlighter-rouge">@returns</code> is used without a description</li>
+  <li>A comment for a function is missing <code class="highlighter-rouge">@returns</code></li>
+  <li>A parameter has no associated <code class="highlighter-rouge">@param</code> in the JSDoc comment</li>
+  <li><code class="highlighter-rouge">@param</code>s are out of order with named arguments</li>
+</ul>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint valid-jsdoc: "error"*/</span><br/><br/><span class="c1">// missing type for @param and missing @returns</span><br/><span class="cm">/**                                 // 2 errors<br/> * A description<br/> * @param num1 The first number.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">num1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="c1">// missing description for @param</span><br/><span class="cm">/**                                 //error Missing JSDoc parameter description for 'num1'.<br/> * A description<br/> * @param {int} num1<br/> * @returns {void}<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">num1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="c1">// no description for @returns</span><br/><span class="cm">/**                                 //error Missing JSDoc return description.<br/> * A description<br/> * @returns {int}<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="c1">// no type for @returns</span><br/><span class="cm">/**                                 //error JSDoc syntax error.<br/> * A description<br/> * @returns Something awesome<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="c1">// missing @param</span><br/><span class="cm">/**                                 //error Missing JSDoc for parameter 'a'.<br/> * A description<br/> * @returns {void}<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="c1">// incorrect @param</span><br/><span class="cm">/**                                 //error Expected JSDoc for 'a' but found 'b'.<br/> * A description<br/> * @param {string} b Desc<br/> * @returns {void}<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint valid-jsdoc: "error"*/</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {int} num1 The first number.<br/> * @param {int} num2 The second number.<br/> * @returns {int} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="cm">/**<br/> * Represents a sum.<br/> * @param {int} num1 The first number.<br/> * @param {int} num2 The second number.<br/> * @constructor<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span><br/><br/><span class="c1">// use of @override make @param and @returns optional</span><br/><span class="cm">/**<br/> * A description<br/> * @override<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">a</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="c1">// @returns is not required for a constructor</span><br/><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span><br/>    <span class="cm">/**<br/>    *<br/>    * @param {int} num1 The first number.<br/>    */</span><br/>    <span class="nx">constructor</span><span class="p">(</span><span class="nx">num1</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">this</span><span class="p">.</span><span class="nx">num1</span> <span class="o">=</span> <span class="nx">num1</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="c1">// @returns allowed without return if used with @abstract</span><br/><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span><br/>    <span class="cm">/**<br/>     * @abstract<br/>     * @return {Number} num<br/>     */</span><br/>    <span class="nx">abstractMethod</span> <span class="p">()</span> <span class="p">{</span><br/>        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">'Not implemented'</span><span class="p">);</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<h3 id="prefer">prefer<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#prefer" aria-label="Anchor link for: prefer" data-anchorjs-icon=""></a></h3>
+
+<p>JSDoc offers a lot of tags with overlapping meaning. For example, both <code class="highlighter-rouge">@return</code> and <code class="highlighter-rouge">@returns</code> are acceptable for specifying the return value of a function. However, you may want to enforce a certain tag be used instead of others. You can specify your preferences regarding tag substitution by providing a mapping called <code class="highlighter-rouge">prefer</code> in the rule configuration. For example, to specify that <code class="highlighter-rouge">@returns</code> should be used instead of <code class="highlighter-rouge">@return</code>, you can use the following configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"prefer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>        </span><span class="nt">"return"</span><span class="p">:</span><span class="w"> </span><span class="s2">"returns"</span><span class="w"><br/>    </span><span class="p">}</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>With this configuration, ESLint will warn when it finds <code class="highlighter-rouge">@return</code> and recommend to replace it with <code class="highlighter-rouge">@returns</code>.</p>
+
+<h3 id="requirereturn">requireReturn<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#requirereturn" aria-label="Anchor link for: requirereturn" data-anchorjs-icon=""></a></h3>
+
+<p>By default ESLint requires you to document every function with a <code class="highlighter-rouge">@return</code> tag regardless of whether there is anything returned by the function. If instead you want to enforce that only functions with a <code class="highlighter-rouge">return</code> statement are documented with a <code class="highlighter-rouge">@return</code> tag, set the <code class="highlighter-rouge">requireReturn</code> option to <code class="highlighter-rouge">false</code>.  When <code class="highlighter-rouge">requireReturn</code> is <code class="highlighter-rouge">false</code>, every function documented with a <code class="highlighter-rouge">@return</code> tag must have a <code class="highlighter-rouge">return</code> statement, and every function with a <code class="highlighter-rouge">return</code> statement must have a <code class="highlighter-rouge">@return</code> tag.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"requireReturn"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="requireparamdescription">requireParamDescription<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#requireparamdescription" aria-label="Anchor link for: requireparamdescription" data-anchorjs-icon=""></a></h3>
+
+<p>By default ESLint requires you to specify a description for each <code class="highlighter-rouge">@param</code>. You can choose not to require descriptions for parameters by setting <code class="highlighter-rouge">requireParamDescription</code> to <code class="highlighter-rouge">false</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"requireParamDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="requirereturndescription">requireReturnDescription<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#requirereturndescription" aria-label="Anchor link for: requirereturndescription" data-anchorjs-icon=""></a></h3>
+
+<p>By default ESLint requires you to specify a description for each <code class="highlighter-rouge">@return</code>. You can choose not to require descriptions for <code class="highlighter-rouge">@return</code> by setting <code class="highlighter-rouge">requireReturnDescription</code> to <code class="highlighter-rouge">false</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"requireReturnDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="matchdescription">matchDescription<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#matchdescription" aria-label="Anchor link for: matchdescription" data-anchorjs-icon=""></a></h3>
+
+<p>Specify a regular expression to validate jsdoc comment block description against.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"matchDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[A-Z][A-Za-z0-9\\s]*[.]$"</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="requirereturntype">requireReturnType<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#requirereturntype" aria-label="Anchor link for: requirereturntype" data-anchorjs-icon=""></a></h3>
+
+<p>By default ESLint requires you to specify <code class="highlighter-rouge">type</code> for <code class="highlighter-rouge">@return</code> tag for every documented function.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"requireReturnType"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="prefertype">preferType<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#prefertype" aria-label="Anchor link for: prefertype" data-anchorjs-icon=""></a></h3>
+
+<p>It will validate all the types from jsdoc with the options setup by the user. Inside the options, key should be what the type you want to check and the value of it should be what the expected type should be. Note that we don’t check for spelling mistakes with this option.
+In the example below, it will expect the “object” to start with an uppercase and all the “string” type to start with a lowercase.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"valid-jsdoc"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"preferType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>        </span><span class="nt">"String"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"><br/>        </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Object"</span><span class="p">,</span><span class="w"><br/>        </span><span class="nt">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TesT"</span><span class="w"><br/>    </span><span class="p">}</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for a sample of <code class="highlighter-rouge">"preferType"</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint valid-jsdoc: ["error", { "preferType": { "String": "string", "object": "Object", "test": "TesT" } }]*/</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {String} param1 The first parameter.<br/> * @returns {object} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">param1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">param1</span><span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {Array&lt;String&gt;} param1 The first parameter.<br/> * @param  param2 The second parameter.<br/> * @returns {object} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">param1</span><span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {String|int} param1 The first parameter.<br/> * @returns {object} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">param1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">param1</span><span class="p">};</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for a sample of <code class="highlighter-rouge">"preferType"</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint valid-jsdoc: ["error", { "preferType": { "String": "string", "object": "Object", "test": "TesT" } }]*/</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {string} param1 The first parameter.<br/> * @returns {Object} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">param1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">param1</span><span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {Array&lt;string&gt;} param1 The first parameter.<br/> * @param  param2 The second parameter.<br/> * @returns {Object} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">param1</span><span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="cm">/**<br/> * Adds two numbers together.<br/> * @param {string|int} param1 The first parameter.<br/> * @returns {Object} The sum of the two numbers.<br/> */</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">param1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">param1</span><span class="p">};</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you aren’t using JSDoc, then you can safely turn this rule off.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://usejsdoc.org">JSDoc</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.4.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/valid-jsdoc.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/valid-jsdoc.md">Documentation source</a></li>
+</ul>
+
+  

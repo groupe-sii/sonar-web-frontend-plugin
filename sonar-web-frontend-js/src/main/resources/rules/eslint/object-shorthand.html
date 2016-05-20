@@ -1,0 +1,103 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-object-literal-shorthand-syntax-object-shorthand">Require Object Literal Shorthand Syntax (object-shorthand)</h1>
+
+<p>EcmaScript 6 provides a concise form for defining object literal methods and properties. This
+syntax can make defining complex object literals much cleaner.</p>
+
+<p>Here are a few common examples using the ES5 syntax:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// properties</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">x</span><span class="p">:</span> <span class="nx">x</span><span class="p">,</span><br/>    <span class="na">y</span><span class="p">:</span> <span class="nx">y</span><span class="p">,</span><br/>    <span class="na">z</span><span class="p">:</span> <span class="nx">z</span><span class="p">,</span><br/><span class="p">};</span><br/><br/><span class="c1">// methods</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">a</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="na">b</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>Now here are ES6 equivalents:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="c1">// properties</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">};</span><br/><br/><span class="c1">// methods</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="nx">a</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="nx">b</span><span class="p">()</span> <span class="p">{}</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces the use of the shorthand syntax. This applies
+to all methods (including generators) defined in object literals and any
+properties defined where the key name matches name of the assigned variable.</p>
+
+<p>Each of the following properties would warn:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint object-shorthand: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">w</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="na">x</span><span class="p">:</span> <span class="kd">function</span> <span class="o">*</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="p">[</span><span class="nx">y</span><span class="p">]:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="na">z</span><span class="p">:</span> <span class="nx">z</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>In that case the expected syntax would have been:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint object-shorthand: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="nx">w</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="o">*</span><span class="nx">x</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="p">[</span><span class="nx">y</span><span class="p">]()</span> <span class="p">{},</span><br/>    <span class="nx">z</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>This rule does not flag arrow functions inside of object literals.
+The following will <em>not</em> warn:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint object-shorthand: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">x</span><span class="p">:</span> <span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">y</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>The rule takes an option which specifies when it should be applied. It can be set to
+“always”, “properties”, “methods”, or “never”. The default is “always”.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"always"</code> expects that the shorthand will be used whenever possible.</li>
+  <li><code class="highlighter-rouge">"methods"</code> ensures the method shorthand is used (also applies to generators).</li>
+  <li><code class="highlighter-rouge">"properties</code> ensures the property shorthand is used (where the key and variable name match).</li>
+  <li><code class="highlighter-rouge">"never"</code> ensures that no property or method shorthand is used in any object literal.</li>
+</ul>
+
+<p>You can set the option in configuration like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"object-shorthand"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">]</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>While set to <code class="highlighter-rouge">"always"</code>, <code class="highlighter-rouge">"methods"</code>, or <code class="highlighter-rouge">"properties"</code>, shorthand syntax using string literal keys can be ignored using the optional parameter <code class="highlighter-rouge">"avoidQuotes"</code>. This will make it so longform syntax is preferred whenever the object key is a string literal. Note: The first parameter must be specified when using this optional parameter.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"object-shorthand"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"avoidQuotes"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}]</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"avoidQuotes"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="s2">"bar-baz"</span><span class="p">()</span> <span class="p">{}</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"avoidQuotes"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="s2">"bar-baz"</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span><br/>    <span class="s2">"qux"</span><span class="p">:</span> <span class="nx">qux</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>While set to <code class="highlighter-rouge">"always"</code> or <code class="highlighter-rouge">"methods"</code>, constructor functions can be ignored with the optional parameter <code class="highlighter-rouge">"ignoreConstructors"</code> enabled. Note: The first parameter must be specified when using this optional parameter.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"object-shorthand"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"ignoreConstructors"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}]</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>The following will <em>not</em> warn when <code class="highlighter-rouge">"ignoreConstructors"</code> is enabled:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint object-shorthand: ["error", "always", { "ignoreConstructors": true }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">ConstructorFunction</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>Anyone not yet in an ES6 environment would not want to apply this rule. Others may find the terseness of the shorthand
+syntax harder to read and may not want to encourage it with this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">Object initializer - MDN</a></p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.20.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/object-shorthand.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/object-shorthand.md">Documentation source</a></li>
+</ul>
+
+  

@@ -1,0 +1,63 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-extending-of-native-objects-no-extend-native">Disallow Extending of Native Objects (no-extend-native)</h1>
+
+<p>In JavaScript, you can extend any object, including builtin or “native” objects. Sometimes people change the behavior of these native objects in ways that break the assumptions made about them in other parts of the code.</p>
+
+<p>For example here we are overriding a builtin method that will then affect all Objects, even other builtins.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// seems harmless</span><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">extra</span> <span class="o">=</span> <span class="mi">55</span><span class="p">;</span><br/><br/><span class="c1">// loop through some userIds</span><br/><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="s2">"123"</span><span class="p">:</span> <span class="s2">"Stan"</span><span class="p">,</span><br/>    <span class="s2">"456"</span><span class="p">:</span> <span class="s2">"David"</span><br/><span class="p">};</span><br/><br/><span class="c1">// not what you'd expect</span><br/><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">id</span> <span class="k">in</span> <span class="nx">users</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span> <span class="c1">// "123", "456", "extra"</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>A common suggestion to avoid this problem would be to wrap the inside of the <code class="highlighter-rouge">for</code> loop with <code class="highlighter-rouge">users.hasOwnProperty(id)</code>. However, if this rule is strictly enforced throughout your codebase you won’t need to take that step.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>Disallows directly modifying the prototype of builtin objects.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-extend-native: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">"a"</span><span class="p">;</span><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="s2">"times"</span><span class="p">,</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="mi">999</span> <span class="p">});</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule accepts an <code class="highlighter-rouge">exceptions</code> option, which can be used to specify a list of builtins for which extensions will be allowed.</p>
+
+<h3 id="exceptions">exceptions<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#exceptions" aria-label="Anchor link for: exceptions" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the sample <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"exceptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Object"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-extend-native: ["error", { "exceptions": ["Object"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">"a"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="known-limitations">Known Limitations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#known-limitations" aria-label="Anchor link for: known limitations" data-anchorjs-icon=""></a></h2>
+
+<p>This rule <em>does not</em> report any of the following less obvious approaches to modify the prototype of builtin objects:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">;</span><br/><span class="nx">x</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">thing</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span><br/><br/><span class="nb">eval</span><span class="p">(</span><span class="s2">"Array.prototype.forEach = 'muhahaha'"</span><span class="p">);</span><br/><br/><span class="kd">with</span><span class="p">(</span><span class="nb">Array</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">prototype</span><span class="p">.</span><span class="nx">thing</span> <span class="o">=</span> <span class="s1">'thing'</span><span class="p">;</span><br/><span class="p">};</span><br/><br/><span class="nb">window</span><span class="p">.</span><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">bind</span> <span class="o">=</span> <span class="s1">'tight'</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You may want to disable this rule when working with polyfills that try to patch older versions of JavaScript with the latest spec, such as those that might <code class="highlighter-rouge">Function.prototype.bind</code> or <code class="highlighter-rouge">Array.prototype.forEach</code> in a future-friendly way.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-native-reassign">no-native-reassign</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.1.4.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-extend-native.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-extend-native.md">Documentation source</a></li>
+</ul>
+
+  

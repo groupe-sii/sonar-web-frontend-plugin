@@ -1,0 +1,74 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-identifiers-to-match-a-specified-regular-expression-id-match">require identifiers to match a specified regular expression (id-match)</h1>
+
+<blockquote>
+  <p>“There are only two hard things in Computer Science: cache invalidation and naming things.” — Phil Karlton</p>
+</blockquote>
+
+<p>Naming things consistently in a project is an often underestimated aspect of code creation.
+When done correctly, it can save your team hours of unnecessary head scratching and misdirections.
+This rule allows you to precisely define and enforce the variables and function names on your team should use.
+No more limiting yourself to camelCase, snake_case, PascalCase or oHungarianNotation. Id-match has all your needs covered!</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule requires identifiers in assignments and <code class="highlighter-rouge">function</code> definitions to match a specified regular expression.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a string option for the specified regular expression.</p>
+
+<p>For example, to enforce a camelcase naming convention:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"id-match"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"^[a-z]+([A-Z][a-z]+)*$"</span><span class="p">]</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"^[a-z]+([A-Z][a-z]+)*$"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint id-match: ["error", "^[a-z]+([A-Z][a-z]+)*$"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">myFavoriteColor</span>   <span class="o">=</span> <span class="s2">"#112C85"</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">bar</span><span class="p">.</span><span class="nx">baz_boom</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="na">qux</span><span class="p">:</span> <span class="nx">bar</span><span class="p">.</span><span class="nx">baz_boom</span> <span class="p">};</span><br/><span class="nx">do_something</span><span class="p">();</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">my_pref</span><span class="p">:</span> <span class="mi">1</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"^[a-z]+([A-Z][a-z]+)*$"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint id-match: ["error", "^[a-z]+([A-Z][a-z]+)*$"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">my_favorite_color</span> <span class="o">=</span> <span class="s2">"#112C85"</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">_myFavoriteColor</span>  <span class="o">=</span> <span class="s2">"#112C85"</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">myFavoriteColor_</span>  <span class="o">=</span> <span class="s2">"#112C85"</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">MY_FAVORITE_COLOR</span> <span class="o">=</span> <span class="s2">"#112C85"</span><span class="p">;</span><br/><span class="kd">function</span> <span class="nx">do_something</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">do_something</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>This rule has an object option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"properties": true</code> requires object properties to match the specified regular expression</li>
+  <li><code class="highlighter-rouge">"onlyDeclarations": true</code> requires only <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">function</code>, and <code class="highlighter-rouge">class</code> declarations to match the specified regular expression</li>
+</ul>
+
+<h3 id="properties">properties<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#properties" aria-label="Anchor link for: properties" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"^[a-z]+([A-Z][a-z]+)*$", { "properties": true }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint id-match: ["error", "^[a-z]+([A-Z][a-z]+)*$", { "properties": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">my_pref</span><span class="p">:</span> <span class="mi">1</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="onlydeclarations">onlyDeclarations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#onlydeclarations" aria-label="Anchor link for: onlydeclarations" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"^[a-z]+([A-Z][a-z]+)*$", { "onlyDeclarations": true }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint id-match: [2, "^[a-z]+([A-Z][a-z]+)*$", { "onlyDeclarations": true }]*/</span><br/><br/><span class="nx">do_something</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If your rules are too complex, it is possible that you encounter performance issues due to the nature of the job.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.0.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/id-match.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/id-match.md">Documentation source</a></li>
+</ul>
+
+  

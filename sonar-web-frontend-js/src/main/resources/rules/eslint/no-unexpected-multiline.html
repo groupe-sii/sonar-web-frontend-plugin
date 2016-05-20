@@ -1,0 +1,58 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-confusing-multiline-expressions-no-unexpected-multiline">disallow confusing multiline expressions (no-unexpected-multiline)</h1>
+
+<p>Semicolons are usually optional in JavaScript, because of automatic semicolon insertion (ASI). You can require or disallow semicolons with the <a href="./semi">semi</a> rule.</p>
+
+<p>The rules for ASI are relatively straightforward: As once described by Isaac Schlueter, a newline character character always ends a statement, just like a semicolon, <strong>except</strong> where one of the following is true:</p>
+
+<ul>
+  <li>The statement has an unclosed paren, array literal, or object literal or ends in some other way that is not a valid way to end a statement. (For instance, ending with <code class="highlighter-rouge">.</code> or <code class="highlighter-rouge">,</code>.)</li>
+  <li>The line is <code class="highlighter-rouge">--</code> or <code class="highlighter-rouge">++</code> (in which case it will decrement/increment the next token.)</li>
+  <li>It is a <code class="highlighter-rouge">for()</code>, <code class="highlighter-rouge">while()</code>, <code class="highlighter-rouge">do</code>, <code class="highlighter-rouge">if()</code>, or <code class="highlighter-rouge">else</code>, and there is no <code class="highlighter-rouge"><span class="p">{</span></code></li>
+  <li>The next line starts with <code class="highlighter-rouge">[</code>, <code class="highlighter-rouge">(</code>, <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">,</code>, <code class="highlighter-rouge">.</code>, or some other binary operator that can only be found between two tokens in a single expression.</li>
+</ul>
+
+<p>In the exceptions where a newline does <strong>not</strong> end a statement, a typing mistake to omit a semicolon causes two unrelated consecutive lines to be interpreted as one expression. Especially for a coding style without semicolons, readers might overlook the mistake. Although syntactically correct, the code might throw exceptions when it is executed.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule disallows confusing multiline expressions where a newline looks like it is ending a statement, but is not.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unexpected-multiline: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">bar</span><br/><span class="p">(</span><span class="mi">1</span> <span class="o">||</span> <span class="mi">2</span><span class="p">).</span><span class="nx">baz</span><span class="p">();</span><br/><br/><span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="s1">'world'</span><br/><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">addNumber</span><span class="p">);</span><br/><br/><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span><br/><span class="err">`</span><span class="nx">hello</span><span class="err">`</span><br/><br/><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span><br/><span class="nx">x</span><br/><span class="err">`</span><span class="nx">hello</span><span class="err">`</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unexpected-multiline: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">(</span><span class="mi">1</span> <span class="o">||</span> <span class="mi">2</span><span class="p">).</span><span class="nx">baz</span><span class="p">();</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">bar</span><br/><span class="p">;(</span><span class="mi">1</span> <span class="o">||</span> <span class="mi">2</span><span class="p">).</span><span class="nx">baz</span><span class="p">()</span><br/><br/><span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="s1">'world'</span><span class="p">;</span><br/><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">addNumber</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="s1">'world'</span><br/><span class="k">void</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">addNumber</span><span class="p">);</span><br/><br/><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{};</span><br/><span class="err">`</span><span class="nx">hello</span><span class="err">`</span><br/><br/><span class="kd">let</span> <span class="nx">tag</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span><br/><span class="nx">tag</span> <span class="err">`</span><span class="nx">hello</span><span class="err">`</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can turn this rule off if you are confident that you will not accidentally introduce code like this.</p>
+
+<p>Note that the patterns considered problems are <strong>not</strong> flagged by the <a href="semi">semi</a> rule.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="semi">semi</a></li>
+  <li><a href="no-spaced-func">no-spaced-func</a></li>
+  <li><a href="space-unary-ops">space-unary-ops</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.24.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-unexpected-multiline.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-unexpected-multiline.md">Documentation source</a></li>
+</ul>
+
+  

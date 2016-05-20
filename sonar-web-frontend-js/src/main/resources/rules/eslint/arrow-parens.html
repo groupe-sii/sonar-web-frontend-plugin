@@ -1,0 +1,96 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-parens-in-arrow-function-arguments-arrow-parens">Require parens in arrow function arguments (arrow-parens)</h1>
+
+<p>Arrow functions can omit parentheses when they have exactly one parameter. In all other cases the parameter(s) must
+be wrapped in parentheses. This rule enforces the consistent use of parentheses in arrow functions.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces parentheses around arrow function parameters regardless of arity. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="c1">// Bad</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="p">{}</span><br/><br/><span class="c1">// Good</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<p>Following this style will help you find arrow functions (<code class="highlighter-rouge">=&gt;</code>) which may be mistakenly included in a condition
+when a comparison such as <code class="highlighter-rouge">&gt;=</code> was the intent.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="c1">// Bad</span><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span><br/><span class="p">}</span><br/><br/><span class="c1">// Good</span><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The rule can also be configured to discourage the use of parens when they are not required:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="c1">// Bad</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span><br/><br/><span class="c1">// Good</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>The rule takes one option, a string, which could be either <code class="highlighter-rouge">"always"</code> or <code class="highlighter-rouge">"as-needed"</code>. The default is <code class="highlighter-rouge">"always"</code>.</p>
+
+<p>You can set the option in configuration like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"arrow-parens"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="always">“always”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p>When the rule is set to <code class="highlighter-rouge">"always"</code> the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint arrow-parens: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'\n'</span><span class="p">};</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">foo</span> <span class="o">=&gt;</span> <span class="p">{});</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">foo</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">);</span><br/><span class="nx">a</span><span class="p">(</span><span class="nx">foo</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{};</span> <span class="p">});</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint arrow-parens: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'\n'</span><span class="p">}</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">foo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{});</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">foo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{};</span> <span class="p">});</span><br/></code></pre>
+</div>
+
+<h4 id="if-statements">If Statements<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#if-statements" aria-label="Anchor link for: if statements" data-anchorjs-icon=""></a></h4>
+
+<p>One benefits of this option is that it prevents the incorrect use of arrow functions in conditionals:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="c1">// ...</span><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span><br/> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'bigger'</span><span class="p">);</span><br/><span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br/> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'smaller'</span><span class="p">);</span><br/><span class="p">};</span><br/><span class="c1">// outputs 'bigger', not smaller as expected</span><br/></code></pre>
+</div>
+
+<p>The contents of the <code class="highlighter-rouge">if</code> statement is an arrow function, not a comparison.
+If the arrow function is intentional, it should be wrapped in parens to remove ambiguity.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/><span class="c1">// ...</span><br/><span class="k">if</span> <span class="p">((</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span><br/> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'truthy value returned'</span><span class="p">);</span><br/><span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br/> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'falsey value returned'</span><span class="p">);</span><br/><span class="p">};</span><br/><span class="c1">// outputs 'falsey value returned'</span><br/></code></pre>
+</div>
+
+<p>The following is another example of this behavior:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="p">?</span> <span class="nx">c</span><span class="p">:</span> <span class="nx">d</span><span class="p">;</span><br/><span class="c1">// f = ?</span><br/></code></pre>
+</div>
+
+<p><code class="highlighter-rouge">f</code> is an arrow function which takes <code class="highlighter-rouge">a</code> as an argument and returns the result of <code class="highlighter-rouge">b ? c: d</code>.</p>
+
+<p>This should be rewritten like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="p">?</span> <span class="nx">c</span><span class="p">:</span> <span class="nx">d</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h3 id="as-needed">“as-needed”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#as-needed" aria-label="Anchor link for: as needed" data-anchorjs-icon=""></a></h3>
+
+<p>When the rule is set to <code class="highlighter-rouge">"as-needed"</code> the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint arrow-parens: ["error", "as-needed"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'\n'</span><span class="p">};</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">foo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{});</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">foo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">);</span><br/><span class="nx">a</span><span class="p">((</span><span class="nx">foo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{};</span> <span class="p">});</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint arrow-parens: ["error", "as-needed"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="nx">a</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'\n'</span><span class="p">};</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">foo</span> <span class="o">=&gt;</span> <span class="p">{});</span><br/><span class="nx">a</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">foo</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{};</span> <span class="p">});</span><br/><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="p">(</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="p">([</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/><span class="p">({</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.0.0-rc-1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/arrow-parens.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/arrow-parens.md">Documentation source</a></li>
+</ul>
+
+  

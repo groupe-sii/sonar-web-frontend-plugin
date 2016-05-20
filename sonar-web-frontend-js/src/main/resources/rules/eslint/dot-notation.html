@@ -1,0 +1,61 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-dot-notation-dot-notation">Require Dot Notation (dot-notation)</h1>
+
+<p>In JavaScript, one can access properties using the dot notation (<code class="highlighter-rouge">foo.bar</code>) or square-bracket notation (<code class="highlighter-rouge">foo["bar"]</code>). However, the dot notation is often preferred because it is easier to read, less verbose, and works better with aggressive JavaScript minimizers.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">foo</span><span class="p">[</span><span class="s2">"bar"</span><span class="p">];</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at maintaining code consistency and improving code readability by encouraging use of the dot notation style whenever possible. As such, it will warn when it encounters an unnecessary use of square-bracket notation.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint dot-notation: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">[</span><span class="s2">"bar"</span><span class="p">];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint dot-notation: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">[</span><span class="nx">bar</span><span class="p">];</span>    <span class="c1">// Property name is a variable, square-bracket notation required</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule accepts a single options argument:</p>
+
+<ul>
+  <li>Set the <code class="highlighter-rouge">allowKeywords</code> option to <code class="highlighter-rouge">false</code> (default is <code class="highlighter-rouge">true</code>) to follow ECMAScript version 3 compatible style, avoiding dot notation for reserved word properties.</li>
+  <li>Set the <code class="highlighter-rouge">allowPattern</code> option to a regular expression string to allow bracket notation for property names that match a pattern (by default, no pattern is tested).</li>
+</ul>
+
+<h3 id="allowkeywords">allowKeywords<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowkeywords" aria-label="Anchor link for: allowkeywords" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowKeywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint dot-notation: ["error", { "allowKeywords": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"CS 101"</span> <span class="p">}</span><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">[</span><span class="s2">"class"</span><span class="p">];</span> <span class="c1">// Property name is a reserved word, square-bracket notation required</span><br/></code></pre>
+</div>
+
+<h3 id="allowpattern">allowPattern<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowpattern" aria-label="Anchor link for: allowpattern" data-anchorjs-icon=""></a></h3>
+
+<p>For example, when preparing data to be sent to an external API, it is often required to use property names that include underscores.  If the <code class="highlighter-rouge">camelcase</code> rule is in effect, these <a href="http://en.wikipedia.org/wiki/Snake_case">snake case</a> properties would not be allowed.  By providing an <code class="highlighter-rouge">allowPattern</code> to the <code class="highlighter-rouge">dot-notation</code> rule, these snake case properties can be accessed with bracket notation.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the sample <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowPattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[a-z]+(_[a-z]+)+$"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint camelcase: "error"*/</span><br/><span class="cm">/*eslint dot-notation: ["error", { "allowPattern": "^[a-z]+(_[a-z]+)+$" }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span><br/><span class="nx">data</span><span class="p">.</span><span class="nx">foo_bar</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span><br/><span class="nx">data</span><span class="p">[</span><span class="s2">"fooBar"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span><br/><span class="nx">data</span><span class="p">[</span><span class="s2">"foo_bar"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// no warning</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.7.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/dot-notation.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/dot-notation.md">Documentation source</a></li>
+</ul>
+
+  

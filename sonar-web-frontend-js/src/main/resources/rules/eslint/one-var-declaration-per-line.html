@@ -1,0 +1,68 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-or-disallow-an-newline-around-variable-declarations-one-var-declaration-per-line">Require or disallow an newline around variable declarations (one-var-declaration-per-line)</h1>
+
+<p>Some developers declare multiple var statements on the same line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>Others prefer to declare one var per line.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span><span class="p">,</span><br/>    <span class="nx">bar</span><span class="p">,</span><br/>    <span class="nx">baz</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>This rule enforces a consistent style across the entire project.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces a consistent coding style where newlines are required or disallowed after each var declaration or just when there is a variable initialization. It ignores var declarations inside for loop conditionals.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule takes one option, a string, which can be:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"always"</code> enforces a newline around each variable declaration</li>
+  <li><code class="highlighter-rouge">"initializations"</code> enforces a newline around each variable initialization (default)</li>
+</ul>
+
+<p>The following patterns are considered problems when set to <code class="highlighter-rouge">"always"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var-declaration-per-line: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span><br/><br/><span class="kd">let</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/><br/><span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when set to <code class="highlighter-rouge">"always"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var-declaration-per-line: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span><span class="p">,</span><br/>    <span class="nx">b</span><span class="p">;</span><br/><br/><span class="kd">let</span> <span class="nx">a</span><span class="p">,</span><br/>    <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when set to <code class="highlighter-rouge">"initializations"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var-declaration-per-line: ["error", "initializations"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/><br/><span class="kd">let</span> <span class="nx">a</span><span class="p">,</span><br/>    <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when set to <code class="highlighter-rouge">"initializations"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var-declaration-per-line: ["error", "initializations"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span><br/><br/><span class="kd">let</span> <span class="nx">a</span><span class="p">,</span><br/>    <span class="nx">b</span><span class="p">;</span><br/><br/><span class="kd">let</span> <span class="nx">a</span><span class="p">,</span><br/>    <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="one-var">one-var</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 2.0.0-beta.3.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/one-var-declaration-per-line.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/one-var-declaration-per-line.md">Documentation source</a></li>
+</ul>
+
+  

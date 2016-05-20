@@ -1,0 +1,101 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-irregular-whitespace-no-irregular-whitespace">disallow irregular whitespace (no-irregular-whitespace)</h1>
+
+<p>Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also makes code harder to debug in a similar nature to mixed tabs and spaces.</p>
+
+<p>Various whitespace characters can be inputted by programmers by mistake for example from copying or keyboard shortcuts. Pressing Alt + Space on OS X adds in a non breaking space character for example.</p>
+
+<p>Known issues these spaces cause:</p>
+
+<ul>
+  <li>Zero Width Space
+    <ul>
+      <li>Is NOT considered a separator for tokens and is often parsed as an <code class="highlighter-rouge">Unexpected token ILLEGAL</code></li>
+      <li>Is NOT shown in modern browsers making code repository software expected to resolve the visualisation</li>
+    </ul>
+  </li>
+  <li>Line Separator
+    <ul>
+      <li>Is NOT a valid character within JSON which would cause parse errors</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at catching invalid whitespace that is not a normal tab and space. Some of these characters may cause issues in modern browsers and others will be a debugging issue to spot.</p>
+
+<p>This rule disallows the following characters except where the options allow:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>\u000B - Line Tabulation (\v) - &lt;VT&gt;<br/>\u000C - Form Feed (\f) - &lt;FF&gt;<br/>\u00A0 - No-Break Space - &lt;NBSP&gt;<br/>\u0085 - Next Line<br/>\u1680 - Ogham Space Mark<br/>\u180E - Mongolian Vowel Separator - &lt;MVS&gt;<br/>\ufeff - Zero Width No-Break Space - &lt;BOM&gt;<br/>\u2000 - En Quad<br/>\u2001 - Em Quad<br/>\u2002 - En Space - &lt;ENSP&gt;<br/>\u2003 - Em Space - &lt;EMSP&gt;<br/>\u2004 - Tree-Per-Em<br/>\u2005 - Four-Per-Em<br/>\u2006 - Six-Per-Em<br/>\u2007 - Figure Space<br/>\u2008 - Punctuation Space - &lt;PUNCSP&gt;<br/>\u2009 - Thin Space<br/>\u200A - Hair Space<br/>\u200B - Zero Width Space - &lt;ZWSP&gt;<br/>\u2028 - Line Separator<br/>\u2029 - Paragraph Separator<br/>\u202F - Narrow No-Break Space<br/>\u205f - Medium Mathematical Space<br/>\u3000 - Ideographic Space<br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an object option for exceptions:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"skipStrings": true</code> (default) allows any whitespace characters in string literals</li>
+  <li><code class="highlighter-rouge">"skipComments": true</code> allows any whitespace characters in comments</li>
+  <li><code class="highlighter-rouge">"skipRegExps": true</code> allows any whitespace characters in regular expression literals</li>
+  <li><code class="highlighter-rouge">"skipTemplates": true</code> allows any whitespace characters in template literals</li>
+</ul>
+
+<h3 id="skipstrings">skipStrings<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#skipstrings" aria-label="Anchor link for: skipstrings" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"skipStrings"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-irregular-whitespace: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span><span class="err">&nbsp;</span><span class="cm">/*&lt;NBSP&gt;*/</span><span class="p">{</span><br/>    <span class="k">return</span> <span class="s1">'test'</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">(</span><span class="err">&nbsp;</span><span class="cm">/*&lt;NBSP&gt;*/</span><span class="p">){</span><br/>    <span class="k">return</span> <span class="s1">'test'</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="err">&nbsp;</span><span class="cm">/*&lt;NBSP&gt;*/</span><span class="p">(){</span><br/>    <span class="k">return</span> <span class="s1">'test'</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="err">᠎</span><span class="cm">/*&lt;MVS&gt;*/</span><span class="p">(){</span><br/>    <span class="k">return</span> <span class="s1">'test'</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="s1">'test'</span><span class="p">;</span><span class="err"> </span><span class="cm">/*&lt;ENSP&gt;*/</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="s1">'test'</span><span class="p">;</span><span class="err">&nbsp;</span><span class="cm">/*&lt;NBSP&gt;*/</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// Description&nbsp;&lt;NBSP&gt;: some descriptive text</span><br/><span class="p">}</span><br/><br/><span class="cm">/*<br/>Description&nbsp;&lt;NBSP&gt;: some descriptive text<br/>*/</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="sr">/&nbsp;&lt;NBSP&gt;regexp/</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="cm">/*eslint-env es6*/</span><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="err">`</span><span class="nx">template</span><span class="err"> </span><span class="o">&lt;</span><span class="nx">NBSP</span><span class="o">&gt;</span><span class="nx">string</span><span class="err">`</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"skipStrings"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-irregular-whitespace: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="s1">'&nbsp;&lt;NBSP&gt;thing'</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="s1">'​&lt;ZWSP&gt;thing'</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="s1">'th&nbsp;&lt;NBSP&gt;ing'</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="skipcomments">skipComments<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#skipcomments" aria-label="Anchor link for: skipcomments" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of additional <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"skipComments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-irregular-whitespace: ["error", { "skipComments": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// Description&nbsp;&lt;NBSP&gt;: some descriptive text</span><br/><span class="p">}</span><br/><br/><span class="cm">/*<br/>Description&nbsp;&lt;NBSP&gt;: some descriptive text<br/>*/</span><br/></code></pre>
+</div>
+
+<h3 id="skipregexps">skipRegExps<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#skipregexps" aria-label="Anchor link for: skipregexps" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of additional <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"skipRegExps"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-irregular-whitespace: ["error", { "skipRegExps": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="sr">/&nbsp;&lt;NBSP&gt;regexp/</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="skiptemplates">skipTemplates<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#skiptemplates" aria-label="Anchor link for: skiptemplates" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of additional <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"skipTemplates"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-irregular-whitespace: ["error", { "skipTemplates": true }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">thing</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="err">`</span><span class="nx">template</span><span class="err"> </span><span class="o">&lt;</span><span class="nx">NBSP</span><span class="o">&gt;</span><span class="nx">string</span><span class="err">`</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you decide that you wish to use whitespace other than tabs and spaces outside of strings in your application.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://es5.github.io/#x7.2 \xA0">ECMA whitespace</a></li>
+  <li><a href="http://timelessrepo.com/json-isnt-a-javascript-subset">JSON whitespace issues</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.9.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-irregular-whitespace.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-irregular-whitespace.md">Documentation source</a></li>
+</ul>
+
+  

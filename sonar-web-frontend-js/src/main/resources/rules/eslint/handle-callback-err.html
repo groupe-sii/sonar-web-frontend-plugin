@@ -1,0 +1,72 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-callback-error-handling-handle-callback-err">Enforce Callback Error Handling (handle-callback-err)</h1>
+
+<p>In Node.js, a common pattern for dealing with asynchronous behavior is called the callback pattern.
+This pattern expects an <code class="highlighter-rouge">Error</code> object or <code class="highlighter-rouge">null</code> as the first argument of the callback.
+Forgetting to handle these errors can lead to some really strange behavior in your application.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">loadData</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">doSomething</span><span class="p">();</span> <span class="c1">// forgot to handle error</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule expects that when you’re using the callback pattern in Node.js you’ll handle the error.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>The rule takes a single string option: the name of the error parameter. The default is <code class="highlighter-rouge">"err"</code>.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"err"</code> parameter name:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint handle-callback-err: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">loadData</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">doSomething</span><span class="p">();</span><br/><span class="p">}</span><br/><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"err"</code> parameter name:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint handle-callback-err: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">loadData</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span><br/>    <span class="p">}</span><br/>    <span class="nx">doSomething</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">generateError</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with a sample <code class="highlighter-rouge">"error"</code> parameter name:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint handle-callback-err: ["error", "error"]*/</span><br/><br/><span class="kd">function</span> <span class="nx">loadData</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span><br/>       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span><br/>    <span class="p">}</span><br/>    <span class="nx">doSomething</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="regular-expression">regular expression<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#regular-expression" aria-label="Anchor link for: regular expression" data-anchorjs-icon=""></a></h3>
+
+<p>Sometimes (especially in big projects) the name of the error variable is not consistent across the project,
+so you need a more flexible configuration to ensure that the rule reports all unhandled errors.</p>
+
+<p>If the configured name of the error variable begins with a <code class="highlighter-rouge">^</code> it is considered to be a regexp pattern.</p>
+
+<ul>
+  <li>If the option is <code class="highlighter-rouge">"^(err|error|anySpecificError)$"</code>, the rule reports unhandled errors where the parameter name can be <code class="highlighter-rouge">err</code>, <code class="highlighter-rouge">error</code> or <code class="highlighter-rouge">anySpecificError</code>.</li>
+  <li>If the option is <code class="highlighter-rouge">"^.+Error$"</code>, the rule reports unhandled errors where the parameter name ends with <code class="highlighter-rouge">Error</code> (for example, <code class="highlighter-rouge">connectionError</code> or <code class="highlighter-rouge">validationError</code> will match).</li>
+  <li>If the option is <code class="highlighter-rouge">"^.*(e|E)rr"</code>, the rule reports unhandled errors where the parameter name matches any string that contains <code class="highlighter-rouge">err</code> or <code class="highlighter-rouge">Err</code> (for example, <code class="highlighter-rouge">err</code>, <code class="highlighter-rouge">error</code>, <code class="highlighter-rouge">anyError</code>, <code class="highlighter-rouge">some_err</code> will match).</li>
+</ul>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>There are cases where it may be safe for your application to ignore errors, however only ignore errors if you are
+confident that some other form of monitoring will help you catch the problem.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/maxogden/art-of-node#callbacks">The Art Of Node: Callbacks</a></li>
+  <li><a href="http://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions">Nodejitsu: What are the error conventions?</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.4.5.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/handle-callback-err.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/handle-callback-err.md">Documentation source</a></li>
+</ul>
+
+  

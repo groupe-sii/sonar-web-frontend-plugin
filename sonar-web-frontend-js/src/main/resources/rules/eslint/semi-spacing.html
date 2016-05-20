@@ -1,0 +1,98 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-spacing-before-and-after-semicolons-semi-spacing">Enforce spacing before and after semicolons (semi-spacing)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>JavaScript allows you to place unnecessary spaces before or after a semicolon.</p>
+
+<p>Disallowing or enforcing space around a semicolon can improve the readability of your program.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">"b"</span> <span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="s2">"d"</span><span class="p">;</span><span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="s2">"f"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to enforce spacing around a semicolon. This rule prevents the use of spaces before a semicolon in expressions.</p>
+
+<p>This rule doesn’t check spacing in the following cases:</p>
+
+<ul>
+  <li>
+    <p>The spacing after the semicolon if it is the first token in the line.</p>
+  </li>
+  <li>
+    <p>The spacing before the semicolon if it is after an opening parenthesis (<code class="highlighter-rouge">(</code> or <code class="highlighter-rouge"><span class="p">{</span></code>), or the spacing after the semicolon if it is before a closing parenthesis (<code class="highlighter-rouge">)</code> or <code class="highlighter-rouge">}</code>). That spacing is checked by <code class="highlighter-rouge">space-in-parens</code> or <code class="highlighter-rouge">block-spacing</code>.</p>
+  </li>
+  <li>
+    <p>The spacing around the semicolon in a for loop with an empty condition (<code class="highlighter-rouge">for(;;)</code>).</p>
+  </li>
+</ul>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>The rule takes one option, an object, which has two keys <code class="highlighter-rouge">before</code> and <code class="highlighter-rouge">after</code> having boolean values <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.
+If <code class="highlighter-rouge">before</code> is <code class="highlighter-rouge">true</code>, space is enforced before semicolons and if it’s <code class="highlighter-rouge">false</code>, space is disallowed before semicolons.
+If <code class="highlighter-rouge">after</code> is <code class="highlighter-rouge">true</code>, space is enforced after semicolons and if it’s <code class="highlighter-rouge">false</code>, space is disallowed after semicolons.
+The <code class="highlighter-rouge">after</code> option will be only applied if a semicolon is not at the end of line.</p>
+
+<p>The default is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span></code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="s2">"semi-spacing"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="before-false-after-true"><code class="highlighter-rouge"><span class="p">{</span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span></code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#before-false-after-true" aria-label="Anchor link for: before false after true" data-anchorjs-icon=""></a></h3>
+
+<p>This is the default option. It enforces spacing after semicolons and disallows spacing before semicolons.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span><span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">)</span> <span class="p">;</span><br/><span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span> <span class="p">;</span> <span class="p">}</span><br/><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span><br/><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span><br/><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span><br/><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{}</span><br/><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{;}</span><br/><span class="p">;</span><span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="before-true-after-false"><code class="highlighter-rouge"><span class="p">{</span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span></code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#before-true-after-false" aria-label="Anchor link for: before true after false" data-anchorjs-icon=""></a></h3>
+
+<p>This option enforces spacing before semicolons and disallows spacing after semicolons.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: ["error", { "before": true, "after": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span> <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span><br/><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span><br/><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi-spacing: ["error", { "before": true, "after": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="p">;</span><span class="kd">var</span> <span class="nx">bar</span> <span class="p">;</span><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">)</span> <span class="p">;</span><br/><span class="k">while</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><span class="k">break</span> <span class="p">;}</span><br/><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can turn this rule off if you are not concerned with the consistency of spacing before or after semicolons.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="semi">semi</a></li>
+  <li><a href="no-extra-semi">no-extra-semi</a></li>
+  <li><a href="comma-spacing">comma-spacing</a></li>
+  <li><a href="block-spacing">block-spacing</a></li>
+  <li><a href="space-in-parens">space-in-parens</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.16.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/semi-spacing.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/semi-spacing.md">Documentation source</a></li>
+</ul>
+
+  

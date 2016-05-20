@@ -1,0 +1,91 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-unused-expressions-no-unused-expressions">Disallow Unused Expressions (no-unused-expressions)</h1>
+
+<p>An unused expression which has no effect on the state of the program indicates a logic error.</p>
+
+<p>For example, <code class="highlighter-rouge">n + 1;</code> is not a syntax error, but it might be a typing mistake where a programmer meant an assignment statement <code class="highlighter-rouge">n += 1;</code> instead.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to eliminate unused expressions which have no effect on the state of the program.</p>
+
+<p>This rule does not apply to function calls or constructor calls with the <code class="highlighter-rouge">new</code> operator, because they could have <em>side effects</em> on the state of the program.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/><span class="kd">function</span> <span class="nx">increment</span><span class="p">()</span> <span class="p">{</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span><br/><span class="nx">increment</span><span class="p">();</span> <span class="c1">// return value is unused, but i changed as a side effect</span><br/><br/><span class="kd">var</span> <span class="nx">nThings</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/><span class="kd">function</span> <span class="nx">Thing</span><span class="p">()</span> <span class="p">{</span> <span class="nx">nThings</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span><br/><span class="k">new</span> <span class="nx">Thing</span><span class="p">();</span> <span class="c1">// constructed object is unused, but nThings changed as a side effect</span><br/></code></pre>
+</div>
+
+<p>This rule does not apply to directives (which are in the form of literal string expressions such as <code class="highlighter-rouge">"use strict";</code> at the beginning of a script, module, or function).</p>
+
+<p>Sequence expressions (those using a comma, such as <code class="highlighter-rouge">a = 1, b = 2</code>) are always considered unused unless their return value is assigned or used in a condition evaluation, or a function call is made with the sequence expression value.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule, in its default state, does not require any arguments. If you would like to enable one or more of the following you may pass an object with the options set as follows:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">allowShortCircuit</code> set to <code class="highlighter-rouge">true</code> will allow you to use short circuit evaluations in your expressions (Default: <code class="highlighter-rouge">false</code>).</li>
+  <li><code class="highlighter-rouge">allowTernary</code> set to <code class="highlighter-rouge">true</code> will enable you use ternary operators in your expressions similarly to short circuit evaluations (Default: <code class="highlighter-rouge">false</code>).</li>
+</ul>
+
+<p>These options allow unused expressions <em>only if all</em> of the code paths either directly change the state (for example, assignment statement) or could have <em>side effects</em> (for example, function call).</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowShortCircuit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowTernary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: "error"*/</span><br/><br/><span class="mi">0</span><br/><br/><span class="k">if</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="mi">0</span><br/><br/><span class="p">{</span><span class="mi">0</span><span class="p">}</span><br/><br/><span class="nx">f</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="p">{}</span><br/><br/><span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">()</span><br/><br/><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">()</span><br/><br/><span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span><br/><br/><span class="nx">a</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="kd">function</span> <span class="nx">namedFunctionInExpressionContext</span> <span class="p">()</span> <span class="p">{</span><span class="nx">f</span><span class="p">();}</span><br/><br/><span class="p">(</span><span class="kd">function</span> <span class="nx">anIncompleteIIFE</span> <span class="p">()</span> <span class="p">{});</span><br/><br/></code></pre>
+</div>
+
+<p>Note that one or more string expression statements (with or without semi-colons) will only be considered as unused if they are not in the beginning of a script, module, or function (alone and uninterrupted by other statements). Otherwise, they will be treated as part of a “directive prologue”, a section potentially usable by JavaScript engines. This includes “strict mode” directives.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"use strict"</span><span class="p">;</span><br/><span class="s2">"use asm"</span><br/><span class="s2">"use stricter"</span><span class="p">;</span><br/><span class="s2">"use babel"</span><br/><span class="s2">"any other strings like this in the prologue"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowShortCircuit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowTernary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: "error"*/</span><br/><br/><span class="p">{}</span> <span class="c1">// In this context, this is a block statement, not an object literal</span><br/><br/><span class="p">{</span><span class="nl">myLabel</span><span class="p">:</span> <span class="nx">someVar</span><span class="p">}</span> <span class="c1">// In this context, this is a block statement with a label and expression, not an object literal</span><br/><br/><span class="kd">function</span> <span class="nx">namedFunctionDeclaration</span> <span class="p">()</span> <span class="p">{}</span><br/><br/><span class="p">(</span><span class="kd">function</span> <span class="nx">aGenuineIIFE</span> <span class="p">()</span> <span class="p">{}());</span><br/><br/><span class="nx">f</span><span class="p">()</span><br/><br/><span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><br/><br/><span class="k">new</span> <span class="nx">C</span><br/><br/><span class="k">delete</span> <span class="nx">a</span><span class="p">.</span><span class="nx">b</span><br/><br/><span class="k">void</span> <span class="nx">a</span><br/></code></pre>
+</div>
+
+<h3 id="allowshortcircuit">allowShortCircuit<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowshortcircuit" aria-label="Anchor link for: allowshortcircuit" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowShortCircuit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: ["error", { "allowShortCircuit": true }]*/</span><br/><br/><span class="nx">a</span> <span class="o">||</span> <span class="nx">b</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowShortCircuit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: ["error", { "allowShortCircuit": true }]*/</span><br/><br/><span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">()</span><br/><span class="nx">a</span><span class="p">()</span> <span class="o">||</span> <span class="p">(</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">c</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<h3 id="allowternary">allowTernary<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowternary" aria-label="Anchor link for: allowternary" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowTernary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: ["error", { "allowTernary": true }]*/</span><br/><br/><span class="nx">a</span> <span class="p">?</span> <span class="nx">b</span> <span class="p">:</span> <span class="mi">0</span><br/><span class="nx">a</span> <span class="p">?</span> <span class="nx">b</span> <span class="p">:</span> <span class="nx">c</span><span class="p">()</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowTernary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: ["error", { "allowTernary": true }]*/</span><br/><br/><span class="nx">a</span> <span class="p">?</span> <span class="nx">b</span><span class="p">()</span> <span class="p">:</span> <span class="nx">c</span><span class="p">()</span><br/><span class="nx">a</span> <span class="p">?</span> <span class="p">(</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">c</span><span class="p">)</span> <span class="p">:</span> <span class="nx">d</span><span class="p">()</span><br/></code></pre>
+</div>
+
+<h3 id="allowshortcircuit-and-allowternary">allowShortCircuit and allowTernary<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowshortcircuit-and-allowternary" aria-label="Anchor link for: allowshortcircuit and allowternary" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowShortCircuit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowTernary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-expressions: ["error", { "allowShortCircuit": true, "allowTernary": true }]*/</span><br/><br/><span class="nx">a</span> <span class="p">?</span> <span class="nx">b</span><span class="p">()</span> <span class="o">||</span> <span class="p">(</span><span class="nx">c</span> <span class="o">=</span> <span class="nx">d</span><span class="p">)</span> <span class="p">:</span> <span class="nx">e</span><span class="p">()</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.1.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-unused-expressions.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-unused-expressions.md">Documentation source</a></li>
+</ul>
+
+  

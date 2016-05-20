@@ -1,0 +1,142 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-or-disallow-semicolons-semi">Enforce or Disallow Semicolons (semi)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>JavaScript is unique amongst the C-like languages in that it doesn’t require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as <strong>automatic semicolon insertion (ASI)</strong> and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"ESLint"</span><br/><span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="s2">"eslint.org"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>On the first line, the JavaScript engine will automatically insert a semicolon, so this is not considered a syntax error. The JavaScript engine still knows how to interpret the line and knows that the line end indicates the end of the statement.</p>
+
+<p>In the debate over ASI, there are generally two schools of thought. The first is that we should treat ASI as if it didn’t exist and always include semicolons manually. The rationale is that it’s easier to always include semicolons than to try to remember when they are or are not required, and thus decreases the possibility of introducing an error.</p>
+
+<p>However, the ASI mechanism can sometimes be tricky to people who are using semicolons. For example, consider this code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">return</span><br/><span class="p">{</span><br/>    <span class="na">name</span><span class="p">:</span> <span class="s2">"ESLint"</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>This may look like a <code class="highlighter-rouge">return</code> statement that returns an object literal, however, the JavaScript engine will interpret this code as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">return</span><span class="p">;</span><br/><span class="p">{</span><br/>    <span class="nl">name</span><span class="p">:</span> <span class="s2">"ESLint"</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Effectively, a semicolon is inserted after the <code class="highlighter-rouge">return</code> statement, causing the code below it (a labeled literal inside a block) to be unreachable. This rule and the <a href="no-unreachable">no-unreachable</a> rule will protect your code from such cases.</p>
+
+<p>On the other side of the argument are those who says that since semicolons are inserted automatically, they are optional and do not need to be inserted manually. However, the ASI mechanism can also be tricky to people who don’t use semicolons. For example, consider this code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">globalCounter</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span><br/><br/><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><br/>    <span class="nx">globalCounter</span><span class="p">.</span><span class="nx">increment</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>        <span class="k">return</span> <span class="o">++</span><span class="nx">n</span><br/>    <span class="p">}</span><br/><span class="p">})()</span><br/></code></pre>
+</div>
+
+<p>In this example, a semicolon will not be inserted after the first line, causing a run-time error (because an empty object is called as if it’s a function). The <a href="no-unexpected-multiline">no-unexpected-multiline</a> rule can protect your code from such cases.</p>
+
+<p>Although ASI allows for more freedom over your coding style, it can also make your code behave in an unexpected way, whether you use semicolons or not. Therefore, it is best to know when ASI takes place and when it does not, and have ESLint protect your code from these potentially unexpected cases. In short, as once described by Isaac Schlueter, a <code class="highlighter-rouge">\n</code> character always ends a statement (just like a semicolon) unless one of the following is true:</p>
+
+<ol>
+  <li>The statement has an unclosed paren, array literal, or object literal or ends in some other way that is not a valid way to end a statement. (For instance, ending with <code class="highlighter-rouge">.</code> or <code class="highlighter-rouge">,</code>.)</li>
+  <li>The line is <code class="highlighter-rouge">--</code> or <code class="highlighter-rouge">++</code> (in which case it will decrement/increment the next token.)</li>
+  <li>It is a <code class="highlighter-rouge">for()</code>, <code class="highlighter-rouge">while()</code>, <code class="highlighter-rouge">do</code>, <code class="highlighter-rouge">if()</code>, or <code class="highlighter-rouge">else</code>, and there is no <code class="highlighter-rouge"><span class="p">{</span></code></li>
+  <li>The next line starts with <code class="highlighter-rouge">[</code>, <code class="highlighter-rouge">(</code>, <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">,</code>, <code class="highlighter-rouge">.</code>, or some other binary operator that can only be found between two tokens in a single expression.</li>
+</ol>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at ensuring consistent use of semicolons. You can decide whether or not to require semicolons at the end of statements.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>The rule takes one or two options. The first one is a string, which could be <code class="highlighter-rouge">"always"</code> or <code class="highlighter-rouge">"never"</code>. The default is <code class="highlighter-rouge">"always"</code>. The second one is an object for more fine-grained configuration when the first option is <code class="highlighter-rouge">"always"</code>.</p>
+
+<p>You can set the option in configuration like this:</p>
+
+<h3 id="always">“always”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p>By using the default option, semicolons must be used any place where they are valid.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">semi:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"ESLint"</span><br/><br/><span class="nx">object</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"ESLint"</span><span class="p">;</span><br/><br/><span class="nx">object</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h4 id="fine-grained-control">Fine-grained control<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#fine-grained-control" aria-label="Anchor link for: fine grained control" data-anchorjs-icon=""></a></h4>
+
+<p>When setting the first option as “always”, an additional option can be added to omit the last semicolon in a one-line block, that is, a block in which its braces (and therefore the content of the block) are in the same line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">semi:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"omitLastInOneLineBlock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span><span class="p">()</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="nx">bar</span><span class="p">();</span> <span class="nx">baz</span><span class="p">()</span> <span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="never">“never”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p>If you want to enforce that semicolons are never used, switch the configuration to:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">semi:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s2">"never"</span><span class="p">]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>Then, the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: ["error", "never"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"ESLint"</span><span class="p">;</span><br/><br/><span class="nx">object</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>And the following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: ["error", "never"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"ESLint"</span><br/><br/><span class="nx">object</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Even in <code class="highlighter-rouge">"never"</code> mode, semicolons are still allowed to disambiguate statements beginning with <code class="highlighter-rouge">[</code>, <code class="highlighter-rouge">(</code>, <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">+</code>, or <code class="highlighter-rouge">-</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint semi: ["error", "never"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"ESLint"</span><br/><br/><span class="p">;(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">})()</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you do not want to enforce semicolon usage (or omission) in any particular way, then you can turn this rule off.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">An Open Letter to JavaScript Leaders Regarding Semicolons</a></li>
+  <li><a href="http://inimino.org/~inimino/blog/javascript_semicolons">JavaScript Semicolon Insertion</a></li>
+  <li><a href="http://jamesallardice.com/understanding-automatic-semi-colon-insertion-in-javascript/">Understanding Automatic Semicolon Insertion in JavaScript</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-extra-semi">no-extra-semi</a></li>
+  <li><a href="no-unexpected-multiline">no-unexpected-multiline</a></li>
+  <li><a href="semi-spacing">semi-spacing</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.6.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/semi.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/semi.md">Documentation source</a></li>
+</ul>
+
+  

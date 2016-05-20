@@ -1,0 +1,55 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-sparse-arrays-no-sparse-arrays">disallow sparse arrays (no-sparse-arrays)</h1>
+
+<p>Sparse arrays contain empty slots, most frequently due to multiple commas being used in an array literal, such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[,,];</span><br/></code></pre>
+</div>
+
+<p>While the <code class="highlighter-rouge">items</code> array in this example has a <code class="highlighter-rouge">length</code> of 2, there are actually no values in <code class="highlighter-rouge">items[0]</code> or <code class="highlighter-rouge">items[1]</code>. The fact that the array literal is valid with only commas inside, coupled with the <code class="highlighter-rouge">length</code> being set and actual item values not being set, make sparse arrays confusing for many developers. Consider the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"red"</span><span class="p">,,</span> <span class="s2">"blue"</span> <span class="p">];</span><br/></code></pre>
+</div>
+
+<p>In this example, the <code class="highlighter-rouge">colors</code> array has a <code class="highlighter-rouge">length</code> of 3. But did the developer intend for there to be an empty spot in the middle of the array? Or is it a typo?</p>
+
+<p>The confusion around sparse arrays defined in this manner is enough that it’s recommended to avoid using them unless you are certain that they are useful in your code.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule disallows sparse array literals which have “holes” where commas are not preceded by elements. It does not apply to a trailing comma following the last element.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-sparse-arrays: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[,];</span><br/><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"red"</span><span class="p">,,</span> <span class="s2">"blue"</span> <span class="p">];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-sparse-arrays: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span><br/><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span><br/><br/><span class="c1">// trailing comma (after the last element) is not a problem</span><br/><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="p">];</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you want to use sparse arrays, then it is safe to disable this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://www.nczonline.net/blog/2007/09/09/inconsistent-array-literals/">Inconsistent array literals</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.4.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-sparse-arrays.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-sparse-arrays.md">Documentation source</a></li>
+</ul>
+
+  

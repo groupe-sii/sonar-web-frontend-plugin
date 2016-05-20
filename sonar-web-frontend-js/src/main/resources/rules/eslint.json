@@ -1,0 +1,1697 @@
+[ {
+  "key" : "comma-dangle",
+  "name" : "Comma dangle",
+  "description" : "require or disallow trailing commas",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-cond-assign",
+  "name" : "No cond assign",
+  "description" : "disallow assignment operators in conditional expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-console",
+  "name" : "No console",
+  "description" : "disallow the use of console",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-constant-condition",
+  "name" : "No constant condition",
+  "description" : "disallow constant expressions in conditions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-control-regex",
+  "name" : "No control regex",
+  "description" : "disallow control characters in regular expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-debugger",
+  "name" : "No debugger",
+  "description" : "disallow the use of debugger",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-dupe-args",
+  "name" : "No dupe args",
+  "description" : "disallow duplicate arguments in function definitions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-dupe-keys",
+  "name" : "No dupe keys",
+  "description" : "disallow duplicate keys in object literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-duplicate-case",
+  "name" : "No duplicate case",
+  "description" : "disallow duplicate case labels",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-empty",
+  "name" : "No empty",
+  "description" : "disallow empty block statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-empty-character-class",
+  "name" : "No empty character class",
+  "description" : "disallow empty character classes in regular expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-ex-assign",
+  "name" : "No ex assign",
+  "description" : "disallow reassigning exceptions in catch clauses",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-extra-boolean-cast",
+  "name" : "No extra boolean cast",
+  "description" : "disallow unnecessary boolean casts",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-extra-parens",
+  "name" : "No extra parens",
+  "description" : "disallow unnecessary parentheses",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-extra-semi",
+  "name" : "No extra semi",
+  "description" : "disallow unnecessary semicolons",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-func-assign",
+  "name" : "No func assign",
+  "description" : "disallow reassigning function declarations",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-inner-declarations",
+  "name" : "No inner declarations",
+  "description" : "disallow function or var declarations in nested blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-invalid-regexp",
+  "name" : "No invalid regexp",
+  "description" : "disallow invalid regular expression strings in RegExp constructors",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-irregular-whitespace",
+  "name" : "No irregular whitespace",
+  "description" : "disallow irregular whitespace outside of strings and comments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-negated-in-lhs",
+  "name" : "No negated in lhs",
+  "description" : "disallow negating the left operand in in expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-obj-calls",
+  "name" : "No obj calls",
+  "description" : "disallow calling global object properties as functions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-regex-spaces",
+  "name" : "No regex spaces",
+  "description" : "disallow multiple spaces in regular expression literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-sparse-arrays",
+  "name" : "No sparse arrays",
+  "description" : "disallow sparse arrays",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unexpected-multiline",
+  "name" : "No unexpected multiline",
+  "description" : "disallow confusing multiline expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unreachable",
+  "name" : "No unreachable",
+  "description" : "disallow unreachable code after return, throw, continue, and break statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unsafe-finally",
+  "name" : "No unsafe finally",
+  "description" : "disallow control flow statements in finally blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "use-isnan",
+  "name" : "Use isnan",
+  "description" : "require calls to isNaN() when checking for NaN",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "valid-jsdoc",
+  "name" : "Valid jsdoc",
+  "description" : "enforce valid JSDoc comments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "valid-typeof",
+  "name" : "Valid typeof",
+  "description" : "enforce comparing typeof expressions against valid strings",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "accessor-pairs",
+  "name" : "Accessor pairs",
+  "description" : "enforce getter and setter pairs in objects",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "array-callback-return",
+  "name" : "Array callback return",
+  "description" : "enforce return statements in callbacks of array methods",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "block-scoped-var",
+  "name" : "Block scoped var",
+  "description" : "enforce the use of variables within the scope they are defined",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "complexity",
+  "name" : "Complexity",
+  "description" : "enforce a maximum cyclomatic complexity allowed in a program",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "consistent-return",
+  "name" : "Consistent return",
+  "description" : "require return statements to either always or never specify values",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "curly",
+  "name" : "Curly",
+  "description" : "enforce consistent brace style for all control statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "default-case",
+  "name" : "Default case",
+  "description" : "require default cases in switch statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "dot-location",
+  "name" : "Dot location",
+  "description" : "enforce consistent newlines before and after dots",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "dot-notation",
+  "name" : "Dot notation",
+  "description" : "enforce dot notation whenever possible",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "eqeqeq",
+  "name" : "Eqeqeq",
+  "description" : "require the use of === and !==",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "guard-for-in",
+  "name" : "Guard for in",
+  "description" : "require for-in loops to include an if statement",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-alert",
+  "name" : "No alert",
+  "description" : "disallow the use of alert, confirm, and prompt",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-caller",
+  "name" : "No caller",
+  "description" : "disallow the use of arguments.caller or arguments.callee",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-case-declarations",
+  "name" : "No case declarations",
+  "description" : "disallow lexical declarations in case clauses",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-div-regex",
+  "name" : "No div regex",
+  "description" : "disallow division operators explicitly at the beginning of regular expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-else-return",
+  "name" : "No else return",
+  "description" : "disallow else blocks after return statements in if statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-empty-function",
+  "name" : "No empty function",
+  "description" : "disallow empty functions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-empty-pattern",
+  "name" : "No empty pattern",
+  "description" : "disallow empty destructuring patterns",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-eq-null",
+  "name" : "No eq null",
+  "description" : "disallow null comparisons without type-checking operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-eval",
+  "name" : "No eval",
+  "description" : "disallow the use of eval()",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-extend-native",
+  "name" : "No extend native",
+  "description" : "disallow extending native types",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-extra-bind",
+  "name" : "No extra bind",
+  "description" : "disallow unnecessary calls to .bind()",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-extra-label",
+  "name" : "No extra label",
+  "description" : "disallow unnecessary labels",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-fallthrough",
+  "name" : "No fallthrough",
+  "description" : "disallow fallthrough of case statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-floating-decimal",
+  "name" : "No floating decimal",
+  "description" : "disallow leading or trailing decimal points in numeric literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-implicit-coercion",
+  "name" : "No implicit coercion",
+  "description" : "disallow shorthand type conversions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-implicit-globals",
+  "name" : "No implicit globals",
+  "description" : "disallow var and named function declarations in the global scope",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-implied-eval",
+  "name" : "No implied eval",
+  "description" : "disallow the use of eval()-like methods",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-invalid-this",
+  "name" : "No invalid this",
+  "description" : "disallow this keywords outside of classes or class-like objects",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-iterator",
+  "name" : "No iterator",
+  "description" : "disallow the use of the __iterator__ property",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-labels",
+  "name" : "No labels",
+  "description" : "disallow labeled statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-lone-blocks",
+  "name" : "No lone blocks",
+  "description" : "disallow unnecessary nested blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-loop-func",
+  "name" : "No loop func",
+  "description" : "disallow function declarations and expressions inside loop statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-magic-numbers",
+  "name" : "No magic numbers",
+  "description" : "disallow magic numbers",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-multi-spaces",
+  "name" : "No multi spaces",
+  "description" : "disallow multiple spaces",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-multi-str",
+  "name" : "No multi str",
+  "description" : "disallow multiline strings",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-native-reassign",
+  "name" : "No native reassign",
+  "description" : "disallow reassigning native objects",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-new",
+  "name" : "No new",
+  "description" : "disallow new operators outside of assignments or comparisons",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-new-func",
+  "name" : "No new func",
+  "description" : "disallow new operators with the Function object",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-new-wrappers",
+  "name" : "No new wrappers",
+  "description" : "disallow new operators with the String, Number, and Boolean objects",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-octal",
+  "name" : "No octal",
+  "description" : "disallow octal literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-octal-escape",
+  "name" : "No octal escape",
+  "description" : "disallow octal escape sequences in string literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-param-reassign",
+  "name" : "No param reassign",
+  "description" : "disallow reassigning function parameters",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-proto",
+  "name" : "No proto",
+  "description" : "disallow the use of the __proto__ property",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-redeclare",
+  "name" : "No redeclare",
+  "description" : "disallow var redeclaration",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-return-assign",
+  "name" : "No return assign",
+  "description" : "disallow assignment operators in return statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-script-url",
+  "name" : "No script url",
+  "description" : "urls",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-self-assign",
+  "name" : "No self assign",
+  "description" : "disallow assignments where both sides are exactly the same",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-self-compare",
+  "name" : "No self compare",
+  "description" : "disallow comparisons where both sides are exactly the same",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-sequences",
+  "name" : "No sequences",
+  "description" : "disallow comma operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-throw-literal",
+  "name" : "No throw literal",
+  "description" : "disallow throwing literals as exceptions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unmodified-loop-condition",
+  "name" : "No unmodified loop condition",
+  "description" : "disallow unmodified loop conditions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unused-expressions",
+  "name" : "No unused expressions",
+  "description" : "disallow unused expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unused-labels",
+  "name" : "No unused labels",
+  "description" : "disallow unused labels",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-useless-call",
+  "name" : "No useless call",
+  "description" : "disallow unnecessary calls to .call() and .apply()",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-useless-concat",
+  "name" : "No useless concat",
+  "description" : "disallow unnecessary concatenation of literals or template literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-useless-escape",
+  "name" : "No useless escape",
+  "description" : "disallow unnecessary escape characters",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-void",
+  "name" : "No void",
+  "description" : "disallow void operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-warning-comments",
+  "name" : "No warning comments",
+  "description" : "disallow specified warning terms in comments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-with",
+  "name" : "No with",
+  "description" : "disallow with statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "radix",
+  "name" : "Radix",
+  "description" : "enforce the consistent use of the radix argument when using parseInt()",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "vars-on-top",
+  "name" : "Vars on top",
+  "description" : "require var declarations be placed at the top of their containing scope",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "wrap-iife",
+  "name" : "Wrap iife",
+  "description" : "require parentheses around immediate function invocations",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "yoda",
+  "name" : "Yoda",
+  "description" : "require or disallow “Yoda” conditions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "strict",
+  "name" : "Strict",
+  "description" : "require or disallow strict mode directives",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "init-declarations",
+  "name" : "Init declarations",
+  "description" : "require or disallow initialization in var declarations",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-catch-shadow",
+  "name" : "No catch shadow",
+  "description" : "disallow catch clause parameters from shadowing variables in the outer scope",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-delete-var",
+  "name" : "No delete var",
+  "description" : "disallow deleting variables",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-label-var",
+  "name" : "No label var",
+  "description" : "disallow labels that share a name with a variable",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-restricted-globals",
+  "name" : "No restricted globals",
+  "description" : "disallow specified global variables",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-shadow",
+  "name" : "No shadow",
+  "description" : "disallow var declarations from shadowing variables in the outer scope",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-shadow-restricted-names",
+  "name" : "No shadow restricted names",
+  "description" : "disallow identifiers from shadowing restricted names",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-undef",
+  "name" : "No undef",
+  "description" : "disallow the use of undeclared variables unless mentioned in /*global */ comments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-undef-init",
+  "name" : "No undef init",
+  "description" : "disallow initializing variables to undefined",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-undefined",
+  "name" : "No undefined",
+  "description" : "disallow the use of undefined as an identifier",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unused-vars",
+  "name" : "No unused vars",
+  "description" : "disallow unused variables",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-use-before-define",
+  "name" : "No use before define",
+  "description" : "disallow the use of variables before they are defined",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "callback-return",
+  "name" : "Callback return",
+  "description" : "require return statements after callbacks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "global-require",
+  "name" : "Global require",
+  "description" : "require require() calls to be placed at top-level module scope",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "handle-callback-err",
+  "name" : "Handle callback err",
+  "description" : "require error handling in callbacks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-mixed-requires",
+  "name" : "No mixed requires",
+  "description" : "disallow require calls to be mixed with regular var declarations",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-new-require",
+  "name" : "No new require",
+  "description" : "disallow new operators with calls to require",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-path-concat",
+  "name" : "No path concat",
+  "description" : "disallow string concatenation with __dirname and __filename",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-process-env",
+  "name" : "No process env",
+  "description" : "disallow the use of process.env",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-process-exit",
+  "name" : "No process exit",
+  "description" : "disallow the use of process.exit()",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-restricted-modules",
+  "name" : "No restricted modules",
+  "description" : "disallow specified modules when loaded by require",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-sync",
+  "name" : "No sync",
+  "description" : "disallow synchronous methods",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "array-bracket-spacing",
+  "name" : "Array bracket spacing",
+  "description" : "enforce consistent spacing inside array brackets",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "block-spacing",
+  "name" : "Block spacing",
+  "description" : "enforce consistent spacing inside single-line blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "brace-style",
+  "name" : "Brace style",
+  "description" : "enforce consistent brace style for blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "camelcase",
+  "name" : "Camelcase",
+  "description" : "enforce camelcase naming convention",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "comma-spacing",
+  "name" : "Comma spacing",
+  "description" : "enforce consistent spacing before and after commas",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "comma-style",
+  "name" : "Comma style",
+  "description" : "enforce consistent comma style",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "computed-property-spacing",
+  "name" : "Computed property spacing",
+  "description" : "enforce consistent spacing inside computed property brackets",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "consistent-this",
+  "name" : "Consistent this",
+  "description" : "enforce consistent naming when capturing the current execution context",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "eol-last",
+  "name" : "Eol last",
+  "description" : "enforce at least one newline at the end of files",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "func-names",
+  "name" : "Func names",
+  "description" : "enforce named function expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "func-style",
+  "name" : "Func style",
+  "description" : "enforce the consistent use of either function declarations or expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "id-blacklist",
+  "name" : "Id blacklist",
+  "description" : "disallow specified identifiers",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "id-length",
+  "name" : "Id length",
+  "description" : "enforce minimum and maximum identifier lengths",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "id-match",
+  "name" : "Id match",
+  "description" : "require identifiers to match a specified regular expression",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "indent",
+  "name" : "Indent",
+  "description" : "enforce consistent indentation",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "jsx-quotes",
+  "name" : "Jsx quotes",
+  "description" : "enforce the consistent use of either double or single quotes in JSX attributes",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "key-spacing",
+  "name" : "Key spacing",
+  "description" : "enforce consistent spacing between keys and values in object literal properties",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "keyword-spacing",
+  "name" : "Keyword spacing",
+  "description" : "enforce consistent spacing before and after keywords",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "linebreak-style",
+  "name" : "Linebreak style",
+  "description" : "enforce consistent linebreak style",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "lines-around-comment",
+  "name" : "Lines around comment",
+  "description" : "require empty lines around comments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "max-depth",
+  "name" : "Max depth",
+  "description" : "enforce a maximum depth that blocks can be nested",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "max-len",
+  "name" : "Max len",
+  "description" : "enforce a maximum line length",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "max-nested-callbacks",
+  "name" : "Max nested callbacks",
+  "description" : "enforce a maximum depth that callbacks can be nested",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "max-params",
+  "name" : "Max params",
+  "description" : "enforce a maximum number of parameters in function definitions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "max-statements",
+  "name" : "Max statements",
+  "description" : "enforce a maximum number of statements allowed in function blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "max-statements-per-line",
+  "name" : "Max statements per line",
+  "description" : "enforce a maximum number of statements allowed per line",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "new-cap",
+  "name" : "New cap",
+  "description" : "require constructor function names to begin with a capital letter",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "new-parens",
+  "name" : "New parens",
+  "description" : "require parentheses when invoking a constructor with no arguments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "newline-after-var",
+  "name" : "Newline after var",
+  "description" : "require or disallow an empty line after var declarations",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "newline-before-return",
+  "name" : "Newline before return",
+  "description" : "require an empty line before return statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "newline-per-chained-call",
+  "name" : "Newline per chained call",
+  "description" : "require a newline after each call in a method chain",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-array-constructor",
+  "name" : "No array constructor",
+  "description" : "disallow Array constructors",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-bitwise",
+  "name" : "No bitwise",
+  "description" : "disallow bitwise operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-continue",
+  "name" : "No continue",
+  "description" : "disallow continue statements",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-inline-comments",
+  "name" : "No inline comments",
+  "description" : "disallow inline comments after code",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-lonely-if",
+  "name" : "No lonely if",
+  "description" : "disallow if statements as the only statement in else blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-mixed-spaces-and-tabs",
+  "name" : "No mixed spaces and tabs",
+  "description" : "disallow mixed spaces and tabs for indentation",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-multiple-empty-lines",
+  "name" : "No multiple empty lines",
+  "description" : "disallow multiple empty lines",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-negated-condition",
+  "name" : "No negated condition",
+  "description" : "disallow negated conditions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-nested-ternary",
+  "name" : "No nested ternary",
+  "description" : "disallow nested ternary expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-new-object",
+  "name" : "No new object",
+  "description" : "disallow Object constructors",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-plusplus",
+  "name" : "No plusplus",
+  "description" : "disallow the unary operators ++ and --",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-restricted-syntax",
+  "name" : "No restricted syntax",
+  "description" : "disallow specified syntax",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-spaced-func",
+  "name" : "No spaced func",
+  "description" : "disallow spacing between function identifiers and their applications",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-ternary",
+  "name" : "No ternary",
+  "description" : "disallow ternary operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-trailing-spaces",
+  "name" : "No trailing spaces",
+  "description" : "disallow trailing whitespace at the end of lines",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-underscore-dangle",
+  "name" : "No underscore dangle",
+  "description" : "disallow dangling underscores in identifiers",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-unneeded-ternary",
+  "name" : "No unneeded ternary",
+  "description" : "disallow ternary operators when simpler alternatives exist",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-whitespace-before-property",
+  "name" : "No whitespace before property",
+  "description" : "disallow whitespace before properties",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "object-curly-spacing",
+  "name" : "Object curly spacing",
+  "description" : "enforce consistent spacing inside braces",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "object-property-newline",
+  "name" : "Object property newline",
+  "description" : "enforce placing object properties on separate lines",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "one-var",
+  "name" : "One var",
+  "description" : "enforce variables to be declared either together or separately in functions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "one-var-declaration-per-line",
+  "name" : "One var declaration per line",
+  "description" : "require or disallow newlines around var declarations",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "operator-assignment",
+  "name" : "Operator assignment",
+  "description" : "require or disallow assignment operator shorthand where possible",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "operator-linebreak",
+  "name" : "Operator linebreak",
+  "description" : "enforce consistent linebreak style for operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "padded-blocks",
+  "name" : "Padded blocks",
+  "description" : "require or disallow padding within blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "quote-props",
+  "name" : "Quote props",
+  "description" : "require quotes around object literal property names",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "quotes",
+  "name" : "Quotes",
+  "description" : "enforce the consistent use of either backticks, double, or single quotes",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "require-jsdoc",
+  "name" : "Require jsdoc",
+  "description" : "require JSDoc comments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "semi",
+  "name" : "Semi",
+  "description" : "require or disallow semicolons instead of ASI",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "semi-spacing",
+  "name" : "Semi spacing",
+  "description" : "enforce consistent spacing before and after semicolons",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "sort-vars",
+  "name" : "Sort vars",
+  "description" : "require variables within the same declaration block to be sorted",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "space-before-blocks",
+  "name" : "Space before blocks",
+  "description" : "enforce consistent spacing before blocks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "space-before-function-paren",
+  "name" : "Space before function paren",
+  "description" : "enforce consistent spacing before function definition opening parenthesis",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "space-in-parens",
+  "name" : "Space in parens",
+  "description" : "enforce consistent spacing inside parentheses",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "space-infix-ops",
+  "name" : "Space infix ops",
+  "description" : "require spacing around operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "space-unary-ops",
+  "name" : "Space unary ops",
+  "description" : "enforce consistent spacing before or after unary operators",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "spaced-comment",
+  "name" : "Spaced comment",
+  "description" : "enforce consistent spacing after the // or /* in a comment",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "wrap-regex",
+  "name" : "Wrap regex",
+  "description" : "require parenthesis around regex literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "arrow-body-style",
+  "name" : "Arrow body style",
+  "description" : "require braces around arrow function bodies",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "arrow-parens",
+  "name" : "Arrow parens",
+  "description" : "require parentheses around arrow function arguments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "arrow-spacing",
+  "name" : "Arrow spacing",
+  "description" : "enforce consistent spacing before and after the arrow in arrow functions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "constructor-super",
+  "name" : "Constructor super",
+  "description" : "require super() calls in constructors",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "generator-star-spacing",
+  "name" : "Generator star spacing",
+  "description" : "enforce consistent spacing around * operators in generator functions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-class-assign",
+  "name" : "No class assign",
+  "description" : "disallow reassigning class members",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-confusing-arrow",
+  "name" : "No confusing arrow",
+  "description" : "disallow arrow functions where they could be confused with comparisons",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-const-assign",
+  "name" : "No const assign",
+  "description" : "disallow reassigning const variables",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-dupe-class-members",
+  "name" : "No dupe class members",
+  "description" : "disallow duplicate class members",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-duplicate-imports",
+  "name" : "No duplicate imports",
+  "description" : "disallow duplicate module imports",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-new-symbol",
+  "name" : "No new symbol",
+  "description" : "disallow new operators with the Symbol object",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-restricted-imports",
+  "name" : "No restricted imports",
+  "description" : "disallow specified modules when loaded by import",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-this-before-super",
+  "name" : "No this before super",
+  "description" : "disallow this/super before calling super() in constructors",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-useless-computed-key",
+  "name" : "No useless computed key",
+  "description" : "disallow unnecessary computed property keys in object literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-useless-constructor",
+  "name" : "No useless constructor",
+  "description" : "disallow unnecessary constructors",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "no-var",
+  "name" : "No var",
+  "description" : "require let or const instead of var",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "object-shorthand",
+  "name" : "Object shorthand",
+  "description" : "require or disallow method and property shorthand syntax for object literals",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "prefer-arrow-callback",
+  "name" : "Prefer arrow callback",
+  "description" : "require arrow functions as callbacks",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "prefer-const",
+  "name" : "Prefer const",
+  "description" : "require const declarations for variables that are never reassigned after declared",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "prefer-reflect",
+  "name" : "Prefer reflect",
+  "description" : "require Reflect methods where applicable",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "prefer-rest-params",
+  "name" : "Prefer rest params",
+  "description" : "require rest parameters instead of arguments",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "prefer-spread",
+  "name" : "Prefer spread",
+  "description" : "require spread operators instead of .apply()",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "prefer-template",
+  "name" : "Prefer template",
+  "description" : "require template literals instead of string concatenation",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "require-yield",
+  "name" : "Require yield",
+  "description" : "require generator functions to contain yield",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "sort-imports",
+  "name" : "Sort imports",
+  "description" : "enforce sorted import declarations within modules",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "template-curly-spacing",
+  "name" : "Template curly spacing",
+  "description" : "require or disallow spacing around embedded expressions of template strings",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+}, {
+  "key" : "yield-star-spacing",
+  "name" : "Yield star spacing",
+  "description" : "require or disallow spacing around the * in yield* expressions",
+  "severity" : null,
+  "status" : null,
+  "tags" : null,
+  "debt" : null
+} ]

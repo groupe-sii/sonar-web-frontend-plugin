@@ -1,0 +1,61 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-reassignment-of-function-parameters-no-param-reassign">Disallow Reassignment of Function Parameters (no-param-reassign)</h1>
+
+<p>Assignment to variables declared as function parameters can be misleading and lead to confusing behavior, as modifying function parameters will also mutate the <code class="highlighter-rouge">arguments</code> object. Often, assignment to function parameters is unintended and indicative of a mistake or programmer error.</p>
+
+<p>This rule can be also configured to fail when function parameters are modified. Side effects on parameters can cause counter-intuitive execution flow and make errors difficult to track down.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to prevent unintended behavior caused by modification or reassignment of function parameters.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-param-reassign: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span><span class="o">++</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-param-reassign: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">baz</span> <span class="o">=</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule takes one option, an object, with a boolean property <code class="highlighter-rouge">"props"</code>. It is <code class="highlighter-rouge">false</code> by default. If it is set to <code class="highlighter-rouge">true</code>, this rule warns against the modification of parameter properties.</p>
+
+<h3 id="props">props<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#props" aria-label="Anchor link for: props" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"props"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-param-reassign: ["error", { "props": false }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="s2">"value"</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">delete</span> <span class="nx">bar</span><span class="p">.</span><span class="nx">aaa</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span><span class="p">.</span><span class="nx">aaa</span><span class="o">++</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"props"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-param-reassign: ["error", { "props": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="s2">"value"</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">delete</span> <span class="nx">bar</span><span class="p">.</span><span class="nx">aaa</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span><span class="p">.</span><span class="nx">aaa</span><span class="o">++</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you want to allow assignment to function parameters, then you can safely disable this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://spin.atomicobject.com/2011/04/10/javascript-don-t-reassign-your-function-arguments/">JavaScript: Don’t Reassign Your Function Arguments</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.18.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-param-reassign.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-param-reassign.md">Documentation source</a></li>
+</ul>
+
+  

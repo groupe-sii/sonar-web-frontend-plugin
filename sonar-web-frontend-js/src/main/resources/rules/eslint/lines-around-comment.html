@@ -1,0 +1,173 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-empty-lines-around-comments-lines-around-comment">require empty lines around comments (lines-around-comment)</h1>
+
+<p>Many style guides require empty lines before or after comments. The primary goal
+of these rules is to make the comments easier to read and improve readability of the code.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule requires empty lines before and/or after comments. It can be enabled separately for both block (<code class="highlighter-rouge">/*</code>) and line (<code class="highlighter-rouge">//</code>) comments. This rule does not apply to comments that appear on the same line as code and does not require empty lines at the beginning or end of a file. Empty lines are also not required at the beginning or end of a file.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an object option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"beforeBlockComment": true</code> (default) requires an empty line before block comments</li>
+  <li><code class="highlighter-rouge">"beforeBlockComment": false</code> disallows an empty line before block comments</li>
+  <li><code class="highlighter-rouge">"afterBlockComment": true</code> requires an empty line after block comments</li>
+  <li><code class="highlighter-rouge">"beforeLineComment": true</code> requires an empty line before line comments</li>
+  <li><code class="highlighter-rouge">"afterLineComment": true</code> requires an empty line after line comments</li>
+  <li><code class="highlighter-rouge">"allowBlockStart": true</code> allows comments to appear at the start of block statements</li>
+  <li><code class="highlighter-rouge">"allowBlockEnd": true</code> allows comments to appear at the end of block statements</li>
+  <li><code class="highlighter-rouge">"allowObjectStart": true</code> allows comments to appear at the start of object literals</li>
+  <li><code class="highlighter-rouge">"allowObjectEnd": true</code> allows comments to appear at the end of object literals</li>
+  <li><code class="highlighter-rouge">"allowArrayStart": true</code> allows comments to appear at the start of array literals</li>
+  <li><code class="highlighter-rouge">"allowArrayEnd": true</code> allows comments to appear at the end of array literals</li>
+</ul>
+
+<h3 id="beforeblockcomment">beforeBlockComment<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#beforeblockcomment" aria-label="Anchor link for: beforeblockcomment" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeBlockComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><span class="cm">/* what a great and wonderful day */</span><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeBlockComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><br/><span class="cm">/* what a great and wonderful day */</span><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<h3 id="afterblockcomment">afterBlockComment<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#afterblockcomment" aria-label="Anchor link for: afterblockcomment" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterBlockComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><br/><span class="cm">/* what a great and wonderful day */</span><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterBlockComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><br/><span class="cm">/* what a great and wonderful day */</span><br/><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<h3 id="beforelinecomment">beforeLineComment<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#beforelinecomment" aria-label="Anchor link for: beforelinecomment" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeLineComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><span class="c1">// what a great and wonderful day</span><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeLineComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><br/><span class="c1">// what a great and wonderful day</span><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<h3 id="afterlinecomment">afterLineComment<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#afterlinecomment" aria-label="Anchor link for: afterlinecomment" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterLineComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><span class="c1">// what a great and wonderful day</span><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterLineComment": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">night</span> <span class="o">=</span> <span class="s2">"long"</span><span class="p">;</span><br/><span class="c1">// what a great and wonderful day</span><br/><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/></code></pre>
+</div>
+
+<h3 id="allowblockstart">allowBlockStart<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowblockstart" aria-label="Anchor link for: allowblockstart" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowBlockStart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowBlockStart": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="c1">// what a great and wonderful day</span><br/>    <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/>    <span class="k">return</span> <span class="nx">day</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowBlockStart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowBlockStart": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="cm">/* what a great and wonderful day */</span><br/>    <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/>    <span class="k">return</span> <span class="nx">day</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="allowblockend">allowBlockEnd<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowblockend" aria-label="Anchor link for: allowblockend" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowBlockEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowBlockEnd": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/>    <span class="k">return</span> <span class="nx">day</span><span class="p">;</span><br/>    <span class="c1">// what a great and wonderful day</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowBlockEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowBlockEnd": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="s2">"great"</span><br/>    <span class="k">return</span> <span class="nx">day</span><span class="p">;</span><br/><br/>    <span class="cm">/* what a great and wonderful day */</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="allowobjectstart">allowObjectStart<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowobjectstart" aria-label="Anchor link for: allowobjectstart" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowObjectStart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowObjectStart": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="c1">// what a great and wonderful day</span><br/>    <span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><br/><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="c1">// what a great and wonderful day</span><br/>    <span class="nl">foo</span><span class="p">:</span> <span class="nx">someDay</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">foo</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="c1">// what a great and wonderful day</span><br/>    <span class="nx">day</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowObjectStart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowObjectStart": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="cm">/* what a great and wonderful day */</span><br/>    <span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><br/><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="cm">/* what a great and wonderful day */</span><br/>    <span class="nl">foo</span><span class="p">:</span> <span class="nx">someDay</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">foo</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="cm">/* what a great and wonderful day */</span><br/>    <span class="nx">day</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="allowobjectend">allowObjectEnd<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowobjectend" aria-label="Anchor link for: allowobjectend" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowObjectEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowObjectEnd": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><br/>    <span class="c1">// what a great and wonderful day</span><br/><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="nl">foo</span><span class="p">:</span> <span class="nx">someDay</span><br/>    <span class="c1">// what a great and wonderful day</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">foo</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="nx">day</span><br/>    <span class="c1">// what a great and wonderful day</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowObjectEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowObjectEnd": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><br/><br/>    <span class="cm">/* what a great and wonderful day */</span><br/><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="nl">foo</span><span class="p">:</span> <span class="nx">someDay</span><br/><br/>    <span class="cm">/* what a great and wonderful day */</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">foo</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/><br/><span class="kr">const</span> <span class="p">{</span><br/>    <span class="nx">day</span><br/><br/>    <span class="cm">/* what a great and wonderful day */</span><br/><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">day</span><span class="p">:</span> <span class="s2">"great"</span><span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="allowarraystart">allowArrayStart<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowarraystart" aria-label="Anchor link for: allowarraystart" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowArrayStart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowArrayStart": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="c1">// what a great and wonderful day</span><br/>    <span class="s2">"great"</span><span class="p">,</span><br/>    <span class="s2">"wonderful"</span><br/><span class="p">];</span><br/><br/><span class="kr">const</span> <span class="p">[</span><br/>    <span class="c1">// what a great and wonderful day</span><br/>    <span class="nx">someDay</span><br/><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"great"</span><span class="p">,</span> <span class="s2">"not great"</span><span class="p">];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowArrayStart"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowArrayStart": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="cm">/* what a great and wonderful day */</span><br/>    <span class="s2">"great"</span><span class="p">,</span><br/>    <span class="s2">"wonderful"</span><br/><span class="p">];</span><br/><br/><span class="kr">const</span> <span class="p">[</span><br/>    <span class="cm">/* what a great and wonderful day */</span><br/>    <span class="nx">someDay</span><br/><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"great"</span><span class="p">,</span> <span class="s2">"not great"</span><span class="p">];</span><br/></code></pre>
+</div>
+
+<h3 id="allowarrayend">allowArrayEnd<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowarrayend" aria-label="Anchor link for: allowarrayend" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterLineComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowArrayEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowArrayEnd": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="s2">"great"</span><span class="p">,</span><br/>    <span class="s2">"wonderful"</span><br/>    <span class="c1">// what a great and wonderful day</span><br/><span class="p">];</span><br/><br/><span class="kr">const</span> <span class="p">[</span><br/>    <span class="nx">someDay</span><br/>    <span class="c1">// what a great and wonderful day</span><br/><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"great"</span><span class="p">,</span> <span class="s2">"not great"</span><span class="p">];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterBlockComment"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowArrayEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowArrayEnd": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="s2">"great"</span><span class="p">,</span><br/>    <span class="s2">"wonderful"</span><br/><br/>    <span class="cm">/* what a great and wonderful day */</span><br/><span class="p">];</span><br/><br/><span class="kr">const</span> <span class="p">[</span><br/>    <span class="nx">someDay</span><br/><br/>    <span class="cm">/* what a great and wonderful day */</span><br/><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"great"</span><span class="p">,</span> <span class="s2">"not great"</span><span class="p">];</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>Many people enjoy a terser code style and don’t mind comments bumping up against code. If you fall into that category this rule is not for you.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="space-before-blocks">space-before-blocks</a></li>
+  <li><a href="spaced-comment">spaced-comment</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.22.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/lines-around-comment.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/lines-around-comment.md">Documentation source</a></li>
+</ul>
+
+  

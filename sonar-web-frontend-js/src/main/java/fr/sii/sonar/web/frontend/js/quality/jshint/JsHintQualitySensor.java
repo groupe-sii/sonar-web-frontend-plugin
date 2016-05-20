@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.frontend.js.quality;
+package fr.sii.sonar.web.frontend.js.quality.jshint;
 
 import fr.sii.sonar.report.core.common.PluginDependencies;
 import fr.sii.sonar.report.core.common.ReportSensor;

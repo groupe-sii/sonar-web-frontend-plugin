@@ -1,0 +1,62 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-implied-eval-no-implied-eval">Disallow Implied eval() (no-implied-eval)</h1>
+
+<p>It’s considered a good practice to avoid using <code class="highlighter-rouge">eval()</code> in JavaScript. There are security and performance implications involved with doing so, which is why many linters (including ESLint) recommend disallowing <code class="highlighter-rouge">eval()</code>. However, there are some other ways to pass a string and have it interpreted as JavaScript code that have similar concerns.</p>
+
+<p>The first is using <code class="highlighter-rouge">setTimeout()</code>, <code class="highlighter-rouge">setInterval()</code> or <code class="highlighter-rouge">execScript()</code> (Internet Explorer only), both of which can accept a string of JavaScript code as their first argument. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">setTimeout</span><span class="p">(</span><span class="s2">"alert('Hi!');"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>This is considered an implied <code class="highlighter-rouge">eval()</code> because a string of JavaScript code is
+ passed in to be interpreted. The same can be done with <code class="highlighter-rouge">setInterval()</code> and <code class="highlighter-rouge">execScript()</code>. Both interpret the JavaScript code in  the global scope. For  both <code class="highlighter-rouge">setTimeout()</code> and <code class="highlighter-rouge">setInterval()</code>, the first argument can also be a function, and that is considered safer and is more performant:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Hi!"</span><span class="p">);</span><br/><span class="p">},</span> <span class="mi">100</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>The best practice is to always use a function for the first argument of <code class="highlighter-rouge">setTimeout()</code> and <code class="highlighter-rouge">setInterval()</code> (and avoid <code class="highlighter-rouge">execScript()</code>).</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to eliminate implied <code class="highlighter-rouge">eval()</code> through the use of <code class="highlighter-rouge">setTimeout()</code>, <code class="highlighter-rouge">setInterval()</code> or <code class="highlighter-rouge">execScript()</code>. As such, it will warn when either function is used with a string as the first argument.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implied-eval: "error"*/</span><br/><br/><span class="nx">setTimeout</span><span class="p">(</span><span class="s2">"alert('Hi!');"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span><br/><br/><span class="nx">setInterval</span><span class="p">(</span><span class="s2">"alert('Hi!');"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span><br/><br/><span class="nx">execScript</span><span class="p">(</span><span class="s2">"alert('Hi!')"</span><span class="p">);</span><br/><br/><span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="s2">"count = 5"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span><br/><br/><span class="nb">window</span><span class="p">.</span><span class="nx">setInterval</span><span class="p">(</span><span class="s2">"foo = bar"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implied-eval: "error"*/</span><br/><br/><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Hi!"</span><span class="p">);</span><br/><span class="p">},</span> <span class="mi">100</span><span class="p">);</span><br/><br/><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Hi!"</span><span class="p">);</span><br/><span class="p">},</span> <span class="mi">100</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you want to allow <code class="highlighter-rouge">setTimeout()</code> and <code class="highlighter-rouge">setInterval()</code> with string arguments, then you can safely disable this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://jslinterrors.com/implied-eval-is-evil-pass-a-function-instead-of-a-string/">Implied eval is evil. Pass a function instead of a string.</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-eval">no-eval</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.7.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-implied-eval.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-implied-eval.md">Documentation source</a></li>
+</ul>
+
+  

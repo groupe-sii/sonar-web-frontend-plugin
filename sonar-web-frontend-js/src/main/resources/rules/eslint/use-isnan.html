@@ -1,0 +1,48 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-calls-to-isnan-when-checking-for-nan-use-isnan">require calls to <code class="highlighter-rouge">isNaN()</code> when checking for <code class="highlighter-rouge">NaN</code> (use-isnan)</h1>
+
+<p>In JavaScript, <code class="highlighter-rouge">NaN</code> is a special value of the <code class="highlighter-rouge">Number</code> type. It’s used to represent any of the “not-a-number” values represented by the double-precision 64-bit format as specified by the IEEE Standard for Binary Floating-Point Arithmetic.</p>
+
+<p>Because <code class="highlighter-rouge">NaN</code> is unique in JavaScript by not being equal to anything, including itself, the results of comparisons to <code class="highlighter-rouge">NaN</code> are confusing:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">NaN === NaN</code> or <code class="highlighter-rouge">NaN == NaN</code> evaluate to false</li>
+  <li><code class="highlighter-rouge">NaN !== NaN</code> or <code class="highlighter-rouge">NaN != NaN</code> evaluate to true</li>
+</ul>
+
+<p>Therefore, use <code class="highlighter-rouge">Number.isNaN()</code> or global <code class="highlighter-rouge">isNaN()</code> functions to test whether a value is <code class="highlighter-rouge">NaN</code>.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule disallows comparisons to ‘NaN’.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint use-isnan: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">==</span> <span class="kc">NaN</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">!=</span> <span class="kc">NaN</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint use-isnan: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">foo</span><span class="p">))</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">foo</span><span class="p">))</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://jslinterrors.com/use-the-isnan-function-to-compare-with-nan/">Use the isNaN function to compare with NaN</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.6.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/use-isnan.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/use-isnan.md">Documentation source</a></li>
+</ul>
+
+  

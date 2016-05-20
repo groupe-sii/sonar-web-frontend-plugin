@@ -1,0 +1,51 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-an-empty-line-before-return-statements-newline-before-return">require an empty line before <code class="highlighter-rouge">return</code> statements (newline-before-return)</h1>
+
+<p>There is no hardfast rule about whether empty lines should precede <code class="highlighter-rouge">return</code> statements in JavaScript. However, clearly delineating where a function is returning can greatly increase the readability and clarity of the code. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="kd">var</span> <span class="nx">baz</span> <span class="o">=</span> <span class="s1">'baz'</span><span class="p">;</span><br/>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">baz</span><span class="p">;</span><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/>  <span class="p">}</span><br/>  <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Adding newlines visibly separates the return statements from the previous lines, making it clear where the function exits and what value it returns:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="kd">var</span> <span class="nx">baz</span> <span class="o">=</span> <span class="s1">'baz'</span><span class="p">;</span><br/><br/>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">baz</span><span class="p">;</span><br/><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/>  <span class="p">}</span><br/><br/>  <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule requires an empty line before <code class="highlighter-rouge">return</code> statements to increase code clarity, except when the <code class="highlighter-rouge">return</code> is alone inside a statement group (such as an if statement). In the latter case, the <code class="highlighter-rouge">return</code> statement does not need to be delineated by virtue of it being alone. Comments are ignored and do not count as empty lines.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint newline-before-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">}</span><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/><br/>    <span class="c1">// comment</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">}</span><br/>    <span class="cm">/* multi-line<br/>    comment */</span><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint newline-before-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">}</span><br/><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can safely disable this rule if you do not have any strict conventions about whitespace before <code class="highlighter-rouge">return</code> statements.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="newline-after-var">newline-after-var</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 2.3.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/newline-before-return.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/newline-before-return.md">Documentation source</a></li>
+</ul>
+
+  

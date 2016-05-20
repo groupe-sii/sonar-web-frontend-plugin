@@ -1,0 +1,102 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-return-after-callback-callback-return">Enforce Return After Callback (callback-return)</h1>
+
+<p>The callback pattern is at the heart of most I/O and event-driven programming
+ in JavaScript.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><br/>    <span class="p">}</span><br/>    <span class="nx">callback</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>To prevent calling the callback multiple times it is important to <code class="highlighter-rouge">return</code> anytime the callback is triggered outside
+ of the main function body. Neglecting this technique often leads to issues where you do something more than once.
+ For example, in the case of an HTTP request, you may try to send HTTP headers more than once leading Node.js to <code class="highlighter-rouge">throw</code>
+ a <code class="highlighter-rouge">Can't render headers after they are sent to the client.</code> error.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at ensuring that callbacks used outside of the main function block are always part-of or immediately
+preceding a <code class="highlighter-rouge">return</code> statement. This rule decides what is a callback based on the name of the function being called.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>The rule takes a single option, which is an array of possible callback names. The default callback names are <code class="highlighter-rouge">callback</code>, <code class="highlighter-rouge">cb</code>, <code class="highlighter-rouge">next</code>.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">["callback", "cb", "next"]</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint callback-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><br/>    <span class="p">}</span><br/>    <span class="nx">callback</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">["callback", "cb", "next"]</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint callback-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><br/>    <span class="p">}</span><br/>    <span class="nx">callback</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="known-limitations">Known Limitations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#known-limitations" aria-label="Anchor link for: known limitations" data-anchorjs-icon=""></a></h2>
+
+<p>Because it is difficult to understand the meaning of a program through static analysis, this rule has limitations:</p>
+
+<ul>
+  <li><em>false negatives</em> when this rule reports correct code, but the program calls the callback more than one time (which is incorrect behavior)</li>
+  <li><em>false positives</em> when this rule reports incorrect code, but the program calls the callback only one time (which is correct behavior)</li>
+</ul>
+
+<h3 id="passing-the-callback-by-reference">Passing the callback by reference<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#passing-the-callback-by-reference" aria-label="Anchor link for: passing the callback by reference" data-anchorjs-icon=""></a></h3>
+
+<p>The static analysis of this rule does not detect that the program calls the callback if it is an argument of a function (for example,  <code class="highlighter-rouge">setTimeout</code>).</p>
+
+<p>Example of a <em>false negative</em> when this rule reports correct code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint callback-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// this is bad, but WILL NOT warn</span><br/>    <span class="p">}</span><br/>    <span class="nx">callback</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="triggering-the-callback-within-a-nested-function">Triggering the callback within a nested function<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#triggering-the-callback-within-a-nested-function" aria-label="Anchor link for: triggering the callback within a nested function" data-anchorjs-icon=""></a></h3>
+
+<p>The static analysis of this rule does not detect that the program calls the callback from within a nested function or an immediately-invoked function expression (IIFE).</p>
+
+<p>Example of a <em>false negative</em> when this rule reports correct code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint callback-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>            <span class="k">return</span> <span class="nx">callback</span><span class="p">();</span> <span class="c1">// this is bad, but WILL NOT warn</span><br/>        <span class="p">});</span><br/>    <span class="p">}</span><br/>    <span class="nx">callback</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="ifelse-statements">If/else statements<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ifelse-statements" aria-label="Anchor link for: ifelse statements" data-anchorjs-icon=""></a></h3>
+
+<p>The static analysis of this rule does not detect that the program calls the callback only one time in each branch of an <code class="highlighter-rouge">if</code> statement.</p>
+
+<p>Example of a <em>false positive</em> when this rule reports incorrect code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint callback-return: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="c1">// this is fine, but WILL warn</span><br/>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br/>        <span class="nx">callback</span><span class="p">();</span>    <span class="c1">// this is fine, but WILL warn</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>There are some cases where you might want to call a callback function more than once. In those cases this rule
+ may lead to incorrect behavior. In those cases you may want to reserve a special name for those callbacks and
+ not include that in the list of callbacks that trigger warnings.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/maxogden/art-of-node#callbacks">The Art Of Node: Callbacks</a></li>
+  <li><a href="http://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions">Nodejitsu: What are the error conventions?</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="handle-callback-err">handle-callback-err</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.0.0-rc-1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/callback-return.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/callback-return.md">Documentation source</a></li>
+</ul>
+
+  

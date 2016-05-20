@@ -1,0 +1,52 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-redeclaring-variables-no-redeclare">Disallow Redeclaring Variables (no-redeclare)</h1>
+
+<p>In JavaScript, it’s possible to redeclare the same variable name using <code class="highlighter-rouge">var</code>. This can lead to confusion as to where the variable is actually declared and initialized.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at eliminating variables that have multiple declarations in the same scope.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-redeclare: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-redeclare: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><br/><span class="c1">// ...</span><br/><span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule takes one optional argument, an object with a boolean property <code class="highlighter-rouge">"builtinGlobals"</code>. It defaults to <code class="highlighter-rouge">false</code>.
+If set to <code class="highlighter-rouge">true</code>, this rule also checks redeclaration of built-in globals, such as <code class="highlighter-rouge">Object</code>, <code class="highlighter-rouge">Array</code>, <code class="highlighter-rouge">Number</code>…</p>
+
+<h3 id="builtinglobals">builtinGlobals<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#builtinglobals" aria-label="Anchor link for: builtinglobals" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"builtinGlobals"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-redeclare: ["error", { "builtinGlobals": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nb">Object</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"builtinGlobals"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option and the <code class="highlighter-rouge">browser</code> environment:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-redeclare: ["error", { "builtinGlobals": true }]*/</span><br/><span class="cm">/*eslint-env browser*/</span><br/><br/><span class="kd">var</span> <span class="nx">top</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">browser</code> environment has many built-in global variables (for example, <code class="highlighter-rouge">top</code>). Some of built-in global variables cannot be redeclared.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-redeclare.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-redeclare.md">Documentation source</a></li>
+</ul>
+
+  

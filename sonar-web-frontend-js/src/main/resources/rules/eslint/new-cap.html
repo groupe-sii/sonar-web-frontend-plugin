@@ -1,0 +1,128 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-constructor-function-names-to-begin-with-a-capital-letter-new-cap">require constructor <code class="highlighter-rouge">function</code> names to begin with a capital letter (new-cap)</h1>
+
+<p>The <code class="highlighter-rouge">new</code> operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function. Since constructor functions are just regular functions, the only defining characteristic is that <code class="highlighter-rouge">new</code> is being used as part of the call. Native JavaScript functions begin with an uppercase letter to distinguish those functions that are to be used as constructors from functions that are not. Many style guides recommend following this pattern to more easily determine which functions are to be used as constructors.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule requires constructor names to begin with a capital letter. Certain built-in identifiers are exempt from this rule. These identifiers are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Array</code></li>
+  <li><code class="highlighter-rouge">Boolean</code></li>
+  <li><code class="highlighter-rouge">Date</code></li>
+  <li><code class="highlighter-rouge">Error</code></li>
+  <li><code class="highlighter-rouge">Function</code></li>
+  <li><code class="highlighter-rouge">Number</code></li>
+  <li><code class="highlighter-rouge">Object</code></li>
+  <li><code class="highlighter-rouge">RegExp</code></li>
+  <li><code class="highlighter-rouge">String</code></li>
+  <li><code class="highlighter-rouge">Symbol</code></li>
+</ul>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an object option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"newIsCap": true</code> (default) requires all <code class="highlighter-rouge">new</code> operators to be called with uppercase-started functions.</li>
+  <li><code class="highlighter-rouge">"newIsCap": false</code> allows <code class="highlighter-rouge">new</code> operators to be called with lowercase-started or uppercase-started functions.</li>
+  <li><code class="highlighter-rouge">"capIsNew": true</code> (default) requires all uppercase-started functions to be called with <code class="highlighter-rouge">new</code> operators.</li>
+  <li><code class="highlighter-rouge">"capIsNew": false</code> allows uppercase-started functions to be called without <code class="highlighter-rouge">new</code> operators.</li>
+  <li><code class="highlighter-rouge">"newIsCapExceptions"</code> allows specified lowercase-started function names to be called with the <code class="highlighter-rouge">new</code> operator.</li>
+  <li><code class="highlighter-rouge">"capIsNewExceptions"</code> allows specified uppercase-started function names to be called without the <code class="highlighter-rouge">new</code> operator.</li>
+  <li><code class="highlighter-rouge">"properties": true</code> (default) enables checks on object properties</li>
+  <li><code class="highlighter-rouge">"properties": false</code> disables checks on object properties</li>
+</ul>
+
+<h3 id="newiscap">newIsCap<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#newiscap" aria-label="Anchor link for: newiscap" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"newIsCap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "newIsCap": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"newIsCap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "newIsCap": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"newIsCap"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "newIsCap": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="capisnew">capIsNew<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#capisnew" aria-label="Anchor link for: capisnew" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"capIsNew"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "capIsNew": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">colleague</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"capIsNew"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "capIsNew": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">colleague</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"capIsNew"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "capIsNew": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">colleague</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="newiscapexceptions">newIsCapExceptions<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#newiscapexceptions" aria-label="Anchor link for: newiscapexceptions" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of additional <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"newIsCapExceptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"events"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'events'</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">emitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">events</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="capisnewexceptions">capIsNewExceptions<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#capisnewexceptions" aria-label="Anchor link for: capisnewexceptions" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of additional <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"capIsNewExceptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Person"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="properties">properties<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#properties" aria-label="Anchor link for: properties" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "properties": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">person</span><span class="p">.</span><span class="nx">acquaintance</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "properties": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">person</span><span class="p">.</span><span class="nx">Acquaintance</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint new-cap: ["error", { "properties": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">friend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">person</span><span class="p">.</span><span class="nx">acquaintance</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you have conventions that don’t require an uppercase letter for constructors, or don’t require capitalized functions be only used as constructors, turn this rule off.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.3-0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/new-cap.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/new-cap.md">Documentation source</a></li>
+</ul>
+
+  

@@ -1,0 +1,51 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-file-to-end-with-single-newline-eol-last">Require file to end with single newline (eol-last)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>Trailing newlines in non-empty files are a common UNIX idiom. Benefits of
+trailing newlines include the ability to concatenate or append to files as well
+as output files to the terminal without interfering with shell prompts.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule requires at least one newline at the end of non-empty files.</p>
+
+<p>Prior to v0.16.0 this rule also enforced that there was only a single line at
+the end of the file. If you still want this behaviour, consider enabling
+<a href="no-multiple-empty-lines">no-multiple-empty-lines</a> with <code class="highlighter-rouge">maxEOF</code> and/or
+<a href="no-trailing-spaces">no-trailing-spaces</a>.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eol-last: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">doSmth</span><span class="p">()</span> <span class="p">{</span><br/>  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eol-last: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">doSmth</span><span class="p">()</span> <span class="p">{</span><br/>  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="p">}</span><br/><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a string option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"unix"</code> (default) enforces line feed (LF) as newline</li>
+  <li><code class="highlighter-rouge">"windows"</code> enforces carriage return line feed (CRLF) as newline</li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.7.1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/eol-last.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/eol-last.md">Documentation source</a></li>
+</ul>
+
+  

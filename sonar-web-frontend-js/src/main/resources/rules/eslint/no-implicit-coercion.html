@@ -1,0 +1,96 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-the-type-conversion-with-shorter-notations-no-implicit-coercion">Disallow the type conversion with shorter notations. (no-implicit-coercion)</h1>
+
+<p>In JavaScript, there are a lot of different ways to convert value types.
+Some of them might be hard to read and understand.</p>
+
+<p>Such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="o">+</span><span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">;</span><br/><span class="nx">foo</span> <span class="o">+=</span> <span class="s2">""</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>Those can be replaced with the following code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="nx">foo</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed to flag shorter notations for the type conversion, then suggest a more self-explanatory notation.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has three main options and one override option to allow some coercions as required.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"boolean"</code> (<code class="highlighter-rouge">true</code> by default) - When this is <code class="highlighter-rouge">true</code>, this rule warns shorter type conversions for <code class="highlighter-rouge">boolean</code> type.</li>
+  <li><code class="highlighter-rouge">"number"</code> (<code class="highlighter-rouge">true</code> by default) - When this is <code class="highlighter-rouge">true</code>, this rule warns shorter type conversions for <code class="highlighter-rouge">number</code> type.</li>
+  <li><code class="highlighter-rouge">"string"</code> (<code class="highlighter-rouge">true</code> by default) - When this is <code class="highlighter-rouge">true</code>, this rule warns shorter type conversions for <code class="highlighter-rouge">string</code> type.</li>
+  <li><code class="highlighter-rouge">"allow"</code> (<code class="highlighter-rouge">empty</code> by default) - Each entry in this array can be one of <code class="highlighter-rouge">~</code>, <code class="highlighter-rouge">!!</code>, <code class="highlighter-rouge">+</code> or <code class="highlighter-rouge">*</code> that are to be allowed.</li>
+</ul>
+
+<p>Note that operator <code class="highlighter-rouge">+</code> in <code class="highlighter-rouge">allow</code> list would allow <code class="highlighter-rouge">+foo</code> (number coercion) as well as <code class="highlighter-rouge">"" + foo</code> (string coercion).</p>
+
+<h3 id="boolean">boolean<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#boolean" aria-label="Anchor link for: boolean" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"boolean"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">);</span><br/><span class="c1">// bitwise not is incorrect only with `indexOf`/`lastIndexOf` method calling.</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"boolean"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="o">~</span><span class="nx">foo</span><span class="p">;</span> <span class="c1">// This is a just bitwise not.</span><br/></code></pre>
+</div>
+
+<h3 id="number">number<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#number" aria-label="Anchor link for: number" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="o">+</span><span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="nx">foo</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h3 id="string">string<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#string" aria-label="Anchor link for: string" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"string"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">;</span><br/><span class="nx">foo</span> <span class="o">+=</span> <span class="s2">""</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"string"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h3 id="allow">allow<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allow" aria-label="Anchor link for: allow" data-anchorjs-icon=""></a></h3>
+
+<p>Using <code class="highlighter-rouge">allow</code> list, we can override and allow specific operators.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the sample <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"!!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"~"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-implicit-coercion: [2, { "allow": ["!!", "~"] } ]*/</span><br/><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">foo</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you don’t want to be notified about shorter notations for the type conversion, you can safely disable this rule.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.0.0-rc-2.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-implicit-coercion.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-implicit-coercion.md">Documentation source</a></li>
+</ul>
+
+  

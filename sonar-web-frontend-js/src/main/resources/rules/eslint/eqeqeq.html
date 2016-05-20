@@ -1,0 +1,79 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require--and--eqeqeq">Require === and !== (eqeqeq)</h1>
+
+<p>It is considered good practice to use the type-safe equality operators <code class="highlighter-rouge">===</code> and <code class="highlighter-rouge">!==</code> instead of their regular counterparts <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code>.</p>
+
+<p>The reason for this is that <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code> do type coercion which follows the rather obscure <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3">Abstract Equality Comparison Algorithm</a>.
+For instance, the following statements are all considered <code class="highlighter-rouge">true</code>:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">[] == false</code></li>
+  <li><code class="highlighter-rouge">[] == ![]</code></li>
+  <li><code class="highlighter-rouge">3 == "03"</code></li>
+</ul>
+
+<p>If one of those occurs in an innocent-looking statement such as <code class="highlighter-rouge">a == b</code> the actual problem is very difficult to spot.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at eliminating the type-unsafe equality operators.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eqeqeq: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="mi">42</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="s2">""</span> <span class="o">==</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">getStuff</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<h3 id="smart">smart<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#smart" aria-label="Anchor link for: smart" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">"smart"</code> option enforces the use of <code class="highlighter-rouge">===</code> and <code class="highlighter-rouge">!==</code> except for these cases:</p>
+
+<ul>
+  <li>Comparing two literal values</li>
+  <li>Evaluating the value of <code class="highlighter-rouge">typeof</code></li>
+  <li>Comparing against <code class="highlighter-rouge">null</code></li>
+</ul>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge">"smart"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eqeqeq: ["error", "smart"]*/</span><br/><br/><span class="c1">// comparing two variables requires ===</span><br/><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><br/><br/><span class="c1">// only one side is a literal</span><br/><span class="nx">foo</span> <span class="o">==</span> <span class="kc">true</span><br/><span class="nx">bananas</span> <span class="o">!=</span> <span class="mi">1</span><br/><br/><span class="c1">// comparing to undefined requires ===</span><br/><span class="nx">value</span> <span class="o">==</span> <span class="kc">undefined</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"smart"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eqeqeq: ["error", "smart"]*/</span><br/><br/><span class="k">typeof</span> <span class="nx">foo</span> <span class="o">==</span> <span class="s1">'undefined'</span><br/><span class="s1">'hello'</span> <span class="o">!=</span> <span class="s1">'world'</span><br/><span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><br/><span class="kc">true</span> <span class="o">==</span> <span class="kc">true</span><br/><span class="nx">foo</span> <span class="o">==</span> <span class="kc">null</span><br/></code></pre>
+</div>
+
+<h3 id="allow-null">allow-null<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allow-null" aria-label="Anchor link for: allow null" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">"allow-null"</code> option will enforce <code class="highlighter-rouge">===</code> and <code class="highlighter-rouge">!==</code> in your code with one exception - it permits comparing to <code class="highlighter-rouge">null</code> to check for <code class="highlighter-rouge">null</code> or <code class="highlighter-rouge">undefined</code> in a single expression.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge">"allow-null"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eqeqeq: ["error", "allow-null"]*/</span><br/><br/><span class="nx">bananas</span> <span class="o">!=</span> <span class="mi">1</span><br/><span class="k">typeof</span> <span class="nx">foo</span> <span class="o">==</span> <span class="s1">'undefined'</span><br/><span class="s1">'hello'</span> <span class="o">!=</span> <span class="s1">'world'</span><br/><span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><br/><span class="nx">foo</span> <span class="o">==</span> <span class="kc">undefined</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"allow-null"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint eqeqeq: ["error", "allow-null"]*/</span><br/><br/><span class="nx">foo</span> <span class="o">==</span> <span class="kc">null</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you don’t want to enforce a style for using equality operators, then it’s safe to disable this rule.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.2.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/eqeqeq.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/eqeqeq.md">Documentation source</a></li>
+</ul>
+
+  

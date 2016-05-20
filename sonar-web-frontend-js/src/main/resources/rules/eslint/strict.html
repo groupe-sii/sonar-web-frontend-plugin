@@ -1,0 +1,120 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="strict-mode-directives-strict">Strict Mode Directives (strict)</h1>
+
+<p>A strict mode directive at the beginning of a script or function body enables strict mode semantics.</p>
+
+<p>When used globally, the entire script, including all contained functions, are strict mode code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"use strict"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>It is also possible to specify function-level strict mode, such that strict mode applies only to the function in which the directive occurs:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>Unlike scripts, ECMAScript modules are always in strict mode. Strict mode directives in ECMAScript modules have no effect.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at using strict mode directives effectively, and as such, will flag any unexpected uses or omissions of strict mode directives.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>There are four options for this rule:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"safe"</code> - require <code class="highlighter-rouge">"use strict"</code> globally when inside a module wrapper and in function scopes everywhere else. This is the default.</li>
+  <li><code class="highlighter-rouge">"never"</code> - disallow <code class="highlighter-rouge">"use strict"</code>.</li>
+  <li><code class="highlighter-rouge">"global"</code> - require <code class="highlighter-rouge">"use strict"</code> in the global scope.</li>
+  <li><code class="highlighter-rouge">"function"</code> - require <code class="highlighter-rouge">"use strict"</code> in function scopes only.</li>
+</ul>
+
+<p>All strict mode directives are flagged as unnecessary if ECMAScript modules or implied strict mode are enabled (see <a href="../user-guide/configuring#specifying-parser-options">Specifying Parser Options</a>). This behaviour does not depend on the rule options, but can be silenced by disabling this rule.</p>
+
+<h3 id="safe">safe<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#safe" aria-label="Anchor link for: safe" data-anchorjs-icon=""></a></h3>
+
+<p>Node.js and the CommonJS module system wrap modules inside a hidden function wrapper that defines each module’s scope. The wrapper makes it safe to concatenate strict mode modules while maintaining their original strict mode directives. When the <code class="highlighter-rouge">node</code> or <code class="highlighter-rouge">commonjs</code> environments are enabled or <code class="highlighter-rouge">globalReturn</code> is enabled in <code class="highlighter-rouge">ecmaFeatures</code>, ESLint considers code to be inside the module wrapper, and <code class="highlighter-rouge">"safe"</code> mode corresponds to <code class="highlighter-rouge">"global"</code> mode and enforces global strict mode directives. Everywhere else, <code class="highlighter-rouge">"safe"</code> mode corresponds to <code class="highlighter-rouge">"function"</code> mode and enforces strict mode directives inside top-level functions.</p>
+
+<h3 id="never">never<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p>This mode forbids any occurrence of a strict mode directive.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint strict: ["error", "never"]*/</span><br/><br/><span class="s2">"use strict"</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">};</span><br/><br/><span class="nx">foo</span><span class="p">();</span><br/><span class="nx">bar</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint strict: ["error", "never"]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">};</span><br/><br/><span class="nx">foo</span><span class="p">();</span><br/><span class="nx">bar</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="global">global<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#global" aria-label="Anchor link for: global" data-anchorjs-icon=""></a></h3>
+
+<p>This mode ensures that all code is in strict mode and that there are no extraneous strict mode directives at the top level or in nested functions, which are themselves already strict by virtue of being contained in strict global code. It requires that global code contains exactly one strict mode directive. Strict mode directives inside functions are considered unnecessary. Multiple strict mode directives at any level also trigger warnings.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge">"global"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint strict: ["error", "global"]*/</span><br/><br/><span class="s2">"use strict"</span><span class="p">;</span><br/><span class="s2">"use strict"</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="s2">"use strict"</span><span class="p">;</span><br/>        <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"global"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint strict: ["error", "global"]*/</span><br/><br/><span class="s2">"use strict"</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="function">function<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#function" aria-label="Anchor link for: function" data-anchorjs-icon=""></a></h3>
+
+<p>This mode ensures that all function bodies are strict mode code, while global code is not. Particularly if a build step concatenates multiple scripts, a strict mode directive in global code of one script could unintentionally enable strict mode in another script that was not intended to be strict code. It forbids any occurrence of a strict mode directive in global code. It requires exactly one strict mode directive in each function declaration or expression whose parent is global code. Strict mode directives inside nested functions are considered unnecessary. Multiple strict mode directives at any level also trigger warnings.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge">"function"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint strict: ["error", "function"]*/</span><br/><br/><span class="s2">"use strict"</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// Missing strict mode directive</span><br/><br/>    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="s2">"use strict"</span><span class="p">;</span>   <span class="c1">// Unnecessary; parent should contain a strict mode directive</span><br/>        <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"function"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint strict: ["error", "function"]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="k">return</span><span class="p">;</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/><br/><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>    <span class="k">return</span><span class="p">;</span><br/><span class="p">}());</span><br/><br/><span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="earlier-default-removed">earlier default (removed)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#earlier-default-removed" aria-label="Anchor link for: earlier default removed" data-anchorjs-icon=""></a></h3>
+
+<p><strong>Replacement notice</strong>: This mode, previously enabled by turning on the rule without specifying a mode, has been removed in ESLint v1.0. <code class="highlighter-rouge">"function"</code> mode is most similar to the deprecated behavior.</p>
+
+<p>This mode ensures that all functions are executed in strict mode. A strict mode directive must be present in global code or in every top-level function declaration or expression. It does not concern itself with unnecessary strict mode directives in nested functions that are already strict, nor with multiple strict mode directives at the same level.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for an earlier default option which has been removed:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "strict": "error"</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for an earlier default option which has been removed:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "strict": "error"</span><br/><br/><span class="s2">"use strict"</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "strict": "error"</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// "strict": "error"</span><br/><br/><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="s2">"use strict"</span><span class="p">;</span><br/><br/>    <span class="c1">// other code</span><br/><span class="p">}());</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>In a codebase that has both strict and non-strict code, either turn this rule off, or <a href="http://eslint.org/docs/user-guide/configuring">selectively disable it</a> where necessary. For example, functions referencing <code class="highlighter-rouge">arguments.callee</code> are invalid in strict mode. A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode#Differences_from_non-strict_to_strict">full list of strict mode differences</a> is available on MDN.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.1.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/strict.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/strict.md">Documentation source</a></li>
+</ul>
+
+  

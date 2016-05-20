@@ -1,0 +1,45 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="restrict-what-can-be-thrown-as-an-exception-no-throw-literal">Restrict what can be thrown as an exception (no-throw-literal)</h1>
+
+<p>It is considered good practice to only <code class="highlighter-rouge">throw</code> the <code class="highlighter-rouge">Error</code> object itself or an object using the <code class="highlighter-rouge">Error</code> object as base objects for user-defined exceptions.
+The fundamental benefit of <code class="highlighter-rouge">Error</code> objects is that they automatically keep track of where they were built and originated.</p>
+
+<p>This rule restricts what can be thrown as an exception.  When it was first created, it only prevented literals from being thrown (hence the name), but it has now been expanded to only allow expressions which have a possibility of being an <code class="highlighter-rouge">Error</code> object.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at maintaining consistency when throwing exception by disallowing to throw literals and other expressions which cannot possibly be an <code class="highlighter-rouge">Error</code> object.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-throw-literal: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="k">throw</span> <span class="s2">"error"</span><span class="p">;</span><br/><br/><span class="k">throw</span> <span class="mi">0</span><span class="p">;</span><br/><br/><span class="k">throw</span> <span class="kc">undefined</span><span class="p">;</span><br/><br/><span class="k">throw</span> <span class="kc">null</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">err</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">();</span><br/><span class="k">throw</span> <span class="s2">"an "</span> <span class="o">+</span> <span class="nx">err</span><span class="p">;</span><br/><span class="c1">// err is recast to a string literal</span><br/><br/><span class="kd">var</span> <span class="nx">err</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">();</span><br/><span class="k">throw</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">err</span><span class="p">}</span><span class="err">`</span><br/><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-throw-literal: "error"*/</span><br/><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">();</span><br/><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><span class="k">throw</span> <span class="nx">e</span><span class="p">;</span><br/><br/><span class="k">try</span> <span class="p">{</span><br/>    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">throw</span> <span class="nx">e</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="known-limitations">Known Limitations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#known-limitations" aria-label="Anchor link for: known limitations" data-anchorjs-icon=""></a></h2>
+
+<p>Due to the limits of static analysis, this rule cannot guarantee that you will only throw <code class="highlighter-rouge">Error</code> objects.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule, but which do not throw an <code class="highlighter-rouge">Error</code> object:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-throw-literal: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">err</span> <span class="o">=</span> <span class="s2">"error"</span><span class="p">;</span><br/><span class="k">throw</span> <span class="nx">err</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span><br/><span class="p">}</span><br/><span class="k">throw</span> <span class="nx">foo</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><br/><span class="k">throw</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">"error"</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"error"</span><br/><span class="p">};</span><br/><span class="k">throw</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.15.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-throw-literal.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-throw-literal.md">Documentation source</a></li>
+</ul>
+
+  

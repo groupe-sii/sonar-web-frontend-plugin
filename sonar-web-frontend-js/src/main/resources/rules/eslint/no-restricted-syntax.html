@@ -1,0 +1,54 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-certain-syntax-no-restricted-syntax">Disallow certain syntax (no-restricted-syntax)</h1>
+
+<p>JavaScript has a lot of language features, and not everyone likes every features. As a result, some projects choose to disallow the use of certain language features altogether. For instance, you might decide to disallow the use of <code class="highlighter-rouge">try-catch</code> or <code class="highlighter-rouge">class</code>.</p>
+
+<p>Rather than creating separate rules for every language feature you want to turn off, this rule allows you to configure the syntax elements you want to restrict use of. These elements are represented by their <a href="https://github.com/estree/estree">ESTree</a> node types. For example, a function declaration is represented by <code class="highlighter-rouge">FunctionDeclaration</code> and the <code class="highlighter-rouge">with</code> statement is represented by <code class="highlighter-rouge">WithStatement</code>. You may find the full list of AST node names you can use <a href="https://github.com/eslint/espree/blob/master/lib/ast-node-types.js">on GitHub</a> and use the <a href="http://eslint.org/parser/">online parser</a> to see what type of nodes your code consists of.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at eliminating certain syntax from your JavaScript. As such, it warns whenever it sees a node type that is restricted by its options.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule takes a list of strings where strings denote the node types:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>        </span><span class="nt">"no-restricted-syntax"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FunctionExpression"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WithStatement"</span><span class="p">]</span><span class="w"><br/>    </span><span class="p">}</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* eslint no-restricted-syntax: ["error", "FunctionExpression", "WithStatement"] */</span><br/><br/><span class="kd">with</span> <span class="p">(</span><span class="nx">me</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">dontMess</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="kd">var</span> <span class="nx">doSomething</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{};</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/* eslint no-restricted-syntax: ["error", "FunctionExpression", "WithStatement"] */</span><br/><br/><span class="nx">me</span><span class="p">.</span><span class="nx">dontMess</span><span class="p">();</span><br/><br/><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{};</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you don’t want to restrict your code from using any JavaScript features or syntax, you should not use this rule.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-alert">no-alert</a></li>
+  <li><a href="no-console">no-console</a></li>
+  <li><a href="no-debugger">no-debugger</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.4.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-syntax.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-syntax.md">Documentation source</a></li>
+</ul>
+
+  

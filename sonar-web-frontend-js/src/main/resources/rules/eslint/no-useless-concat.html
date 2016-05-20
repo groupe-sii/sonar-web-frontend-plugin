@@ -1,0 +1,45 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-unnecessary-concatenation-of-strings-no-useless-concat">Disallow unnecessary concatenation of strings (no-useless-concat)</h1>
+
+<p>It’s unnecessary to concatenate two strings together, such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">"a"</span> <span class="o">+</span> <span class="s2">"b"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>This code is likely the result of refactoring where a variable was removed from the concatenation (such as <code class="highlighter-rouge">"a" + b + "b"</code>). In such a case, the concatenation isn’t important and the code can be rewritten as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">"ab"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to flag the concatenation of 2 literals when they could be combined into a single literal. Literals can be strings or template literals.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-useless-concat: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="c1">// these are the same as "10"</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="err">`</span><span class="nx">some</span><span class="err">`</span> <span class="o">+</span> <span class="err">`</span><span class="nx">string</span><span class="err">`</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">+</span> <span class="s1">'0'</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">+</span> <span class="err">`</span><span class="mi">0</span><span class="err">`</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="err">`</span><span class="mi">1</span><span class="err">`</span> <span class="o">+</span> <span class="s1">'0'</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="err">`</span><span class="mi">1</span><span class="err">`</span> <span class="o">+</span> <span class="err">`</span><span class="mi">0</span><span class="err">`</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-useless-concat: "error"*/</span><br/><br/><span class="c1">// when a non string is included</span><br/><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">+</span> <span class="nx">a</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="s1">'1'</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span><br/><span class="c1">// when the string concatenation is multiline</span><br/><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="s2">"foo"</span> <span class="o">+</span><br/>    <span class="s2">"bar"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you don’t want to be notified about unnecessary string concatenation, you can safely disable this rule.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.3.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-concat.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-concat.md">Documentation source</a></li>
+</ul>
+
+  

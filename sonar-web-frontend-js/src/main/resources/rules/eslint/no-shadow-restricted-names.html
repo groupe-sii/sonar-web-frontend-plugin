@@ -1,0 +1,49 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-shadowing-of-restricted-names-no-shadow-restricted-names">Disallow Shadowing of Restricted Names (no-shadow-restricted-names)</h1>
+
+<p>ES5 §15.1.1 Value Properties of the Global Object (<code class="highlighter-rouge">NaN</code>, <code class="highlighter-rouge">Infinity</code>, <code class="highlighter-rouge">undefined</code>) as well as strict mode restricted identifiers <code class="highlighter-rouge">eval</code> and <code class="highlighter-rouge">arguments</code> are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there’s nothing prevent you from writing:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="s2">"foo"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>Then any code used within the same scope would not get the global <code class="highlighter-rouge">undefined</code>, but rather the local version with a very different meaning.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-shadow-restricted-names: "error"*/</span><br/><br/><span class="kd">function</span> <span class="kc">NaN</span><span class="p">(){}</span><br/><br/><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="kc">Infinity</span><span class="p">){};</span><br/><br/><span class="kd">var</span> <span class="kc">undefined</span><span class="p">;</span><br/><br/><span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nb">eval</span><span class="p">){}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-shadow-restricted-names: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nb">Object</span><span class="p">;</span><br/><br/><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){}</span><br/></code></pre>
+</div>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://es5.github.io/#x15.1.1">Annotated ES5 - §15.1.1</a></li>
+  <li><a href="http://es5.github.io/#C">Annotated ES5 - Annex C</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-shadow">no-shadow</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.1.4.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-shadow-restricted-names.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-shadow-restricted-names.md">Documentation source</a></li>
+</ul>
+
+  

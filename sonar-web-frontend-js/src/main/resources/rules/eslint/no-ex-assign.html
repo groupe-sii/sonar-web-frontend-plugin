@@ -1,0 +1,41 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-reassigning-exceptions-in-catch-clauses-no-ex-assign">disallow reassigning exceptions in <code class="highlighter-rouge">catch</code> clauses (no-ex-assign)</h1>
+
+<p>If a <code class="highlighter-rouge">catch</code> clause in a <code class="highlighter-rouge">try</code> statement accidentally (or purposely) assigns another value to the exception parameter, it impossible to refer to the error from that point on.
+Since there is no <code class="highlighter-rouge">arguments</code> object to offer alternative access to this data, assignment of the parameter is absolutely destructive.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule disallows reassigning exceptions in <code class="highlighter-rouge">catch</code> clauses.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-ex-assign: "error"*/</span><br/><br/><span class="k">try</span> <span class="p">{</span><br/>    <span class="c1">// code</span><br/><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">e</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-ex-assign: "error"*/</span><br/><br/><span class="k">try</span> <span class="p">{</span><br/>    <span class="c1">// code</span><br/><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://jslinterrors.com/do-not-assign-to-the-exception-parameter/">Do not assign to the exception parameter</a></li>
+  <li><a href="http://weblog.bocoup.com/the-catch-with-try-catch/">The “catch” with try…catch</a> by Ben Alman explains how the exception identifier can leak into the outer scope in IE 6-8</li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-ex-assign.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-ex-assign.md">Documentation source</a></li>
+</ul>
+
+  

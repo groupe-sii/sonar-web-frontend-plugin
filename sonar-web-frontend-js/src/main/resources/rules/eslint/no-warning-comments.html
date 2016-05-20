@@ -1,0 +1,64 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-warning-comments-no-warning-comments">Disallow Warning Comments (no-warning-comments)</h1>
+
+<p>Developers often add comments to code which is not complete or needs review. Most likely you want to fix or review the code, and then remove the comment, before you consider the code to be production ready.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// TODO: do something</span><br/><span class="c1">// FIXME: this is not a good idea</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule reports comments that include any of the predefined terms specified in its configuration.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an options object literal:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"terms"</code>: optional array of terms to match. Defaults to <code class="highlighter-rouge">["todo", "fixme", "xxx"]</code>. Terms are matched case-insensitive and as whole words: <code class="highlighter-rouge">fix</code> would match <code class="highlighter-rouge">FIX</code> but not <code class="highlighter-rouge">fixing</code>. Terms can consist of multiple words: <code class="highlighter-rouge">really bad idea</code>.</li>
+  <li><code class="highlighter-rouge">"location"</code>: optional string that configures where in your comments to check for matches. Defaults to <code class="highlighter-rouge">"start"</code>. The other value is match <code class="highlighter-rouge">anywhere</code> in comments.</li>
+</ul>
+
+<p class="incorrect icon">Example of <strong>incorrect</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"todo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fixme"</span><span class="p">,</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">],</span><span class="w"> </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-warning-comments: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><br/>    <span class="k">return</span><span class="p">;</span><br/>  <span class="p">}</span><br/>  <span class="c1">// TODO</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Example of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"todo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fixme"</span><span class="p">,</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">],</span><span class="w"> </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-warning-comments: "error"*/</span><br/><br/><span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><br/>    <span class="k">return</span><span class="p">;</span><br/>  <span class="p">}</span><br/>  <span class="c1">// NOT READY FOR PRIME TIME</span><br/>  <span class="c1">// but too bad, it is not a predefined warning term</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="terms-and-location">terms and location<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#terms-and-location" aria-label="Anchor link for: terms and location" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"todo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fixme"</span><span class="p">,</span><span class="w"> </span><span class="s2">"any other term"</span><span class="p">],</span><span class="w"> </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anywhere"</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-warning-comments: ["error", { "terms": ["todo", "fixme", "any other term"], "location": "anywhere" }]*/</span><br/><br/><span class="c1">// TODO: this</span><br/><span class="c1">// todo: this too</span><br/><span class="c1">// Even this: TODO</span><br/><span class="cm">/* /*<br/> * The same goes for this TODO comment<br/> * Or a fixme<br/> * as well as any other term<br/> */</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"todo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fixme"</span><span class="p">,</span><span class="w"> </span><span class="s2">"any other term"</span><span class="p">],</span><span class="w"> </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anywhere"</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-warning-comments: ["error", { "terms": ["todo", "fixme", "any other term"], "location": "anywhere" }]*/</span><br/><br/><span class="c1">// This is to do</span><br/><span class="c1">// even not any other    term</span><br/><span class="c1">// any other terminal</span><br/><span class="cm">/*<br/> * The same goes for block comments<br/> * with any other interesting term<br/> * or fix me this<br/> */</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li>If you have a large code base that was not developed with a policy to not use such warning terms, you might get hundreds of warnings / errors which might be contra-productive if you can’t fix all of them (e.g. if you don’t get the time to do it) as you might overlook other warnings / errors or get used to many of them and don’t pay attention on it anymore.</li>
+  <li>Same reason as the point above: You shouldn’t configure terms that are used very often (e.g. central parts of the native language used in your comments).</li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.4.4.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-warning-comments.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-warning-comments.md">Documentation source</a></li>
+</ul>
+
+  

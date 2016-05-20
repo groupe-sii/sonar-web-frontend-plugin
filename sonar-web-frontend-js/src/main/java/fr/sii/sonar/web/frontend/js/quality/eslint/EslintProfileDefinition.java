@@ -1,4 +1,4 @@
-package fr.sii.sonar.web.frontend.js.quality;
+package fr.sii.sonar.web.frontend.js.quality.eslint;
 
 import org.sonar.api.rules.RuleFinder;
 
@@ -11,9 +11,9 @@ import fr.sii.sonar.report.core.quality.profile.ProfileFileDefinition;
  * @author Aurélien Baudet
  *
  */
-public class JshintProfileDefinition extends ProfileFileDefinition {
+public class EslintProfileDefinition extends ProfileFileDefinition {
 
-	public JshintProfileDefinition(RuleFinder ruleFinder, JsHintQualityConstants constants) {
+	public EslintProfileDefinition(RuleFinder ruleFinder, EslintQualityConstants constants) {
 		super(constants.getProfileJsonPath(), new JsonProfileParser(), ruleFinder);
 	}
 

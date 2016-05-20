@@ -1,0 +1,65 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-consistent-this-consistent-this">Require Consistent This (consistent-this)</h1>
+
+<p>It is often necessary to capture the current execution context in order to make it available subsequently. A prominent example of this are jQuery callbacks:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/><span class="nx">jQuery</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// here, "this" is the HTMLElement where the click event occurred</span><br/>    <span class="nx">that</span><span class="p">.</span><span class="nx">setFoo</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p>There are many commonly used aliases for <code class="highlighter-rouge">this</code> such as <code class="highlighter-rouge">that</code>, <code class="highlighter-rouge">self</code> or <code class="highlighter-rouge">me</code>. It is desirable to ensure that whichever alias the team agrees upon is used consistently throughout the application.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces two things about variables with the designated alias names for <code class="highlighter-rouge">this</code>:</p>
+
+<ul>
+  <li>If a variable with a designated name is declared, it <em>must</em> be either initialized (in the declaration) or assigned (in the same scope as the declaration) the value <code class="highlighter-rouge">this</code>.</li>
+  <li>If a variable is initialized or assigned the value <code class="highlighter-rouge">this</code>, the name of the variable <em>must</em> be a designated alias.</li>
+</ul>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has one or more string options:</p>
+
+<ul>
+  <li>designated alias names for <code class="highlighter-rouge">this</code> (default <code class="highlighter-rouge">"that"</code>)</li>
+</ul>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"that"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint consistent-this: ["error", "that"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/><br/><span class="nx">that</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><br/><span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"that"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint consistent-this: ["error", "that"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">self</span><span class="p">;</span><br/><br/><span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"that"</code> option, if the variable is not initialized:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint consistent-this: ["error", "that"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">that</span><span class="p">;</span><br/><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"that"</code> option, if the variable is not initialized:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint consistent-this: ["error", "that"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">that</span><span class="p">;</span><br/><span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span><span class="p">,</span> <span class="nx">that</span><span class="p">;</span><br/><span class="nx">foo</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you need to capture nested context, <code class="highlighter-rouge">consistent-this</code> is going to be problematic. Code of that nature is usually difficult to read and maintain and you should consider refactoring it.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/consistent-this.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/consistent-this.md">Documentation source</a></li>
+</ul>
+
+  
