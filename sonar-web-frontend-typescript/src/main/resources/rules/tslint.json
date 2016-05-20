@@ -1,877 +1,877 @@
 [ {
   "key" : "member-access",
-  "name" : "member-access",
+  "name" : "Member access",
   "description" : "Requires explicit visibility declarations for class members.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "member-ordering",
-  "name" : "member-ordering",
+  "name" : "Member ordering",
   "description" : "Enforces member ordering.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-any",
-  "name" : "no-any",
+  "name" : "No any",
   "description" : "Diallows usages of any as a type declaration.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention", "pitfall"],
+  "tags" : [ "tslint", "convention", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "30min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-inferrable-types",
-  "name" : "no-inferrable-types",
+  "name" : "No inferrable types",
   "description" : "Disallows explicit type declarations for variables or parameters initialized to a number, string, or boolean.",
-  "severity" : "MINOR",
+  "severity" : "INFO",
   "status" : null,
-  "tags" : ["tslint", "convention", "useless"],
+  "tags" : [ "tslint", "convention", "useless", "performance" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-internal-module",
-  "name" : "no-internal-module",
+  "name" : "No internal module",
   "description" : "Disallows internal module",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "convention", "confusion", "es6"],
+  "tags" : [ "tslint", "convention", "confusing", "es6" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "5min"
-	      },
-	      "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "no-namespace",
-  "name" : "no-namespace",
+  "name" : "No namespace",
   "description" : "Disallows use of internal modules and namespaces.",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "obsolete", "es6"],
+  "tags" : [ "tslint", "convention", "obsolete", "es6" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
+  }
 }, {
   "key" : "no-reference",
-  "name" : "no-reference",
+  "name" : "No reference",
   "description" : "Disallows /// <reference path=> imports (use ES6-style imports instead).",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "obsolete", "es6"],
+  "tags" : [ "tslint", "obsolete", "es6" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
+  }
 }, {
   "key" : "no-var-requires",
-  "name" : "no-var-requires",
+  "name" : "No var requires",
   "description" : "Disallows the use of require statements except in import statements.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention", "es6"],
+  "tags" : [ "tslint", "convention", "es6" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
+  }
 }, {
   "key" : "typedef",
-  "name" : "typedef",
+  "name" : "Typedef",
   "description" : "Requires type definitions to exist.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "pitfall"],
+  "tags" : [ "tslint", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
   "key" : "typedef-whitespace",
-  "name" : "typedef-whitespace",
+  "name" : "Typedef whitespace",
   "description" : "Requires or disallows whitespace for type definitions.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "ban",
-  "name" : "ban",
+  "name" : "Ban",
   "description" : "Bans the use of specific functions.",
-  "severity" : "MAJOR",
+  "severity" : "BLOCKER",
   "status" : null,
-  "tags" : ["tslint", "convention", "forbidden"],
+  "tags" : [ "tslint", "convention", "forbidden" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
   "key" : "curly",
-  "name" : "curly",
+  "name" : "Curly",
   "description" : "Enforces braces for if/for/do/while statements.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention", "pitfall"],
+  "tags" : [ "tslint", "convention", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "forin",
-  "name" : "forin",
+  "name" : "Forin",
   "description" : "Requires a for ... in statement to be filtered with an if statement.",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bug", "pitfall"],
+  "tags" : [ "tslint", "suspicious", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "label-position",
-  "name" : "label-position",
+  "name" : "Label position",
   "description" : "Only allows labels in sensible locations.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
   "key" : "label-undefined",
-  "name" : "label-undefined",
+  "name" : "Label undefined",
   "description" : "Checks that labels are defined before usage.",
   "severity" : "BLOCKER",
   "status" : null,
-  "tags" : ["tslint", "bug"],
+  "tags" : [ "tslint", "bug" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
 }, {
   "key" : "no-arg",
-  "name" : "no-arg",
+  "name" : "No arg",
   "description" : "Disallows use of arguments.callee.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "performance"],
+  "tags" : [ "tslint", "performance", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
 }, {
   "key" : "no-bitwise",
-  "name" : "no-bitwise",
+  "name" : "No bitwise",
   "description" : "Disallows bitwise operators.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "suspicious", "bad-practice"],
+  "tags" : [ "tslint", "suspicious", "bad-practice" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "no-conditional-assignment",
-  "name" : "no-conditional-assignment",
+  "name" : "No conditional assignment",
   "description" : "Disallows any type of assignment in conditionals.",
-  "severity" : "CRITICAL",
+  "severity" : "BLOCKER",
   "status" : null,
-  "tags" : ["tslint", "suspicious", "bad-practice"],
+  "tags" : [ "tslint", "suspicious", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-console",
-  "name" : "no-console",
+  "name" : "No console",
   "description" : "Bans the use of specified console methods.",
-  "severity" : "MAJOR",
+  "severity" : "BLOCKER",
   "status" : null,
-  "tags" : ["tslint", "bad-practice"],
+  "tags" : [ "tslint", "bad-practice" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-construct",
-  "name" : "no-construct",
+  "name" : "No construct",
   "description" : "Disallows access to the constructors of String, Number, and Boolean.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
   "key" : "no-debugger",
-  "name" : "no-debugger",
+  "name" : "No debugger",
   "description" : "Disallows debugger statements.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "bad-practice"],
-  "debt" : null
+  "tags" : [ "tslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-duplicate-key",
-  "name" : "no-duplicate-key",
+  "name" : "No duplicate key",
   "description" : "Disallows duplicate keys in object literals.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "suspicious"],
+  "tags" : [ "tslint", "bad-practice", "suspicious", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
   "key" : "no-duplicate-variable",
-  "name" : "no-duplicate-variable",
+  "name" : "No duplicate variable",
   "description" : "Disallows duplicate variable declarations in the same block scope.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-empty",
-  "name" : "no-empty",
+  "name" : "No empty",
   "description" : "Disallows empty blocks.",
-  "severity" : "MAJOR",
+  "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-eval",
-  "name" : "no-eval",
+  "name" : "No eval",
   "description" : "Disallows eval function invocations.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "security"],
+  "tags" : [ "tslint", "bad-practice", "security" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "30min"
-	      },
-	      "sqaleSubCharacteristic" : "API_ABUSE"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
 }, {
   "key" : "no-invalid-this",
-  "name" : "no-invalid-this",
+  "name" : "No invalid this",
   "description" : "Disallows using the this keyword outside of classes.",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "5min"
-	      },
-	      "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-null-keyword",
-  "name" : "no-null-keyword",
+  "name" : "No null keyword",
   "description" : "Disallows use of the null keyword literal.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "5min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "no-shadowed-variable",
-  "name" : "no-shadowed-variable",
+  "name" : "No shadowed variable",
   "description" : "Disallows shadowing variable declarations.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-string-literal",
-  "name" : "no-string-literal",
+  "name" : "No string literal",
   "description" : "Disallows object access via string literals.",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "convention", "type-safe"],
+  "tags" : [ "tslint", "convention", "pitfall", "type-safe" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
+  }
 }, {
   "key" : "no-switch-case-fall-through",
-  "name" : "no-switch-case-fall-through",
+  "name" : "No switch case fall through",
   "description" : "Disallows falling through case statements.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "pitfall", "bad-practice"],
+  "tags" : [ "tslint", "pitfall", "bad-practice" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-unreachable",
-  "name" : "no-unreachable",
+  "name" : "No unreachable",
   "description" : "Disallows unreachable code after break, catch, throw, and return statements.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "suspicious", "bad-practice", "dead-code"],
+  "tags" : [ "tslint", "suspicious", "bad-practice", "dead-code" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-unused-expression",
-  "name" : "no-unused-expression",
+  "name" : "No unused expression",
   "description" : "Disallows unused expression statements.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "suspicious", "bad-practice", "unused"],
+  "tags" : [ "tslint", "suspicious", "bad-practice", "unused" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-unused-variable",
-  "name" : "no-unused-variable",
+  "name" : "No unused variable",
   "description" : "Disallows unused imports, variables, functions and private class members.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "unused"],
+  "tags" : [ "tslint", "bad-practice", "unused" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-use-before-declare",
-  "name" : "no-use-before-declare",
+  "name" : "No use before declare",
   "description" : "Disallows usage of variables before their declaration.",
   "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "no-var-keyword",
-  "name" : "no-var-keyword",
+  "name" : "No var keyword",
   "description" : "Disallows usage of the var keyword.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "5min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "radix",
-  "name" : "radix",
+  "name" : "Radix",
   "description" : "Requires the radix parameter to be specified when calling parseInt.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
 }, {
   "key" : "switch-default",
-  "name" : "switch-default",
+  "name" : "Switch default",
   "description" : "Require a default case in all switch statements.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention", "suspicious"],
+  "tags" : [ "tslint", "convention", "suspicious" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "DATA_CHANGEABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "DATA_CHANGEABILITY"
+  }
 }, {
   "key" : "triple-equals",
-  "name" : "triple-equals",
+  "name" : "Triple equals",
   "description" : "Requires === and !== in place of == and !=.",
-  "severity" : "MAJOR",
+  "severity" : "CRITICAL",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "pitfall", "suspicious" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "use-isnan",
-  "name" : "use-isnan",
+  "name" : "Use isnan",
   "description" : "Enforces use of the isNaN() function to check for NaN references instead of a comparison to the NaN constant.",
-  "severity" : "MAJOR",
+  "severity" : "BLOCKER",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
+  "tags" : [ "tslint", "bad-practice", "bug" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
 }, {
   "key" : "use-strict",
-  "name" : "use-strict",
+  "name" : "Use strict",
   "description" : "Requires using ECMAScript 5’s strict mode.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
 }, {
   "key" : "eofline",
-  "name" : "eofline",
+  "name" : "Eofline",
   "description" : "Ensures the file ends with a newline.",
-  "severity" : "MINOR",
+  "severity" : "INFO",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "indent",
-  "name" : "indent",
+  "name" : "Indent",
   "description" : "Enforces indentation with tabs or spaces.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "max-line-length",
-  "name" : "max-line-length",
+  "name" : "Max line length",
   "description" : "Requires lines to be under a certain max length.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-default-export",
-  "name" : "no-default-export",
+  "name" : "No default export",
   "description" : "Disallows default exports in ES6-style modules.",
-  "severity" : "MAJOR",
+  "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "bad-practice", "pitfall"],
-  "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "20min"
-	      },
-	      "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
-	    }
+  "tags" : [ "tslint", "tools" ],
+  "debt" : null
 }, {
   "key" : "no-require-imports",
-  "name" : "no-require-imports",
+  "name" : "No require imports",
   "description" : "Disallows invocation of require().",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention", "es6"],
+  "tags" : [ "tslint", "convention", "es6" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "5min"
-	      },
-	      "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
 }, {
   "key" : "no-trailing-whitespace",
-  "name" : "no-trailing-whitespace",
+  "name" : "No trailing whitespace",
   "description" : "Disallows trailing whitespace at the end of a line.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "object-literal-sort-keys",
-  "name" : "object-literal-sort-keys",
+  "name" : "Object literal sort keys",
   "description" : "Requires keys in object literals to be sorted alphabetically",
-  "severity" : "MINOR",
+  "severity" : "INFO",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "trailing-comma",
-  "name" : "trailing-comma",
+  "name" : "Trailing comma",
   "description" : "Requires or disallows trailing commas in array and object literals, destructuring assignments and named imports.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "align",
-  "name" : "align",
+  "name" : "Align",
   "description" : "Enforces vertical alignment.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "class-name",
-  "name" : "class-name",
+  "name" : "Class name",
   "description" : "Enforces PascalCased class and interface names.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "5min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "comment-format",
-  "name" : "comment-format",
+  "name" : "Comment format",
   "description" : "Enforces formatting rules for single-line comments.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "interface-name",
-  "name" : "interface-name",
+  "name" : "Interface name",
   "description" : "Requires interface names to begin with a capital ‘I’",
   "severity" : "INFO",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
 }, {
   "key" : "jsdoc-format",
-  "name" : "jsdoc-format",
+  "name" : "Jsdoc format",
   "description" : "Enforces basic format rules for JSDoc comments.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "new-parens",
-  "name" : "new-parens",
+  "name" : "New parens",
   "description" : "Requires parentheses when invoking a constructor via the new keyword.",
-  "severity" : "MINOR",
+  "severity" : "MAJOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-angle-bracket-type-assertion",
-  "name" : "no-angle-bracket-type-assertion",
+  "name" : "No angle bracket type assertion",
   "description" : "Requires the use of as Type for type assertions instead of <Type>.",
-  "severity" : "MINOR",
+  "severity" : "INFO",
   "status" : null,
-  "tags" : ["tslint", "convention", "tsx"],
+  "tags" : [ "tslint", "convention", "react" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "10min"
-	      },
-	      "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
 }, {
   "key" : "no-consecutive-blank-lines",
-  "name" : "no-consecutive-blank-lines",
+  "name" : "No consecutive blank lines",
   "description" : "Disallows more than one blank line in a row.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "no-constructor-vars",
-  "name" : "no-constructor-vars",
+  "name" : "No constructor vars",
   "description" : "Disallows parameter properties.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "2min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "one-line",
-  "name" : "one-line",
+  "name" : "One line",
   "description" : "Requires the specified tokens to be on the same line as the expression preceding them.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "one-variable-per-declaration",
-  "name" : "one-variable-per-declaration",
+  "name" : "One variable per declaration",
   "description" : "Disallows multiple variable definitions in the same declaration statement.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "quotemark",
-  "name" : "quotemark",
+  "name" : "Quotemark",
   "description" : "Requires single or double quotes for string literals.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention", "consistency"],
+  "tags" : [ "tslint", "convention", "consistency" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "semicolon",
-  "name" : "semicolon",
+  "name" : "Semicolon",
   "description" : "Enforces consistent semicolon usage at the end of every statement.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "variable-name",
-  "name" : "variable-name",
+  "name" : "Variable name",
   "description" : "Checks variable names for various errors.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 }, {
   "key" : "whitespace",
-  "name" : "whitespace",
+  "name" : "Whitespace",
   "description" : "Enforces whitespace style conventions.",
   "severity" : "MINOR",
   "status" : null,
-  "tags" : ["tslint", "convention"],
+  "tags" : [ "tslint", "convention" ],
   "debt" : {
-	    "sqaleRemediation" : {
-	        "type" : "constant",
-	        "offset" : "1min"
-	      },
-	      "sqaleSubCharacteristic" : "READABILITY"
-	    }
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
 } ]

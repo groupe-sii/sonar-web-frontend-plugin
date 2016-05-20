@@ -21,6 +21,8 @@ import fr.sii.sonar.web.frontend.ng.hint.AngularHintPlugin;
 import fr.sii.sonar.web.frontend.profile.AllJSLintersProfileDefinition;
 import fr.sii.sonar.web.frontend.scss.ScssLanguageConstants;
 import fr.sii.sonar.web.frontend.scss.ScssPlugin;
+import fr.sii.sonar.web.frontend.typescript.TypeScriptLanguageConstants;
+import fr.sii.sonar.web.frontend.typescript.TypeScriptPlugin;
 import fr.sii.sonar.web.frontend.widget.MultiLanguageDuplicationsWidget;
 import fr.sii.sonar.web.frontend.widget.MultiLanguageIssuesWidget;
 
@@ -33,7 +35,8 @@ public final class WebPlugin extends SonarPlugin {
 	public static final String LANGUAGES = JsLanguageConstants.LANGUAGE_KEY + "," +
 											CssLanguageConstants.LANGUAGE_KEY + "," +
 											HtmlLanguageConstants.LANGUAGE_KEY + "," +
-											ScssLanguageConstants.LANGUAGE_KEY;
+											ScssLanguageConstants.LANGUAGE_KEY + "," +
+											TypeScriptLanguageConstants.LANGUAGE_KEY;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List getExtensions() {
@@ -44,6 +47,7 @@ public final class WebPlugin extends SonarPlugin {
 		extensions.addAll(new ScssPlugin().getExtensions());
 		extensions.addAll(new AngularHintPlugin().getExtensions());
 		extensions.addAll(new EslintAngularPlugin().getExtensions());
+		extensions.addAll(new TypeScriptPlugin().getExtensions());
 		
 		// aggregated profile definitions
 		extensions.add(AllJSLintersProfileDefinition.class);
