@@ -5,6 +5,9 @@
 		"key": "jshint",
 		"rules": "/rules/jshint.json"
 	}, {
+		"key": "eslint",
+		"rules": "/rules/eslint.json"
+	}, {
 		"key": "angular-hint",
 		"rules": "/rules/angular-hint.json"
 	}, {
