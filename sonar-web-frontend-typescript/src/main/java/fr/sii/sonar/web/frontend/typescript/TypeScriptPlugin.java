@@ -97,123 +97,123 @@ public final class TypeScriptPlugin extends SonarPlugin {
 		            .name("Fail on missing source file")
 		            .description("True to stop analysis if a source file is not found")
 		            .onQualifiers(Qualifiers.PROJECT)
-		            .build()
+		            .build(),
 
-//				LcovUnitCoverageConstants.class,
-//				LcovUnitCoverageSensor.class,
-//				
-//				// Integration coverage configuration
-//				PropertyDefinition.builder(LcovIntegrationCoverageConstants.REPORT_PATH_KEY)
-//		            .defaultValue(LcovIntegrationCoverageConstants.REPORT_PATH_DEFVALUE)
-//		            .category(LcovIntegrationCoverageConstants.CATEGORY)
-//		            .subCategory(LcovIntegrationCoverageConstants.SUB_CATEGORY)
-//		            .name("TypeScript integration tests coverage report path")
-//		            .description("The path to the TypeScript report file to load for integration tests coverage")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//				PropertyDefinition.builder(LcovIntegrationCoverageConstants.FAIL_MISSING_FILE_KEY)
-//		            .defaultValue(LcovIntegrationCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
-//		            .category(LcovIntegrationCoverageConstants.CATEGORY)
-//		            .subCategory(LcovIntegrationCoverageConstants.SUB_CATEGORY)
-//		            .name("Fail on missing source file")
-//		            .description("True to stop analysis if a source file is not found")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//
-//				LcovIntegrationCoverageConstants.class,
-//				LcovIntegrationCoverageSensor.class,
-//				
-//				// Overall coverage configuration
-//				PropertyDefinition.builder(LcovOverallCoverageConstants.REPORT_PATH_KEY)
-//		            .defaultValue(LcovOverallCoverageConstants.REPORT_PATH_DEFVALUE)
-//		            .category(LcovOverallCoverageConstants.CATEGORY)
-//		            .subCategory(LcovOverallCoverageConstants.SUB_CATEGORY)
-//		            .name("TypeScript overall tests coverage report path")
-//		            .description("The path to the TypeScript report file to load for overall tests coverage")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//				PropertyDefinition.builder(LcovOverallCoverageConstants.FAIL_MISSING_FILE_KEY)
-//		            .defaultValue(LcovOverallCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
-//		            .category(LcovOverallCoverageConstants.CATEGORY)
-//		            .subCategory(LcovOverallCoverageConstants.SUB_CATEGORY)
-//		            .name("Fail on missing source file")
-//		            .description("True to stop analysis if a source file is not found")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//
-//				LcovOverallCoverageConstants.class,
-//				LcovOverallCoverageSensor.class,
-//				
-//				// Unit testing configuration
-//				PropertyDefinition.builder(JUnitConstants.REPORT_PATH_KEY)
-//		            .defaultValue(JUnitConstants.REPORT_PATH_DEFVALUE)
-//		            .category(JUnitConstants.CATEGORY)
-//		            .subCategory(JUnitConstants.SUB_CATEGORY)
-//		            .name("TypeScript junit unit test report path")
-//		            .description("The path to the TypeScript report file to load")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//				PropertyDefinition.builder(JUnitConstants.FAIL_MISSING_FILE_KEY)
-//		            .defaultValue(JUnitConstants.FAIL_MISSING_FILE_DEFVALUE)
-//		            .category(JUnitConstants.CATEGORY)
-//		            .subCategory(JUnitConstants.SUB_CATEGORY)
-//		            .name("Fail on missing test file")
-//		            .description("True to stop analysis if a test file is not found")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//
-//				JUnitConstants.class,
-//				JUnitReportSensor.class,
-//				
-//				// Integration testing configuration
-//				PropertyDefinition.builder(JUnitIntegrationConstants.REPORT_PATH_KEY)
-//		            .defaultValue(JUnitIntegrationConstants.REPORT_PATH_DEFVALUE)
-//		            .category(JUnitIntegrationConstants.CATEGORY)
-//		            .subCategory(JUnitIntegrationConstants.SUB_CATEGORY)
-//		            .name("TypeScript junit integration test report path")
-//		            .description("The path to the TypeScript report file to load")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//				PropertyDefinition.builder(JUnitIntegrationConstants.FAIL_MISSING_FILE_KEY)
-//		            .defaultValue(JUnitIntegrationConstants.FAIL_MISSING_FILE_DEFVALUE)
-//		            .category(JUnitIntegrationConstants.CATEGORY)
-//		            .subCategory(JUnitIntegrationConstants.SUB_CATEGORY)
-//		            .name("Fail on missing test file")
-//		            .description("True to stop analysis if a test file is not found")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//
-//				JUnitIntegrationConstants.class,
-//				JUnitIntegrationReportSensor.class,
-//				
-//				// Duplication configuration
-//				PropertyDefinition.builder(TypeScriptDuplicationConstants.REPORT_PATH_KEY)
-//		            .defaultValue(TypeScriptDuplicationConstants.REPORT_PATH_DEFVALUE)
-//		            .category(TypeScriptDuplicationConstants.CATEGORY)
-//		            .subCategory(TypeScriptDuplicationConstants.SUB_CATEGORY)
-//		            .name("TypeScript duplication report path")
-//		            .description("The path to the TypeScript report file to load")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//				PropertyDefinition.builder(TypeScriptDuplicationConstants.FAIL_MISSING_FILE_KEY)
-//		            .defaultValue(TypeScriptDuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
-//		            .category(TypeScriptDuplicationConstants.CATEGORY)
-//		            .subCategory(TypeScriptDuplicationConstants.SUB_CATEGORY)
-//		            .name("Fail on missing source file")
-//		            .description("True to stop analysis if a source file is not found")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//				PropertyDefinition.builder(TypeScriptDuplicationConstants.SKIP_DUPLICATION_KEY)
-//		            .defaultValue(TypeScriptDuplicationConstants.SKIP_DUPLICATION_DEFVAL)
-//		            .category(TypeScriptDuplicationConstants.CATEGORY)
-//		            .subCategory(TypeScriptDuplicationConstants.SUB_CATEGORY)
-//		            .name("Skip duplication analysis")
-//		            .description("True to skip code duplication analysis done by this plugin")
-//		            .onQualifiers(Qualifiers.PROJECT)
-//		            .build(),
-//
-//	            TypeScriptDuplicationConstants.class,
-//				TypeScriptDuplicationSensor.class
+				LcovUnitCoverageConstants.class,
+				LcovUnitCoverageSensor.class,
+				
+				// Integration coverage configuration
+				PropertyDefinition.builder(LcovIntegrationCoverageConstants.REPORT_PATH_KEY)
+		            .defaultValue(LcovIntegrationCoverageConstants.REPORT_PATH_DEFVALUE)
+		            .category(LcovIntegrationCoverageConstants.CATEGORY)
+		            .subCategory(LcovIntegrationCoverageConstants.SUB_CATEGORY)
+		            .name("TypeScript integration tests coverage report path")
+		            .description("The path to the TypeScript report file to load for integration tests coverage")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(LcovIntegrationCoverageConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(LcovIntegrationCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(LcovIntegrationCoverageConstants.CATEGORY)
+		            .subCategory(LcovIntegrationCoverageConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				LcovIntegrationCoverageConstants.class,
+				LcovIntegrationCoverageSensor.class,
+				
+				// Overall coverage configuration
+				PropertyDefinition.builder(LcovOverallCoverageConstants.REPORT_PATH_KEY)
+		            .defaultValue(LcovOverallCoverageConstants.REPORT_PATH_DEFVALUE)
+		            .category(LcovOverallCoverageConstants.CATEGORY)
+		            .subCategory(LcovOverallCoverageConstants.SUB_CATEGORY)
+		            .name("TypeScript overall tests coverage report path")
+		            .description("The path to the TypeScript report file to load for overall tests coverage")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(LcovOverallCoverageConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(LcovOverallCoverageConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(LcovOverallCoverageConstants.CATEGORY)
+		            .subCategory(LcovOverallCoverageConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				LcovOverallCoverageConstants.class,
+				LcovOverallCoverageSensor.class,
+				
+				// Unit testing configuration
+				PropertyDefinition.builder(JUnitConstants.REPORT_PATH_KEY)
+		            .defaultValue(JUnitConstants.REPORT_PATH_DEFVALUE)
+		            .category(JUnitConstants.CATEGORY)
+		            .subCategory(JUnitConstants.SUB_CATEGORY)
+		            .name("TypeScript junit unit test report path")
+		            .description("The path to the TypeScript report file to load that contains unit test results")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(JUnitConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(JUnitConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(JUnitConstants.CATEGORY)
+		            .subCategory(JUnitConstants.SUB_CATEGORY)
+		            .name("Fail on missing test file")
+		            .description("True to stop analysis if a test file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				JUnitConstants.class,
+				JUnitReportSensor.class,
+				
+				// Integration testing configuration
+				PropertyDefinition.builder(JUnitIntegrationConstants.REPORT_PATH_KEY)
+		            .defaultValue(JUnitIntegrationConstants.REPORT_PATH_DEFVALUE)
+		            .category(JUnitIntegrationConstants.CATEGORY)
+		            .subCategory(JUnitIntegrationConstants.SUB_CATEGORY)
+		            .name("TypeScript junit integration test report path")
+		            .description("The path to the TypeScript report file to load that contains integration test results")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(JUnitIntegrationConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(JUnitIntegrationConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(JUnitIntegrationConstants.CATEGORY)
+		            .subCategory(JUnitIntegrationConstants.SUB_CATEGORY)
+		            .name("Fail on missing test file")
+		            .description("True to stop analysis if a test file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+				JUnitIntegrationConstants.class,
+				JUnitIntegrationReportSensor.class,
+				
+				// Duplication configuration
+				PropertyDefinition.builder(TypeScriptDuplicationConstants.REPORT_PATH_KEY)
+		            .defaultValue(TypeScriptDuplicationConstants.REPORT_PATH_DEFVALUE)
+		            .category(TypeScriptDuplicationConstants.CATEGORY)
+		            .subCategory(TypeScriptDuplicationConstants.SUB_CATEGORY)
+		            .name("TypeScript duplication report path")
+		            .description("The path to the TypeScript report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(TypeScriptDuplicationConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(TypeScriptDuplicationConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(TypeScriptDuplicationConstants.CATEGORY)
+		            .subCategory(TypeScriptDuplicationConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(TypeScriptDuplicationConstants.SKIP_DUPLICATION_KEY)
+		            .defaultValue(TypeScriptDuplicationConstants.SKIP_DUPLICATION_DEFVAL)
+		            .category(TypeScriptDuplicationConstants.CATEGORY)
+		            .subCategory(TypeScriptDuplicationConstants.SUB_CATEGORY)
+		            .name("Skip duplication analysis")
+		            .description("True to skip code duplication analysis done by this plugin")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+	            TypeScriptDuplicationConstants.class,
+				TypeScriptDuplicationSensor.class
 		);
 	}
 }
