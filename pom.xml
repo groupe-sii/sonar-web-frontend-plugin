@@ -26,6 +26,13 @@
 		<!-- maven plugins -->
 		<sonar.plugin.version>1.15</sonar.plugin.version>
 		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
+		<maven.release.plugin.version>2.5.2</maven.release.plugin.version>
+		<nexus.staging.plugin.version>1.6.3</nexus.staging.plugin.version>
+		<gpg.plugin.version>1.6</gpg.plugin.version>
+		
+		<github.url>https://github.com/groupe-sii/sonar-web-frontend-plugin</github.url>
+		<scm.url>https://github.com/groupe-sii/sonar-web-frontend-plugin.git</scm.url>
+		<project.url>https://github.com/groupe-sii/sonar-web-frontend-plugin</project.url>
 	</properties>
 
 	<modules>
