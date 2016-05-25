@@ -1,0 +1,39 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: indent</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Enforces indentation with tabs or spaces.</p>
+
+
+
+   <h5>Rationale</h5>
+   
+<p>Using only one of tabs or spaces for indentation leads to more consistent editor behavior,
+cleaner diffs in version control, and easier programatic manipulation.</p>
+
+
+
+
+<h3>Config</h3>
+
+<p>One of the following arguments must be provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"spaces"</code> enforces consistent spaces.</li>
+  <li><code class="highlighter-rouge">"tabs"</code> enforces consistent tabs.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"indent": [true, "spaces"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "enum",<br/>  "enumValues": [<br/>    "tabs",<br/>    "spaces"<br/>  ]<br/>}<br/></pre>
+   

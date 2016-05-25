@@ -1,0 +1,37 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: typedef</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Requires type definitions to exist.</p>
+
+
+
+
+
+<h3>Config</h3>
+
+<p>Six arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"call-signature"</code> checks return type of functions.</li>
+  <li><code class="highlighter-rouge">"parameter"</code> checks type specifier of function parameters for non-arrow functions.</li>
+  <li><code class="highlighter-rouge">"arrow-parameter"</code> checks type specifier of function parameters for arrow functions.</li>
+  <li><code class="highlighter-rouge">"property-declaration"</code> checks return types of interface properties.</li>
+  <li><code class="highlighter-rouge">"variable-declaration"</code> checks variable declarations.</li>
+  <li><code class="highlighter-rouge">"member-variable-declaration"</code> checks member variable declarations.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"typedef": [true, "call-signature", "parameter", "member-variable-declaration"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "call-signature",<br/>      "parameter",<br/>      "arrow-parameter",<br/>      "property-declaration",<br/>      "variable-declaration",<br/>      "member-variable-declaration"<br/>    ]<br/>  }<br/>}<br/></pre>
+   

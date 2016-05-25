@@ -1,0 +1,30 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: ban</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Bans the use of specific functions.</p>
+
+
+   <p>At this time, there is no way to disable global methods with this rule.</p>
+
+
+
+
+
+<h3>Config</h3>
+<p>A list of <code class="highlighter-rouge">['object', 'method']</code> pairs which ban <code class="highlighter-rouge">object.method()</code>.</p>
+
+
+<h5>Examples</h5>
+
+<pre>"ban": [true, ["console", "log"], ["someObject", "someFunction"]]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "array",<br/>    "arrayMembers": [<br/>      {<br/>        "type": "string"<br/>      },<br/>      {<br/>        "type": "string"<br/>      }<br/>    ]<br/>  }<br/>}<br/></pre>
+   

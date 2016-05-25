@@ -1,0 +1,42 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: comment-format</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Enforces formatting rules for single-line comments.</p>
+
+
+
+   <h5>Rationale</h5>
+   <p>Helps maintain a consistent, readable style in your codebase.</p>
+
+
+
+
+<h3>Config</h3>
+
+<p>Three arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"check-space"</code> requires that all single-line comments must begin with a space, as in <code class="highlighter-rouge">// comment</code>
+    <ul>
+      <li>note that comments starting with <code class="highlighter-rouge">///</code> are also allowed, for things such as <code class="highlighter-rouge">///&lt;reference&gt;</code></li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">"check-lowercase"</code> requires that the first non-whitespace character of a comment must be lowercase, if applicable.</li>
+  <li><code class="highlighter-rouge">"check-uppercase"</code> requires that the first non-whitespace character of a comment must be uppercase, if applicable.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"comment-format": [true, "check-space", "check-lowercase"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "check-space",<br/>      "check-lowercase",<br/>      "check-uppercase"<br/>    ]<br/>  }<br/>}<br/></pre>
+   

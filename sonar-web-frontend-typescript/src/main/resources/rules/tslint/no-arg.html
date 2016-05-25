@@ -1,0 +1,34 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: no-arg</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Disallows use of <code class="highlighter-rouge">arguments.callee</code>.</p>
+
+
+
+   <h5>Rationale</h5>
+   
+<p>Using <code class="highlighter-rouge">arguments.callee</code> makes various performance optimizations impossible.
+See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee">MDN</a>
+for more details on why to avoid <code class="highlighter-rouge">arguments.callee</code>.</p>
+
+
+
+
+<h3>Config</h3>
+<p>Not configurable.</p>
+
+
+<h5>Examples</h5>
+
+<pre>"no-arg": true<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{}<br/></pre>
+   

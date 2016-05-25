@@ -1,0 +1,41 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: no-bitwise</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Disallows bitwise operators.</p>
+
+
+   
+<p>Specifically, the following bitwise operators are banned:
+<code class="highlighter-rouge">&amp;</code>, <code class="highlighter-rouge">&amp;=</code>, <code class="highlighter-rouge">|</code>, <code class="highlighter-rouge">|=</code>,
+<code class="highlighter-rouge">^</code>, <code class="highlighter-rouge">^=</code>, <code class="highlighter-rouge">&lt;&lt;</code>, <code class="highlighter-rouge">&lt;&lt;=</code>,
+<code class="highlighter-rouge">&gt;&gt;</code>, <code class="highlighter-rouge">&gt;&gt;=</code>, <code class="highlighter-rouge">&gt;&gt;&gt;</code>, <code class="highlighter-rouge">&gt;&gt;&gt;=</code>, and <code class="highlighter-rouge">~</code>.
+This rule does not ban the use of <code class="highlighter-rouge">&amp;</code> and <code class="highlighter-rouge">|</code> for intersection and union types.</p>
+
+
+
+   <h5>Rationale</h5>
+   
+<p>Bitwise operators are often typos - for example <code class="highlighter-rouge">bool1 &amp; bool2</code> instead of <code class="highlighter-rouge">bool1 &amp;&amp; bool2</code>.
+They also can be an indicator of overly clever code which decreases maintainability.</p>
+
+
+
+
+<h3>Config</h3>
+<p>Not configurable.</p>
+
+
+<h5>Examples</h5>
+
+<pre>"no-bitwise": true<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{}<br/></pre>
+   

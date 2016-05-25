@@ -1,0 +1,45 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: no-unused-variable</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Disallows unused imports, variables, functions and private class members.</p>
+
+
+
+
+
+<h3>Config</h3>
+
+<p>Three optional arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"check-parameters"</code> disallows unused function and constructor parameters.
+    <ul>
+      <li>NOTE: this option is experimental and does not work with classes
+  that use abstract method declarations, among other things.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">"react"</code> relaxes the rule for a namespace import named <code class="highlighter-rouge">React</code>
+(from either the module <code class="highlighter-rouge">"react"</code> or <code class="highlighter-rouge">"react/addons"</code>).
+Any JSX expression in the file will be treated as a usage of <code class="highlighter-rouge">React</code>
+(because it expands to <code class="highlighter-rouge">React.createElement </code>).</li>
+  <li><code class="highlighter-rouge"><span class="p">{</span><span class="nt">"ignore-pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pattern"</span><span class="p">}</span></code> where pattern is a case-sensitive regexp.
+Variable names that match the pattern will be ignored.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"no-unused-variable": [true, "react"]<br/></pre>
+
+<pre>"no-unused-variable": [true, {"ignore-pattern": "^_"}]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "array",<br/>  "arrayMembers": [<br/>    {<br/>      "type": "list",<br/>      "listType": {<br/>        "type": "enum",<br/>        "enumValues": [<br/>          "check-parameters",<br/>          "react"<br/>        ]<br/>      }<br/>    },<br/>    {<br/>      "type": "object",<br/>      "properties": {<br/>        "ignore-pattern": {<br/>          "type": "string"<br/>        }<br/>      }<br/>    }<br/>  ]<br/>}<br/></pre>
+   

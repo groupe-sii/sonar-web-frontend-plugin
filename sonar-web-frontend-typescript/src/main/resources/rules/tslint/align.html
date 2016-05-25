@@ -1,0 +1,38 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: align</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Enforces vertical alignment.</p>
+
+
+
+   <h5>Rationale</h5>
+   <p>Helps maintain a readable, consistent style in your codebase.</p>
+
+
+
+
+<h3>Config</h3>
+
+<p>Three arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"parameters"</code> checks alignment of function parameters.</li>
+  <li><code class="highlighter-rouge">"arguments"</code> checks alignment of function call arguments.</li>
+  <li><code class="highlighter-rouge">"statements"</code> checks alignment of statements.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"align": [true, "parameters", "statements"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "arguments",<br/>      "parameters",<br/>      "statements"<br/>    ]<br/>  }<br/>}<br/></pre>
+   

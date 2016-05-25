@@ -1,0 +1,43 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: typedef-whitespace</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Requires or disallows whitespace for type definitions.</p>
+
+
+   <p>Determines if a space is required or not before the colon in a type specifier.</p>
+
+
+
+
+
+<h3>Config</h3>
+
+<p>Two arguments which are both objects.
+The first argument specifies how much space should be to the <em>left</em> of a typedef colon.
+The second argument specifies how much space should be to the <em>right</em> of a typedef colon.
+Each key should have a value of <code class="highlighter-rouge">"space"</code> or <code class="highlighter-rouge">"nospace"</code>.
+Possible keys are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"call-signature"</code> checks return type of functions.</li>
+  <li><code class="highlighter-rouge">"index-signature"</code> checks index type specifier of indexers.</li>
+  <li><code class="highlighter-rouge">"parameter"</code> checks function parameters.</li>
+  <li><code class="highlighter-rouge">"property-declaration"</code> checks object property declarations.</li>
+  <li><code class="highlighter-rouge">"variable-declaration"</code> checks variable declaration.</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"typedef-whitespace": <br/>[<br/>  true,<br/>  {<br/>    "call-signature": "nospace",<br/>    "index-signature": "nospace",<br/>    "parameter": "nospace",<br/>    "property-declaration": "nospace",<br/>    "variable-declaration": "nospace"<br/>  },<br/>  {<br/>    "call-signature": "onespace",<br/>    "index-signature": "onespace",<br/>    "parameter": "onespace",<br/>    "property-declaration": "onespace",<br/>    "variable-declaration": "onespace"<br/>  }<br/>]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "array",<br/>  "arrayMembers": [<br/>    {<br/>      "type": "object",<br/>      "properties": {<br/>        "call-signature": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "index-signature": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "parameter": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "property-declaration": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "variable-declaration": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        }<br/>      }<br/>    },<br/>    {<br/>      "type": "object",<br/>      "properties": {<br/>        "call-signature": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "index-signature": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "parameter": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "property-declaration": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        },<br/>        "variable-declaration": {<br/>          "type": "enum",<br/>          "enumValues": [<br/>            "nospace",<br/>            "onespace",<br/>            "space"<br/>          ]<br/>        }<br/>      }<br/>    }<br/>  ]<br/>}<br/></pre>
+   

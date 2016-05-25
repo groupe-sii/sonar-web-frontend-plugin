@@ -1,0 +1,39 @@
+<h1 class="details">Details</h1>
+
+      
+      <header class="post-header">
+         <h1 class="post-title">Rule: member-access</h1>
+         <p></p>
+      </header>
+      
+
+      <p>Requires explicit visibility declarations for class members.</p>
+
+
+
+   <h5>Rationale</h5>
+   <p>Explicit visibility declarations can make code more readable and accessible for those new to TS.</p>
+
+
+
+
+<h3>Config</h3>
+
+<p>Two arguments may be optionally provided:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"check-accessor"</code> enforces explicit visibility on get/set accessors (can only be public)</li>
+  <li><code class="highlighter-rouge">"check-constructor"</code>  enforces explicit visibility on constructors (can only be public)</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<pre>"member-access": true<br/></pre>
+
+<pre>"member-access": [true, "check-accessor"]<br/></pre>
+
+
+<h5>Schema</h5>
+<pre>{<br/>  "type": "list",<br/>  "listType": {<br/>    "type": "enum",<br/>    "enumValues": [<br/>      "check-accessor",<br/>      "check-constructor"<br/>    ]<br/>  }<br/>}<br/></pre>
+   
