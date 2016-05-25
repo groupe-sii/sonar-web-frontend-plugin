@@ -80,7 +80,7 @@
       "type" : "constant",
       "offset" : "30min"
     },
-    "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
   }
 }, {
   "key" : "no-reference",
@@ -94,7 +94,7 @@
       "type" : "constant",
       "offset" : "5min"
     },
-    "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
   }
 }, {
   "key" : "no-var-requires",
@@ -108,7 +108,7 @@
       "type" : "constant",
       "offset" : "1min"
     },
-    "sqaleSubCharacteristic" : "MAINTENABILITY_COMPLIANCE"
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
   }
 }, {
   "key" : "typedef",
