@@ -16,10 +16,14 @@ import fr.sii.sonar.web.frontend.js.coverage.LcovUnitCoverageConstants;
 import fr.sii.sonar.web.frontend.js.coverage.LcovUnitCoverageSensor;
 import fr.sii.sonar.web.frontend.js.duplication.JsDuplicationConstants;
 import fr.sii.sonar.web.frontend.js.duplication.JsDuplicationSensor;
-import fr.sii.sonar.web.frontend.js.quality.JsHintQualityConstants;
-import fr.sii.sonar.web.frontend.js.quality.JsHintQualitySensor;
-import fr.sii.sonar.web.frontend.js.quality.JshintProfileDefinition;
-import fr.sii.sonar.web.frontend.js.quality.JshintRulesDefinition;
+import fr.sii.sonar.web.frontend.js.quality.eslint.EslintProfileDefinition;
+import fr.sii.sonar.web.frontend.js.quality.eslint.EslintQualityConstants;
+import fr.sii.sonar.web.frontend.js.quality.eslint.EslintQualitySensor;
+import fr.sii.sonar.web.frontend.js.quality.eslint.EslintRulesDefinition;
+import fr.sii.sonar.web.frontend.js.quality.jshint.JsHintQualityConstants;
+import fr.sii.sonar.web.frontend.js.quality.jshint.JsHintQualitySensor;
+import fr.sii.sonar.web.frontend.js.quality.jshint.JshintProfileDefinition;
+import fr.sii.sonar.web.frontend.js.quality.jshint.JshintRulesDefinition;
 import fr.sii.sonar.web.frontend.js.test.JUnitConstants;
 import fr.sii.sonar.web.frontend.js.test.JUnitIntegrationConstants;
 import fr.sii.sonar.web.frontend.js.test.JUnitIntegrationReportSensor;
@@ -80,6 +84,37 @@ public final class JsPlugin extends SonarPlugin {
 				JshintRulesDefinition.class,
 				JshintProfileDefinition.class,
 				JsHintQualitySensor.class,
+				
+		        // Quality configuration for ESLint
+				PropertyDefinition.builder(EslintQualityConstants.REPORT_PATH_KEY)
+		            .defaultValue(EslintQualityConstants.REPORT_PATH_DEFVALUE)
+		            .category(EslintQualityConstants.CATEGORY)
+		            .subCategory(EslintQualityConstants.SUB_CATEGORY)
+		            .name("JavaScript quality report path for ESLint")
+		            .description("The path to the JavaScript report file to load")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(EslintQualityConstants.FAIL_MISSING_FILE_KEY)
+		            .defaultValue(EslintQualityConstants.FAIL_MISSING_FILE_DEFVALUE)
+		            .category(EslintQualityConstants.CATEGORY)
+		            .subCategory(EslintQualityConstants.SUB_CATEGORY)
+		            .name("Fail on missing source file")
+		            .description("True to stop analysis if a source file is not found")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+				PropertyDefinition.builder(EslintQualityConstants.SKIP_FILE_METRICS_KEY)
+		            .defaultValue(EslintQualityConstants.SKIP_FILE_METRICS_DEFVALUE)
+		            .category(EslintQualityConstants.CATEGORY)
+		            .subCategory(EslintQualityConstants.SUB_CATEGORY)
+		            .name("Skip save of file metrics")
+		            .description("If you have several plugins that are able to handle JavaScript, you may have an error (Can not add the same measure twice). Set it to true to let the other plugin save the metrics")
+		            .onQualifiers(Qualifiers.PROJECT)
+		            .build(),
+
+	            EslintQualityConstants.class,
+	            EslintRulesDefinition.class,
+	            EslintProfileDefinition.class,
+	            EslintQualitySensor.class,
 				
 				// Unit coverage configuration
 				PropertyDefinition.builder(LcovUnitCoverageConstants.REPORT_PATH_KEY)

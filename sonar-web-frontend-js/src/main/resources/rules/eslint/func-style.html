@@ -1,0 +1,103 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-the-consistent-use-of-either-function-declarations-or-expressions-func-style">enforce the consistent use of either <code class="highlighter-rouge">function</code> declarations or expressions (func-style)</h1>
+
+<p>There are two ways of defining functions in JavaScript: <code class="highlighter-rouge">function</code> declarations and <code class="highlighter-rouge">function</code> expressions. Declarations contain the <code class="highlighter-rouge">function</code> keyword first, followed by a name and then its arguments and the function body, for example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Equivalent function expressions begin with the <code class="highlighter-rouge">var</code> keyword, followed by a name and then the function itself, such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">doSomething</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>The primary difference between <code class="highlighter-rouge">function</code> declarations and <code class="highlighter-rouge">function expressions</code> is that declarations are <em>hoisted</em> to the top of the scope in which they are defined, which allows you to write code that uses the function before its declaration. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">doSomething</span><span class="p">();</span><br/><br/><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Although this code might seem like an error, it actually works fine because JavaScript engines hoist the <code class="highlighter-rouge">function</code> declarations to the top of the scope. That means this code is treated as if the declaration came before the invocation.</p>
+
+<p>For <code class="highlighter-rouge">function</code> expressions, you must define the function before it is used, otherwise it causes an error. Example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">doSomething</span><span class="p">();</span>  <span class="c1">// error!</span><br/><br/><span class="kd">var</span> <span class="nx">doSomething</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>In this case, <code class="highlighter-rouge">doSomething()</code> is undefined at the time of invocation and so causes a runtime error.</p>
+
+<p>Due to these different behaviors, it is common to have guidelines as to which style of function should be used. There is really no correct or incorrect choice here, it is just a preference.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces a particular type of <code class="highlighter-rouge">function</code> style throughout a JavaScript file, either declarations or expressions. You can specify which you prefer in the configuration.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a string option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"expression"</code> (default) requires the use of function expressions instead of function declarations</li>
+  <li><code class="highlighter-rouge">"declaration"</code> requires the use of function declarations instead of function expressions</li>
+</ul>
+
+<p>This rule has an object option for an exception:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"allowArrowFunctions": true</code> (default <code class="highlighter-rouge">false</code>) allows the use of arrow functions</li>
+</ul>
+
+<h3 id="expression">expression<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#expression" aria-label="Anchor link for: expression" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"expression"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint func-style: ["error", "expression"]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"expression"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint func-style: ["error", "expression"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="declaration">declaration<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#declaration" aria-label="Anchor link for: declaration" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"declaration"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint func-style: ["error", "declaration"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"declaration"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint func-style: ["error", "declaration"]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="c1">// Methods (functions assigned to objects) are not checked by this rule</span><br/><span class="nx">SomeObject</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="allowarrowfunctions">allowArrowFunctions<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowarrowfunctions" aria-label="Anchor link for: allowarrowfunctions" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of additional <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"declaration", { "allowArrowFunctions": true }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint func-style: ["error", "declaration", { "allowArrowFunctions": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{};</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you want to allow developers to each decide how they want to write functions on their own, then you can disable this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html">JavaScript Scoping and Hoisting</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.2.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/func-style.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/func-style.md">Documentation source</a></li>
+</ul>
+
+  

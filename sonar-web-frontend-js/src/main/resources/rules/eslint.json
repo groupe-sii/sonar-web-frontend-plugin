@@ -1,0 +1,2969 @@
+[ {
+  "key" : "comma-dangle",
+  "name" : "Comma dangle",
+  "description" : "require or disallow trailing commas",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "cross-browser", "ie8" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "no-cond-assign",
+  "name" : "No cond assign",
+  "description" : "disallow assignment operators in conditional expressions",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-console",
+  "name" : "No console",
+  "description" : "disallow the use of console",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-constant-condition",
+  "name" : "No constant condition",
+  "description" : "disallow constant expressions in conditions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-control-regex",
+  "name" : "No control regex",
+  "description" : "disallow control characters in regular expressions",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "pitfall", "bug", "regexp" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-debugger",
+  "name" : "No debugger",
+  "description" : "disallow the use of debugger",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-dupe-args",
+  "name" : "No dupe args",
+  "description" : "disallow duplicate arguments in function definitions",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-dupe-keys",
+  "name" : "No dupe keys",
+  "description" : "disallow duplicate keys in object literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "suspicious", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-duplicate-case",
+  "name" : "No duplicate case",
+  "description" : "disallow duplicate case labels",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-empty",
+  "name" : "No empty",
+  "description" : "disallow empty block statements",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-empty-character-class",
+  "name" : "No empty character class",
+  "description" : "disallow empty character classes in regular expressions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "pitfall", "regexp" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-ex-assign",
+  "name" : "No ex assign",
+  "description" : "disallow reassigning exceptions in catch clauses",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-extra-boolean-cast",
+  "name" : "No extra boolean cast",
+  "description" : "disallow unnecessary boolean casts",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-extra-parens",
+  "name" : "No extra parens",
+  "description" : "disallow unnecessary parentheses",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-extra-semi",
+  "name" : "No extra semi",
+  "description" : "disallow unnecessary semicolons",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-func-assign",
+  "name" : "No func assign",
+  "description" : "disallow reassigning function declarations",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-inner-declarations",
+  "name" : "No inner declarations",
+  "description" : "disallow function or var declarations in nested blocks",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-invalid-regexp",
+  "name" : "No invalid regexp",
+  "description" : "disallow invalid regular expression strings in RegExp constructors",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bug", "regexp" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-irregular-whitespace",
+  "name" : "No irregular whitespace",
+  "description" : "disallow irregular whitespace outside of strings and comments",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "RESOURCE_RELIABILITY"
+  }
+}, {
+  "key" : "no-negated-in-lhs",
+  "name" : "No negated in lhs",
+  "description" : "disallow negating the left operand in in expressions",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-obj-calls",
+  "name" : "No obj calls",
+  "description" : "disallow calling global object properties as functions",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-regex-spaces",
+  "name" : "No regex spaces",
+  "description" : "disallow multiple spaces in regular expression literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "regexp" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-sparse-arrays",
+  "name" : "No sparse arrays",
+  "description" : "disallow sparse arrays",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-unexpected-multiline",
+  "name" : "No unexpected multiline",
+  "description" : "disallow confusing multiline expressions",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-unreachable",
+  "name" : "No unreachable",
+  "description" : "disallow unreachable code after return, throw, continue, and break statements",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "dead-code" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-unsafe-finally",
+  "name" : "No unsafe finally",
+  "description" : "disallow control flow statements in finally blocks",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "use-isnan",
+  "name" : "Use isnan",
+  "description" : "require calls to isNaN() when checking for NaN",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "valid-jsdoc",
+  "name" : "Valid jsdoc",
+  "description" : "enforce valid JSDoc comments",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "doc" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "valid-typeof",
+  "name" : "Valid typeof",
+  "description" : "enforce comparing typeof expressions against valid strings",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "accessor-pairs",
+  "name" : "Accessor pairs",
+  "description" : "enforce getter and setter pairs in objects",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "USABILITY_EASE_OF_USE"
+  }
+}, {
+  "key" : "array-callback-return",
+  "name" : "Array callback return",
+  "description" : "enforce return statements in callbacks of array methods",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "block-scoped-var",
+  "name" : "Block scoped var",
+  "description" : "enforce the use of variables within the scope they are defined",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "complexity",
+  "name" : "Complexity",
+  "description" : "enforce a maximum cyclomatic complexity allowed in a program",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "complexity", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "consistent-return",
+  "name" : "Consistent return",
+  "description" : "require return statements to either always or never specify values",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "curly",
+  "name" : "Curly",
+  "description" : "enforce consistent brace style for all control statements",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "default-case",
+  "name" : "Default case",
+  "description" : "require default cases in switch statements",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "DATA_CHANGEABILITY"
+  }
+}, {
+  "key" : "dot-location",
+  "name" : "Dot location",
+  "description" : "enforce consistent newlines before and after dots",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "dot-notation",
+  "name" : "Dot notation",
+  "description" : "enforce dot notation whenever possible",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "eqeqeq",
+  "name" : "Eqeqeq",
+  "description" : "require the use of === and !==",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "guard-for-in",
+  "name" : "Guard for in",
+  "description" : "require for-in loops to include an if statement",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-alert",
+  "name" : "No alert",
+  "description" : "disallow the use of alert, confirm, and prompt",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "user-experience" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "USABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "no-caller",
+  "name" : "No caller",
+  "description" : "disallow the use of arguments.caller or arguments.callee",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "performance", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "CPU_EFFICIENCY"
+  }
+}, {
+  "key" : "no-case-declarations",
+  "name" : "No case declarations",
+  "description" : "disallow lexical declarations in case clauses",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-div-regex",
+  "name" : "No div regex",
+  "description" : "disallow division operators explicitly at the beginning of regular expressions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "pitfall", "regexp" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-else-return",
+  "name" : "No else return",
+  "description" : "disallow else blocks after return statements in if statements",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-empty-function",
+  "name" : "No empty function",
+  "description" : "disallow empty functions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-empty-pattern",
+  "name" : "No empty pattern",
+  "description" : "disallow empty destructuring patterns",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-eq-null",
+  "name" : "No eq null",
+  "description" : "disallow null comparisons without type-checking operators",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-eval",
+  "name" : "No eval",
+  "description" : "disallow the use of eval()",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "security" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "no-extend-native",
+  "name" : "No extend native",
+  "description" : "disallow extending native types",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-extra-bind",
+  "name" : "No extra bind",
+  "description" : "disallow unnecessary calls to .bind()",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-extra-label",
+  "name" : "No extra label",
+  "description" : "disallow unnecessary labels",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-fallthrough",
+  "name" : "No fallthrough",
+  "description" : "disallow fallthrough of case statements",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "pitfall", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-floating-decimal",
+  "name" : "No floating decimal",
+  "description" : "disallow leading or trailing decimal points in numeric literals",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-implicit-coercion",
+  "name" : "No implicit coercion",
+  "description" : "disallow shorthand type conversions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-implicit-globals",
+  "name" : "No implicit globals",
+  "description" : "disallow var and named function declarations in the global scope",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
+  }
+}, {
+  "key" : "no-implied-eval",
+  "name" : "No implied eval",
+  "description" : "disallow the use of eval()-like methods",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "security" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "no-invalid-this",
+  "name" : "No invalid this",
+  "description" : "disallow this keywords outside of classes or class-like objects",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-iterator",
+  "name" : "No iterator",
+  "description" : "disallow the use of the __iterator__ property",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "obsolete", "spidermonkey" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "no-labels",
+  "name" : "No labels",
+  "description" : "disallow labeled statements",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-lone-blocks",
+  "name" : "No lone blocks",
+  "description" : "disallow unnecessary nested blocks",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-loop-func",
+  "name" : "No loop func",
+  "description" : "disallow function declarations and expressions inside loop statements",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-magic-numbers",
+  "name" : "No magic numbers",
+  "description" : "disallow magic numbers",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "DATA_CHANGEABILITY"
+  }
+}, {
+  "key" : "no-multi-spaces",
+  "name" : "No multi spaces",
+  "description" : "disallow multiple spaces",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-multi-str",
+  "name" : "No multi str",
+  "description" : "disallow multiline strings",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-native-reassign",
+  "name" : "No native reassign",
+  "description" : "disallow reassigning native objects",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-new",
+  "name" : "No new",
+  "description" : "disallow new operators outside of assignments or comparisons",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-new-func",
+  "name" : "No new func",
+  "description" : "disallow new operators with the Function object",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-new-wrappers",
+  "name" : "No new wrappers",
+  "description" : "disallow new operators with the String, Number, and Boolean objects",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-octal",
+  "name" : "No octal",
+  "description" : "disallow octal literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-octal-escape",
+  "name" : "No octal escape",
+  "description" : "disallow octal escape sequences in string literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "obsolete" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "no-param-reassign",
+  "name" : "No param reassign",
+  "description" : "disallow reassigning function parameters",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-proto",
+  "name" : "No proto",
+  "description" : "disallow the use of the __proto__ property",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "obsolete" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LANGUAGE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "no-redeclare",
+  "name" : "No redeclare",
+  "description" : "disallow var redeclaration",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-return-assign",
+  "name" : "No return assign",
+  "description" : "disallow assignment operators in return statements",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-script-url",
+  "name" : "No script url",
+  "description" : "disallow javascript: urls",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "performance", "security" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
+}, {
+  "key" : "no-self-assign",
+  "name" : "No self assign",
+  "description" : "disallow assignments where both sides are exactly the same",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-self-compare",
+  "name" : "No self compare",
+  "description" : "disallow comparisons where both sides are exactly the same",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-sequences",
+  "name" : "No sequences",
+  "description" : "disallow comma operators",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-throw-literal",
+  "name" : "No throw literal",
+  "description" : "disallow throwing literals as exceptions",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "EXCEPTION_HANDLING"
+  }
+}, {
+  "key" : "no-unmodified-loop-condition",
+  "name" : "No unmodified loop condition",
+  "description" : "disallow unmodified loop conditions",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-unused-expressions",
+  "name" : "No unused expressions",
+  "description" : "disallow unused expressions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-unused-labels",
+  "name" : "No unused labels",
+  "description" : "disallow unused labels",
+  "severity" :"MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-useless-call",
+  "name" : "No useless call",
+  "description" : "disallow unnecessary calls to .call() and .apply()",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-useless-concat",
+  "name" : "No useless concat",
+  "description" : "disallow unnecessary concatenation of literals or template literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-useless-escape",
+  "name" : "No useless escape",
+  "description" : "disallow unnecessary escape characters",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-void",
+  "name" : "No void",
+  "description" : "disallow void operators",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "obsolete" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-warning-comments",
+  "name" : "No warning comments",
+  "description" : "disallow specified warning terms in comments",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "eslint" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-with",
+  "name" : "No with",
+  "description" : "disallow with statements",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "performance", "cross-browser", "confusing" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "radix",
+  "name" : "Radix",
+  "description" : "enforce the consistent use of the radix argument when using parseInt()",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "vars-on-top",
+  "name" : "Vars on top",
+  "description" : "require var declarations be placed at the top of their containing scope",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "wrap-iife",
+  "name" : "Wrap iife",
+  "description" : "require parentheses around immediate function invocations",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "yoda",
+  "name" : "Yoda",
+  "description" : "require or disallow “Yoda” conditions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "strict",
+  "name" : "Strict",
+  "description" : "require or disallow strict mode directives",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "SOFTWARE_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "init-declarations",
+  "name" : "Init declarations",
+  "description" : "require or disallow initialization in var declarations",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "consistency" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-catch-shadow",
+  "name" : "No catch shadow",
+  "description" : "disallow catch clause parameters from shadowing variables in the outer scope",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-delete-var",
+  "name" : "No delete var",
+  "description" : "disallow deleting variables",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "bug" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-label-var",
+  "name" : "No label var",
+  "description" : "disallow labels that share a name with a variable",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-restricted-globals",
+  "name" : "No restricted globals",
+  "description" : "disallow specified global variables",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "forbidden" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-shadow",
+  "name" : "No shadow",
+  "description" : "disallow var declarations from shadowing variables in the outer scope",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-shadow-restricted-names",
+  "name" : "No shadow restricted names",
+  "description" : "disallow identifiers from shadowing restricted names",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-undef",
+  "name" : "No undef",
+  "description" : "disallow the use of undeclared variables unless mentioned in /*global */ comments",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-undef-init",
+  "name" : "No undef init",
+  "description" : "disallow initializing variables to undefined",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "useless" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-undefined",
+  "name" : "No undefined",
+  "description" : "disallow the use of undefined as an identifier",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-unused-vars",
+  "name" : "No unused vars",
+  "description" : "disallow unused variables",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "unused" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-use-before-define",
+  "name" : "No use before define",
+  "description" : "disallow the use of variables before they are defined",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "callback-return",
+  "name" : "Callback return",
+  "description" : "require return statements after callbacks",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "global-require",
+  "name" : "Global require",
+  "description" : "require require() calls to be placed at top-level module scope",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "handle-callback-err",
+  "name" : "Handle callback err",
+  "description" : "require error handling in callbacks",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "error-handling", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "EXCEPTION_HANDLING"
+  }
+}, {
+  "key" : "no-mixed-requires",
+  "name" : "No mixed requires",
+  "description" : "disallow require calls to be mixed with regular var declarations",
+  "severity" :  "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-new-require",
+  "name" : "No new require",
+  "description" : "disallow new operators with calls to require",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "2min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-path-concat",
+  "name" : "No path concat",
+  "description" : "disallow string concatenation with __dirname and __filename",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "OS_RELATED_PORTABILITY"
+  }
+}, {
+  "key" : "no-process-env",
+  "name" : "No process env",
+  "description" : "disallow the use of process.env",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "environment", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "no-process-exit",
+  "name" : "No process exit",
+  "description" : "disallow the use of process.exit()",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "FAULT_TOLERANCE"
+  }
+}, {
+  "key" : "no-restricted-modules",
+  "name" : "No restricted modules",
+  "description" : "disallow specified modules when loaded by require",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "forbidden", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "no-sync",
+  "name" : "No sync",
+  "description" : "disallow synchronous methods",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "nodejs", "commonjs" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "30min"
+    },
+    "sqaleSubCharacteristic" : "EFFICIENCY_COMPLIANCE"
+  }
+}, {
+  "key" : "array-bracket-spacing",
+  "name" : "Array bracket spacing",
+  "description" : "enforce consistent spacing inside array brackets",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "block-spacing",
+  "name" : "Block spacing",
+  "description" : "enforce consistent spacing inside single-line blocks",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "brace-style",
+  "name" : "Brace style",
+  "description" : "enforce consistent brace style for blocks",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "camelcase",
+  "name" : "Camelcase",
+  "description" : "enforce camelcase naming convention",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "comma-spacing",
+  "name" : "Comma spacing",
+  "description" : "enforce consistent spacing before and after commas",
+  "severity" :"MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "comma-style",
+  "name" : "Comma style",
+  "description" : "enforce consistent comma style",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "computed-property-spacing",
+  "name" : "Computed property spacing",
+  "description" : "enforce consistent spacing inside computed property brackets",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "consistent-this",
+  "name" : "Consistent this",
+  "description" : "enforce consistent naming when capturing the current execution context",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "eol-last",
+  "name" : "Eol last",
+  "description" : "enforce at least one newline at the end of files",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "func-names",
+  "name" : "Func names",
+  "description" : "enforce named function expressions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "func-style",
+  "name" : "Func style",
+  "description" : "enforce the consistent use of either function declarations or expressions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "id-blacklist",
+  "name" : "Id blacklist",
+  "description" : "disallow specified identifiers",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "forbidden" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "id-length",
+  "name" : "Id length",
+  "description" : "enforce minimum and maximum identifier lengths",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "id-match",
+  "name" : "Id match",
+  "description" : "require identifiers to match a specified regular expression",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "indent",
+  "name" : "Indent",
+  "description" : "enforce consistent indentation",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "jsx-quotes",
+  "name" : "Jsx quotes",
+  "description" : "enforce the consistent use of either double or single quotes in JSX attributes",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "consistency" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "key-spacing",
+  "name" : "Key spacing",
+  "description" : "enforce consistent spacing between keys and values in object literal properties",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "keyword-spacing",
+  "name" : "Keyword spacing",
+  "description" : "enforce consistent spacing before and after keywords",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "linebreak-style",
+  "name" : "Linebreak style",
+  "description" : "enforce consistent linebreak style",
+  "severity" :"MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "lines-around-comment",
+  "name" : "Lines around comment",
+  "description" : "require empty lines around comments",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "max-depth",
+  "name" : "Max depth",
+  "description" : "enforce a maximum depth that blocks can be nested",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "max-len",
+  "name" : "Max len",
+  "description" : "enforce a maximum line length",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "max-nested-callbacks",
+  "name" : "Max nested callbacks",
+  "description" : "enforce a maximum depth that callbacks can be nested",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "max-params",
+  "name" : "Max params",
+  "description" : "enforce a maximum number of parameters in function definitions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_CHANGEABILITY"
+  }
+}, {
+  "key" : "max-statements",
+  "name" : "Max statements",
+  "description" : "enforce a maximum number of statements allowed in function blocks",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "brain-overload" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "max-statements-per-line",
+  "name" : "Max statements per line",
+  "description" : "enforce a maximum number of statements allowed per line",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "new-cap",
+  "name" : "New cap",
+  "description" : "require constructor function names to begin with a capital letter",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "new-parens",
+  "name" : "New parens",
+  "description" : "require parentheses when invoking a constructor with no arguments",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "newline-after-var",
+  "name" : "Newline after var",
+  "description" : "require or disallow an empty line after var declarations",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "newline-before-return",
+  "name" : "Newline before return",
+  "description" : "require an empty line before return statements",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "newline-per-chained-call",
+  "name" : "Newline per chained call",
+  "description" : "require a newline after each call in a method chain",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-array-constructor",
+  "name" : "No array constructor",
+  "description" : "disallow Array constructors",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-bitwise",
+  "name" : "No bitwise",
+  "description" : "disallow bitwise operators",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-continue",
+  "name" : "No continue",
+  "description" : "disallow continue statements",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-inline-comments",
+  "name" : "No inline comments",
+  "description" : "disallow inline comments after code",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-lonely-if",
+  "name" : "No lonely if",
+  "description" : "disallow if statements as the only statement in else blocks",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-mixed-spaces-and-tabs",
+  "name" : "No mixed spaces and tabs",
+  "description" : "disallow mixed spaces and tabs for indentation",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "consistency" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-multiple-empty-lines",
+  "name" : "No multiple empty lines",
+  "description" : "disallow multiple empty lines",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-negated-condition",
+  "name" : "No negated condition",
+  "description" : "disallow negated conditions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-nested-ternary",
+  "name" : "No nested ternary",
+  "description" : "disallow nested ternary expressions",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-new-object",
+  "name" : "No new object",
+  "description" : "disallow Object constructors",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-plusplus",
+  "name" : "No plusplus",
+  "description" : "disallow the unary operators ++ and --",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "eslint", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-restricted-syntax",
+  "name" : "No restricted syntax",
+  "description" : "disallow specified syntax",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "forbidden" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "20min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "no-spaced-func",
+  "name" : "No spaced func",
+  "description" : "disallow spacing between function identifiers and their applications",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-ternary",
+  "name" : "No ternary",
+  "description" : "disallow ternary operators",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-trailing-spaces",
+  "name" : "No trailing spaces",
+  "description" : "disallow trailing whitespace at the end of lines",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-underscore-dangle",
+  "name" : "No underscore dangle",
+  "description" : "disallow dangling underscores in identifiers",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-unneeded-ternary",
+  "name" : "No unneeded ternary",
+  "description" : "disallow ternary operators when simpler alternatives exist",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-whitespace-before-property",
+  "name" : "No whitespace before property",
+  "description" : "disallow whitespace before properties",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "object-curly-spacing",
+  "name" : "Object curly spacing",
+  "description" : "enforce consistent spacing inside braces",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "object-property-newline",
+  "name" : "Object property newline",
+  "description" : "enforce placing object properties on separate lines",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "one-var",
+  "name" : "One var",
+  "description" : "enforce variables to be declared either together or separately in functions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "one-var-declaration-per-line",
+  "name" : "One var declaration per line",
+  "description" : "require or disallow newlines around var declarations",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "operator-assignment",
+  "name" : "Operator assignment",
+  "description" : "require or disallow assignment operator shorthand where possible",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "operator-linebreak",
+  "name" : "Operator linebreak",
+  "description" : "enforce consistent linebreak style for operators",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "padded-blocks",
+  "name" : "Padded blocks",
+  "description" : "require or disallow padding within blocks",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "quote-props",
+  "name" : "Quote props",
+  "description" : "require quotes around object literal property names",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "quotes",
+  "name" : "Quotes",
+  "description" : "enforce the consistent use of either backticks, double, or single quotes",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "consistency" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "require-jsdoc",
+  "name" : "Require jsdoc",
+  "description" : "require JSDoc comments",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "doc" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "semi",
+  "name" : "Semi",
+  "description" : "require or disallow semicolons instead of ASI",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "semi-spacing",
+  "name" : "Semi spacing",
+  "description" : "enforce consistent spacing before and after semicolons",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "sort-vars",
+  "name" : "Sort vars",
+  "description" : "require variables within the same declaration block to be sorted",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "space-before-blocks",
+  "name" : "Space before blocks",
+  "description" : "enforce consistent spacing before blocks",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "space-before-function-paren",
+  "name" : "Space before function paren",
+  "description" : "enforce consistent spacing before function definition opening parenthesis",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "space-in-parens",
+  "name" : "Space in parens",
+  "description" : "enforce consistent spacing inside parentheses",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "space-infix-ops",
+  "name" : "Space infix ops",
+  "description" : "require spacing around operators",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "space-unary-ops",
+  "name" : "Space unary ops",
+  "description" : "enforce consistent spacing before or after unary operators",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "spaced-comment",
+  "name" : "Spaced comment",
+  "description" : "enforce consistent spacing after the // or /* in a comment",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "wrap-regex",
+  "name" : "Wrap regex",
+  "description" : "require parenthesis around regex literals",
+  "severity" : "INFO",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "arrow-body-style",
+  "name" : "Arrow body style",
+  "description" : "require braces around arrow function bodies",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "arrow-parens",
+  "name" : "Arrow parens",
+  "description" : "require parentheses around arrow function arguments",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "arrow-spacing",
+  "name" : "Arrow spacing",
+  "description" : "enforce consistent spacing before and after the arrow in arrow functions",
+  "severity" :"MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "constructor-super",
+  "name" : "Constructor super",
+  "description" : "require super() calls in constructors",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "generator-star-spacing",
+  "name" : "Generator star spacing",
+  "description" : "enforce consistent spacing around * operators in generator functions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-class-assign",
+  "name" : "No class assign",
+  "description" : "disallow reassigning class members",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "no-confusing-arrow",
+  "name" : "No confusing arrow",
+  "description" : "disallow arrow functions where they could be confused with comparisons",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "suspicious", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-const-assign",
+  "name" : "No const assign",
+  "description" : "disallow reassigning const variables",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-dupe-class-members",
+  "name" : "No dupe class members",
+  "description" : "disallow duplicate class members",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "LOGIC_RELIABILITY"
+  }
+}, {
+  "key" : "no-duplicate-imports",
+  "name" : "No duplicate imports",
+  "description" : "disallow duplicate module imports",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "useless", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-new-symbol",
+  "name" : "No new symbol",
+  "description" : "disallow new operators with the Symbol object",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "bug", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "no-restricted-imports",
+  "name" : "No restricted imports",
+  "description" : "disallow specified modules when loaded by import",
+  "severity" : "BLOCKER",
+  "status" : null,
+  "tags" : [ "eslint", "forbidden", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "MAINTAINABILITY_COMPLIANCE"
+  }
+}, {
+  "key" : "no-this-before-super",
+  "name" : "No this before super",
+  "description" : "disallow this/super before calling super() in constructors",
+  "severity" : "CRITICAL",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "pitfall", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "ARCHITECTURE_RELIABILITY"
+  }
+}, {
+  "key" : "no-useless-computed-key",
+  "name" : "No useless computed key",
+  "description" : "disallow unnecessary computed property keys in object literals",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "useless", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-useless-constructor",
+  "name" : "No useless constructor",
+  "description" : "disallow unnecessary constructors",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "useless", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "no-var",
+  "name" : "No var",
+  "description" : "require let or const instead of var",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "object-shorthand",
+  "name" : "Object shorthand",
+  "description" : "require or disallow method and property shorthand syntax for object literals",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "prefer-arrow-callback",
+  "name" : "Prefer arrow callback",
+  "description" : "require arrow functions as callbacks",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "prefer-const",
+  "name" : "Prefer const",
+  "description" : "require const declarations for variables that are never reassigned after declared",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "UNDERSTANDABILITY"
+  }
+}, {
+  "key" : "prefer-reflect",
+  "name" : "Prefer reflect",
+  "description" : "require Reflect methods where applicable",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "prefer-rest-params",
+  "name" : "Prefer rest params",
+  "description" : "require rest parameters instead of arguments",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "prefer-spread",
+  "name" : "Prefer spread",
+  "description" : "require spread operators instead of .apply()",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "prefer-template",
+  "name" : "Prefer template",
+  "description" : "require template literals instead of string concatenation",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "require-yield",
+  "name" : "Require yield",
+  "description" : "require generator functions to contain yield",
+  "severity" : "MAJOR",
+  "status" : null,
+  "tags" : [ "eslint", "bad-practice", "es6" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "5min"
+    },
+    "sqaleSubCharacteristic" : "INSTRUCTION_RELIABILITY"
+  }
+}, {
+  "key" : "sort-imports",
+  "name" : "Sort imports",
+  "description" : "enforce sorted import declarations within modules",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "template-curly-spacing",
+  "name" : "Template curly spacing",
+  "description" : "require or disallow spacing around embedded expressions of template strings",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+}, {
+  "key" : "yield-star-spacing",
+  "name" : "Yield star spacing",
+  "description" : "require or disallow spacing around the * in yield* expressions",
+  "severity" : "MINOR",
+  "status" : null,
+  "tags" : [ "eslint", "convention" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "1min"
+    },
+    "sqaleSubCharacteristic" : "READABILITY"
+  }
+} ]

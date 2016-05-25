@@ -1200,8 +1200,14 @@
   "description" : "JavaScript URL.",
   "severity" : "MAJOR",
   "status" : null,
-  "tags" : null,
-  "debt" : null
+  "tags" : [ "jshint", "bad-practice", "performance", "security" ],
+  "debt" : {
+    "sqaleRemediation" : {
+      "type" : "constant",
+      "offset" : "10min"
+    },
+    "sqaleSubCharacteristic" : "API_ABUSE"
+  }
 }, {
   "key" : "W051",
   "name" : "Only properties should be deleted",

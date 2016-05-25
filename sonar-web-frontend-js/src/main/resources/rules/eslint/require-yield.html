@@ -1,0 +1,31 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-generator-functions-that-do-not-have-yield-require-yield">Disallow generator functions that do not have <code class="highlighter-rouge">yield</code> (require-yield)</h1>
+
+<p>This rule generates warnings for generator functions that do not have the <code class="highlighter-rouge">yield</code> keyword.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint require-yield: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span><span class="o">*</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>  <span class="k">return</span> <span class="mi">10</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint require-yield: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span><span class="o">*</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>  <span class="k">yield</span> <span class="mi">5</span><span class="p">;</span><br/>  <span class="k">return</span> <span class="mi">10</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>  <span class="k">return</span> <span class="mi">10</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="c1">// This rule does not warn on empty generator functions.</span><br/><span class="kd">function</span><span class="o">*</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.0.0-rc-1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/require-yield.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/require-yield.md">Documentation source</a></li>
+</ul>
+
+  

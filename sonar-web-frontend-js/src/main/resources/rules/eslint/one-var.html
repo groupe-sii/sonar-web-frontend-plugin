@@ -1,0 +1,128 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-or-disallow-one-variable-declaration-per-scope-one-var">Require or Disallow One Variable Declaration per Scope (one-var)</h1>
+
+<p>Variables can be declared at any point in JavaScript code using <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, or <code class="highlighter-rouge">const</code>. There are many styles and preferences related to the declaration of variables, and one of those is deciding on how many variable declarations should be allowed in a single function.</p>
+
+<p>There are two schools of thought in this regard:</p>
+
+<ol>
+  <li>There should be just one variable declaration for all variables in the function. That declaration typically appears at the top of the function.</li>
+  <li>You should use one variable declaration for each variable you want to define.</li>
+</ol>
+
+<p>For instance:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// one variable declaration per function</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="c1">// multiple variable declarations per function</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/>    <span class="kd">var</span> <span class="nx">baz</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The single-declaration school of thought is based in pre-ECMAScript 6 behaviors, where there was no such thing as block scope, only function scope. Since all <code class="highlighter-rouge">var</code> statements are hoisted to the top of the function anyway, some believe that declaring all variables in a single declaration at the top of the function removes confusion around scoping rules.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at enforcing the use of either one variable declaration or multiple declarations per function (for <code class="highlighter-rouge">var</code>) or block (for <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">const</code>) scope. As such, it will warn when it encounters an unexpected number of variable declarations.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>There are two ways to configure this rule. The first is by using one string specified as <code class="highlighter-rouge">"always"</code> (the default) to enforce one variable declaration per scope or <code class="highlighter-rouge">"never"</code> to enforce multiple variable declarations per scope.  If you declare variables in your code with <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">const</code>, then <code class="highlighter-rouge">"always"</code> and <code class="highlighter-rouge">"never"</code> will apply to the block scope for those declarations, not the function scope.</p>
+
+<p>The second way to configure this rule is with an object. The keys are any of:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">var</code></li>
+  <li><code class="highlighter-rouge">let</code></li>
+  <li><code class="highlighter-rouge">const</code></li>
+</ul>
+
+<p>or:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">uninitialized</code></li>
+  <li><code class="highlighter-rouge">initialized</code></li>
+</ul>
+
+<p>and the values are either <code class="highlighter-rouge">"always"</code> or <code class="highlighter-rouge">"never"</code>. This allows you to set behavior differently for each type of declaration, or whether variables are initialized during declaration.</p>
+
+<p>You can configure the rule as follows:</p>
+
+<p>(default) Exactly one variable declaration per type per function (var) or block (let or const)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"one-var"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s2">"always"</span><span class="p">]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>Exactly one declarator per declaration per function (var) or block (let or const)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"one-var"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"never"</span><span class="p">]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>Configure each declaration type individually. Defaults to <code class="highlighter-rouge">"always"</code> if key not present.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"one-var"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"var"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Exactly</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">var</span><span class="w"> </span><span class="err">declaration</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">function</span><span class="w"><br/>    </span><span class="nt">"let"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Exactly</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">let</span><span class="w"> </span><span class="err">declaration</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">block</span><span class="w"><br/>    </span><span class="nt">"const"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Exactly</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">declarator</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">const</span><span class="w"> </span><span class="err">declaration</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">block</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>Configure uninitialized and initialized seperately. Defaults to <code class="highlighter-rouge">"always"</code> if key not present.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"one-var"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"uninitialized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Exactly</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">declaration</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">uninitialized</span><span class="w"> </span><span class="err">variables</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(var)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">block</span><span class="w"> </span><span class="err">(let</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">const)</span><span class="w"><br/>    </span><span class="nt">"initialized"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Exactly</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">declarator</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">initialized</span><span class="w"> </span><span class="err">variable</span><span class="w"> </span><span class="err">declaration</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">(var)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">block</span><span class="w"> </span><span class="err">(let</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">const)</span><span class="w"><br/></span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>When configured with <code class="highlighter-rouge">"always"</code> as the first option (the default), the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/>    <span class="kd">var</span> <span class="nx">baz</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">qux</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">norf</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><br/>    <span class="kr">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">qux</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">norf</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="kd">var</span> <span class="nx">qux</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", "always"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">,</span><br/>        <span class="nx">baz</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">qux</span><span class="p">,</span><br/>        <span class="nx">norf</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span><br/>        <span class="nx">baz</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">qux</span><span class="p">,</span><br/>        <span class="nx">norf</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">,</span><br/>        <span class="nx">qux</span><span class="p">;</span><br/><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">qux</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="kd">let</span> <span class="nx">bar</span><span class="p">;</span><br/><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="kd">let</span> <span class="nx">qux</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>When configured with <code class="highlighter-rouge">"never"</code> as the first option, the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", "never"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">,</span><br/>        <span class="nx">baz</span><span class="p">;</span><br/>    <span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span><br/>        <span class="nx">baz</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">,</span><br/>        <span class="nx">qux</span><span class="p">;</span><br/><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="nx">qux</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span><br/>    <span class="kd">let</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span><br/>        <span class="nx">baz</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", "never"]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/>    <span class="kd">var</span> <span class="nx">baz</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">;</span><br/><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="kd">var</span> <span class="nx">qux</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">let</span> <span class="nx">bar</span><span class="p">;</span><br/><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>        <span class="kd">let</span> <span class="nx">qux</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>When configured with an object as the first option, you can individually control how <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, and <code class="highlighter-rouge">const</code> are handled, or alternatively how <code class="highlighter-rouge">uninitialized</code> and <code class="highlighter-rouge">initialized</code> variables are handled (which if used will override <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, and <code class="highlighter-rouge">const</code>).</p>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", { var: "always", let: "never", const: "never" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">bar</span><span class="p">,</span><br/>        <span class="nx">baz</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">qux</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">norf</span><span class="p">;</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/>    <span class="kr">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">qux</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">norf</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", { uninitialized: "always", initialized: "never" }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span><br/>    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>If you are configuring the rule with an object, by default, if you didn’t specify declaration type it will not be checked. So the following pattern is not considered a warning when options are set to: <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">var:</span><span class="w"> </span><span class="nt">"always"</span><span class="err">,</span><span class="w"> </span><span class="err">let</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint one-var: ["error", { var: "always", let: "always" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span><br/>    <span class="kr">const</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="kr">const</span> <span class="nx">bar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/>    <span class="kd">let</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="compatibility">Compatibility<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#compatibility" aria-label="Anchor link for: compatibility" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><strong>JSHint</strong> - This rule maps to the <code class="highlighter-rouge">onevar</code> JSHint rule, but allows <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">const</code> to be configured separately.</li>
+  <li><strong>JSCS</strong> - This rule roughly maps to <code class="highlighter-rouge">"disallowMultipleVarDecl"</code></li>
+</ul>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<p><a href="http://jslinterrors.com/combine-this-with-the-previous-var-statement/">JSLint Errors - Combine this with the previous ‘var’ statement</a></p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/one-var.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/one-var.md">Documentation source</a></li>
+</ul>
+
+  

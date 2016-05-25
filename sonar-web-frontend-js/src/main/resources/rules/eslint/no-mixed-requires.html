@@ -1,0 +1,95 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-mixed-requires-no-mixed-requires">Disallow Mixed Requires (no-mixed-requires)</h1>
+
+<p>In the Node.js community it is often customary to separate initializations with calls to <code class="highlighter-rouge">require</code> modules from other variable declarations, sometimes also grouping them by the type of module. This rule helps you enforce this convention.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>When this rule is enabled, each <code class="highlighter-rouge">var</code> statement must satisfy the following conditions:</p>
+
+<ul>
+  <li>either none or all variable declarations must be require declarations (default)</li>
+  <li>all require declarations must be of the same type (grouping)</li>
+</ul>
+
+<p>This rule distinguishes between six kinds of variable declaration types:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">core</code>: declaration of a required <a href="http://nodejs.org/api/modules.html#modules_core_modules">core module</a></li>
+  <li><code class="highlighter-rouge">file</code>: declaration of a required <a href="http://nodejs.org/api/modules.html#modules_file_modules">file module</a></li>
+  <li><code class="highlighter-rouge">module</code>: declaration of a required module from the <a href="http://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders">node_modules folder</a></li>
+  <li><code class="highlighter-rouge">computed</code>: declaration of a required module whose type could not be determined (either because it is computed or because require was called without an argument)</li>
+  <li><code class="highlighter-rouge">uninitialized</code>: a declaration that is not initialized</li>
+  <li><code class="highlighter-rouge">other</code>: any other kind of declaration</li>
+</ul>
+
+<p>In this document, the first four types are summed up under the term <em>require declaration</em>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">),</span>        <span class="c1">// "core"     \</span><br/>    <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'async'</span><span class="p">),</span>  <span class="c1">// "module"   |- these are "require declaration"s</span><br/>    <span class="nx">foo</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./foo'</span><span class="p">),</span>    <span class="c1">// "file"     |</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">getName</span><span class="p">()),</span>  <span class="c1">// "computed" /</span><br/>    <span class="nx">baz</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>                  <span class="c1">// "other"</span><br/>    <span class="nx">bam</span><span class="p">;</span>                       <span class="c1">// "uninitialized"</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule can have an object literal option whose two properties have <code class="highlighter-rouge">false</code> values by default.</p>
+
+<p>Configuring this rule with one boolean option <code class="highlighter-rouge">true</code> is deprecated.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"grouping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowCall"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-mixed-requires: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">),</span><br/>    <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'async'</span><span class="p">),</span><br/>    <span class="nx">debug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'diagnostics'</span><span class="p">).</span><span class="nx">someFunction</span><span class="p">(</span><span class="s1">'my-module'</span><span class="p">),</span><br/>    <span class="nx">eslint</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'eslint'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"grouping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"allowCall"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-mixed-requires: "error"*/</span><br/><br/><span class="c1">// only require declarations (grouping off)</span><br/><span class="kd">var</span> <span class="nx">eventEmitter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'events'</span><span class="p">).</span><span class="nx">EventEmitter</span><span class="p">,</span><br/>    <span class="nx">myUtils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./utils'</span><span class="p">),</span><br/>    <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'util'</span><span class="p">),</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">getBarModuleName</span><span class="p">());</span><br/><br/><span class="c1">// only non-require declarations</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="s1">'baz'</span><span class="p">;</span><br/><br/><span class="c1">// always valid regardless of grouping because all declarations are of the same type</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'foo'</span> <span class="o">+</span> <span class="nx">VERSION</span><span class="p">),</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">getBarModuleName</span><span class="p">()),</span><br/>    <span class="nx">baz</span> <span class="o">=</span> <span class="nx">require</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="grouping">grouping<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#grouping" aria-label="Anchor link for: grouping" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"grouping"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-mixed-requires: ["error", { "grouping": true }]*/</span><br/><br/><span class="c1">// invalid because of mixed types "core" and "file"</span><br/><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">),</span><br/>    <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'async'</span><span class="p">);</span><br/><br/><span class="c1">// invalid because of mixed types "file" and "unknown"</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">),</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">getBarModuleName</span><span class="p">());</span><br/></code></pre>
+</div>
+
+<h3 id="allowcall">allowCall<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowcall" aria-label="Anchor link for: allowcall" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowCall"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-mixed-requires: ["error", { "allowCall": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'async'</span><span class="p">),</span><br/>    <span class="nx">debug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'diagnostics'</span><span class="p">).</span><span class="nx">someFunction</span><span class="p">(</span><span class="s1">'my-module'</span><span class="p">),</span> <span class="cm">/* allowCall doesn't allow calling any function */</span><br/>    <span class="nx">eslint</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'eslint'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"allowCall"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-mixed-requires: ["error", { "allowCall": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'async'</span><span class="p">),</span><br/>    <span class="nx">debug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'diagnostics'</span><span class="p">)(</span><span class="s1">'my-module'</span><span class="p">),</span><br/>    <span class="nx">eslint</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'eslint'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="known-limitations">Known Limitations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#known-limitations" aria-label="Anchor link for: known limitations" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li>
+    <p>The implementation is not aware of any local functions with the name <code class="highlighter-rouge">require</code> that may shadow Node.js’ global <code class="highlighter-rouge">require</code>.</p>
+  </li>
+  <li>
+    <p>Internally, the list of core modules is retrieved via <code class="highlighter-rouge">require("repl")._builtinLibs</code>. If you use different versions of Node.js for ESLint and your application, the list of core modules for each version may be different.
+The above mentioned <code class="highlighter-rouge">_builtinLibs</code> property became available in 0.8, for earlier versions a hardcoded list of module names is used as a fallback. If your version of Node.js is older than 0.6 that list may be inaccurate.</p>
+  </li>
+</ul>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you use a pattern such as <a href="https://github.com/umdjs/umd">UMD</a> where the <code class="highlighter-rouge">require</code>d modules are not loaded in variable declarations, this rule will obviously do nothing for you.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-mixed-requires.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-mixed-requires.md">Documentation source</a></li>
+</ul>
+
+  

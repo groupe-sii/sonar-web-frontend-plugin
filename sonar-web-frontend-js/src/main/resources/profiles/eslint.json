@@ -1,0 +1,12 @@
+{
+	"name": "eslint",
+	"language": "js",
+	"repositories": [{
+		"key": "eslint",
+		"rules": "/rules/eslint.json"
+	}],
+	"rules": [{
+		"repositoryKey": "eslint",
+		"key": "unknown-rule"
+	}]
+}

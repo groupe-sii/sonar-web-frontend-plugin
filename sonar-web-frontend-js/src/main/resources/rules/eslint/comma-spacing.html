@@ -1,0 +1,104 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforces-spacing-around-commas-comma-spacing">Enforces spacing around commas (comma-spacing)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>Spacing around commas improve readability of a list of items. Although most of the style guidelines for languages prescribe adding a space after a comma and not before it, it is subjective to the preferences of a project.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces consistent spacing before and after commas in variable declarations, array literals, object literals, function parameters, and sequences.</p>
+
+<p>This rule does not apply in an <code class="highlighter-rouge">ArrayExpression</code> or <code class="highlighter-rouge">ArrayPattern</code> in either of the following cases:</p>
+
+<ul>
+  <li>adjacent null elements</li>
+  <li>an initial null element, to avoid conflicts with the <a href="array-bracket-spacing"><code class="highlighter-rouge">array-bracket-spacing</code></a> rule</li>
+</ul>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an object option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"before": false</code> (default) disallows spaces before commas</li>
+  <li><code class="highlighter-rouge">"before": true</code> requires one or more spaces before commas</li>
+  <li><code class="highlighter-rouge">"after": true</code> (default) requires one or more spaces after commas</li>
+  <li><code class="highlighter-rouge">"after": false</code> disallows spaces after commas</li>
+</ul>
+
+<h3 id="after">after<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#after" aria-label="Anchor link for: after" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-spacing: ["error", { "before": false, "after": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"bar"</span> <span class="p">,</span><span class="s2">"baz"</span><span class="p">:</span> <span class="s2">"qur"</span><span class="p">};</span><br/><span class="nx">foo</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">);</span><br/><span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">);</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">){}</span><br/><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-spacing: ["error", { "before": false, "after": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><br/>    <span class="p">,</span> <span class="nx">baz</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,,</span> <span class="mi">3</span><span class="p">]</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">:</span> <span class="s2">"qur"</span><span class="p">};</span><br/><span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span><br/><span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){}</span><br/><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Example of <strong>correct</strong> code for this rule with initial null element for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-spacing: ["error", { "before": false, "after": true }]*/</span><br/><span class="cm">/*eslint array-bracket-spacing: ["error", "always"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span> <span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span><br/></code></pre>
+</div>
+
+<h3 id="before">before<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#before" aria-label="Anchor link for: before" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">:</span> <span class="s2">"qur"</span><span class="p">};</span><br/><span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">);</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){}</span><br/><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">,</span><br/>    <span class="nx">baz</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span><span class="p">];</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="p">,,</span><span class="mi">3</span><span class="p">]</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"bar"</span> <span class="p">,</span><span class="s2">"baz"</span><span class="p">:</span> <span class="s2">"qur"</span><span class="p">};</span><br/><span class="nx">foo</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">);</span><br/><span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">);</span><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">){}</span><br/><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with initial null element for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/</span><br/><span class="cm">/*eslint array-bracket-spacing: ["error", "never"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[,</span><span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">]</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If your project will not be following a consistent comma-spacing pattern, turn this rule off.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://javascript.crockford.com/code.html">Javascript</a></li>
+  <li><a href="https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html">Dojo Style Guide</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="array-bracket-spacing">array-bracket-spacing</a></li>
+  <li><a href="comma-style">comma-style</a></li>
+  <li><a href="space-in-brackets">space-in-brackets</a> (deprecated)</li>
+  <li><a href="space-in-parens">space-in-parens</a></li>
+  <li><a href="space-infix-ops">space-infix-ops</a></li>
+  <li><a href="space-after-keywords">space-after-keywords</a></li>
+  <li><a href="space-unary-ops">space-unary-ops</a></li>
+  <li><a href="space-return-throw-case">space-return-throw-case</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.9.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/comma-spacing.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/comma-spacing.md">Documentation source</a></li>
+</ul>
+
+  

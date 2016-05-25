@@ -1,0 +1,34 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-inline-comments-after-code-no-inline-comments">disallow inline comments after code (no-inline-comments)</h1>
+
+<p>Some style guides disallow comments on the same line as code. Code can become difficult to read if comments immediately follow the code on the same line.
+On the other hand, it is sometimes faster and more obvious to put comments immediately following code.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule disallows comments on the same line as code.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-inline-comments: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// declaring a to 1</span><br/><br/><span class="kd">function</span> <span class="nx">getRandomNumber</span><span class="p">(){</span><br/>    <span class="k">return</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// chosen by fair dice roll.</span><br/>              <span class="c1">// guaranteed to be random.</span><br/><span class="p">}</span><br/><br/><span class="cm">/* A block comment before code */</span> <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="cm">/* A block comment after code */</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-inline-comments: "error"*/</span><br/><br/><span class="c1">// This is a comment above a line of code</span><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span><br/><span class="c1">//This is a comment below a line of code</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.10.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-inline-comments.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-inline-comments.md">Documentation source</a></li>
+</ul>
+
+  

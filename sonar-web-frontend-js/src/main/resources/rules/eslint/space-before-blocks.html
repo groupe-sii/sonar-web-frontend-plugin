@@ -1,0 +1,110 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-or-disallow-space-before-blocks-space-before-blocks">Require Or Disallow Space Before Blocks (space-before-blocks)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>Consistency is an important part of any style guide.
+While it is a personal preference where to put the opening brace of blocks,
+it should be consistent across a whole project.
+Having an inconsistent style distracts the reader from seeing the important parts of the code.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule will enforce consistency of spacing before blocks. It is only applied on blocks that don’t begin on a new line.</p>
+
+<ul>
+  <li>This rule ignores spacing which is between <code class="highlighter-rouge">=&gt;</code> and a block. The spacing is handled by the <code class="highlighter-rouge">arrow-spacing</code> rule.</li>
+  <li>This rule ignores spacing which is between a keyword and a block. The spacing is handled by the <code class="highlighter-rouge">keyword-spacing</code> rule.</li>
+</ul>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule takes one argument. If it is <code class="highlighter-rouge">"always"</code> then blocks must always have at least one preceding space. If <code class="highlighter-rouge">"never"</code>
+then all blocks should never have any preceding space. If different spacing is desired for function
+blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to
+configure the cases separately.</p>
+
+<p>( e.g. <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code> )</p>
+
+<p>The default is <code class="highlighter-rouge">"always"</code>.</p>
+
+<h3 id="always">“always”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">){</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">a</span><span class="p">(){}</span><br/><br/><span class="k">for</span> <span class="p">(;;){</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">a</span><span class="p">){}</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span><span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">(){}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span> <span class="k">else</span><span class="p">{</span> <span class="cm">/*no error. this is checked by `keyword-spacing` rule.*/</span><br/>    <span class="nx">c</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><br/><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{}</span><br/><br/><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<h3 id="never">“never”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", "never"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{}</span><br/><br/><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", "never"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">){</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">a</span><span class="p">(){}</span><br/><br/><span class="k">for</span> <span class="p">(;;){</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">try</span><span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">a</span><span class="p">){}</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span><span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">(){}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", classes: "never" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{}</span><br/><br/><span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">a</span><span class="p">){}</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span><span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", classes: "never" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span><br/>  <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="nx">describe</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><br/>  <span class="c1">// ...</span><br/><span class="p">});</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">(){}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", classes: "never" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="nx">a</span><span class="p">(){}</span><br/><br/><span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{}</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">(){}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", classes: "never" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">){</span><br/>  <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span><span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", classes: "always" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span><span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">(){}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"functions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="p">,</span><span class="w"> </span><span class="err">classes</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", classes: "always" }]*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span><br/>  <span class="nx">constructor</span><span class="p">(){}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can turn this rule off if you are not concerned with the consistency of spacing before blocks or if you are using the <code class="highlighter-rouge">space-after-keywords</code> rule set to <code class="highlighter-rouge">"never"</code>.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="keyword-spacing">keyword-spacing</a></li>
+  <li><a href="arrow-spacing">arrow-spacing</a></li>
+  <li><a href="brace-style">brace-style</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.9.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/space-before-blocks.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/space-before-blocks.md">Documentation source</a></li>
+</ul>
+
+  

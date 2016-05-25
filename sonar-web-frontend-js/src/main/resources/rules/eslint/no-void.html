@@ -1,0 +1,66 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-use-of-the-void-operator-no-void">Disallow use of the void operator. (no-void)</h1>
+
+<p>The <code class="highlighter-rouge">void</code> operator takes an operand and returns <code class="highlighter-rouge">undefined</code>: <code class="highlighter-rouge">void expression</code> will evaluate <code class="highlighter-rouge">expression</code> and return <code class="highlighter-rouge">undefined</code>. It can be used to ignore any side effects <code class="highlighter-rouge">expression</code> may produce:</p>
+
+<p>The common case of using <code class="highlighter-rouge">void</code> operator is to get a “pure” <code class="highlighter-rouge">undefined</code> value as prior to ES5 the <code class="highlighter-rouge">undefined</code> variable was mutable:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// will always return undefined</span><br/><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><br/>    <span class="k">return</span> <span class="k">void</span> <span class="mi">0</span><span class="p">;</span><br/><span class="p">})();</span><br/><br/><span class="c1">// will return 1 in ES3 and undefined in ES5+</span><br/><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><br/>    <span class="kc">undefined</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/>    <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span><br/><span class="p">})();</span><br/><br/><span class="c1">// will throw TypeError is ES5+</span><br/><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><br/>    <span class="s1">'use strict'</span><span class="p">;</span><br/>    <span class="kc">undefined</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/><span class="p">})();</span><br/></code></pre>
+</div>
+
+<p>Another common case is to minify code as <code class="highlighter-rouge">void 0</code> is shorter than <code class="highlighter-rouge">undefined</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">foo</span> <span class="o">=</span> <span class="k">void</span> <span class="mi">0</span><span class="p">;</span><br/><span class="nx">foo</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>When used with IIFE (immediately-invoked function expression) <code class="highlighter-rouge">void</code> can be used to force the function keyword to be treated as an expression instead of a declaration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/><span class="k">void</span> <span class="kd">function</span><span class="p">(){</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}()</span> <span class="c1">// will assign foo a value of 1</span><br/><span class="o">+</span><span class="kd">function</span><span class="p">(){</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}()</span> <span class="c1">// same as above</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function(){ foo = 1; }() // will throw SyntaxError<br/></code></pre>
+</div>
+
+<p>Some code styles prohibit <code class="highlighter-rouge">void</code> operator marking it as non-obvious and hard to read.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to eliminate use of void operator.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-void: "error"*/</span><br/><br/><span class="k">void</span> <span class="nx">foo</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">void</span> <span class="nx">bar</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you intentionally use the <code class="highlighter-rouge">void</code> operator then you can disable this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void">Mozilla Developer Network</a></li>
+  <li><a href="http://oreilly.com/javascript/excerpts/javascript-good-parts/bad-parts.html">Bad Parts: Appendix B - JavaScript: The Good Parts by Douglas Crockford</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-undef-init">no-undef-init</a></li>
+  <li><a href="no-undefined">no-undefined</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.8.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-void.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-void.md">Documentation source</a></li>
+</ul>
+
+  

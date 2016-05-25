@@ -1,0 +1,66 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="operator-assignment-shorthand-operator-assignment">Operator Assignment Shorthand (operator-assignment)</h1>
+
+<p>JavaScript provides shorthand operators that combine variable assignment and some simple mathematical operations. For example, <code class="highlighter-rouge">x = x + 4</code> can be shortened to <code class="highlighter-rouge">x += 4</code>. The supported shorthand forms are as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> Shorthand | Separate<br/>-----------|------------<br/> x += y    | x = x + y<br/> x -= y    | x = x - y<br/> x *= y    | x = x * y<br/> x /= y    | x = x / y<br/> x %= y    | x = x % y<br/> x &lt;&lt;= y   | x = x &lt;&lt; y<br/> x &gt;&gt;= y   | x = x &gt;&gt; y<br/> x &gt;&gt;&gt;= y  | x = x &gt;&gt;&gt; y<br/> x &amp;= y    | x = x &amp; y<br/> x ^= y    | x = x ^ y<br/> x |= y    | x = x | y<br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces use of the shorthand assignment operators by requiring them where possible or prohibiting them entirely.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has two options: <code class="highlighter-rouge">always</code> and <code class="highlighter-rouge">never</code>. The default is <code class="highlighter-rouge">always</code>.</p>
+
+<h3 id="always">“always”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p><code class="highlighter-rouge">"operator-assignment": ["error", "always"]</code></p>
+
+<p>This mode enforces use of operator assignment shorthand where possible.</p>
+
+<p>The following are examples of valid patterns:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint operator-assignment: ["error", "always"]*/</span><br/><br/><span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span> <span class="o">+=</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">*</span> <span class="nx">z</span><span class="p">;</span><br/><span class="nx">x</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">)</span> <span class="o">*</span> <span class="nx">z</span><span class="p">;</span><br/><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span><span class="p">[</span><span class="nx">foo</span><span class="p">()]</span> <span class="o">=</span> <span class="nx">x</span><span class="p">[</span><span class="nx">foo</span><span class="p">()]</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span><br/><span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// `+` is not always commutative (e.g. x = "abc")</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems and should be replaced by their shorthand equivalents:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint operator-assignment: ["error", "always"]*/</span><br/><br/><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span><br/><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;&lt;</span> <span class="nx">z</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h3 id="never">“never”<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p><code class="highlighter-rouge">"operator-assignment": ["error", "never"]</code></p>
+
+<p>This mode warns on any use of operator assignment shorthand.</p>
+
+<p>The following are examples of valid patterns:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint operator-assignment: ["error", "never"]*/</span><br/><br/><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">y</span> <span class="o">/</span> <span class="nx">a</span><span class="p">.</span><span class="nx">b</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems and should be written out fully without the shorthand assignments:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint operator-assignment: ["error", "never"]*/</span><br/><br/><span class="nx">x</span> <span class="o">*=</span> <span class="nx">y</span><span class="p">;</span><br/><span class="nx">x</span> <span class="o">^=</span> <span class="p">(</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">z</span><span class="p">)</span> <span class="o">/</span> <span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>Use of operator assignment shorthand is a stylistic choice. Leaving this rule turned off would allow developers to choose which style is more readable on a case-by-case basis.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.10.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/operator-assignment.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/operator-assignment.md">Documentation source</a></li>
+</ul>
+
+  

@@ -1,0 +1,48 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-symbol-constructor-no-new-symbol">Disallow Symbol Constructor (no-new-symbol)</h1>
+
+<p>The <code class="highlighter-rouge">Symbol</code> constructor is not intended to be used with the <code class="highlighter-rouge">new</code> operator, but to be called as a function.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>This throws a <code class="highlighter-rouge">TypeError</code> exception.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at preventing the accidental calling of <code class="highlighter-rouge">Symbol</code> with the <code class="highlighter-rouge">new</code> operator.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-new-symbol: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-new-symbol: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span><br/><br/><br/><span class="c1">// Ignores shadowed Symbol.</span><br/><span class="kd">function</span> <span class="nx">bar</span><span class="p">(</span><span class="nx">Symbol</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="kr">const</span> <span class="nx">baz</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s2">"baz"</span><span class="p">);</span><br/><span class="p">}</span><br/><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>This rule should not be used in ES3/5 environments.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-symbol-objects">Symbol Objects specification</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 2.0.0-beta.1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-new-symbol.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-new-symbol.md">Documentation source</a></li>
+</ul>
+
+  

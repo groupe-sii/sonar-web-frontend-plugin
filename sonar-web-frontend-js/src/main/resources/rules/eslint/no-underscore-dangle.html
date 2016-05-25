@@ -1,0 +1,66 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-dangling-underscores-in-identifiers-no-underscore-dangle">Disallow Dangling Underscores in Identifiers (no-underscore-dangle)</h1>
+
+<p>As far as naming conventions for identifiers go, dangling underscores may be the most polarizing in JavaScript. Dangling underscores are underscores at either the beginning or end of an identifier, such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">_foo</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>There is actually a long history of using dangling underscores to indicate “private” members of objects in JavaScript (though JavaScript doesn’t have truly private members, this convention served as a warning). This began with SpiderMonkey adding nonstandard methods such as <code class="highlighter-rouge">__defineGetter__()</code>. The intent with the underscores was to make it obvious that this method was special in some way. Since that time, using a single underscore prefix has become popular as a way to indicate “private” members of objects.</p>
+
+<p>Whether or not you choose to allow dangling underscores in identifiers is purely a convention and has no effect on performance, readability, or complexity. It’s purely a preference.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to eliminate the use of dangling underscores in identifiers.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<h3 id="allow"><code class="highlighter-rouge">allow</code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allow" aria-label="Anchor link for: allow" data-anchorjs-icon=""></a></h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"no-underscore-dangle"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>Array of variable names that are permitted to be used with underscore. If provided, it must be an <code class="highlighter-rouge">Array</code>.</p>
+
+<h3 id="allowafterthis"><code class="highlighter-rouge">allowAfterThis</code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#allowafterthis" aria-label="Anchor link for: allowafterthis" data-anchorjs-icon=""></a></h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"no-underscore-dangle"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"allowAfterThis"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}]</span><span class="w"><br/></span></code></pre>
+</div>
+
+<p>This option allows usage of dangled variables as members of <code class="highlighter-rouge">this</code>.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-underscore-dangle: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo_</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">__proto__</span> <span class="o">=</span> <span class="p">{};</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">_bar</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-underscore-dangle: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'underscore'</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">items</span><span class="p">,</span> <span class="nx">item</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">=</span> <span class="p">{};</span><br/><span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">__filename</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-underscore-dangle: ["error", { "allow": ["foo_", "_bar"] }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo_</span><span class="p">;</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">_bar</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-underscore-dangle: ["error", { "allowAfterThis": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">foo_</span><span class="p">;</span><br/><span class="k">this</span><span class="p">.</span><span class="nx">_bar</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you want to allow dangling underscores in identifiers, then you can safely turn this rule off.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-underscore-dangle.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-underscore-dangle.md">Documentation source</a></li>
+</ul>
+
+  

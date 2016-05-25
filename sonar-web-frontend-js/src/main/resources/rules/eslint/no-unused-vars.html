@@ -1,0 +1,174 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-unused-variables-no-unused-vars">Disallow Unused Variables (no-unused-vars)</h1>
+
+<p>Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at eliminating unused variables, functions, and parameters of functions.</p>
+
+<p>A variable is considered to be used if any of the following are true:</p>
+
+<ul>
+  <li>It represents a function that is called (<code class="highlighter-rouge">doSomething()</code>)</li>
+  <li>It is read (<code class="highlighter-rouge">var y = x</code>)</li>
+  <li>It is passed into a function as an argument (<code class="highlighter-rouge">doSomething(x)</code>)</li>
+</ul>
+
+<p>A variable is <em>not</em> considered to be used if it is only ever assigned to (<code class="highlighter-rouge">var x = 5</code>) or declared.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: "error"*/</span><br/><span class="cm">/*global some_unused_var*/</span><br/><br/><span class="c1">//It checks variables you have defined as global</span><br/><span class="nx">some_unused_var</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">x</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span><br/><span class="nx">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span><br/><br/><span class="c1">// By default, unused arguments cause warnings.</span><br/><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="mi">5</span><span class="p">;</span><br/><span class="p">})();</span><br/><br/><span class="c1">// Unused recursive functions also cause warnings.</span><br/><span class="kd">function</span> <span class="nx">fact</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span><br/>    <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">fact</span><span class="p">(</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span><br/><span class="nx">alert</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><br/><br/><span class="c1">// foo is considered used here</span><br/><span class="nx">myFunc</span><span class="p">(</span><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span><br/><br/><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">foo</span><span class="p">;</span><br/><span class="p">})();</span><br/></code></pre>
+</div>
+
+<h3 id="exported">exported<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#exported" aria-label="Anchor link for: exported" data-anchorjs-icon=""></a></h3>
+
+<p>In environments outside of CommonJS or ECMAScript modules, you may use <code class="highlighter-rouge">var</code> to create a global variable that may be used by other scripts. You can use the <code class="highlighter-rouge">/* exported variableName */</code> comment block to indicate that this variable is being exported and therefore should not be considered unused.</p>
+
+<p>Note that <code class="highlighter-rouge">/* exported */</code> has no effect for any of the following:</p>
+
+<ul>
+  <li>when the environment is <code class="highlighter-rouge">node</code> or <code class="highlighter-rouge">commonjs</code></li>
+  <li>when <code class="highlighter-rouge">parserOptions.sourceType</code> is <code class="highlighter-rouge">module</code></li>
+  <li>when <code class="highlighter-rouge">ecmaFeatures.globalReturn</code> is <code class="highlighter-rouge">true</code></li>
+</ul>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule takes one argument which can be a string or an object. The string settings are the same as those of the <code class="highlighter-rouge">vars</code> property (explained below).</p>
+
+<p>By default this rule is enabled with <code class="highlighter-rouge">all</code> option for variables and <code class="highlighter-rouge">after-used</code> for arguments.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>        </span><span class="nt">"no-unused-vars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"vars"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="s2">"after-used"</span><span class="w"> </span><span class="p">}]</span><span class="w"><br/>    </span><span class="p">}</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="vars">vars<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#vars" aria-label="Anchor link for: vars" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">vars</code> option has two settings:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">all</code> checks all variables for usage, including those in the global scope. This is the default setting.</li>
+  <li><code class="highlighter-rouge">local</code> checks only that locally-declared variables are used but will allow global variables to be unused.</li>
+</ul>
+
+<h4 id="vars-local">vars: local<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#vars-local" aria-label="Anchor link for: vars local" data-anchorjs-icon=""></a></h4>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"vars"</span><span class="p">:</span><span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "vars": "local" }]*/</span><br/><span class="cm">/*global some_unused_var */</span><br/><br/><span class="nx">some_unused_var</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h3 id="varsignorepattern">varsIgnorePattern<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#varsignorepattern" aria-label="Anchor link for: varsignorepattern" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">varsIgnorePattern</code> option specifies exceptions not to check for usage: variables whose names match a regexp pattern. For example, variables whose names contain <code class="highlighter-rouge">ignored</code> or <code class="highlighter-rouge">Ignored</code>.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"varsIgnorePattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[iI]gnored"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "[iI]gnored" }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">firstVarIgnored</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><br/><span class="kd">var</span> <span class="nx">secondVar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondVar</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h3 id="args">args<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#args" aria-label="Anchor link for: args" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">args</code> option has three settings:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">after-used</code> - only the last argument must be used. This allows you, for instance, to have two named parameters to a function and as long as you use the second argument, ESLint will not warn you about the first. This is the default setting.</li>
+  <li><code class="highlighter-rouge">all</code> - all named arguments must be used.</li>
+  <li><code class="highlighter-rouge">none</code> - do not check arguments.</li>
+</ul>
+
+<h4 id="args-after-used">args: after-used<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#args-after-used" aria-label="Anchor link for: args after used" data-anchorjs-icon=""></a></h4>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="s2">"after-used"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "args": "after-used" }]*/</span><br/><br/><span class="c1">// 1 error</span><br/><span class="c1">// "baz" is defined but never used</span><br/><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">})();</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="s2">"after-used"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", {"args": "after-used"}]*/</span><br/><br/><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">baz</span><span class="p">;</span><br/><span class="p">})();</span><br/></code></pre>
+</div>
+
+<h4 id="args-all">args: all<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#args-all" aria-label="Anchor link for: args all" data-anchorjs-icon=""></a></h4>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "args": "all" }]*/</span><br/><br/><span class="c1">// 2 errors</span><br/><span class="c1">// "foo" is defined but never used</span><br/><span class="c1">// "baz" is defined but never used</span><br/><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">})();</span><br/></code></pre>
+</div>
+
+<h4 id="args-none">args: none<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#args-none" aria-label="Anchor link for: args none" data-anchorjs-icon=""></a></h4>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="s2">"none"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "args": "none" }]*/</span><br/><br/><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">,</span> <span class="nx">baz</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">bar</span><span class="p">;</span><br/><span class="p">})();</span><br/></code></pre>
+</div>
+
+<h3 id="argsignorepattern">argsIgnorePattern<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#argsignorepattern" aria-label="Anchor link for: argsignorepattern" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">argsIgnorePattern</code> option specifies exceptions not to check for usage: arguments whose names match a regexp pattern. For example, variables whose names begin with an underscore.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"argsIgnorePattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^_"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">_y</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span><br/><span class="p">}</span><br/><span class="nx">foo</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h3 id="caughterrors">caughtErrors<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#caughterrors" aria-label="Anchor link for: caughterrors" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">caughtErrors</code> option is used for <code class="highlighter-rouge">catch</code> block arguments validation.</p>
+
+<p>It has two settings:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">none</code> - do not check error objects. This is the default setting.</li>
+  <li><code class="highlighter-rouge">all</code> - all named arguments must be used.</li>
+</ul>
+
+<h4 id="caughterrors-none">caughtErrors: none<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#caughterrors-none" aria-label="Anchor link for: caughterrors none" data-anchorjs-icon=""></a></h4>
+
+<p>Not specifying this rule is equivalent of assigning it to <code class="highlighter-rouge">none</code>.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"caughtErrors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"none"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "caughtErrors": "none" }]*/</span><br/><br/><span class="k">try</span> <span class="p">{</span><br/>    <span class="c1">//...</span><br/><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"errors"</span><span class="p">);</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h4 id="caughterrors-all">caughtErrors: all<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#caughterrors-all" aria-label="Anchor link for: caughterrors all" data-anchorjs-icon=""></a></h4>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"caughtErrors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "caughtErrors": "all" }]*/</span><br/><br/><span class="c1">// 1 error</span><br/><span class="c1">// "err" is defined but never used</span><br/><span class="k">try</span> <span class="p">{</span><br/>    <span class="c1">//...</span><br/><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"errors"</span><span class="p">);</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="caughterrorsignorepattern">caughtErrorsIgnorePattern<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#caughterrorsignorepattern" aria-label="Anchor link for: caughterrorsignorepattern" data-anchorjs-icon=""></a></h3>
+
+<p>The <code class="highlighter-rouge">caughtErrorsIgnorePattern</code> option specifies exceptions not to check for usage: catch arguments whose names match a regexp pattern. For example, variables whose names begin with a string ‘ignore’.</p>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"caughtErrorsIgnorePattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^ignore"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-unused-vars: ["error", { "caughtErrorsIgnorePattern": "^ignore" }]*/</span><br/><br/><span class="k">try</span> <span class="p">{</span><br/>    <span class="c1">//...</span><br/><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ignoreErr</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"errors"</span><span class="p">);</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you don’t want to be notified about unused variables or function arguments, you can safely turn this rule off.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-unused-vars.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-unused-vars.md">Documentation source</a></li>
+</ul>
+
+  

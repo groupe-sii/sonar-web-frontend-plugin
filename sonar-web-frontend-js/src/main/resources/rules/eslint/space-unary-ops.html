@@ -1,0 +1,68 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-or-disallow-spaces-beforeafter-unary-operators-space-unary-ops">Require or disallow spaces before/after unary operators (space-unary-ops)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>Some styleguides require or disallow spaces before or after unary operators. This is mainly a stylistic issue, however, some JavaScript expressions can be written without spacing which makes it harder to read and maintain.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces consistency regarding the spaces after <code class="highlighter-rouge">words</code> unary operators and after/before <code class="highlighter-rouge">nonwords</code> unary operators.</p>
+
+<p>Examples of unary <code class="highlighter-rouge">words</code> operators:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// new</span><br/><span class="kd">var</span> <span class="nx">joe</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span><br/><br/><span class="c1">// delete</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">foo</span><span class="p">:</span> <span class="s1">'bar'</span><br/><span class="p">};</span><br/><span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">;</span><br/><br/><span class="c1">// typeof</span><br/><span class="k">typeof</span> <span class="p">{}</span> <span class="c1">// object</span><br/><br/><span class="c1">// void</span><br/><span class="k">void</span> <span class="mi">0</span> <span class="c1">// undefined</span><br/></code></pre>
+</div>
+
+<p>Examples of unary <code class="highlighter-rouge">nonwords</code> operators:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{};</span><br/><span class="nx">foo</span> <span class="o">=</span> <span class="o">--</span><span class="nx">foo</span><span class="p">;</span><br/><span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span><span class="o">++</span><span class="p">;</span><br/><span class="nx">baz</span> <span class="o">=</span> <span class="o">!</span><span class="nx">foo</span><span class="p">;</span><br/><span class="nx">qux</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">baz</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has three options:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">words</code> - applies to unary word operators such as: <code class="highlighter-rouge">new</code>, <code class="highlighter-rouge">delete</code>, <code class="highlighter-rouge">typeof</code>, <code class="highlighter-rouge">void</code>, <code class="highlighter-rouge">yield</code></li>
+  <li><code class="highlighter-rouge">nonwords</code> - applies to unary operators such as: <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">--</code>, <code class="highlighter-rouge">++</code>, <code class="highlighter-rouge">!</code>, <code class="highlighter-rouge">!!</code></li>
+  <li><code class="highlighter-rouge">overrides</code> - specifies overwriting usage of spacing for each
+operator, word or non word. This is empty by default, but can be used
+to enforce or disallow spacing around operators. For example:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    <span class="s2">"space-unary-ops"</span><span class="err">:</span> <span class="p">[</span><br/>        <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><br/>          <span class="s2">"words"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><br/>          <span class="s2">"nonwords"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span><br/>          <span class="s2">"overrides"</span><span class="p">:</span> <span class="p">{</span><br/>            <span class="s2">"new"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span><br/>            <span class="s2">"++"</span><span class="p">:</span> <span class="kc">true</span><br/>          <span class="p">}</span><br/>    <span class="p">}]</span><br/></code></pre>
+</div>
+
+<p>In this case, spacing will be disallowed after a <code class="highlighter-rouge">new</code> operator and required before/after a <code class="highlighter-rouge">++</code> operator.</p>
+
+<p>Given the default values <code class="highlighter-rouge">words</code>: <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">nonwords</code>: <code class="highlighter-rouge">false</code>, the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-unary-ops: "error"*/</span><br/><br/><span class="k">typeof</span><span class="o">!</span><span class="nx">foo</span><span class="p">;</span><br/><br/><span class="k">void</span><span class="p">{</span><span class="na">foo</span><span class="p">:</span><span class="mi">0</span><span class="p">};</span><br/><br/><span class="k">new</span><span class="p">[</span><span class="nx">foo</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><br/><br/><span class="k">delete</span><span class="p">(</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">);</span><br/><br/><span class="o">++</span> <span class="nx">foo</span><span class="p">;</span><br/><br/><span class="nx">foo</span> <span class="o">--</span><span class="p">;</span><br/><br/><span class="o">-</span> <span class="nx">foo</span><span class="p">;</span><br/><br/><span class="o">+</span> <span class="s2">"3"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-unary-ops: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">yield</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Given the default values <code class="highlighter-rouge">words</code>: <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">nonwords</code>: <code class="highlighter-rouge">false</code>, the following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-unary-ops: "error"*/</span><br/><br/><span class="c1">// Word unary operator "delete" is followed by a whitespace.</span><br/><span class="k">delete</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><br/><br/><span class="c1">// Word unary operator "new" is followed by a whitespace.</span><br/><span class="k">new</span> <span class="nx">Foo</span><span class="p">;</span><br/><br/><span class="c1">// Word unary operator "void" is followed by a whitespace.</span><br/><span class="k">void</span> <span class="mi">0</span><span class="p">;</span><br/><br/><span class="c1">// Unary operator "++" is not followed by whitespace.</span><br/><span class="o">++</span><span class="nx">foo</span><span class="p">;</span><br/><br/><span class="c1">// Unary operator "--" is not preceded by whitespace.</span><br/><span class="nx">foo</span><span class="o">--</span><span class="p">;</span><br/><br/><span class="c1">// Unary operator "-" is not followed by whitespace.</span><br/><span class="o">-</span><span class="nx">foo</span><span class="p">;</span><br/><br/><span class="c1">// Unary operator "+" is not followed by whitespace.</span><br/><span class="o">+</span><span class="s2">"3"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint space-unary-ops: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">yield</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.10.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/space-unary-ops.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/space-unary-ops.md">Documentation source</a></li>
+</ul>
+
+  

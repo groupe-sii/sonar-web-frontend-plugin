@@ -1,0 +1,52 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-new-require-no-new-require">Disallow new require (no-new-require)</h1>
+
+<p>The <code class="highlighter-rouge">require</code> function is used to include modules that exist in separate files, such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'app-header'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>Some modules return a constructor which can potentially lead to code such as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'app-header'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>Unfortunately, this introduces a high potential for confusion since the code author likely meant to write:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">'app-header'</span><span class="p">));</span><br/></code></pre>
+</div>
+
+<p>For this reason, it is usually best to disallow this particular expression.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to eliminate use of the <code class="highlighter-rouge">new require</code> expression.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-new-require: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'app-header'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-new-require: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">AppHeader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'app-header'</span><span class="p">);</span><br/><span class="kd">var</span> <span class="nx">appHeader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppHeader</span><span class="p">();</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you are using a custom implementation of <code class="highlighter-rouge">require</code> and your code will never be used in projects where a standard <code class="highlighter-rouge">require</code> (CommonJS, Node.js, AMD) is expected, you can safely turn this rule off.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.6.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-new-require.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-new-require.md">Documentation source</a></li>
+</ul>
+
+  

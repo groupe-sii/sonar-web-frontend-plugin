@@ -1,0 +1,45 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-empty-character-classes-in-regular-expressions-no-empty-character-class">disallow empty character classes in regular expressions (no-empty-character-class)</h1>
+
+<p>Because empty character classes in regular expressions do not match anything, they might be typing mistakes.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="sr">/^abc</span><span class="se">[]</span><span class="sr">/</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule disallows empty character classes in regular expressions.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-empty-character-class: "error"*/</span><br/><br/><span class="sr">/^abc</span><span class="se">[]</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcdefg"</span><span class="p">);</span> <span class="c1">// false</span><br/><span class="s2">"abcdefg"</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^abc</span><span class="se">[]</span><span class="sr">/</span><span class="p">);</span> <span class="c1">// null</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-empty-character-class: "error"*/</span><br/><br/><span class="sr">/^abc/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcdefg"</span><span class="p">);</span> <span class="c1">// true</span><br/><span class="s2">"abcdefg"</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^abc/</span><span class="p">);</span> <span class="c1">// ["abc"]</span><br/><br/><span class="sr">/^abc</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"abcdefg"</span><span class="p">);</span> <span class="c1">// true</span><br/><span class="s2">"abcdefg"</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^abc</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">/</span><span class="p">);</span> <span class="c1">// ["abcd"]</span><br/></code></pre>
+</div>
+
+<h2 id="known-limitations">Known Limitations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#known-limitations" aria-label="Anchor link for: known limitations" data-anchorjs-icon=""></a></h2>
+
+<p>This rule does not report empty character classes in the string argument of calls to the <code class="highlighter-rouge">RegExp</code> constructor.</p>
+
+<p>Example of a <em>false negative</em> when this rule reports correct code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-empty-character-class: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">abcNeverMatches</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">"^abc[]"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.22.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-empty-character-class.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-empty-character-class.md">Documentation source</a></li>
+</ul>
+
+  

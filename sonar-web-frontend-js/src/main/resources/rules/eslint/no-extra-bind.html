@@ -1,0 +1,58 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-unnecessary-function-binding-no-extra-bind">Disallow unnecessary function binding (no-extra-bind)</h1>
+
+<p>The <code class="highlighter-rouge">bind()</code> method is used to create functions with specific <code class="highlighter-rouge">this</code> values and, optionally, binds arguments to specific values. When used to specify the value of <code class="highlighter-rouge">this</code>, it’s important that the function actually use <code class="highlighter-rouge">this</code> in its function body. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">boundGetName</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span><br/><span class="p">}).</span><span class="nx">bind</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"ESLint"</span> <span class="p">});</span><br/><br/><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">boundGetName</span><span class="p">());</span>      <span class="c1">// "ESLint"</span><br/></code></pre>
+</div>
+
+<p>This code is an example of a good use of <code class="highlighter-rouge">bind()</code> for setting the value of <code class="highlighter-rouge">this</code>.</p>
+
+<p>Sometimes during the course of code maintenance, the <code class="highlighter-rouge">this</code> value is removed from the function body. In that case, you can end up with a call to <code class="highlighter-rouge">bind()</code> that doesn’t accomplish anything:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// useless bind</span><br/><span class="kd">var</span> <span class="nx">boundGetName</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="s2">"ESLint"</span><span class="p">;</span><br/><span class="p">}).</span><span class="nx">bind</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"ESLint"</span> <span class="p">});</span><br/><br/><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">boundGetName</span><span class="p">());</span>      <span class="c1">// "ESLint"</span><br/></code></pre>
+</div>
+
+<p>In this code, the reference to <code class="highlighter-rouge">this</code> has been removed but <code class="highlighter-rouge">bind()</code> is still used. In this case, the <code class="highlighter-rouge">bind()</code> is unnecessary overhead (and a performance hit) and can be safely removed.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at avoiding the unnecessary use of <code class="highlighter-rouge">bind()</code> and as such will warn whenever an immediately-invoked function expression (IIFE) is using <code class="highlighter-rouge">bind()</code> and doesn’t have an appropriate <code class="highlighter-rouge">this</code> value. This rule won’t flag usage of <code class="highlighter-rouge">bind()</code> that includes function argument binding.</p>
+
+<p><strong>Note:</strong> Arrow functions can never have their <code class="highlighter-rouge">this</code> value set using <code class="highlighter-rouge">bind()</code>. This rule flags all uses of <code class="highlighter-rouge">bind()</code> with arrow functions as a problem</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-extra-bind: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>    <span class="nx">foo</span><span class="p">();</span><br/><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span><br/>    <span class="nx">foo</span><span class="p">();</span><br/><span class="p">}).</span><span class="nx">bind</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span><br/>    <span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><br/><span class="p">}).</span><span class="nx">bind</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>    <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>      <span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><br/>    <span class="p">}());</span><br/><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>    <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>      <span class="k">this</span><span class="p">.</span><span class="nx">bar</span><span class="p">();</span><br/>    <span class="p">}</span><br/><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">baz</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-extra-bind: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><br/>    <span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span><br/><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span><br/><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you are not concerned about unnecessary calls to <code class="highlighter-rouge">bind()</code>, you can safely disable this rule.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">Function.prototype.bind</a></li>
+  <li><a href="http://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/">Understanding JavaScript’s Function.prototype.bind</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.8.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-extra-bind.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-extra-bind.md">Documentation source</a></li>
+</ul>
+
+  

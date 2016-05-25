@@ -1,0 +1,111 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-a-maximum-line-length-max-len">enforce a maximum line length (max-len)</h1>
+
+<p>Very long lines of code in any language can be difficult to read. In order to aid in readability and maintainability many coders have developed a convention to limit lines of code to X number of characters (traditionally 80 characters).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"bar"</span><span class="p">:</span> <span class="s2">"This is a bar."</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"qux"</span><span class="p">:</span> <span class="s2">"This is a qux"</span> <span class="p">},</span> <span class="s2">"difficult"</span><span class="err">:</span> <span class="s2">"to read"</span> <span class="p">};</span> <span class="c1">// very long</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces a maximum line length to increase code readability and maintainability.</p>
+
+<p><strong>Note:</strong> This rule calculates the length of a line via code points, not characters. That means if you use a double-byte character in your code, it will count as 2 code points instead of 1, and 2 will be used to calculate line length. This is a technical limitation of JavaScript that is made easier with ES2015, and we will look to update this when ES2015 is available in Node.js.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a number or object option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"code"</code> (default <code class="highlighter-rouge">80</code>) enforces a maximum line length</li>
+  <li><code class="highlighter-rouge">"tabWidth"</code> (default <code class="highlighter-rouge">4</code>) specifies the character width for tab characters</li>
+  <li><code class="highlighter-rouge">"comments"</code> enforces a maximum line length for comments; defaults to value of <code class="highlighter-rouge">code</code></li>
+  <li><code class="highlighter-rouge">"ignorePattern"</code> ignores lines matching a regular expression; can only match a single line and need to be double escaped when written in YAML or JSON</li>
+  <li><code class="highlighter-rouge">"ignoreComments": true</code> ignores all trailing comments and comments on their own line</li>
+  <li><code class="highlighter-rouge">"ignoreTrailingComments": true</code> ignores only trailing comments</li>
+  <li><code class="highlighter-rouge">"ignoreUrls": true</code> ignores lines that contain a URL</li>
+</ul>
+
+<h3 id="code">code<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#code" aria-label="Anchor link for: code" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", 80]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"bar"</span><span class="p">:</span> <span class="s2">"This is a bar."</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"qux"</span><span class="p">:</span> <span class="s2">"This is a qux"</span> <span class="p">},</span> <span class="s2">"difficult"</span><span class="err">:</span> <span class="s2">"to read"</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", 80]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>  <span class="s2">"bar"</span><span class="p">:</span> <span class="s2">"This is a bar."</span><span class="p">,</span><br/>  <span class="s2">"baz"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"qux"</span><span class="p">:</span> <span class="s2">"This is a qux"</span> <span class="p">},</span><br/>  <span class="s2">"easier"</span><span class="err">:</span> <span class="s2">"to read"</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="tabwidth">tabWidth<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#tabwidth" aria-label="Anchor link for: tabwidth" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"tabWidth"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", 80, 4]*/</span><br/><br/><span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"bar"</span><span class="p">:</span> <span class="s2">"This is a bar."</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"qux"</span><span class="p">:</span> <span class="s2">"This is a qux"</span> <span class="p">}</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"tabWidth"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", 80, 4]*/</span><br/><br/><span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/><span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="s2">"bar"</span><span class="p">:</span> <span class="s2">"This is a bar."</span><span class="p">,</span><br/><span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="s2">"baz"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"qux"</span><span class="p">:</span> <span class="s2">"This is a qux"</span> <span class="p">}</span><br/><span class="err">\</span><span class="nx">t</span>  <span class="err">\</span><span class="nx">t</span>  <span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="comments">comments<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#comments" aria-label="Anchor link for: comments" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", { "comments": 65 }]*/</span><br/><br/><span class="cm">/**<br/> * This is a comment that violates the maximum line length we have specified<br/>**/</span><br/></code></pre>
+</div>
+
+<h3 id="ignorecomments">ignoreComments<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ignorecomments" aria-label="Anchor link for: ignorecomments" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"ignoreComments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", { "ignoreComments": true }]*/</span><br/><br/><span class="cm">/**<br/> * This is a really really really really really really really really really long comment<br/>**/</span><br/></code></pre>
+</div>
+
+<h3 id="ignoretrailingcomments">ignoreTrailingComments<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ignoretrailingcomments" aria-label="Anchor link for: ignoretrailingcomments" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"ignoreTrailingComments"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", { "ignoreTrailingComments": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">;</span> <span class="c1">// This is a really really really really really really really long comment</span><br/></code></pre>
+</div>
+
+<h3 id="ignoreurls">ignoreUrls<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ignoreurls" aria-label="Anchor link for: ignoreurls" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"ignoreUrls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", { "ignoreUrls": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">'https://www.example.com/really/really/really/really/really/really/really/long'</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<h3 id="ignorepattern">ignorePattern<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ignorepattern" aria-label="Anchor link for: ignorepattern" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"ignorePattern"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint max-len: ["error", { "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\(/" }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">dep</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'really/really/really/really/really/really/really/really/long/module'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="complexity">complexity</a></li>
+  <li><a href="max-depth">max-depth</a></li>
+  <li><a href="max-nested-callbacks">max-nested-callbacks</a></li>
+  <li><a href="max-params">max-params</a></li>
+  <li><a href="max-statements">max-statements</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/max-len.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/max-len.md">Documentation source</a></li>
+</ul>
+
+  

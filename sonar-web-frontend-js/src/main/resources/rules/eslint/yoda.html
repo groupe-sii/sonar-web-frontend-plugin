@@ -1,0 +1,100 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-or-disallow-yoda-conditions-yoda">Require or disallow Yoda Conditions (yoda)</h1>
+
+<p>Yoda conditions are so named because the literal value of the condition comes first while the variable comes second. For example, the following is a Yoda condition:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="s2">"red"</span> <span class="o">===</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>This is called a Yoda condition because it reads as, “red is the color”, similar to the way the Star Wars character Yoda speaks. Compare to the other way of arranging the operands:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">color</span> <span class="o">===</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>This typically reads, “color is red”, which is arguably a more natural way to describe the comparison.</p>
+
+<p>Proponents of Yoda conditions highlight that it is impossible to mistakenly use <code class="highlighter-rouge">=</code> instead of <code class="highlighter-rouge">==</code> because you cannot assign to a literal value. Doing so will cause a syntax error and you will be informed of the mistake early on. This practice was therefore very common in early programming where tools were not yet available.</p>
+
+<p>Opponents of Yoda conditions point out that tooling has made us better programmers because tools will catch the mistaken use of <code class="highlighter-rouge">=</code> instead of <code class="highlighter-rouge">==</code> (ESLint will catch this for you). Therefore, they argue, the utility of the pattern doesn’t outweigh the readability hit the code takes while using Yoda conditions.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule aims to enforce consistent style of conditions which compare a variable to a literal value.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule can take a string option:</p>
+
+<ul>
+  <li>If it is the default <code class="highlighter-rouge">"never"</code>, then comparisons must never be Yoda conditions.</li>
+  <li>If it is <code class="highlighter-rouge">"always"</code>, then the literal value must always come first.</li>
+</ul>
+
+<p>The default <code class="highlighter-rouge">"never"</code> option can have exception options in an object literal:</p>
+
+<ul>
+  <li>If the <code class="highlighter-rouge">"exceptRange"</code> property is <code class="highlighter-rouge">true</code>, the rule <em>allows</em> yoda conditions in range comparisons which are wrapped directly in parentheses, including the parentheses of an <code class="highlighter-rouge">if</code> or <code class="highlighter-rouge">while</code> condition. The default value is <code class="highlighter-rouge">false</code>. A <em>range</em> comparison tests whether a variable is inside or outside the range between two literal values.</li>
+  <li>If the <code class="highlighter-rouge">"onlyEquality"</code> property is <code class="highlighter-rouge">true</code>, the rule reports yoda conditions <em>only</em> for the equality operators <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">===</code>. The default value is <code class="highlighter-rouge">false</code>.</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">onlyEquality</code> option allows a superset of the exceptions which <code class="highlighter-rouge">exceptRange</code> allows, thus both options are not useful together.</p>
+
+<h3 id="never">never<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the default <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint yoda: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="s2">"red"</span> <span class="o">===</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="kc">true</span> <span class="o">==</span> <span class="nx">flag</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">substr</span><span class="p">))</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the default <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint yoda: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&amp;</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">"red"</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="exceptrange">exceptRange<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#exceptrange" aria-label="Anchor link for: exceptrange" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"never", { "exceptRange": true }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint yoda: ["error", "never", { "exceptRange": true }]*/</span><br/><br/><span class="kd">function</span> <span class="nx">isReddish</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">hue</span> <span class="o">&lt;</span> <span class="mi">60</span> <span class="o">||</span> <span class="mi">300</span> <span class="o">&lt;</span> <span class="nx">color</span><span class="p">.</span><span class="nx">hue</span><span class="p">);</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">rand</span> <span class="o">&amp;&amp;</span> <span class="nx">rand</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="kd">function</span> <span class="nx">howLong</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">?</span> <span class="s2">"short"</span> <span class="p">:</span> <span class="s2">"long"</span><span class="p">;</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="onlyequality">onlyEquality<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#onlyequality" aria-label="Anchor link for: onlyequality" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"never", { "onlyEquality": true }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint yoda: ["error", "never", { "onlyEquality": true }]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="mi">9</span> <span class="o">&lt;</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">!==</span> <span class="s1">'foo'</span> <span class="o">&amp;&amp;</span> <span class="s1">'bar'</span> <span class="o">!=</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="always">always<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint yoda: ["error", "always"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">color</span> <span class="o">==</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint yoda: ["error", "always"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="s2">"blue"</span> <span class="o">==</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">substr</span><span class="p">))</span> <span class="p">{</span><br/>    <span class="c1">// ...</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Yoda_conditions">Yoda Conditions</a></li>
+  <li><a href="http://thomas.tuerke.net/on/design/?with=1249091668#msg1146181680">Yoda Notation and Safe Switching</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.7.1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/yoda.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/yoda.md">Documentation source</a></li>
+</ul>
+
+  

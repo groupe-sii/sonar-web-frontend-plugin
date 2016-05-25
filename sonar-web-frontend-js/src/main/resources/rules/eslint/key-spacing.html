@@ -1,0 +1,136 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-consistent-spacing-between-keys-and-values-in-object-literal-properties-key-spacing">enforce consistent spacing between keys and values in object literal properties (key-spacing)</h1>
+
+<p>This rule enforces spacing around the colon in object literal properties. It can verify each property individually, or it can ensure horizontal alignment of adjacent properties in an object literal.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces consistent spacing between keys and values in object literal properties. In the case of long lines, it is acceptable to add a new line wherever whitespace is allowed.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an object option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"beforeColon": false</code> (default) disallows spaces between the key and the colon in object literals</li>
+  <li><code class="highlighter-rouge">"beforeColon": true</code> requires at least one space between the key and the colon in object literals</li>
+  <li><code class="highlighter-rouge">"afterColon": true</code> (default) requires at least one space between the colon and the value in object literals</li>
+  <li><code class="highlighter-rouge">"afterColon": false</code> disallows spaces between the colon and the value in object literals</li>
+  <li><code class="highlighter-rouge">"mode": strict</code> (default) enforces exactly one space before or after colons in object literals</li>
+  <li><code class="highlighter-rouge">"mode": minimum</code> enforces one or more spaces before or after colons in object literals</li>
+  <li><code class="highlighter-rouge">"align": "value"</code> enforces horizontal alignment of values in object literals</li>
+  <li><code class="highlighter-rouge">"align": "colon"</code> enforces horizontal alignment of both colons and values in object literals.</li>
+  <li><code class="highlighter-rouge">"singleLine"</code> specifies a spacing style for single-line object literals</li>
+  <li><code class="highlighter-rouge">"multiLine"</code> specifies a spacing style for multi-line object literals</li>
+</ul>
+
+<p>Please note that you can either use the top-level options or the grouped options (<code class="highlighter-rouge">singleLine</code> and <code class="highlighter-rouge">multiLine</code>) but not both.</p>
+
+<h3 id="beforecolon">beforeColon<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#beforecolon" aria-label="Anchor link for: beforecolon" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "beforeColon": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span> <span class="p">:</span> <span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "beforeColon": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span><span class="p">:</span> <span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "beforeColon": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span><span class="p">:</span> <span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"beforeColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "beforeColon": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span> <span class="p">:</span> <span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="aftercolon">afterColon<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#aftercolon" aria-label="Anchor link for: aftercolon" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "afterColon": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span><span class="p">:</span><span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "afterColon": true }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span><span class="p">:</span> <span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "afterColon": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span><span class="p">:</span> <span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"afterColon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "afterColon": false }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"foo"</span><span class="p">:</span><span class="mi">42</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<h3 id="mode">mode<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#mode" aria-label="Anchor link for: mode" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"strict"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "mode": "strict" }]*/</span><br/><br/><span class="nx">call</span><span class="p">({</span><br/>    <span class="na">foobar</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><br/>    <span class="na">bat</span><span class="p">:</span>    <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"strict"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "mode": "strict" }]*/</span><br/><br/><span class="nx">call</span><span class="p">({</span><br/>    <span class="na">foobar</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><br/>    <span class="na">bat</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minimum"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "mode": "minimum" }]*/</span><br/><br/><span class="nx">call</span><span class="p">({</span><br/>    <span class="na">foobar</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><br/>    <span class="na">bat</span><span class="p">:</span>    <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<h3 id="align">align<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#align" aria-label="Anchor link for: align" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "align": "value" }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">a</span><span class="p">:</span> <span class="nx">value</span><span class="p">,</span><br/>    <span class="na">bcde</span><span class="p">:</span>  <span class="mi">42</span><span class="p">,</span><br/>    <span class="na">fg</span> <span class="p">:</span>   <span class="nx">foo</span><span class="p">()</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "align": "value" }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">a</span><span class="p">:</span>    <span class="nx">value</span><span class="p">,</span><br/>    <span class="na">bcde</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><br/><br/>    <span class="na">fg</span><span class="p">:</span> <span class="nx">foo</span><span class="p">(),</span><br/>    <span class="na">h</span><span class="p">:</span>  <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span><br/>    <span class="p">},</span><br/>    <span class="na">ijkl</span><span class="p">:</span> <span class="s1">'Non-consecutive lines form a new group'</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="na">longPropertyName</span><span class="p">:</span> <span class="s2">"bar"</span> <span class="p">};</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"colon"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "align": "colon" }]*/</span><br/><br/><span class="nx">call</span><span class="p">({</span><br/>    <span class="na">foobar</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><br/>    <span class="na">bat</span><span class="p">:</span>    <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"colon"</span><span class="w"> </span><span class="p">}</span></code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint key-spacing: ["error", { "align": "colon" }]*/</span><br/><br/><span class="nx">call</span><span class="p">({</span><br/>    <span class="na">foobar</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span><br/>    <span class="na">bat</span>   <span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<h3 id="singleline-and-multiline">singleLine and multiLine<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#singleline-and-multiline" aria-label="Anchor link for: singleline and multiline" data-anchorjs-icon=""></a></h3>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with sample <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"singleLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nt">"multiLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span></code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint "key-spacing": [2, {<br/>    "singleLine": {<br/>        "beforeColon": false,<br/>        "afterColon": true<br/>    },<br/>    "multiLine": {<br/>        "beforeColon": true,<br/>        "afterColon": true,<br/>        "align": "colon"<br/>    }<br/>}]*/</span><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"two"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">three</span><span class="p">:</span> <span class="mi">3</span> <span class="p">};</span><br/><span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="s2">"two"</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span><br/>    <span class="na">three</span> <span class="p">:</span> <span class="mi">3</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you have another convention for property spacing that might not be consistent with the available options, or if you want to permit multiple styles concurrently you can safely disable this rule.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.9.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/key-spacing.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/key-spacing.md">Documentation source</a></li>
+</ul>
+
+  

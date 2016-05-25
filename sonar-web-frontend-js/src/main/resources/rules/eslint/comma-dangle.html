@@ -1,0 +1,104 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="require-or-disallow-trailing-commas-comma-dangle">require or disallow trailing commas (comma-dangle)</h1>
+
+<p class="fixable icon">The <code class="highlighter-rouge">--fix</code> option on the <a href="../user-guide/command-line-interface#fix">command line</a> automatically fixes problems reported by this rule.</p>
+
+<p>Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. However, IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">};</span><br/></code></pre>
+</div>
+
+<p>Trailing commas simplify adding and removing items to objects and arrays, since only the lines you are modifying must be touched.
+Another argument in favor of trailing commas is that it improves the clarity of diffs when an item is added or removed from an object or array:</p>
+
+<p>Less clear:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> var foo = {<br/><span class="gd">-    bar: "baz",<br/>-    qux: "quux"<br/></span><span class="gi">+    bar: "baz"<br/></span> };<br/></code></pre>
+</div>
+
+<p>More clear:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> var foo = {<br/>     bar: "baz",<br/><span class="gd">-    qux: "quux",<br/></span> };<br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces consistent use of trailing commas in object and array literals.</p>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a string option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"never"</code> (default) disallows trailing commas</li>
+  <li><code class="highlighter-rouge">"always"</code> requires trailing commas</li>
+  <li><code class="highlighter-rouge">"always-multiline"</code> requires trailing commas when the last element or property is in a <em>different</em> line than the closing <code class="highlighter-rouge">]</code> or <code class="highlighter-rouge">}</code> and disallows trailing commas when the last element or property is on the <em>same</em> line as the closing <code class="highlighter-rouge">]</code> or <code class="highlighter-rouge">}</code></li>
+  <li><code class="highlighter-rouge">"only-multiline"</code> allows (but does not require) trailing commas when the last element or property is in a <em>different</em> line than the closing <code class="highlighter-rouge">]</code> or <code class="highlighter-rouge">}</code> and disallows trailing commas when the last element or property is on the <em>same</em> line as the closing <code class="highlighter-rouge">]</code> or <code class="highlighter-rouge">}</code></li>
+</ul>
+
+<h3 id="never">never<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#never" aria-label="Anchor link for: never" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "never"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"never"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "never"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<h3 id="always">always<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always" aria-label="Anchor link for: always" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "always"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"always"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "always"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<h3 id="always-multiline">always-multiline<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#always-multiline" aria-label="Anchor link for: always multiline" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"always-multiline"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "always-multiline"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span> <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span> <span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><span class="p">,];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><br/><span class="p">];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"always-multiline"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "always-multiline"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span> <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">};</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><span class="p">,</span><br/><span class="p">];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<h3 id="only-multiline">only-multiline<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#only-multiline" aria-label="Anchor link for: only multiline" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"only-multiline"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "only-multiline"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span> <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span> <span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><span class="p">,];</span><br/><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"only-multiline"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-dangle: ["error", "only-multiline"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><br/>    <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>    <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">};</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span><span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span> <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">};</span><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><span class="p">,</span><br/><span class="p">];</span><br/><br/><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><br/>    <span class="mi">1</span><span class="p">,</span><br/>    <span class="mi">2</span><br/><span class="p">];</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><span class="p">,</span><br/><span class="p">});</span><br/><br/><span class="nx">foo</span><span class="p">({</span><br/>  <span class="na">bar</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span><br/>  <span class="na">qux</span><span class="p">:</span> <span class="s2">"quux"</span><br/><span class="p">});</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can turn this rule off if you are not concerned with dangling commas.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.16.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/comma-dangle.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/comma-dangle.md">Documentation source</a></li>
+</ul>
+
+  

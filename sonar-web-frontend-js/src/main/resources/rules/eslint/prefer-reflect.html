@@ -1,0 +1,205 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="suggest-using-reflect-methods-where-applicable-prefer-reflect">Suggest using Reflect methods where applicable (prefer-reflect)</h1>
+
+<p>The ES6 Reflect API comes with a handful of methods which somewhat deprecate methods on old constructors:</p>
+
+<ul>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.apply"><code class="highlighter-rouge">Reflect.apply</code></a> effectively deprecates <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-function.prototype.apply"><code class="highlighter-rouge">Function.prototype.apply</code></a> and <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-function.prototype.call"><code class="highlighter-rouge">Function.prototype.call</code></a></li>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.deleteproperty"><code class="highlighter-rouge">Reflect.deleteProperty</code></a> effectively deprecates the <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-delete-operator-runtime-semantics-evaluation"><code class="highlighter-rouge">delete</code> keyword</a></li>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.getownpropertydescriptor"><code class="highlighter-rouge">Reflect.getOwnPropertyDescriptor</code></a> effectively deprecates <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.getownpropertydescriptor"><code class="highlighter-rouge">Object.getOwnPropertyDescriptor</code></a></li>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.getprototypeof"><code class="highlighter-rouge">Reflect.getPrototypeOf</code></a> effectively deprecates <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.getprototypeof"><code class="highlighter-rouge">Object.getPrototypeOf</code></a></li>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.setprototypeof"><code class="highlighter-rouge">Reflect.setPrototypeOf</code></a> effectively deprecates <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.setprototypeof"><code class="highlighter-rouge">Object.setPrototypeOf</code></a></li>
+  <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.preventextensions"><code class="highlighter-rouge">Reflect.preventExtensions</code></a>  effectively deprecates <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.preventextensions"><code class="highlighter-rouge">Object.preventExtensions</code></a></li>
+</ul>
+
+<p>The prefer-reflect rule will flag usage of any older method, suggesting to instead use the newer Reflect version.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<h3 id="exceptions">Exceptions<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#exceptions" aria-label="Anchor link for: exceptions" data-anchorjs-icon=""></a></h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"prefer-reflect": [&lt;enabled&gt;, { exceptions: [&lt;...exceptions&gt;] }]<br/></code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">exceptions</code> option allows you to pass an array of methods names you’d like to continue to use in the old style.</p>
+
+<p>For example if you wish to use all Reflect methods, except for <code class="highlighter-rouge">Function.prototype.apply</code> then your config would look like <code class="highlighter-rouge">prefer-reflect: [2, { exceptions: ["apply"] }]</code>.</p>
+
+<p>If you want to use Reflect methods, but keep using the <code class="highlighter-rouge">delete</code> keyword, then your config would look like <code class="highlighter-rouge">prefer-reflect: [2, { exceptions: ["delete"] }]</code>.</p>
+
+<p>These can be combined as much as you like. To make all methods exceptions (thereby rendering this rule useless), use <code class="highlighter-rouge">prefer-reflect: [2, { exceptions: ["apply", "call", "defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }]</code></p>
+
+<h3 id="reflectapply-functionprototypeapplyfunctionprototypecall">Reflect.apply (Function.prototype.apply/Function.prototype.call)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectapply-functionprototypeapplyfunctionprototypecall" aria-label="Anchor link for: reflectapply functionprototypeapplyfunctionprototypecall" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">other</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">other</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">other</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">other</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["apply"] }]*/</span><br/><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">other</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">other</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["call"] }]*/</span><br/><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">other</span><span class="p">,</span> <span class="nx">arg</span><span class="p">);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">obj</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">other</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg</span><span class="p">]);</span><br/></code></pre>
+</div>
+
+<h3 id="reflectdefineproperty-objectdefineproperty">Reflect.defineProperty (Object.defineProperty)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectdefineproperty-objectdefineproperty" aria-label="Anchor link for: reflectdefineproperty objectdefineproperty" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["defineProperty"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><br/></code></pre>
+</div>
+
+<h3 id="reflectgetownpropertydescriptor-objectgetownpropertydescriptor">Reflect.getOwnPropertyDescriptor (Object.getOwnPropertyDescriptor)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectgetownpropertydescriptor-objectgetownpropertydescriptor" aria-label="Anchor link for: reflectgetownpropertydescriptor objectgetownpropertydescriptor" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<p><strong>config:</strong> <code class="highlighter-rouge">prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<h3 id="reflectgetprototypeof-objectgetprototypeof">Reflect.getPrototypeOf (Object.getPrototypeOf)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectgetprototypeof-objectgetprototypeof" aria-label="Anchor link for: reflectgetprototypeof objectgetprototypeof" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["getPrototypeOf"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">({},</span> <span class="s1">'foo'</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<h3 id="reflectsetprototypeof-objectsetprototypeof">Reflect.setPrototypeOf (Object.setPrototypeOf)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectsetprototypeof-objectsetprototypeof" aria-label="Anchor link for: reflectsetprototypeof objectsetprototypeof" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">({},</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">({},</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<p><strong>config:</strong> <code class="highlighter-rouge">prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">({},</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">)</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">({},</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">)</span><br/></code></pre>
+</div>
+
+<h3 id="reflectisextensible-objectisextensible">Reflect.isExtensible (Object.isExtensible)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectisextensible-objectisextensible" aria-label="Anchor link for: reflectisextensible objectisextensible" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["isExtensible"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">({})</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<h3 id="reflectgetownpropertynames-objectgetownpropertynames">Reflect.getOwnPropertyNames (Object.getOwnPropertyNames)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectgetownpropertynames-objectgetownpropertynames" aria-label="Anchor link for: reflectgetownpropertynames objectgetownpropertynames" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["getOwnPropertyNames"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">({})</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<h3 id="reflectpreventextensions-objectpreventextensions">Reflect.preventExtensions (Object.preventExtensions)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectpreventextensions-objectpreventextensions" aria-label="Anchor link for: reflectpreventextensions objectpreventextensions" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["preventExtensions"] }]*/</span><br/><br/><span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">({})</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">({})</span><br/></code></pre>
+</div>
+
+<h3 id="reflectdeleteproperty-the-delete-keyword">Reflect.deleteProperty (The <code class="highlighter-rouge">delete</code> keyword)<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#reflectdeleteproperty-the-delete-keyword" aria-label="Anchor link for: reflectdeleteproperty the delete keyword" data-anchorjs-icon=""></a></h3>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="k">delete</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: "error"*/</span><br/><br/><span class="k">delete</span> <span class="nx">bar</span><span class="p">;</span> <span class="c1">// Does not reference an object, just a var</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">deleteProperty</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>(Note: For a rule preventing deletion of variables, see <a href="no-delete-var">no-delete-var instead</a>)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint prefer-reflect: ["error", { exceptions: ["delete"] }]*/</span><br/><br/><span class="k">delete</span> <span class="nx">bar</span><br/><span class="k">delete</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><br/><span class="nx">Reflect</span><span class="p">.</span><span class="nx">deleteProperty</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>This rule should not be used in ES3/5 environments.</p>
+
+<p>In ES2015 (ES6) or later, if you don’t want to be notified about places where Reflect could be used, you can safely disable this rule.</p>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-useless-call">no-useless-call</a></li>
+  <li><a href="prefer-spread">prefer-spread</a></li>
+  <li><a href="no-delete-var">no-delete-var</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 1.0.0-rc-2.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/prefer-reflect.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/prefer-reflect.md">Documentation source</a></li>
+</ul>
+
+  

@@ -1,0 +1,41 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="verify-calls-of-super-in-constructors-constructor-super">Verify calls of <code class="highlighter-rouge">super()</code> in constructors (constructor-super)</h1>
+
+<p>Constructors of derived classes must call <code class="highlighter-rouge">super()</code>.
+Constructors of non derived classes must not call <code class="highlighter-rouge">super()</code>.
+If this is not observed, the javascript engine will raise a runtime error.</p>
+
+<p>This rule checks whether or not there is a valid <code class="highlighter-rouge">super()</code> call.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed to flag invalid/missing <code class="highlighter-rouge">super()</code> calls.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint constructor-super: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kr">class</span> <span class="nx">A</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="kr">super</span><span class="p">();</span>  <span class="c1">// This is a SyntaxError.</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kr">class</span> <span class="nx">A</span> <span class="kr">extends</span> <span class="nx">B</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>  <span class="c1">// Would throw a ReferenceError.</span><br/><span class="p">}</span><br/><br/><span class="c1">// Classes which inherits from a non constructor are always problems.</span><br/><span class="kr">class</span> <span class="nx">A</span> <span class="kr">extends</span> <span class="kc">null</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="kr">super</span><span class="p">();</span>  <span class="c1">// Would throw a TypeError.</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kr">class</span> <span class="nx">A</span> <span class="kr">extends</span> <span class="kc">null</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>  <span class="c1">// Would throw a ReferenceError.</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint constructor-super: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kr">class</span> <span class="nx">A</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span><br/><span class="p">}</span><br/><br/><span class="kr">class</span> <span class="nx">A</span> <span class="kr">extends</span> <span class="nx">B</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="kr">super</span><span class="p">();</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>If you don’t want to be notified about invalid/missing <code class="highlighter-rouge">super()</code> callings in constructors, you can safely disable this rule.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.24.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/constructor-super.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/constructor-super.md">Documentation source</a></li>
+</ul>
+
+  

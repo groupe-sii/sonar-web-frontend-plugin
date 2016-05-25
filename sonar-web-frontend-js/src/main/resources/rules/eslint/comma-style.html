@@ -1,0 +1,119 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="comma-style-comma-style">Comma style (comma-style)</h1>
+
+<p>The Comma Style rule enforces styles for comma-separated lists. There are two comma styles primarily used in JavaScript:</p>
+
+<ul>
+  <li>The standard style, in which commas are placed at the end of the current line</li>
+  <li>Comma First style, in which commas are placed at the start of the next line</li>
+</ul>
+
+<p>One of the justifications for using Comma First style is that it can help track missing and trailing commas. These are problematic because missing commas in variable declarations can lead to the leakage of global variables and trailing commas can lead to errors in older versions of IE.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforce consistent comma style in array literals, object literals, and variable declarations.</p>
+
+<p>This rule does not apply in either of the following cases:</p>
+
+<ul>
+  <li>comma preceded and followed by linebreak (lone comma)</li>
+  <li>single-line array literals, object literals, and variable declarations</li>
+</ul>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has a string option:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"last"</code> (default) requires a comma after and on the same line as an array element, object property, or variable declaration</li>
+  <li><code class="highlighter-rouge">"first"</code> requires a comma before and on the same line as an array element, object property, or variable declaration</li>
+</ul>
+
+<p>This rule also accepts an additional <code class="highlighter-rouge">exceptions</code> object:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">"exceptions"</code> has properties whose names correspond to node types in the abstract syntax tree (AST) of JavaScript code:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">"ArrayExpression": true</code> ignores comma style in array literals</li>
+      <li><code class="highlighter-rouge">"ObjectExpression": true</code> ignores comma style in object literals</li>
+      <li><code class="highlighter-rouge">"VariableDeclaration": true</code> ignores comma style in variable declarations</li>
+    </ul>
+  </li>
+</ul>
+
+<p>A way to determine the node types as defined by <a href="https://github.com/estree/estree">ESTree</a> is to use the <a href="http://eslint.org/parser">online demo</a>.</p>
+
+<h3 id="last">last<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#last" aria-label="Anchor link for: last" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the default <code class="highlighter-rouge">"last"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-style: ["error", "last"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><br/><span class="p">,</span><br/><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><br/>  <span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apples"</span><br/>           <span class="p">,</span> <span class="s2">"oranges"</span><span class="p">];</span><br/><br/><span class="kd">function</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><br/>        <span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><br/>        <span class="p">,</span><span class="s2">"b:"</span><span class="p">:</span> <span class="mi">2</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the default <code class="highlighter-rouge">"last"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-style: ["error", "last"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apples"</span><span class="p">,</span><br/>           <span class="s2">"oranges"</span><span class="p">];</span><br/><br/><span class="kd">function</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><br/>        <span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><br/>        <span class="s2">"b:"</span><span class="p">:</span> <span class="mi">2</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="first">first<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#first" aria-label="Anchor link for: first" data-anchorjs-icon=""></a></h3>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with the <code class="highlighter-rouge">"first"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-style: ["error", "first"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><br/>    <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apples"</span><span class="p">,</span><br/>           <span class="s2">"oranges"</span><span class="p">];</span><br/><br/><span class="kd">function</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><br/>        <span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><br/>        <span class="s2">"b:"</span><span class="p">:</span> <span class="mi">2</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with the <code class="highlighter-rouge">"first"</code> option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-style: ["error", "first"]*/</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><br/>    <span class="p">,</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apples"</span><br/>          <span class="p">,</span><span class="s2">"oranges"</span><span class="p">];</span><br/><br/><span class="kd">function</span> <span class="nx">bar</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="k">return</span> <span class="p">{</span><br/>        <span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><br/>        <span class="p">,</span><span class="s2">"b:"</span><span class="p">:</span> <span class="mi">2</span><br/>    <span class="p">};</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h3 id="exceptions">exceptions<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#exceptions" aria-label="Anchor link for: exceptions" data-anchorjs-icon=""></a></h3>
+
+<p>An example use case is to enforce comma style <em>only</em> in var statements.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with sample <code class="highlighter-rouge">"first", { "exceptions": { … } }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{},</span><br/>    <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule with sample <code class="highlighter-rouge">"first", { "exceptions": { … } }</code> options:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }]*/</span><br/><br/><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="na">fst</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><br/>         <span class="na">snd</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><br/>               <span class="mi">2</span><span class="p">]}</span><br/>  <span class="p">,</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>This rule can safely be turned off if your project does not care about enforcing a consistent comma style.</p>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<p>For more information on the Comma First style:</p>
+
+<ul>
+  <li><a href="https://gist.github.com/isaacs/357981">A better coding convention for lists and object literals in JavaScript by isaacs</a></li>
+  <li><a href="https://docs.npmjs.com/misc/coding-style">npm coding style guideline</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="operator-linebreak">operator-linebreak</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.9.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/comma-style.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/comma-style.md">Documentation source</a></li>
+</ul>
+
+  

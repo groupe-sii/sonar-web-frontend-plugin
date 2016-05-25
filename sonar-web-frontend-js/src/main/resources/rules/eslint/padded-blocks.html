@@ -1,0 +1,98 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="enforce-padding-within-blocks-padded-blocks">Enforce padding within blocks (padded-blocks)</h1>
+
+<p>Some style guides require block statements to start and end with blank lines. The goal is
+to improve readability by visually separating the block content and the surrounding code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>Since it’s good to have a consistent code style, you should either always write
+padded blocks or never do it.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule enforces consistent padding within blocks.</p>
+
+<p>This rule takes one argument, which can be an string or an object. If it is <code class="highlighter-rouge">"always"</code> (the default) then block statements must start <strong>and</strong> end with a blank line. If <code class="highlighter-rouge">"never"</code>, then block statements should neither start nor end with a blank line. By default, this rule ignores padding in switch statements and classes.</p>
+
+<p>If you want to enforce padding within switches and classes, a configuration object can be passed as the rule argument to configure the cases separately ( e.g. <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="nt">"switches"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w"> </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code> ).</p>
+
+<p>The following patterns are considered problems when set to <code class="highlighter-rouge">"always"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", "always"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="nx">b</span><span class="p">();</span> <span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span><br/><span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// comment</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when set to <code class="highlighter-rouge">"always"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", "always"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span><br/><span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="c1">// comment</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when set to <code class="highlighter-rouge">"never"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", "never"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span><br/><span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when set to <code class="highlighter-rouge">"never"</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", "never"]*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span><br/><span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"switches"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "switches": "always" }]*/</span><br/><br/><span class="k">switch</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">case</span> <span class="mi">0</span><span class="err">:</span> <span class="nx">foo</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"switches"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "switches": "always" }]*/</span><br/><br/><span class="k">switch</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="k">case</span> <span class="mi">0</span><span class="err">:</span> <span class="nx">foo</span><span class="p">();</span><br/><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="nx">b</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"switches"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "switches": "never" }]*/</span><br/><br/><span class="k">switch</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="k">case</span> <span class="mi">0</span><span class="err">:</span> <span class="nx">foo</span><span class="p">();</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"switches"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "switches": "never" }]*/</span><br/><br/><span class="k">switch</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="k">case</span> <span class="mi">0</span><span class="err">:</span> <span class="nx">foo</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span><br/><br/>    <span class="nx">b</span><span class="p">();</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "classes": "always" }]*/</span><br/><br/><span class="kr">class</span>  <span class="nx">A</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">(){</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "classes": "always" }]*/</span><br/><br/><span class="kr">class</span>  <span class="nx">A</span> <span class="p">{</span><br/><br/>    <span class="nx">constructor</span><span class="p">(){</span><br/>    <span class="p">}</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "classes": "never" }]*/</span><br/><br/><span class="kr">class</span>  <span class="nx">A</span> <span class="p">{</span><br/><br/>    <span class="nx">constructor</span><span class="p">(){</span><br/>    <span class="p">}</span><br/><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems when configured <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"never"</span><span class="w"> </span><span class="p">}</span></code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint padded-blocks: ["error", { "classes": "never" }]*/</span><br/><br/><span class="kr">class</span>  <span class="nx">A</span> <span class="p">{</span><br/>    <span class="nx">constructor</span><span class="p">(){</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>You can turn this rule off if you are not concerned with the consistency of padding within blocks.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.9.0.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/padded-blocks.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/padded-blocks.md">Documentation source</a></li>
+</ul>
+
+  

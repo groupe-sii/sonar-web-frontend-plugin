@@ -1,0 +1,134 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="import-sorting-sort-imports">Import Sorting (sort-imports)</h1>
+
+<p>The import statement is used to import members (functions, objects or primitives) that have been exported from an external module. Using a specific member syntax:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// single - Import single member.</span><br/><span class="kr">import</span> <span class="nx">myMember</span> <span class="nx">from</span> <span class="s2">"my-module.js"</span><span class="p">;</span><br/><br/><span class="c1">// multiple - Import multiple members.</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">"my-module.js"</span><span class="p">;</span><br/><br/><span class="c1">// all - Import all members, where myModule contains all the exported bindings.</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">myModule</span> <span class="nx">from</span> <span class="s2">"my-module.js"</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The import statement can also import a module without exported bindings. Used when the module does not export anything, but runs it own code or changes the global context object.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// none - Import module without exported bindings.</span><br/><span class="kr">import</span> <span class="s2">"my-module.js"</span><br/></code></pre>
+</div>
+
+<p>When declaring multiple imports, a sorted list of import declarations make it easier for developers to read the code and find necessary imports later. This rule is purely a matter of style.</p>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule checks all import declarations and verifies that all imports are first sorted by the used member syntax and then alphabetically by the first member or alias name.</p>
+
+<p>The sort order of import declarations based on the member syntax can be configured via the <code class="highlighter-rouge">memberSyntaxSortOrder</code> option.
+The default member syntax sort order is:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">none</code> - import module without exported bindings.</li>
+  <li><code class="highlighter-rouge">all</code> - import all members provided by exported bindings.</li>
+  <li><code class="highlighter-rouge">multiple</code> - import multiple members.</li>
+  <li><code class="highlighter-rouge">single</code> - import single member.</li>
+</ul>
+
+<p>The following example shows correct sorted import declarations:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="s1">'module-without-export.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">foo</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">bar</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">alpha</span><span class="p">,</span> <span class="nx">beta</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'alpha.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">gamma</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'delta.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'baz.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">b</span> <span class="nx">from</span> <span class="s1">'qux.js'</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="nx">b</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">A</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">b</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">c</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">b</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">c</span> <span class="nx">from</span> <span class="s1">'baz.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="s1">'foo.js'</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'baz.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">c</span> <span class="nx">from</span> <span class="s1">'qux.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule accepts an object with its properties as</p>
+
+<ul>
+  <li><code class="highlighter-rouge">ignoreCase</code> (default: <code class="highlighter-rouge">false</code>)</li>
+  <li><code class="highlighter-rouge">ignoreMemberSort</code> (default: <code class="highlighter-rouge">false</code>)</li>
+  <li><code class="highlighter-rouge">memberSyntaxSortOrder</code> (default: <code class="highlighter-rouge">["none", "all", "multiple", "single"]</code>)</li>
+</ul>
+
+<p>Default option settings are</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"><br/>    </span><span class="nt">"sort-imports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"><br/>        </span><span class="nt">"ignoreCase"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"><br/>        </span><span class="nt">"ignoreMemberSort"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"><br/>        </span><span class="nt">"memberSyntaxSortOrder"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"none"</span><span class="p">,</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w"> </span><span class="s2">"multiple"</span><span class="p">,</span><span class="w"> </span><span class="s2">"single"</span><span class="p">]</span><span class="w"><br/>    </span><span class="p">}]</span><span class="w"><br/></span><span class="p">}</span><span class="w"><br/></span></code></pre>
+</div>
+
+<h3 id="ignorecase"><code class="highlighter-rouge">ignoreCase</code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ignorecase" aria-label="Anchor link for: ignorecase" data-anchorjs-icon=""></a></h3>
+
+<p>When <code class="highlighter-rouge">true</code> the rule ignores the case-sensitivity of the imports local name.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: ["error", { "ignoreCase": true }]*/</span><br/><br/><span class="kr">import</span> <span class="nx">B</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: ["error", { "ignoreCase": true }]*/</span><br/><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">B</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">c</span> <span class="nx">from</span> <span class="s1">'baz.js'</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>Default is <code class="highlighter-rouge">false</code>.</p>
+
+<h3 id="ignoremembersort"><code class="highlighter-rouge">ignoreMemberSort</code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#ignoremembersort" aria-label="Anchor link for: ignoremembersort" data-anchorjs-icon=""></a></h3>
+
+<p>Ignores the member sorting within a <code class="highlighter-rouge">multiple</code> member import declaration.</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">c</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: ["error", { "ignoreMemberSort": true }]*/</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">c</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><br/></code></pre>
+</div>
+
+<p>Default is <code class="highlighter-rouge">false</code>.</p>
+
+<h3 id="membersyntaxsortorder"><code class="highlighter-rouge">memberSyntaxSortOrder</code><a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#membersyntaxsortorder" aria-label="Anchor link for: membersyntaxsortorder" data-anchorjs-icon=""></a></h3>
+
+<p>The member syntax sort order can be configured with this option. There are four different styles and the default member syntax sort order is:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">none</code> - import module without exported bindings.</li>
+  <li><code class="highlighter-rouge">all</code> - import all members provided by exported bindings.</li>
+  <li><code class="highlighter-rouge">multiple</code> - import multiple members.</li>
+  <li><code class="highlighter-rouge">single</code> - import single member.</li>
+</ul>
+
+<p>Use this option if you want a different sort order. Every style must be defined in the sort order (There shall be four items in the array).</p>
+
+<p>The following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: "error"*/</span><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">b</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/></code></pre>
+</div>
+
+<p>The following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint sort-imports: ["error", { "memberSyntaxSortOrder": ['single', 'all', 'multiple', 'none'] }]*/</span><br/><br/><span class="kr">import</span> <span class="nx">a</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">b</span> <span class="nx">from</span> <span class="s1">'bar.js'</span><span class="p">;</span><br/><br/><span class="cm">/*eslint sort-imports: ["error", { "memberSyntaxSortOrder": ['all', 'single', 'multiple', 'none'] }]*/</span><br/><br/><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">foo</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="nx">z</span> <span class="nx">from</span> <span class="s1">'zoo.js'</span><span class="p">;</span><br/><span class="kr">import</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">'foo.js'</span><span class="p">;</span><br/><br/></code></pre>
+</div>
+
+<p>Default is <code class="highlighter-rouge">["none", "all", "multiple", "single"]</code>.</p>
+
+<h2 id="when-not-to-use-it">When Not To Use It<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#when-not-to-use-it" aria-label="Anchor link for: when not to use it" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is a formatting preference and not following it won’t negatively affect the quality of your code. If alphabetizing imports isn’t a part of your coding standards, then you can leave this rule disabled.</p>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 2.0.0-beta.1.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/sort-imports.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/sort-imports.md">Documentation source</a></li>
+</ul>
+
+  

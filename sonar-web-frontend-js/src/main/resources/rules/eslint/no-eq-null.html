@@ -1,0 +1,36 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-null-comparisons-no-eq-null">Disallow Null Comparisons (no-eq-null)</h1>
+
+<p>Comparing to <code class="highlighter-rouge">null</code> without a type-checking operator (<code class="highlighter-rouge">==</code> or <code class="highlighter-rouge">!=</code>), can have unintended results as the comparison will evaluate to true when comparing to not just a <code class="highlighter-rouge">null</code>, but also an <code class="highlighter-rouge">undefined</code> value.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="nx">bar</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>The <code class="highlighter-rouge">no-eq-null</code> rule aims reduce potential bug and unwanted behavior by ensuring that comparisons to <code class="highlighter-rouge">null</code> only match <code class="highlighter-rouge">null</code>, and not also <code class="highlighter-rouge">undefined</code>. As such it will flag comparisons to null when using <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code>.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eq-null: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="nx">bar</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">while</span> <span class="p">(</span><span class="nx">qux</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="nx">baz</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eq-null: "error"*/</span><br/><br/><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="nx">bar</span><span class="p">();</span><br/><span class="p">}</span><br/><br/><span class="k">while</span> <span class="p">(</span><span class="nx">qux</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span><br/>  <span class="nx">baz</span><span class="p">();</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.9.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-eq-null.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-eq-null.md">Documentation source</a></li>
+</ul>
+
+  

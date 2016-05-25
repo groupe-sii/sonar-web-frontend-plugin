@@ -1,0 +1,101 @@
+
+    <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
+<h1 id="disallow-eval-no-eval">Disallow eval() (no-eval)</h1>
+
+<p>JavaScript’s <code class="highlighter-rouge">eval()</code> function is potentially dangerous and is often misused. Using <code class="highlighter-rouge">eval()</code> on untrusted code can open a program up to several different injection attacks. The use of <code class="highlighter-rouge">eval()</code> in most contexts can be substituted for a better, alternative approach to a problem.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="s2">"foo"</span> <span class="p">},</span><br/>    <span class="nx">key</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">,</span><br/>    <span class="nx">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">"obj."</span> <span class="o">+</span> <span class="nx">key</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="rule-details">Rule Details<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#rule-details" aria-label="Anchor link for: rule details" data-anchorjs-icon=""></a></h2>
+
+<p>This rule is aimed at preventing potentially dangerous, unnecessary, and slow code by disallowing the use of the <code class="highlighter-rouge">eval()</code> function. As such, it will warn whenever the <code class="highlighter-rouge">eval()</code> function is used.</p>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="s2">"foo"</span> <span class="p">},</span><br/>    <span class="nx">key</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">,</span><br/>    <span class="nx">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">"obj."</span> <span class="o">+</span> <span class="nx">key</span><span class="p">);</span><br/><br/><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">eval</span><span class="p">)(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">;</span><br/><span class="nx">foo</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/><br/><span class="c1">// This `this` is the global object.</span><br/><span class="k">this</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with browser environment:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><span class="cm">/*eslint-env browser*/</span><br/><br/><span class="nb">window</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="incorrect icon">Examples of <strong>incorrect</strong> code for this rule with node environment:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><span class="cm">/*eslint-env node*/</span><br/><br/><span class="nx">global</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p class="correct icon">Examples of <strong>correct</strong> code for this rule:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><span class="cm">/*eslint-env es6*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="s2">"foo"</span> <span class="p">},</span><br/>    <span class="nx">key</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">,</span><br/>    <span class="nx">value</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span><br/><br/><span class="kr">class</span> <span class="nx">A</span> <span class="p">{</span><br/>    <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span><br/>        <span class="c1">// This is a user-defined method.</span><br/>        <span class="k">this</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/>    <span class="p">}</span><br/><br/>    <span class="nb">eval</span><span class="p">()</span> <span class="p">{</span><br/>    <span class="p">}</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<h2 id="options">Options<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#options" aria-label="Anchor link for: options" data-anchorjs-icon=""></a></h2>
+
+<p>This rule has an option to allow indirect calls to <code class="highlighter-rouge">eval</code>.
+Indirect calls to <code class="highlighter-rouge">eval</code> are less dangerous than direct calls to <code class="highlighter-rouge">eval</code> because they cannot dynamically change the scope. Because of this, they also will not negatively impact performance to the degree of direct <code class="highlighter-rouge">eval</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><br/>    <span class="s2">"no-eval"</span><span class="err">:</span> <span class="p">[</span><span class="s2">"error"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"allowIndirect"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}]</span> <span class="c1">// default is false</span><br/><span class="p">}</span><br/></code></pre>
+</div>
+
+<p>With this option the following patterns are considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><br/><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="s2">"foo"</span> <span class="p">},</span><br/>    <span class="nx">key</span> <span class="o">=</span> <span class="s2">"x"</span><span class="p">,</span><br/>    <span class="nx">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">"obj."</span> <span class="o">+</span> <span class="nx">key</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<p>With this option the following patterns are not considered problems:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><br/><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">eval</span><span class="p">)(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/><br/><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">;</span><br/><span class="nx">foo</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/><br/><span class="k">this</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><span class="cm">/*eslint-env browser*/</span><br/><br/><span class="nb">window</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/*eslint no-eval: "error"*/</span><br/><span class="cm">/*eslint-env node*/</span><br/><br/><span class="nx">global</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+</div>
+
+<h2 id="known-limitations">Known Limitations<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#known-limitations" aria-label="Anchor link for: known limitations" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li>
+    <p>This rule is warning every <code class="highlighter-rouge">eval()</code> even if the <code class="highlighter-rouge">eval</code> is not global’s.
+This behavior is in order to detect calls of direct <code class="highlighter-rouge">eval</code>. Such as:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span> <span class="p">{</span><br/>    <span class="c1">// If the value of this `eval` is built-in `eval` function, this is a</span><br/>    <span class="c1">// call of direct `eval`.</span><br/>    <span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/><span class="p">};</span><br/></code></pre>
+    </div>
+  </li>
+  <li>
+    <p>This rule cannot catch renaming the global object. Such as:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nb">window</span><span class="p">;</span><br/><span class="nx">foo</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">"var a = 0"</span><span class="p">);</span><br/></code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="further-reading">Further Reading<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#further-reading" aria-label="Anchor link for: further reading" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="http://blogs.msdn.com/b/ericlippert/archive/2003/11/01/53329.aspx">Eval is Evil, Part One</a></li>
+  <li><a href="http://javascriptweblog.wordpress.com/2010/04/19/how-evil-is-eval/">How evil is eval</a></li>
+</ul>
+
+<h2 id="related-rules">Related Rules<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#related-rules" aria-label="Anchor link for: related rules" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="no-implied-eval">no-implied-eval</a></li>
+</ul>
+
+<h2 id="version">Version<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#version" aria-label="Anchor link for: version" data-anchorjs-icon=""></a></h2>
+
+<p>This rule was introduced in ESLint 0.0.2.</p>
+
+<h2 id="resources">Resources<a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; padding-left: 0.375em;" class="anchorjs-link " href="#resources" aria-label="Anchor link for: resources" data-anchorjs-icon=""></a></h2>
+
+<ul>
+  <li><a href="https://github.com/eslint/eslint/tree/master/lib/rules/no-eval.js">Rule source</a></li>
+  <li><a href="https://github.com/eslint/eslint/tree/master/docs/rules/no-eval.md">Documentation source</a></li>
+</ul>
+
+  
