@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>fr.sii.sonar</groupId>
 		<artifactId>sonar-sii-plugin-parent</artifactId>
-		<version>2.1.1-SNAPSHOT</version>
+		<version>2.0.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>sonar-web-frontend-html</artifactId>
