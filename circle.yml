@@ -1,0 +1,17 @@
+machine:
+  java:
+    version: oraclejdk8
+  environment:
+    TEST: ci
+
+dependencies:
+  override:
+    - mvn clean install -DskipTests
+
+test:
+  post:
+    - for x in sonar-web-frontend*; do
+        if [ -e "$x/target" ]; then
+          mv $x/target/*.jar $CIRCLE_ARTIFACTS/;
+        fi
+      done
